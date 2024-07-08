@@ -58,11 +58,9 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Get Started With Bleed",
       "pages": [
-        "intro",
-        "quickstart",
-        "development"
+        "setup guides/basic"
       ]
     },
     {
