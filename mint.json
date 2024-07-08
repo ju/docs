@@ -1,5 +1,8 @@
 {
   "$schema": "https://mintlify.com/schema.json",
+  "primaryTab": {
+    "name": "Setup Guides"
+},
   "name": "bleed",
   "logo": {
     "dark": "https://bleed.bot/bleed.png",
