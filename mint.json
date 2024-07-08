@@ -70,9 +70,9 @@
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Bot Information",
       "pages": [
-        "api-reference/introduction"
+        "bot info/Getting started with bleed"
       ]
     },
     {
