@@ -25,7 +25,12 @@
     "name": "Home",
     "url": "https://bleed.bot"
   },
-  "tabs": [],
+  "tabs": [
+    {
+        "name": "Miscillanious Information",
+        "url": "misc info"
+    }
+],
   "anchors": [
     {
       "name": "Documentation",
@@ -39,7 +44,7 @@
     },
     {
       "name": "Status",
-      "icon": "signal-stream",
+      "icon": "rectangle-terminal",
       "url": "https://bleed.bot/status"
     },
     {
@@ -60,7 +65,7 @@
     {
       "group": "Guides",
       "pages": [
-        "setup guides/initial"
+        "bot info/start"
       ]
     }
   ],
