@@ -39,7 +39,7 @@
     },
     {
       "name": "Status",
-      "icon": "rectangle-terminal",
+      "icon": "signal-stream",
       "url": "https://bleed.bot/status"
     },
     {
@@ -60,7 +60,7 @@
     {
       "group": "Guides",
       "pages": [
-        "bot info/start"
+        "setup guides/initial"
       ]
     }
   ],
