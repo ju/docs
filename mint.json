@@ -25,12 +25,22 @@
     "name": "Dashboard",
     "url": "https://dashboard.mintlify.com"
   },
-  "tabs": [],
+  "tabs": [
+    {
+        "name": "Miscillanious Information"
+        "url": "misc info"
+        
+      
+    }
+  ],
+  "primaryTab": {
+    "name": "Setup Guides"
+  }
   "navigation": [
     {
-      "group": "Bot Information",
+      "group": "Basic Setup",
       "pages": [
-        "bot info/Getting started with bleed"
+        "setup guides/Getting started with bleed"
       ]
     },
     {
