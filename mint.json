@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "https://bleed.bot/bleed.png",
+    "light": "https://bleed.bot/bleed.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:contact@bleed.bot"
     }
   ],
   "topbarCtaButton": {
