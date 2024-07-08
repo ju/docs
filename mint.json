@@ -22,41 +22,45 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Home",
+    "url": "https://bleed.bot"
   },
-  "tabs": [
+  "tabs": [],
+  "anchors": [
     {
-        "name": "Miscillanious Information"
-        "url": "misc info"
-        
-      
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://mintlify.com/docs"
+    },
+    {
+      "name": "Commands",
+      "icon": "rectangle-terminal",
+      "url": "https://bleed.bot/commands"
+    },
+    {
+      "name": "Status",
+      "icon": "rectangle-terminal",
+      "url": "https://bleed.bot/status"
+    },
+    {
+      "name": "Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/bleed"
     }
   ],
-  "primaryTab": {
-    "name": "Setup Guides"
-  }
   "navigation": [
-    {
-      "group": "Basic Setup",
-      "pages": [
-        "setup guides/Getting started with bleed"
-      ]
-    },
     {
       "group": "Get Started",
       "pages": [
-        "hey",
+        "intro",
         "quickstart",
         "development"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Guides",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "bot info/start"
       ]
     }
   ],
