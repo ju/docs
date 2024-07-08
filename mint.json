@@ -1,18 +1,18 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "bleed",
   "logo": {
     "dark": "https://bleed.bot/bleed.png",
     "light": "https://bleed.bot/bleed.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://bleed.bot/bleed.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#658a95",
+    "light": "#95b6bd",
+    "dark": "#658a95",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#658a95",
+      "to": "#95b6bd"
     }
   },
   "topbarLinks": [
