@@ -50,6 +50,12 @@
   ],
   "navigation": [
     {
+      "group": "Bot Information",
+      "pages": [
+        "bot info/Getting started with bleed"
+      ]
+    },
+    {
       "group": "Get Started",
       "pages": [
         "hey",
@@ -67,12 +73,6 @@
         "essentials/navigation",
         "essentials/reusable-snippets",
         "test"
-      ]
-    },
-    {
-      "group": "Bot Information",
-      "pages": [
-        "bot info/Getting started with bleed"
       ]
     },
     {
