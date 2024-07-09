@@ -27,10 +27,6 @@
   },
   "tabs": [
       {
-          "name": "Documentation",
-          "url": "intro"
-      },
-      {
           "name": "Placeholder",
           "url": "extras/variables"
       }
