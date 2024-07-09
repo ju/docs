@@ -54,7 +54,7 @@
     {
       "group": "Guides",
       "pages": [
-        "guides/security/moderation", {
+        {
             "group": "Security Setup",
             "pages": ["guides/security/moderation", "guides/security/antinuke"]
 
