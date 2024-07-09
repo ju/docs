@@ -2,7 +2,7 @@
 title: 'Variables'
 description: 'All variables that are used in the bot are listed here.'
 ---
-
+<Info>Variables should be encased in `{}` when actually using them.</Info>
 | User Variables | Output |
 | --------- | ------ |
 |user |Name and discriminator
@@ -30,6 +30,41 @@ description: 'All variables that are used in the bot are listed here.'
 |user.join_position |User join position
 |user.join_position_suffix |User join position with suffix
 |user.id |Shows users id
+
+| Guild Variables | Output |
+| --------- | ------ |
+guild.name |Guild name
+guild.count |Guild member count
+guild.region |Guild voice region
+guild.id |Guild ID
+guild.shard |Guild shard ID on bot
+guild.owner_id |Guild owner ID
+guild.created_at |Guild creation date in UTC
+guild.created_at_timestamp |Guild creation date in UNIX
+guild.emoji_count |Guild emoji count
+guild.role_count |Guild role count
+guild.boost_count |Guild boost count
+guild.boost_tier |Guild boost tier, defaults to No Level if none
+guild.preferred_locale |Guild preferred locale
+guild.key_features |List of guild features, defaults to N/A if none
+guild.icon |Guild icon URL as a PNG, defaults to N/A if none
+guild.banner |Guild banner URL as a PNG, defaults to N/A if none 
+guild.splash |Guild splash URL as a PNG, defaults to N/A if none 
+guild.discovery |Guild discovery splash URL as a PNG, defaults to N/A if none 
+guild.max_presences |Guild max presences amount
+guild.max_members |Guild max members amount
+guild.max_video_channel_users Guild max video channel users
+guild.afk_timeout |Guild AFK timeout in seconds
+guild.afk_channel |Guild AFK channel, defaults to N/A if none
+guild.channels |List of text, voice & category channels, defaults to N/A if none
+guild.channels_count |Guild total channel count
+guild.text_channels |List of text channels
+guild.text_channels_count |Guild text channel count
+guild.voice_channels |List of voice channels
+guild.voice_channels_count |Guild voice channel count
+guild.category_channels |List of category channels
+guild.category_channels_count |Guild category channel count
+
 
 
 
