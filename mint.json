@@ -27,7 +27,7 @@
   },
   "tabs": [
       {
-          "name": "Placeholder",
+          "name": "Resources",
           "url": "extras"
       }
   ],
@@ -84,7 +84,7 @@
       ]
     },
     {
-     "group": "Placeholder",
+     "group": "Resources",
       "pages": [
         "extras/variables",
         "extras/voices"
