@@ -1,8 +1,5 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "primaryTab": {
-    "name": "Setup Guides"
-},
   "name": "bleed",
   "logo": {
     "dark": "https://bleed.bot/bleed.png",
@@ -28,12 +25,6 @@
     "name": "Home",
     "url": "https://bleed.bot"
   },
-  "tabs": [
-    {
-        "name": "Miscellaneous Information",
-        "url": "misc info"
-    }
-],
   "anchors": [
     {
       "name": "Documentation",
@@ -58,15 +49,15 @@
   ],
   "navigation": [
     {
-      "group": "Get Started With Bleed",
+      "group": "Overview",
       "pages": [
-        "setup guides/basic"
+        "intro"
       ]
     },
     {
       "group": "Guides",
       "pages": [
-        "bot info/start"
+        "setup guides/basic"
       ]
     }
   ],
