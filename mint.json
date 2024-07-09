@@ -27,11 +27,6 @@
   },
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Commands",
       "icon": "rectangle-terminal",
       "url": "https://bleed.bot/commands"
