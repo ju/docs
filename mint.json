@@ -5,7 +5,7 @@
     "dark": "https://bleed.bot/bleed.png",
     "light": "https://bleed.bot/bleed.png"
   },
-  "favicon": "https://fontawesome.com/images/favicon/icon.svg",
+  "favicon": "https://bleed.bot/bleed.png",
   "colors": {
     "primary": "#658a95",
     "light": "#95b6bd",
@@ -54,7 +54,11 @@
     {
       "group": "Guides",
       "pages": [
-        "guides/security/moderation",
+        "guides/security/moderation", {
+            "group": "security",
+            "pages": ["antinuke"]
+
+        },
         "guides/configuration/overview",
         "guides/embed-scripting",
         "guides/integrations/overview"
