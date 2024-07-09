@@ -46,7 +46,9 @@
     {
       "group": "Overview",
       "pages": [
-        "intro"
+        "intro",
+        "perks",
+        "settings"
       ]
     },
     {
