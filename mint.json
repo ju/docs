@@ -48,13 +48,17 @@
       "pages": [
         "intro",
         "perks",
-        "settings"
+        "miscellaneous"
       ]
     },
     {
       "group": "Guides",
       "pages": [
-        "guides/moderation"
+        "guides/security/moderation",
+        "guides/configuration/overview",
+        "guides/feeds/overview",
+        "guides/embed-scripting"
+
       ]
     }
   ],
