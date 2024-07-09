@@ -28,12 +28,12 @@
   "anchors": [
     {
       "name": "Commands",
-      "icon": "light square-terminal",
+      "icon": "fa-light square-terminal",
       "url": "https://bleed.bot/commands"
     },
     {
       "name": "Status",
-      "icon": "sharp regular signal-stream",
+      "icon": "fa-sharp fa-regular signal-stream",
       "url": "https://bleed.bot/status"
     },
     {
