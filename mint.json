@@ -28,7 +28,7 @@
   "tabs": [
       {
           "name": "Placeholder",
-          "url": "https://bleed.bot/",
+          "url": "extras/overview",
           "navigation": [
             {
                 "group": "Getting Started",
