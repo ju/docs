@@ -28,7 +28,13 @@
   "tabs": [
       {
           "name": "Placeholder",
-          "url": "https://i-got-racks-bottega.bleed.bot/extras/overview"
+          "url": "https://bleed.bot/",
+          "navigation": [
+            {
+                "group": "Getting Started",
+                "pages": ["intro"]
+            }
+        ]
       }
   ],
   "anchors": [
