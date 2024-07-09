@@ -9,3 +9,17 @@ Fakepermissions restrict your moderators and administrators access to native dis
 This negates the possibility of a rougue administrator or moderator using a script that spams the discord API and mass bans all members or deletes all channels as they don't have that permission - it makes nuking practically impossible. 
 
 ## How to manage a role's fakepermissions.
+<Info>You must be the **server owner** to run these commands.</Info>
+
+```
+// syntax
+,fakepermissions grant (role mention or id) ban_members
+// example
+,fakepermissions grant @Moderator ban_members
+```
+```
+// syntax
+,fakepermissions remove (role mention or id) ban_members
+// example
+,fakepermissions remove @Moderator ban_members
+```
