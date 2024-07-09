@@ -56,6 +56,7 @@
       "pages": [
         {
             "group": "Security Setup",
+            "icon": "hammer",
             "pages": ["guides/security/moderation", "guides/security/fake-permissions",  "guides/security/antinuke", "guides/security/antiraid"]
 
         },
