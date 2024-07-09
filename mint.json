@@ -44,12 +44,17 @@
   ],
   "navigation": [
     {
-      "group": "Overview",
+      "group": "Bot Information",
       "pages": [
         "intro",
         "perks",
-        "miscellaneous"
+        "updates"
       ]
+    },
+    { "group": "Extras",
+    "pages": [
+        "variables"
+    ]
     },
     {
       "group": "Guides",
