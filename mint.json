@@ -61,8 +61,10 @@
         },
         "guides/configuration/overview",
         "guides/embed-scripting",
-        "guides/integrations/overview"
-
+        {
+            "group": "Integrations",
+            "pages": ["guides/integrations/instagram", "guides/integrations/pinterest", "guides/integrations/tiktok", "guides/integrations/reddit", "guides/integrations/twitch", "guides/integrations/youtube", "guides/integrations/fortnite", "guides/integrations/kick", "guides/integrations/x"]
+        }
       ]
     }
   ],
