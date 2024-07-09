@@ -5,7 +5,7 @@
     "dark": "https://bleed.bot/bleed.png",
     "light": "https://bleed.bot/bleed.png"
   },
-  "favicon": "https://bleed.bot/bleed.png",
+  "favicon": "favicon.png",
   "colors": {
     "primary": "#658a95",
     "light": "#95b6bd",
