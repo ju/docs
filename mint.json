@@ -56,7 +56,7 @@
       "pages": [
         "guides/security/moderation", {
             "group": "security",
-            "pages": ["antinuke"]
+            "pages": ["guides/security/antinuke"]
 
         },
         "guides/configuration/overview",
