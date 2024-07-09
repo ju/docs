@@ -25,6 +25,16 @@
     "name": "Home",
     "url": "https://bleed.bot"
   },
+  "tabs": [
+      {
+          "name": "Documentation",
+          "url": "intro"
+      },
+      {
+          "name": "Placeholder",
+          "url": "extras/variables"
+      }
+  ],
   "anchors": [
     {
       "name": "Commands",
