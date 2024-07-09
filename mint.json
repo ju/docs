@@ -56,8 +56,8 @@
       "pages": [
         "guides/security/moderation",
         "guides/configuration/overview",
-        "guides/integrations/overview",
-        "guides/embed-scripting"
+        "guides/embed-scripting",
+        "guides/integrations/overview"
 
       ]
     }
