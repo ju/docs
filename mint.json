@@ -28,13 +28,7 @@
   "tabs": [
       {
           "name": "Placeholder",
-          "url": "extras",
-          "navigation": [
-            {
-                "group": "Getting Started",
-                "pages": ["intro"]
-            }
-        ]
+          "url": "extras"
       }
   ],
   "anchors": [
@@ -87,6 +81,13 @@
             "icon": "share-nodes",
             "pages": ["guides/integrations/x", "guides/integrations/instagram", "guides/integrations/pinterest", "guides/integrations/tiktok", "guides/integrations/reddit", "guides/integrations/twitch", "guides/integrations/youtube", "guides/integrations/fortnite", "guides/integrations/kick"]
         }
+      ]
+    },
+    {
+     "group": "Placeholder",
+      "pages": [
+        "extras/variables",
+        "extras/voices"
       ]
     }
   ],
