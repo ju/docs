@@ -68,7 +68,7 @@
         {
             "group": "Embed Scripting",
             "icon": "code",
-            "pages": ["guides/embed/scripting", "guides/embed/examples"]
+            "pages": ["guides/embed/scripting", "guides/embed/examples", "guides/embed/Embed Server"]
         },
         {
             "group": "Integrations",
