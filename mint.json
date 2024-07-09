@@ -59,10 +59,9 @@
             "pages": ["guides/security/moderation", "guides/security/fake-permissions",  "guides/security/antinuke", "guides/security/antiraid"]
 
         },
-        "guides/configuration/overview",
         {
             "group": "Server Configuration",
-            "pages": ["guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/booster-roles", "guides/configuration/boosts", "guides/configuration/bumpreminder", "guides/configuration/counters", "guides/configuration/giveaways", "guides/configuration/invoke", "guides/configuration/levels", "guides/configuration/pagination", "guides/configuration/reaction-roles", "guides/configuration/reactions", "guides/configuration/star-clown-board", "guides/configuration/timers", "guides/configuration/voicemaster", "guides/configuration/webhooks", "guides/configuration/welcome-goodbye"]
+            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts", "guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/booster-roles", "guides/configuration/bumpreminder", "guides/configuration/counters", "guides/configuration/giveaways", "guides/configuration/invoke", "guides/configuration/levels", "guides/configuration/pagination", "guides/configuration/reaction-roles", "guides/configuration/reactions", "guides/configuration/timers", "guides/configuration/voicemaster", "guides/configuration/webhooks"]
         },
         {
             "group": "Integrations",
