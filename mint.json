@@ -63,12 +63,12 @@
         {
             "group": "Server Configuration",
             "icon": "gear",
-            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts", "guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/pagination", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/levels"]
+            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts", "guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/levels"]
         },
         {
             "group": "Embed Scripting",
             "icon": "code",
-            "pages": ["guides/embed/scripting", "guides/embed/examples", "guides/embed/Embed Server"]
+            "pages": ["guides/embed/scripting", "guides/embed/pagination", "guides/embed/Embed Server"]
         },
         {
             "group": "Integrations",
