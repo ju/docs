@@ -28,7 +28,7 @@
   "tabs": [
       {
           "name": "Placeholder",
-          "url": "extras/overview",
+          "url": "extras",
           "navigation": [
             {
                 "group": "Getting Started",
