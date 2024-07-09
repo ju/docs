@@ -60,7 +60,10 @@
 
         },
         "guides/configuration/overview",
-        "guides/embed-scripting",
+        {
+            "group": "Server Configuration",
+            "pages": ["guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/booster-roles", "guides/configuration/boosts", "guides/configuration/bumpreminder", "guides/configuration/counters", "guides/configuration/giveaways", "guides/configuration/invoke", "guides/configuration/levels", "guides/configuration/pagination", "guides/configuration/reaction-roles", "guides/configuration/reactions", "guides/configuration/star-clown-board", "guides/configuration/timers", "guides/configuration/voicemaster", "guides/configuration/webhooks", "guides/configuration/welcome-goodbye"]
+        },
         {
             "group": "Integrations",
             "pages": ["guides/integrations/x", "guides/integrations/instagram", "guides/integrations/pinterest", "guides/integrations/tiktok", "guides/integrations/reddit", "guides/integrations/twitch", "guides/integrations/youtube", "guides/integrations/fortnite", "guides/integrations/kick"]
