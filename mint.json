@@ -88,7 +88,8 @@
       "pages": [
         "extras/variables",
         "extras/voices",
-        "extras/fplist"
+        "extras/fplist",
+        "extras/langcodes"
       ]
     }
   ],
