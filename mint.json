@@ -87,7 +87,8 @@
      "group": "Resources",
       "pages": [
         "extras/variables",
-        "extras/voices"
+        "extras/voices",
+        "extras/fplist"
       ]
     }
   ],
