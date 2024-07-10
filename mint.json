@@ -79,7 +79,7 @@
         {
             "group": "Integrations",
             "icon": "share-nodes",
-            "pages": ["guides/integrations/x", "guides/integrations/instagram", "guides/integrations/pinterest", "guides/integrations/youtube", "guides/integrations/fortnite", "guides/integrations/discogs", "guides/integrations/lastfm", "guides/integrations/tiktok", "guides/integrations/reddit", "guides/integrations/twitch", "guides/integrations/kick"]
+            "pages": ["guides/integrations/discogs","guides/integrations/fortnite","guides/integrations/instagram","guides/integrations/kick", "guides/integrations/lastfm","guides/integrations/pinterest","guides/integrations/reddit","guides/integrations/tiktok","guides/integrations/twitch","guides/integrations/x","guides/integrations/youtube"]
         }
       ]
     },
