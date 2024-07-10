@@ -134,11 +134,34 @@ description: 'All variables that are used in the bot are listed here.'
 `{level.new_rank}` |Member's new level at time of level up
 `{level.user_xp}` |Member's current XP
 
-# Boosts
+### Boosts
 | Boost variables | Output |
 | --------- | ------ |
 `{boost.count}` | Amount of times user has boosted
 `{guild.boost.count}` | Overall guild boost count
+
+### Bump reminder
+| Bump reminder variables | Output |
+| --------- | ------ |
+`{bumpreminder.last_user_bump}` |Shows the user who last bumped the server
+
+### Punishments
+<Info>Only available for `bandm`, `softbandm`, `kickdm`, `warndm`, `jaildm`, `unjaildm`, `timeoutdm`, `ban message`, `kick message`, etc. </Info>
+| Punishment variables | Output |
+| --------- | ------ |
+`{moderator}` |Moderator name who performed action
+`{moderator.name}` |Moderator username
+`{moderator.tag}` |Moderator discriminator (will always return 0 due to removal of discriminators)
+`{moderator.avatar}` |Moderator avatar
+`{moderator.bot}` |Return True or False if mod is a bot
+`{moderator.color}` |Moderator's highest role color
+`{moderator.mention}` |Mention moderator
+`{moderator.created_at}` |Moderator discord creation date
+`{reason}` |Reason for punishment
+`{duration}` |Duration for a jail/unjail punishment
+`{invite_url}` |Invite url generated for punishment (softban)
+`{moderator.id}` |The id of the moderator that enacted the punishment
+
 
 
 
