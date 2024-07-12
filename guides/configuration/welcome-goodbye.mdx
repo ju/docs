@@ -9,18 +9,18 @@ You can add or remove a welcome/goodbye message in a channel with **embed code**
 </Card>
 ### Syntax
 ```
-,welcome add #channel welcome to {guild.name} {user}!
-,welcome add #channel welcome to {guild.name} {user}! --self_destruct 6
+,welcome add #channel welcome to {guild.name} {user.mention}!
+,welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
 
 ,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
 ,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
 ```
 ```
-,goodbye add #channel see you soon {user}!
-,goodbye add #channel see you soon {user} --self_destruct 6
+,goodbye add #channel see you soon {user.mention}!
+,goodbye add #channel see you soon {user.mention} --self_destruct 6
 
-,goodbye add #channel {embed}$v{description: see you soon {user}!}
-,goodbye add #channel {embed}$v{description: see you soon {user}!} --self_destruct 30
+,goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
+,goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
 ```
 
 ## Related commands
