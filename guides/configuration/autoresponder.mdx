@@ -1,4 +1,31 @@
 ---
-title: 'Auto Responders'
-description: 'Description of your new file.'
+title: 'Autoresponders'
+description: 'Autoresponders are used to have bleed automatically respond with text or an embed to a trigger word or phrase.'
 ---
+
+## How to add an autoresponder
+
+`,autoresponder add` is the way to get started with autoresponders. This command is used to add an autoresponder to your server - Autoresponders can be either **raw text** or an **embed**.
+```
+// adding a text autoresponder without parameters
+,autoresponder add [trigger], [response]
+,autoresponder add welc, welcome to the server!
+
+// adding a text autoresponder with parameters
+,autoresponder add welc, welcome to the server! --reply
+
+// adding an embed autoresponder without parameters
+,autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!}
+
+// adding an embed autoresponder with parameters
+,autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!} --reply
+```
+
+| Paramteter | Function|
+| --------- | ------ |
+`--reply` | Makes bleed use discords reply function on the trigger message.
+`--delete` | Makes bleed delete the trigger message after posting the autoresponse.
+`--self_destruct 6` | Makes bleed automatically delete the autoresponse after a set amount of time (6 seconds minimum).
+`--not_strict` | Makes bleed respond if the trigger message is included anywhere in a sentance, rather than it having to be that exact message.
+`--ignore_command_check` | Makes bleed ignore the check for if your trigger message is already a pre existing bleed command - as it wouldn't trigger if this is the case.
+<Info>If on mobile, make sure to use `--` as mobile devices autocorrect it to `—` which won't function.</Info>
