@@ -20,7 +20,7 @@ description: 'Autoresponders are used to have bleed automatically respond with t
 // adding an embed autoresponder with parameters
 ,autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!} --reply
 ```
-
+## Parameters
 | Paramteter | Function|
 | --------- | ------ |
 `--reply` | Makes bleed use discords reply function on the trigger message.
@@ -30,7 +30,7 @@ description: 'Autoresponders are used to have bleed automatically respond with t
 `--ignore_command_check` | Makes bleed ignore the check for if your trigger message is already a pre existing bleed command - as it wouldn't trigger if this is the case.
 
 <Info>If on mobile, make sure to use `--` as mobile devices autocorrect it to `—` which won't function.</Info>
-
+## Image examples
 <Frame caption="Adding a text autoresponder with the reply parameter" type="glass">
   <img src="https://docs.bleed.bot/~gitbook/image?url=https%3A%2F%2F2081520389-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-MTDsQ1fZKtEy7kU7DyR%252Fuploads%252FC2VG4xblfUbPAmBIr4dE%252Fimage.png%3Falt%3Dmedia%26token%3D6edb5e31-465a-4a1e-b082-1884d6b59025&width=400&dpr=3&quality=100&sign=1bed582c&sv=1" />
 </Frame>
@@ -39,4 +39,56 @@ description: 'Autoresponders are used to have bleed automatically respond with t
   <img src="https://docs.bleed.bot/~gitbook/image?url=https%3A%2F%2F2081520389-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-MTDsQ1fZKtEy7kU7DyR%252Fuploads%252F9YCCMHzIATEkqU0gagqR%252Fimage.png%3Falt%3Dmedia%26token%3Dd012d06f-caaa-43e8-9323-264574288547&width=400&dpr=3&quality=100&sign=2107cc02&sv=1" />
 </Frame>
 
+## Related commands
+<AccordionGroup>
+  <Accordion title="Restrict by role">
+   his command is used to restrict certain autoresponders to certain roles only.
+
+   ```
+   ,autoresponder role [role] [allow or deny] [trigger]
+   ```
+   ```
+   ,autoresponder role @staff allow prices
+   ```
+
+  </Accordion>
+
+  <Accordion title="Restrict by channel">
+    This command is used to restrict certain autoresponders to certain channels only.
+   ```
+   ,autoresponder channel [channel] [allow or deny] [trigger]
+   ```
+   ```
+   ,autoresponder channel #buy allow prices 
+   ```
+  </Accordion>
+
+  <Accordion title="Update an autoresponder">
+    Use this command to update the response for a pre existing autoresponder.
+    ```
+   ,autoresponder update [trigger], [new response]
+   ```
+   ```
+   ,autoresponder update welcome, welcome to the server, check out #selfroles
+   ```
+  </Accordion>
+  <Accordion title="Check variables">
+    This command returns a link to the [variables](/extras/variables) page.
+    ```
+   ,autoresponder variables
+   ```
+  </Accordion>
+  <Accordion title="List guild autoresponders">
+    Used to list all autoresponses in your guild. 
+    ```
+   ,autoresponder list
+   ```
+  </Accordion>
+  <Accordion title="Reset autoresponders">
+    Used to delete all autoresponses in your guild. 
+    ```
+   ,autoresponder reset
+   ```
+   </Accordion>
+</AccordionGroup>
 
