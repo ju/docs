@@ -1,4 +1,41 @@
 ---
 title: 'Invoke Messages'
-description: 'Description of your new file.'
+description: 'Invoke messages are bleeds automatic responses to moderation commands. Both the automatic response and the DM to the user are fully customisable.'
 ---
+## About
+Invoke messages come in two kinds - the message, and the DM. The message is what bleed automatically replies with after a moderation command is ran, which by default is `👍`. The DM is what is sent to the user after they are punished, which by default is a simple embed saying the reason and the moderator.
+
+Both the message and the DM can be **raw text** or an **embed**, and all [variables](/extras/variables) can be used.
+
+## Commands
+| Command | Usage |
+| --------- | ------ |
+`,invoke jail dm` | Changes the DM sent to users on jail.
+`,invoke jail message` | Changes the message sent by bleed after punishment.
+`,invoke kick dm` | Changes the DM sent to users on kick.
+`,invoke kick message` | Changes the message sent by bleed after punishment.
+`,invoke tempban dm` | Changes the DM sent to users on tempban.
+`,invoke tempban message` | Changes the message sent by bleed after punishment.
+`,invoke softban dm` | Changes the DM sent to users on softban.
+`,invoke softban message` | Changes the message sent by bleed after punishment.
+`,invoke warn dm` | Changes the DM sent to users on warn.
+`,invoke warn message` | Changes the message sent by bleed after punishment.
+`,invoke warn dm` | Changes the DM sent to users on warn.
+`,invoke warn message` | Changes the message sent by bleed after punishment.
+`,invoke ban dm` | Changes the DM sent to users on ban.
+`,invoke ban message` | Changes the message sent by bleed after punishment.
+`,invoke hardban dm` | Changes the DM sent to users on hardban.
+`,invoke hardban message` | Changes the message sent by bleed after punishment.
+`,invoke timeout dm` | Changes the DM sent to users on timeout.
+`,invoke timeout message` | Changes the message sent by bleed after punishment.
+
+## Image examples
+
+<Frame caption="A raw text invoke warn message">
+  <img src="https://cdn.discordapp.com/attachments/1176141361678913577/1261669284636004352/image.png?ex=6693cc96&is=66927b16&hm=b746af0750d0963ae2f6c470d9bfb73f6bc6b7c336c923449d67fee42cce07a1&" />
+</Frame>
+ㅤ
+<Frame caption="An embed dm invoke message">
+  <img src="https://cdn.discordapp.com/attachments/1176141361678913577/1261672896699306097/image.png?ex=6693cff3&is=66927e73&hm=badff03ffd5c32555ca0293ab65ce083843c3452647fc8d11dcf6b2ec0446610&" />
+</Frame>
+
