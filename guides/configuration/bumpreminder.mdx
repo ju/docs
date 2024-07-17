@@ -13,7 +13,12 @@ You can then set your own custom message that will be sent when `/bump` is ready
 ,bumpreminder message @bump please bump the server --pingable on
 ```
 ### Bumpreminder thank you message
-After running `,bumpreminder` you can then set your own custom message that is sent when users users run `/bump.` The message can include bleed variables such as `{user.mention}`. An example of this could be  `,bumpreminder thank you {user.mention} for running /bump!`
+After running `,bumpreminder` you can then set your own custom message that is sent when users users run `/bump`: 
+
+```
+,bumpreminder thank you {user.mention} for running /bump!
+```
+<Info>All messages support [variables](/extras/variables)!</Info>
 ### Bump reminder autoclean
 After setting up both of these commands its best to now set some configuration commands that can be tweaked to your server preferences. One of these is the `autoclean` command which deletes all the messages in that channel that aren't `/bump`. This is especially useful for bump only channels. The command usage for this is `,bumpreminder autoclean yes` and to turn it off it is `,bumpreminder autoclean no`
 ### Bump reminder autolock
