@@ -4,14 +4,18 @@ description: 'This integration with disboard allows users to be reminded wheneve
 ---
 ## About
 [Disboard](https://disboard.org/) is a server list service that is commonly used to promote servers. To ensure that your server is getting the most visibility, you can use the disboard bot to "bump" your server on their website to get more engagement. Bleed's integration allows users to be reminded when it is time to run the `/bump` command.
-### Bump reminder
-Allocate a channel for the `/bump` reminder that alerts users, or a role, to run the bump command.
-To set this up you would do `,bumpreminder channel #bump`
-### Bump reminder thank you message
+### Setup
+Once the disboard bot is invited, you can then setup the bleed integration by adding the bump channel with `,bumpreminder channel`.
+
+You can then set your own custom message that will be sent when `/bump` is ready to be run again. This can be raw text or an embed, and you can add a role to be pinged - remember to use the `--pingable_on` parameter. 
+
+> Example:
+```
+,bumpreminder message @bump please bump the server --pingable on
+```
+### Bumpreminder thank you message
 After running `,bumpreminder` you can then set your own custom message that is sent when users users run `/bump.` The message can include bleed variables such as `{user.mention}`. An example of this could be  `,bumpreminder thank you {user.mention} for running /bump!`
-### Bump  reminder message
-You can then set your own custom message that will be sent when `/bump` is ready to be run again. This can be an embed message by using `{embed}` in the message field. Pings can also be added in the `{message}` field. *Remember to add --pingable on.* An example message could be `,bumpreminder message @bump please bump the server --pingable on`
-### Bump  reminder autoclean
+### Bump reminder autoclean
 After setting up both of these commands its best to now set some configuration commands that can be tweaked to your server preferences. One of these is the `autoclean` command which deletes all the messages in that channel that aren't `/bump`. This is especially useful for bump only channels. The command usage for this is `,bumpreminder autoclean yes` and to turn it off it is `,bumpreminder autoclean no`
 ### Bump reminder autolock
 This is another auto command that makes managing a bump channel more flawless. The autolock command will lock the set channel so that no members can speak in the channel until it is time to run `/bump` again. To set this run `.bumpreminder autolock yes`
