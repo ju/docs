@@ -6,14 +6,14 @@ description: 'Reaction triggers allow bleed to react to a message when a conditi
 ## Reaction triggers
 
 You can add reaction triggers with the `,reactiontrigger add` command - or `,rt add` for simplicity. 
-<Info>Note that reaction triggers have to be a minimum of 4 characters, and certain common words like `hi` and `hey` are not allowed to prevent spamming the bot and slowing it down.</Info>
+<Info>Note that reaction triggers have to be a minimum of 3 characters, and certain common words like `hi` and `hey` are not allowed to prevent spamming the bot and slowing it down.</Info>
 <Frame caption="Simple reactiontrigger setup" type="glass">
-  <img src="https://cdn.discordapp.com/attachments/1176141361678913577/1262172622301691985/image.png?ex=6695a15b&is=66944fdb&hm=ea7b4ce23d06d56c076a444a0e23ea735f202b3cf33caa000ff9961b1f2f919e&" />
+  <img src="https://bleed.bot/img/reaction_trigger.png" />
 </Frame>
 ## Reaction messages
-You can also setup bleed to react to all messages sent in a channel with `,reaction messages`. You can use up to 3 reactions, and there must be a slowmode of at least **one minute** to prevent spam.
+You can also setup bleed so every message sent in a channel with will be have up to 3 reactions added with `,reaction messages`. The channel must be an `,imgonly` channel or have a slowmode of at least **one minute** to prevent spam.
 <Frame caption="Reaction messages setup" type="glass">
-  <img src="https://cdn.discordapp.com/attachments/1261668354905739305/1262172032838140024/image.png?ex=6695a0ce&is=66944f4e&hm=440732c38abfc32d48f9c3995ab752812deab6e3fc5077532e64bacd2ed199b2&" />
+  <img src="https://bleed.bot/img/reaction_messages.png" />
 </Frame>
 ## Related commands
 
@@ -26,19 +26,19 @@ You can also setup bleed to react to all messages sent in a channel with `,react
   </Accordion>
 
   <Accordion title="List all reactiontriggers">
-     ```
+    ```
     ,reactiontrigger list
     ```
   </Accordion>
 
   <Accordion title="List all reaction messages">
-      ```
+    ```
     ,reaction messages list
     ```
   </Accordion>
   <Accordion title="Manually add a reaction">
-  Use this command to have bleed add a specific reaction to a specific message once.
-      ```
+  Use this command to have bleed add a reaction to a message.
+    ```
     ,reaction [message link] [emote]
     ```
     ```
@@ -46,7 +46,7 @@ You can also setup bleed to react to all messages sent in a channel with `,react
     ```
   </Accordion>
   <Accordion title="Find the owner of a trigger">
-  Use this command to find the owner of a reactiontrigger (the user who added it).
+  Use this command to view the user which added a reaction trigger.
       ```
     ,reaction owner [trigger]
     ```
@@ -64,7 +64,7 @@ You can also setup bleed to react to all messages sent in a channel with `,react
     ```
   </Accordion>
   <Accordion title="Purge all reactiontriggers">
-  Use this command to delete all reactionstriggers in your guild.
+  Use this command to delete all reaction triggers in your server.
       ```
     ,reaction clear
     ```
