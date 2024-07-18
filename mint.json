@@ -89,8 +89,8 @@
         "extras/variables",
         "extras/voices",
         "extras/fplist",
-        "extras/langcodes
-        extras/parameters"
+        "extras/langcodes",
+        "extras/parameters"
       ]
     }
   ],
