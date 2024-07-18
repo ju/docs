@@ -1,4 +1,73 @@
 ---
 title: 'Pinterest'
-description: 'Description of your new file.'
+description: 'The Pinterest integration allows your server to create feeds from a Pinterest users public board.'
 ---
+
+<Info>
+  You can repost a **Pinterest post** by going to a channel and saying `bleed (link)`!
+
+  Example: `bleed https://www.pinterest.com/pin/462885667969100317/`
+</Info>
+
+## Pinterest User Information
+
+Running the `,pinterest [handle]` command will give you information on a Pinterest profile, like so:
+
+<Frame type="glass" caption="Embed with Pinterest user information">
+  <img src="https://i.imgur.com/evPVRcD.png"/>
+</Frame>
+
+## Creating a Pinterest feed
+
+bleed allows your server to recieve images from a user's Pinterest board to a Discord channel.
+This can be used for things like auto profile picture publishing.
+
+You can add a Pinterest feed to a channel with the `,pinterest add [channel] [handle]` command.
+
+<Frame type="glass" caption="Adding a Pinterest feed to a channel">
+  <img src="https://i.imgur.com/gbD4ysv.png"/>
+</Frame>
+
+### Customization Options
+
+<AccordionGroup>
+  <Accordion title="Embeds">
+    This command is used to enable/disable embeds for new pins.
+
+    ```
+    ,pinterest embeds [channel] [yes or no]
+    ```
+  </Accordion>
+
+  <Accordion title="Custom Messages">
+    <Info>Using the `--pingable` flag will allow you to ping roles!</Info>
+
+    This command is used to set a custom message for new pins.
+
+    You can view this message with `,pinterest message view [handle]`
+
+    ```
+    ,pinterest message [handle] [message] [--pingable on/off]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Related Commands
+
+<AccordionGroup>
+  <Accordion title="Remove a Pinterest feed">
+    This command is used to remove a Pinterest feed from a channel.
+
+    ```
+    ,pinterest remove [channel] [handle]
+    ```
+  </Accordion>
+
+  <Accordion title="List your server's Pinterest feeds">
+    This command is used to list all Pinterest feeds in your server.
+
+    ```
+    ,pinterest list
+    ```
+  </Accordion>
+</AccordionGroup>
