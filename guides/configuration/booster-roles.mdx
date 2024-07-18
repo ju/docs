@@ -1,4 +1,102 @@
 ---
 title: 'Booster Roles'
-description: 'Description of your new file.'
+description: 'Booster roles allow your server boosters to make their own customizable role.'
 ---
+
+# Setup
+<Warning>This must be done before functioning correctly.</Warning>
+
+<Steps>
+  <Step title="Set the base role">
+    This will be the role that booster roles are below.
+    ``` 
+    ,boosterrole base @role 
+    ```
+  </Step>
+</Steps>
+
+# Usage
+
+<Steps>
+    <Step>
+        This is used to create your booster role.
+        ```
+        Syntax: ,boosterrole (color) <name>
+        Example: ,boosterrole #ff0000 boss
+        ```
+    </Step>
+    <Step>
+        Renaming your booster role.
+        ```
+        Syntax: ,boosterrole rename <new_name>
+        Example: ,boosterrole rename cool role
+        ```
+    </Step>
+    <Step>
+        Changing the color of your booster role.
+        ```
+        Syntax: ,boosterrole color <color>
+        Example: ,boosterrole color #ff0000
+        ```
+    </Step>
+    <Step>
+        Removing your booster role.
+        ```
+        ,boosterrole remove
+        ```
+    </Step>
+</Steps>
+
+# Awarding boosters a specific role upon boosting
+<Steps>
+    <Step>
+        Set the role that will be awarded to a user upon boosting.
+        ```
+        Syntax: ,boosterrole award @role
+        Example: ,boosterrole award @immunity
+        ```
+    </Step>
+    <Step>
+        Remove the currently awarded role for boosting.
+        ```
+        Syntax: ,boosterrole award remove
+        ```
+    </Step>
+    <Step>
+        View the current role awarded for boosting.
+        ```
+        Syntax: ,boosterrole award view
+        ```
+    </Step>
+</Steps>
+
+# Related commands
+
+<AccordionGroup>
+    <Accordion title="Randomize your booster role color">
+        Randomize your booster role color.
+        ```
+        ,boosterrole random
+        ```
+    </Accordion>
+    
+    <Accordion title="Color your booster role the dominant color of your avatar">
+        Set the booster role to be the dominant color of your avatar.
+        ```
+        ,boosterrole dominant
+        ```
+    </Accordion>
+
+    <Accordion title="List all booster roles">
+        List all booster roles in the server.
+        ```
+        ,boosterrole list
+        ```
+    </Accordion>
+    <Accordion title="Cleaning up booster roles">
+    Clean up unused booster roles if they weren't removed properly.
+    ```
+    ,boosterrole cleanup
+    ```
+    </Accordion>
+</AccordionGroup>
