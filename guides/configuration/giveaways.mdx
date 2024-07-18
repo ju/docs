@@ -1,4 +1,164 @@
 ---
 title: 'Giveaways'
-description: 'Description of your new file.'
+description: 'Giveaways allow your server to easily create events where participants have the chance to win set prizes.'
 ---
+
+## Starting a Giveaway
+
+You can start a giveaway in your server via the `,giveaway start` command.
+
+```
+,giveaway start [channel] [duration] [winners] [prize]
+,giveaway start #giveaways 24h 4 Concert Tickets
+```
+
+<Frame type="glass" caption="Simple giveaway usage">
+  <img src="https://github.com/ju/docs/blob/main/static/gw.png?raw=true"/>
+</Frame>
+
+## Editing a Giveaway
+
+You can edit options and requirements of a giveaway with the `,giveaway edit` command.
+
+<Info>The `[message link]` parameter in command syntax should be replaced with the giveaway embed's message link.</Info>
+
+<AccordionGroup>
+  <Accordion title="Change a giveaway's thumbnail">
+    This command is used to change a giveaway's embed thumbnail.
+
+    ```
+    ,giveaway edit thumbnail [message link] [url or attachment]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's image">
+    This command is used to change a giveaway's embed image.
+
+    ```
+    ,giveaway edit image [message link] [url or attachment]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's description">
+    This command is used to change a giveaway's embed description.
+
+    ```
+    ,giveaway edit image [message link] [description]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's minimum level">
+    This command is used to set the minimum level requirement for giveaway entry.
+
+    This feature only works with bleed's [level system](/guides/configuration/levels).
+
+    ```
+    ,giveaway edit minlevel [message link] [level]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's maximum level">
+    This command is used to set the maxmimum level requirement for giveaway entry.
+
+    This feature only works with bleed's [level system](/guides/configuration/levels).
+
+    ```
+    ,giveaway edit maxlevel [message link] [level]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's required role">
+    This command is used to set the role requirement for giveaway entry.
+
+    ```
+    ,giveaway edit host [message link] [member]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's prize">
+    This command is used to change the giveaway's ending prize.
+
+    ```
+    ,giveaway edit maxlevel [message link] [prize]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's winner roles">
+    This command is used to change the giveaway winner's rewarding role.
+
+    ```
+    ,giveaway edit roles [message link] [role]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's duration">
+    This command is used to change the remaining duration of a giveaway.
+
+    ```
+    ,giveaway edit roles [message link] [duration]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's host">
+    This command is used to change a giveaway's host.
+
+    ```
+    ,giveaway edit host [message link] [member]
+    ```
+  </Accordion>
+
+  <Accordion title="Change a giveaway's winners">
+    This command is used to change a giveaway's winner count.
+
+    ```
+    ,giveaway edit host [message link] [winners]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Related Commands
+
+<Info>The `[message link]` parameter in command syntax should be replaced with the giveaway embed's message link.</Info>
+
+<AccordionGroup>
+  <Accordion title="Cancel a giveaway">
+   This command is used to end a giveaway without picking any winners.
+
+    ```
+    ,giveaway cancel [message link]
+    ```
+    ```
+    ,giveaway cancel https://discord.com/channels/.../.../...
+    ```
+
+  </Accordion>
+
+  <Accordion title="Reroll a giveaway">
+    This command is used to choose a new winner on the specified giveaway.
+
+    ```
+    ,giveaway reroll [message link]
+    ```
+    ```
+    ,giveaway reroll https://discord.com/channels/.../.../...
+    ```
+  </Accordion>
+
+  <Accordion title="End a giveaway">
+    This command is used to end an active giveaway early.
+
+    ```
+    ,giveaway end [message link]
+    ```
+    ```
+    ,giveaway end https://discord.com/channels/.../.../...
+    ```
+  </Accordion>
+  <Accordion title="List all giveaways">
+    Used to list all giveaways in your sever.
+
+    ```
+    ,giveaway list
+    ```
+  </Accordion>
+</AccordionGroup>
