@@ -6,26 +6,33 @@ description: 'Reaction triggers allow bleed to react to a message when a conditi
 ## Reaction triggers
 
 You can add reaction triggers with the `,reactiontrigger add` command - or `,rt add` for simplicity. 
-<Info>Note that reaction triggers have to be a minimum of 3 characters, and certain common words like `hi` and `hey` are not allowed to prevent spamming the bot and slowing it down.</Info>
+
+<Info>
+  Note that reaction triggers have to be a minimum of 3 characters, and certain common words like `hi` and `hey` are not allowed to prevent spamming the bot and slowing it down.
+</Info>
+
 <Frame caption="Simple reactiontrigger setup" type="glass">
   <img src="https://bleed.bot/img/reaction_trigger.png" />
 </Frame>
+
 ## Reaction messages
-You can also setup bleed so every message sent in a channel with will be have up to 3 reactions added with `,reaction messages`. The channel must be an `,imgonly` channel or have a slowmode of at least **one minute** to prevent spam.
+You can also setup bleed so every message sent in a channel with will be have up to 3 reactions added with `,reaction messages`. 
+The channel must be an `,imgonly` channel or have a slowmode of at least **one minute** to prevent spam.
+
 <Frame caption="Reaction messages setup" type="glass">
   <img src="https://bleed.bot/img/reaction_messages.png" />
 </Frame>
+
 ## Related commands
 
-
 <AccordionGroup>
-  <Accordion title="Delete a reactiontrigger">
+  <Accordion title="Delete a reaction trigger">
     ```
     ,reactiontrigger delete [emoji] [word]
     ```
   </Accordion>
 
-  <Accordion title="List all reactiontriggers">
+  <Accordion title="List all reaction triggers">
     ```
     ,reactiontrigger list
     ```
@@ -36,36 +43,43 @@ You can also setup bleed so every message sent in a channel with will be have up
     ,reaction messages list
     ```
   </Accordion>
+  
   <Accordion title="Manually add a reaction">
-  Use this command to have bleed add a reaction to a message.
+    Use this command to have bleed add a reaction to a message.
     ```
     ,reaction [message link] [emote]
     ```
+    
     ```
-    ,reaction https://.discord.com/channels/xxx 😂
+    ,reaction https://discord.com/channels/xxx 😂
     ```
   </Accordion>
   <Accordion title="Find the owner of a trigger">
   Use this command to view the user which added a reaction trigger.
-      ```
+    ```
     ,reaction owner [trigger]
     ```
+    
     ```
     ,reaction owner welcome
     ```
   </Accordion>
+  
   <Accordion title="Delete all reactions for a trigger">
-  Use this command to delete all reactions tied to a trigger.
-      ```
+    Use this command to delete all reactions tied to a trigger.
+    
+    ```
     ,reaction deleteall [trigger]
     ```
+    
     ```
-    ,reaction deleteall [welcome]
+    ,reaction deleteall welcome
     ```
   </Accordion>
-  <Accordion title="Purge all reactiontriggers">
-  Use this command to delete all reaction triggers in your server.
-      ```
+  
+  <Accordion title="Delete all reaction triggers">
+    Use this command to delete all reaction triggers in your server.
+    ```
     ,reaction clear
     ```
   </Accordion>
