@@ -1,4 +1,44 @@
 ---
 title: 'Reaction Roles'
-description: 'Description of your new file.'
+description: 'Reaction roles allow bleed to automatically assign a role when a reaction is used. This can be used for verification, or roles like custom age / gender roles.'
 ---
+## Setup
+The `,reactionrole add` command is the all in one setup command for enabling a reaction role. 
+
+For this command, you will require a pre-sent message to attach the reactions to - this can be raw text or an embed. For help creating an embed, refer to the embeds section of this documentation. 
+
+The syntax for adding a reactionrole is as follows:
+```
+,reactionrole add [message link] [reaction] [role]
+```
+```
+,reactionrole add https://discord.com/channels... :tick: @member
+```
+## Example
+
+<Frame>
+  <img src="https://github.com/ju/docs/blob/main/static/rr.png?raw=true" />
+</Frame>
+## Related commands
+
+<AccordionGroup>
+  <Accordion title="Remove all reaction roles from a message">
+    ```
+    ,reactionrole removeall [message link]
+    ```
+
+  </Accordion>
+
+  <Accordion title="List all reaction roles">
+    ```
+    ,reactionrole list
+    ```
+  </Accordion>
+
+  <Accordion title="Reset guild reaction role configuration">
+    ```
+    ,reactionrole reset
+    ```
+  </Accordion>
+</AccordionGroup>
+
