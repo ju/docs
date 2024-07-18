@@ -3,18 +3,28 @@ title: 'Pinterest'
 description: 'The Pinterest integration allows your server to create feeds from a Pinterest users public board.'
 ---
 
-<Info>
-  You can repost a **Pinterest post** by going to a channel and saying `bleed (link)`!
-
-  Example: `bleed https://www.pinterest.com/pin/462885667969100317/`
-</Info>
-
 ## Pinterest User Information
 
 Running the `,pinterest [handle]` command will give you information on a Pinterest profile, like so:
 
 <Frame type="glass" caption="Embed with Pinterest user information">
   <img src="https://i.imgur.com/evPVRcD.png"/>
+</Frame>
+
+## Searching images with Pinterest Lens
+
+You can reverse search an image/member avatar via Pinterest Lens with the `,pinsearch` command.
+
+```
+// Search an image
+,pinsearch [attachment or url]
+
+// Search a member's avatar
+,pinsearch [member mention]
+```
+
+<Frame type="glass" caption="Searching a member's avatar with pinsearch">
+  <img src="https://i.imgur.com/6eWw7bE.png"/>
 </Frame>
 
 ## Creating a Pinterest feed
@@ -71,3 +81,9 @@ You can add a Pinterest feed to a channel with the `,pinterest add [channel] [ha
     ```
   </Accordion>
 </AccordionGroup>
+
+<Info>
+  You can repost a **Pinterest post** by going to a channel and saying `bleed (link)`!
+
+  Example: `bleed https://www.pinterest.com/pin/462885667969100317/`
+</Info>
