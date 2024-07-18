@@ -1,0 +1,86 @@
+---
+title: 'Embed Parameters'
+description: 'Parameters for embeds'
+---
+
+### Author
+`{author: name && icon URL && external URL}`
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Name         | plain   text   | this is plain text
+| Icon URL     | valid image URL| [https://bleed.bot/img/logo_transparent.png](https://bleed.bot/img/logo_transparent.png)
+| External URL | Whether the    | [https://bleed.bot](https://bleed.bot)
+
+### Footer
+`{footer: text && icon URL}`
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Text         | plain   text   | this is plain text
+| Icon URL     | valid image URL| [https://bleed.bot/img/logo_transparent.png](https://bleed.bot/img/logo_transparent.png)
+
+### Title
+`{title: text}`
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Text         | plain   text   | this is plain text
+
+### Description
+`{description: text}`
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Text         | plain   text   | this is plain text
+
+### Url
+`{description: text}` <br/> (Note: URL relies on the title parameter - URL turns title into a link)
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| External URL | valid text URL | [https://bleed.bot](https://bleed.bot)
+
+### Image
+`{image: valid image URL}`   
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Valid image URL | valid image URL | [https://bleed.bot/img/logo_transparent.png](https://bleed.bot/img/logo_transparent.png)
+
+### Thumbnail
+`{thumbnail: valid image URL}`   
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Valid image URL | valid image URL | [https://bleed.bot/img/logo_transparent.png](https://bleed.bot/img/logo_transparent.png)
+
+### Color
+`{color: hex}`   
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Hex | hex | 0xff0000, #ff0000, ff0000
+
+### Field
+`{field: name && value}` <br />Add **inline** after value to force field to be in-line
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Name         | plain   text   | this is plain text
+| Value        |  plain text    | this is also plain text
+
+### Message
+`{message: text}`
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Text         | plain   text   | this is plain text
+
+### Button
+`{button: type && label && emoji && enabled or disabled}` <br/> Button types: Blurple, Green, Gray, Red
+
+| Content      | Type | Example |
+| --------     | -------------- |       -------
+| Label         | plain   text   | this is plain text
+| Emoji         | emoji   | 🤓
