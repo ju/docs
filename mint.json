@@ -1,0 +1,99 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "bleed",
+  "logo": {
+    "dark": "https://bleed.bot/bleed.png",
+    "light": "https://bleed.bot/bleed.png"
+  },
+  "favicon": "favicon.png",
+  "colors": {
+    "primary": "#658a95",
+    "light": "#95b6bd",
+    "dark": "#658a95",
+    "anchors": {
+      "from": "#658a95",
+      "to": "#95b6bd"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:contact@bleed.bot"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Home",
+    "url": "https://bleed.bot"
+  },
+  "tabs": [
+      {
+          "name": "Resources",
+          "url": "extras"
+      }
+  ],
+  "anchors": [
+    {
+      "name": "Commands",
+      "icon": "square-terminal",
+      "url": "https://bleed.bot/commands"
+    },
+    {
+      "name": "Status",
+      "icon": "signal-stream",
+      "url": "https://bleed.bot/status"
+    },
+    {
+      "name": "Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/bleed"
+    }
+  ],
+  "navigation": [
+    {
+     "group": "Bot Information",
+      "pages": [
+        "intro",
+        "perks",
+        "updates"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        {
+            "group": "Security Setup",
+            "icon": "hammer",
+            "pages": ["guides/security/moderation", "guides/security/fake-permissions",  "guides/security/antinuke", "guides/security/antiraid"]
+
+        },
+        {
+            "group": "Server Configuration",
+            "icon": "gear",
+            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts", "guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/levels"]
+        },
+        {
+            "group": "Embed Scripting",
+            "icon": "code",
+            "pages": ["guides/embed/scripting", "guides/embed/pagination", "guides/embed/Embed Server"]
+        },
+        {
+            "group": "Integrations",
+            "icon": "share-nodes",
+            "pages": ["guides/integrations/discogs","guides/integrations/fortnite","guides/integrations/instagram","guides/integrations/kick", "guides/integrations/lastfm","guides/integrations/pinterest","guides/integrations/reddit","guides/integrations/tiktok","guides/integrations/twitch","guides/integrations/x","guides/integrations/youtube"]
+        }
+      ]
+    },
+    {
+     "group": "Resources",
+      "pages": [
+        "extras/variables",
+        "extras/voices",
+        "extras/fplist",
+        "extras/langcodes"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "discord": "https://discord.gg/bleed"
+  }
+}

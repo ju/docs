@@ -1,0 +1,177 @@
+---
+title: 'Variables'
+description: 'All variables that are used in the bot are listed here.'
+---
+### User
+| User Variables | Output |
+| --------- | ------ |
+|`{user}` |Name and discriminator
+|`{user.mention}` |User mention
+|`{user.name}` |Only return name
+|`{user.tag}` |Only return discriminator
+|`{user.avatar}` |User profile picture
+|`{user.guild_avatar}` |User guild profile picture
+|`{user.display_avatar}` |User available profile picture
+|`{user.joined_at}` |User guild join date in UTC
+|`{user.joined_at_timestamp}` |User guild join date in UNIX
+|`{user.created_at}` |User discord creation date in UTC
+|`{user.created_at_timestamp}` |User discord creation date in UNIX
+|`{user.display_name}` |Current user display name
+|`{user.boost}` |Returns Yes or No if user is boosting guild 
+|`{user.boost_since}` |User initial guild boost date
+|`{user.boost_since_timestamp}` |User initial guild boost date in UNIX 
+|`{user.color}` |User top role hex code
+|`{user.top_role}` |User top role name, defaults to N/A
+|`{user.role_list}` |User role list, defaults to N/A if none
+|`{user.role_text_list}` |User role list in text, defaults to N/A if none
+|`{user.bot}` |Returns Yes or Not if user is bot or not
+|`{user.badges_icons}`  |User profile badges w/ emotes, defaults to N/A if none
+|`{user.badges}` |User profile badges in text, defaults to N/A if none
+|`{user.join_position}` |User join position
+|`{user.join_position_suffix}` |User join position with suffix
+|`{user.id}` |Shows users id
+
+### Guild
+| Guild Variables | Output |
+| --------- | ------ |
+`{guild.name}` |Guild name
+`{guild.count}` |Guild member count
+`{guild.region}` |Guild voice region
+`{guild.id}` |Guild ID
+`{guild.shard}` |Guild shard ID on bot
+`{guild.owner_id}` |Guild owner ID
+`{guild.created_at}` |Guild creation date in UTC
+`{guild.created_at_timestamp}` |Guild creation date in UNIX
+`{guild.emoji_count}` |Guild emoji count
+`{guild.role_count}` |Guild role count
+`{guild.boost_count}` |Guild boost count
+`{guild.boost_tier}` |Guild boost tier, defaults to No Level if none
+`{guild.preferred_locale}` |Guild preferred locale
+`{guild.key_features}` |List of guild features, defaults to N/A if none
+`{guild.icon}` |Guild icon URL as a PNG, defaults to N/A if none
+`{guild.banner}` |Guild banner URL as a PNG, defaults to N/A if none 
+`{guild.splash}` |Guild splash URL as a PNG, defaults to N/A if none 
+`{guild.discovery}` |Guild discovery splash URL as a PNG, defaults to N/A if none 
+`{guild.max_presences}` |Guild max presences amount
+`{guild.max_members}` |Guild max members amount
+`{guild.max_video_channel_users}` | Guild max video channel users
+`{guild.afk_timeout}` |Guild AFK timeout in seconds
+`{guild.afk_channel}` |Guild AFK channel, defaults to N/A if none
+`{guild.channels}` |List of text, voice & category channels, defaults to N/A if none
+`{guild.channels_count}` |Guild total channel count
+`{guild.text_channels}` |List of text channels
+`{guild.text_channels_count}` |Guild text channel count
+`{guild.voice_channels}` |List of voice channels
+`{guild.voice_channels_count}` |Guild voice channel count
+`{guild.category_channels}` |List of category channels
+`{guild.category_channels_count}` |Guild category channel count
+
+### Channel
+| Channel variables | Output |
+| --------- | ------ |
+`{channel.name}` |Current channel name
+`{channel.id}` |Channel ID
+`{channel.topic}` |Current channel topic
+`{channel.mention}` |Channel mention
+`{channel.type}` |Channel type
+`{channel.category_id}` |Category ID that current channel belongs to, defaults to N/A if none
+`{channel.category_name}` |Category name that current channel belongs to, defaults to N/A if none
+`{channel.position}` |Current channel index on list
+`{channel.slowmode_delay}` |Current channel slow mode interval, defaults to 0 if delay off
+
+### Date & Time
+| Date & time variables | Output |
+| --------- | ------ |
+`{date.now}` |Current date in PST
+`{date.utc_timestamp}` |Current date as UNIX
+`{date.now_proper}` |Better formatted date in PST
+`{date.now_short}` |Short formatted date in PST
+`{date.now_shorter}` |Shorter formatted date in PST
+`{time.now}` |12 hour timestamp in PST
+`{time.now_military}` |24 hour timestamp in PST
+`{date.utc_now}` |Current date in UTC
+`{date.utc_now_proper}` |Better formatted date in UTC
+`{date.utc_now_short}` |Short formatted date in UTC
+`{date.utc_now_shorter}` |Shorter formatted date in UTC
+`{time.utc_now}` |12 hour timestamp in UTC
+`{time.utc_now_military}` |24 hour timestamp in UTC
+
+### Lastfm
+| LastFM variables | Output |
+| --------- | ------ |
+`{user.name}` |Last.fm username
+`{user.avatar}` |Last.fm profile picture
+`{user.plays}` |Total scrobbles for Last.fm account
+`{proper(user.plays)}` |Total scrobbles for Last.fm account (formatted number)
+`{user.artist_crown}` |Displays crown emoji if user has crown for artist
+`{user.url}` |Profile URL for Last.fm account
+`{author}` |Author name and discriminator
+`{author.name}` |Author username
+`{author.nickname}` |Author nickname
+`{author.discriminator}` |Author discriminator
+`{album.name}` |Current playing album title
+`{lower(album.name)}` |Current playing album title in all lowercase
+`{album.url}` |Current playing album URL
+`{album.cover}` |Current playing album cover
+`{track.name}` |Current playing track title
+`{lower(track.name)}` |Current playing track title in all lowercase
+`{track.url}` |Current playing track URL (from Last.fm)
+`{track.spotify_url}` |Current playing track URL (from Spotify)
+`{track.release_date}` |Current playing track release date (from Spotify)
+`{track.duration}` |Current playing track duration (from Spotify)
+`{track.plays}` |Current playing track playcount
+`{proper(track.plays)}` |Current playing track playcount (formatted number)
+`{artist.name}` |Current playing artist name (from Last.fm)
+`{lower(artist.name)}` |Current playing artist name in all lowercase
+`{artist.plays}` |Current playing artist plays (from local database)
+`{artist.url}` |Current playing artist URL (from Last.fm)
+`{artist.image}` |Current playing artist image (from Spotify)
+`{button}` |Adds a button below the embed
+
+### Levels
+| Level system variables | Output |
+| --------- | ------ |
+`{level.new_rank}` |Member's new level at time of level up
+`{level.user_xp}` |Member's current XP
+
+### Boosts
+| Boost variables | Output |
+| --------- | ------ |
+`{boost.count}` | Amount of times user has boosted
+`{guild.boost.count}` | Overall guild boost count
+
+### Bump reminder
+| Bump reminder variables | Output |
+| --------- | ------ |
+`{bumpreminder.last_user_bump}` |Shows the user who last bumped the server
+
+### Punishments
+<Info>Only available for `bandm`, `softbandm`, `kickdm`, `warndm`, `jaildm`, `unjaildm`, `timeoutdm`, `ban message`, `kick message`, etc. </Info>
+| Punishment variables | Output |
+| --------- | ------ |
+`{moderator}` |Moderator name who performed action
+`{moderator.name}` |Moderator username
+`{moderator.tag}` |Moderator discriminator (will always return 0 due to removal of discriminators)
+`{moderator.avatar}` |Moderator avatar
+`{moderator.bot}` |Return True or False if mod is a bot
+`{moderator.color}` |Moderator's highest role color
+`{moderator.mention}` |Mention moderator
+`{moderator.created_at}` |Moderator discord creation date
+`{reason}` |Reason for punishment
+`{duration}` |Duration for a jail/unjail punishment
+`{invite_url}` |Invite url generated for punishment (softban)
+`{moderator.id}` |The id of the moderator that enacted the punishment
+
+### Youtube
+| Bump reminder variables | Output |
+| --------- | ------ |
+`{youtube.channel.url}` |Channel URL
+`{youtube.channel.id}` |Channel ID
+`{youtube.channel.name}` |Channel Name
+`{youtube.video.url}` |URL of the newly uploaded video
+`{youtube.video.thumbnail_url}` |Thumbnail URL of the newly uploaded video
+
+
+
+
+

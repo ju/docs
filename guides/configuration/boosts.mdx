@@ -1,0 +1,25 @@
+---
+title: 'Boost Messages'
+description: 'Boost messages are used to send a message to a channel when a user boosts your server.'
+---
+### Information
+You can add or remove a boost message in a channel with **embed code** or **raw text**, and you can use all supported [variables](/extras/variables). For help making an embed, see our [scripting guide](/guides/embed/scripting) or join our [Embed Server](https://discord.gg/embeds) for premade embeds to use.
+<Card title="Accepted Parameters" icon="lightbulb" iconType="duotone" color="#69919d">
+  This command accepts the `--self_destruct 6` parameter, which makes the message autodelete after 6 seconds. You can add a higher number to make it stay in the channel longer, but 6 seconds is the minimum.
+</Card>
+### Syntax
+```
+,boost add #channel Thanks for boosting {guild.name} {user.mention}!
+,boost add #channel Thanks for boosting {guild.name} {user.mention}! --self_destruct 6
+
+,boost add #channel {embed}$v{description: Thanks for boosting {guild.name}, {user.mention}!}
+,boost add #channel {embed}$v{description: Thanks for boosting {guild.name}, {user.mention}!} --self_destruct 30
+```
+
+## Related commands
+```
+,boost remove #channel
+,boost view #channel
+,boost list
+,boost variables
+```

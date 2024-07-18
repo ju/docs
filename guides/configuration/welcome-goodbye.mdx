@@ -1,0 +1,38 @@
+---
+title: 'Welcome & Goodbye Messages'
+description: 'Welcome and goodbye messages are used to send a message when a user leaves and joins your server, respectively.'
+---
+### Information
+You can add or remove a welcome/goodbye message in a channel with **embed code** or **raw text**, and you can use all supported [variables](/extras/variables). For help making an embed, see our [scripting guide](/guides/embed/scripting) or join our [Embed Server](https://discord.gg/embeds) for premade embeds to use.
+<Card title="Accepted Parameters" icon="lightbulb" iconType="duotone" color="#69919d">
+  These commands accepts the `--self_destruct 6` parameter, which makes the message autodelete after 6 seconds. You can add a higher number to make it stay in the channel longer, but 6 seconds is the minimum.
+</Card>
+### Syntax
+```
+,welcome add #channel welcome to {guild.name} {user.mention}!
+,welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
+
+,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
+,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
+```
+```
+,goodbye add #channel see you soon {user.mention}!
+,goodbye add #channel see you soon {user.mention} --self_destruct 6
+
+,goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
+,goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
+```
+
+## Related commands
+```
+,welcome remove #channel
+,welcome view #channel
+,welcome list
+,welcome variables
+```
+```
+,goodbye remove #channel
+,goodbye view #channel
+,goodbye list
+,goodbye variables
+```

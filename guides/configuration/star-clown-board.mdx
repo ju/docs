@@ -1,0 +1,122 @@
+---
+title: 'Starboard & Clownboard'
+description: 'Starboards and Clownboards are used to have bleed repost messages that have hit a certain amount of a certain reaction to a channel of your choice.'
+---
+<Info>Both starboard and clownboard use the exact same commands for configuration, to setup the clownboard use `clownboard` in your commands as shown below. </Info>
+
+## Basic setup.
+
+<Steps>
+  <Step title="Unlock the starboard.">
+    Used to unlock and lock your starboard, this command is used to temporarily block new starred posts. It is automatically set to locked.
+    ```
+    ,starboard unlock
+    ,clowboard unlock
+    ```
+  </Step>
+  <Step title="Set the starboard channel.">
+    Set the channel that starred messages will be reposted to.
+    ```
+    ,starboard set #stars
+    ,clownboard set #idiots
+    ```
+    <Warning>Don't confuse this command with `,starboard channel`.</Warning>
+  </Step>
+  <Step title="Set the threshold.">
+    This is the number of reactions it takes before bleed reposts the message. The minimum threshold is 3.
+    ```
+    ,starboard threshold 4
+    ,clownboard threshold 5
+    ```
+  </Step>
+  <Step title="Set the emoji.">
+    This is the emoji that Bleed will watch for when considering when to repost a message to the starboard.
+    ```
+    ,starboard emoji 🌟
+    ,clownboard emoji 💀
+    ```
+  </Step>
+</Steps>
+
+<Frame caption="Basic Setup" type="glass">
+  <img src="https://cdn.discordapp.com/attachments/1176141361678913577/1262174608581202033/image.png?ex=6695a334&is=669451b4&hm=9c9a51d3bf75bc08be78c0f0f707077ee77b9d5eb108dff05d7f6d7f015c28f2&" />
+</Frame>
+
+## Related commands
+<AccordionGroup>
+  <Accordion title="Toggle starboard message link">
+   Choose to enable if a URL leading to the original message will be displayed on the starboard.
+
+   ```
+   ,starboard jumpurl true
+   ```
+   ```
+   ,clownboard jumpurl false
+   ```
+
+  </Accordion>
+
+  <Accordion title="Blacklist a channel">
+    This stops all messages sent in the channel specified from being considered for the starboard.
+    ```
+    ,starboard channel #staff-only
+    ```
+  </Accordion>
+
+  <Accordion title="Enable or disable timestamps">
+    Configures if timestamps will be shown on the starboard message.
+    ```
+   ,starboard timestamp true
+   ```
+   ```
+   ,clownboard timestamp false
+   ```
+  </Accordion>
+  <Accordion title="Toggle watching of self reactions">
+    This command allows you to toggle self reactions counting towards the overall threshold. With it enabled, a user can star their own message to get it on the starboard.
+    ```
+   ,starboard selfstar true
+   ```
+   ```
+   ,clownboard selfstar false
+   ```
+  </Accordion>
+  <Accordion title="Only allow certain roles to be published">
+    Makes bleed consider only messages from those with a whitelisted role eligible for the starboard. 
+    ```
+   ,starboard role @VIP
+   ```
+   ```
+   ,starboard role list
+   ```
+  </Accordion>
+  <Accordion title="Set the embed colour">
+    This sets the deafult colour for the starboard embeds. 
+    ```
+   ,starboard color #cf7c08
+   ```
+   ```
+   ,starboard color pink
+   ```
+  </Accordion>
+    <Accordion title="Toggle showing of attachments">
+    Change if attachments will be shown on the starboard or not. 
+    ```
+   ,starboard attachments true
+   ```
+   ```
+   ,starboard attachments false
+   ```
+  </Accordion>
+  <Accordion title="Reset all starboard configuration">
+    Hard resets all starboard configuration in the guild. 
+    ```
+   ,starboard reset
+   ```
+   ```
+   ,clownboard reset
+   ```
+  </Accordion>
+</AccordionGroup>
+
+

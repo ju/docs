@@ -1,0 +1,58 @@
+---
+title: 'Fake Permissions'
+description: "Fake permissions allow you to restrict a moderators native role permissions and making a nuke impossible by forcing usage of bleed's moderation commands."
+---
+## What are the benefits of fake permissions?
+
+Fake permissions restrict your moderators and administrators access to native discord permissions, such as `ban_members` or `manage_channels`. This means that, for example, even though the `ban_members` discord permission is not attached to that role, they can still use the `,ban` command within bleed.
+
+This negates the possibility of a rogue administrator or moderator using a script that spams the Discord API and mass bans all members or deletes all channels as they don't have that permission - it makes nuking practically impossible. 
+
+## How to manage a role's fake permissions.
+<Info>You must be the **server owner** to run these commands. - a full list of supported permissions can be found [here](/extras/fplist).</Info>
+
+```
+// syntax
+,fakepermissions grant (role mention or id) ban_members
+// example
+,fakepermissions grant @Moderator ban_members
+```
+```
+// syntax
+,fakepermissions remove (role mention or id) ban_members
+// example
+,fakepermissions remove @Moderator ban_members
+```
+## Examples for fake permission setups
+<Tabs>
+  <Tab title="Moderator Role">
+    `,fp grant (mod role) manage_messages`
+
+    `,fp grant (mod role) moderate_members`
+
+    `,fp grant (mod role) manage_nicknames`
+
+    `,fp grant (mod role)  kick_members`
+  </Tab>
+  <Tab title="Administrator Tole">
+    `,fp grant (admin role) manage_messages`
+
+    `,fp grant (admin role) moderate_members`
+
+    `,fp grant (admin role) manage_nicknames`
+
+    `,fp grant (admin role) manage_roles`
+
+    `,fp grant (admin role) ban_members`
+
+    `,fp grant (admin role) kick_members`
+
+  </Tab>
+  <Tab title="Co-Owner Role">
+    `,fp grant (co-owner role) administrator`
+  </Tab>
+</Tabs>
+<Info>The above is just reccomended and not required. You can fully customise it to your server's needs.</Info>
+
+
+
