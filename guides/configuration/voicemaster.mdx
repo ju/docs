@@ -1,4 +1,77 @@
 ---
 title: 'VoiceMaster'
-description: 'Description of your new file.'
+
+description: 'VoiceMaster allows users to create their own custom voice channels and customize them with Bleed.'
 ---
+## Initial Setup
+<Steps>
+  <Step title="Run the setup command.">
+    The first thing you should do is run `,vm setup`.
+    
+     This command will create a new category with two new channels, an `interface` text channel, which contains VC controls for users, and a `Join to Create` voice channel, which is used to create temporary VCs upon joining. 
+  </Step>
+  <Frame caption="VC control interface shown in the newly created `interface` channel">
+  <img src="https://github.com/ju/docs/blob/main/static/vm.png?raw=true" />
+</Frame>
+</Steps>
+
+## Customization
+<AccordionGroup>
+    <Accordion title="voicemaster category">
+        Changes the default category newly created VCs are sent to. The deafult is the same category as the `Join to Create` VC. 
+        ```
+        ,voicemaster category <category ID>
+        ```
+    </Accordion>
+
+    <Accordion title="voicemaster defaultbitrate">
+        Set the default bit rate of all new voicemaster channels.
+        ```
+        ,voicemaster deafultbitrate <rate>
+        ```
+    </Accordion>
+
+    <Accordion title="voicemaster default role">
+        Set a role that is given when a user joins **any** voicemaster channel and removed when they leave.
+        ```
+        ,voicemaster default role @role
+        ```
+    </Accordion>
+
+    <Accordion title="voicemaster defaultname">
+        Sets the default name of all newly created voicemaster channels.
+        ```
+        Example:
+        ,voicemaster defaultname {user.mention}'s custom vc
+        ```
+    </Accordion>
+
+    <Accordion title="voicemaster reset">
+        Resets all configurations for voicemaster.
+        ```
+        ,voicemaster reset
+        ```
+        <Warning>This will delete all channels and categories created by voicemaster. This includes `interface`, `Join to Create`, and the entire voicemaster category. </Warning>
+    </Accordion>
+</AccordionGroup>
+
+## VC Control Commmands
+All buttons from the `interface` channel also have command variants, found below. All commands below, except `,vm claim`, require you to be the **owner of the VC**.
+<Note>Commands with a `*` do not have a button on the interface, and ones with `🏅` require an active [**Tier 2** subscription](https://i-got-racks-bottega.bleed.bot/perks).</Note>
+
+| Command | Usage | Notes |
+| -------- | -------- | -------- |
+| `,vm lock` | Locks your VC and prevents other users from joining | Users with `administrator` permissions will bypass this |
+| `,vm unlock` | Unlocks your VC and allows others to join | N/A |
+| 🏅 `,vm ghost` | Locks and hides your VC so other members cannot join nor see it | N/A |
+| 🏅 `,vm reveal` | Unhides and unlocks your VC | N/A |
+| `,vm permit`* | Allows a specific member to join your VC | N/A |
+| `,vm reject`* | Disconnects a member from your VC and doesn't allow them to rejoin | Users with `administrator` permissions will be able to rejoin |
+| `,vm claim` | Makes you the owner of a VC when the original owner has left | Anyone connected to the channel can run this command, be quick! |
+| `,vm transfer`* | Transfers ownership of your VC to another connected user | N/A |
+| `,vm info` | Shows the configuration of the current VC | N/A |
+| `,vm limit` | Sets the member limit in your VC | Minimum is 1, max is 99 |
+| `,vm bitrate`* | Sets the bitrate within the VC | Minimum is 8, max is 384 |
+| `,vm rename`* | Renames the VC | N/A |
+| `,vm music` | Mutes all members and sets the VC to music-only | N/A |
+| `,vm role` | Sets a role to be assigned to members who join **your** VC. It will be removed upon them leaving the VC. | Requires the requires `manage roles` permission |
