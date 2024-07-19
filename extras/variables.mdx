@@ -1,6 +1,6 @@
 ---
 title: 'Variables'
-description: 'All variables that are used in the bot are listed here.'
+description: 'Lists all variables that can be used with bleed.'
 ---
 ### User
 | User Variables | Output |
@@ -14,17 +14,17 @@ description: 'All variables that are used in the bot are listed here.'
 |`{user.display_avatar}` |User available profile picture
 |`{user.joined_at}` |User guild join date in UTC
 |`{user.joined_at_timestamp}` |User guild join date in UNIX
-|`{user.created_at}` |User discord creation date in UTC
-|`{user.created_at_timestamp}` |User discord creation date in UNIX
+|`{user.created_at}` |User account creation date in UTC
+|`{user.created_at_timestamp}` |User account creation date in UNIX
 |`{user.display_name}` |Current user display name
-|`{user.boost}` |Returns Yes or No if user is boosting guild 
+|`{user.boost}` |Returns yes/no if user is boosting guild 
 |`{user.boost_since}` |User initial guild boost date
 |`{user.boost_since_timestamp}` |User initial guild boost date in UNIX 
 |`{user.color}` |User top role hex code
 |`{user.top_role}` |User top role name, defaults to N/A
 |`{user.role_list}` |User role list, defaults to N/A if none
 |`{user.role_text_list}` |User role list in text, defaults to N/A if none
-|`{user.bot}` |Returns Yes or Not if user is bot or not
+|`{user.bot}` |Returns a yes/no response if the user is a bot
 |`{user.badges_icons}`  |User profile badges w/ emotes, defaults to N/A if none
 |`{user.badges}` |User profile badges in text, defaults to N/A if none
 |`{user.join_position}` |User join position
@@ -160,7 +160,7 @@ description: 'All variables that are used in the bot are listed here.'
 `{reason}` |Reason for punishment
 `{duration}` |Duration for a jail/unjail punishment
 `{invite_url}` |Invite url generated for punishment (softban)
-`{moderator.id}` |The id of the moderator that enacted the punishment
+`{moderator.id}` |The ID of the moderator that enacted the punishment
 
 ### YouTube
 | YouTube variables | Output |
@@ -170,8 +170,3 @@ description: 'All variables that are used in the bot are listed here.'
 `{youtube.channel.name}` |Channel Name
 `{youtube.video.url}` |URL of the newly uploaded video
 `{youtube.video.thumbnail_url}` |Thumbnail URL of the newly uploaded video
-
-
-
-
-
