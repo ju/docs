@@ -7,22 +7,22 @@ description: 'Levels reward members with xp for chatting in your server, encoura
   <Step title="Unlock levelling (required)">
     The level system has to be unlocked before XP will be given to members.
     ```
-    ,levels unlock
+    levels unlock
     ```
   </Step>
   <Step title="Configure level roles">
     Level roles can be added to give users rewards for reaching a certain level. 
     ```
-    ,levels add rolename rank
+    levels add rolename rank
     ```
     ```
-    ,levels add @level 5 5
+    levels add @level 5 5
     ```
   </Step>
   <Step title="Configure your level message">
     The level message is what users see when they acheive a new rank. You can set the way that users receive the level message with the command below.
     ```
-    ,levels messagemode context
+    levels messagemode context
     ```
     There are 4 options you can use for this command:
 
@@ -33,16 +33,16 @@ description: 'Levels reward members with xp for chatting in your server, encoura
     
     You can then customise the content of the message with the command below.
     ```
-    ,levels message Congrats {user} on the level up!
+    levels message Congrats {user} on the level up!
     ```
   </Step>
   <Step title="Blacklist roles and channels">
     Roles and channels can be blacklisted as per your server needs. 
     ```
-    ,levels ignore #spam
+    levels ignore #spam
     ```
     ```
-    ,levels ignore @jailed
+    levels ignore @jailed
     ```
   </Step>
 </Steps>
@@ -53,7 +53,7 @@ description: 'Levels reward members with xp for chatting in your server, encoura
    This command is used to ensure everyone has the correct level role for their rank.
 
    ```
-   ,levels sync
+   levels sync
    ```
 
   </Accordion>
@@ -61,28 +61,28 @@ description: 'Levels reward members with xp for chatting in your server, encoura
   <Accordion title="See the leaderboard">
     This command shows the leaderboard for the server
     ```
-    ,levels leaderboard
+    levels leaderboard
     ```
   </Accordion>
 
   <Accordion title="View all blacklisted channels and roles">
    ```
-   ,levels list
+   levels list
    ```
   </Accordion>
   <Accordion title="Toggle stacking of level roles">
     ```
-    ,levels stackroles off
+    levels stackroles off
     ```
   </Accordion>
   <Accordion title="Set the rate of XP gain">
     ```
-   ,levels setrate 2
+   levels setrate 2
    ```
   </Accordion>
   <Accordion title="Reset levelling">
     ```
-   ,levels reset
+   levels reset
    ```
    </Accordion>
 </AccordionGroup>

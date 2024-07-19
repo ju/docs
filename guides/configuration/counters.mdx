@@ -5,12 +5,12 @@ description: 'Counters allow you to have a channel that shows live updates about
 
 ## Setup
 
-Counters can be added with the `,counter add` command.
+Counters can be added with the `counter add` command.
 ```
-,counter add (option) (type of channel)
+counter add (option) (type of channel)
 ```
 ```
-,counter add members vc
+counter add members vc
 ```
 This will create an automatically updating channel that keeps track of your member count, as shown below.
 <Frame>
@@ -43,16 +43,16 @@ For the channel type, you can use:
 <AccordionGroup>
   <Accordion title="List all counters">
     ```
-    ,counter list
+    counter list
     ```
   </Accordion>
 
   <Accordion title="Remove a counter">
     ```
-    ,counter remove [channel type] [action]
+    counter remove [channel type] [action]
     ```
     ```
-    ,counter remove vc delete
+    counter remove vc delete
     ```
   </Accordion>
 </AccordionGroup>
