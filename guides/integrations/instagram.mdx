@@ -1,4 +1,85 @@
 ---
 title: 'Instagram'
-description: 'Description of your new file.'
+description: 'Integrate [Instagram](https://instagram.com) into your server.'
 ---
+
+## Instagram Profile Information
+
+Running the `instagram [handle]` command will give you information on an Instagram profile, like so:
+
+<Frame type="glass" caption="Embed with Instagram profile information">
+    <img src="https://i.imgur.com/8k6DrQA.png"/>
+</Frame>
+
+### Other miscellaneous Instagram commands
+
+<AccordionGroup>
+    <Accordion title="Instagram Story">
+        This command is used to get an Instagram profile's public story.
+
+        <Info>Bleed **cannot** get stories from private accounts/close friends stories.</Info>
+
+        ```
+        igstory [handle]
+        ```
+    </Accordion>
+    <Accordion title="Instagram Highlights">
+        This command is used to get an Instagram user's highlights.
+
+        ```
+        highlights [handle]
+        ```
+
+        <Frame type="glass" caption="Viewing an Instagram user's highlight">
+            <img src="https://i.imgur.com/GzddyU1.png"/>
+        </Frame>
+    </Accordion>
+</AccordionGroup>
+
+## Creating an Instagram feed
+<Card title="Tier 3 Subscription Required" icon="medal" iconType="duotone" color="FFD700" horizontal>
+  Instagram feeds require an active **Tier 3** subscription. You can learn more [here](/perks).
+</Card>
+
+bleed allows your server to recieve notifications when an Instagram user uploads content.
+
+You can add an Instagram feed to a channel with the `instagram add [channel] [handle]` command.
+
+<Frame type="glass" caption="Adding an Instagram feed to a channel">
+    <img src="https://i.imgur.com/n4GOhr2.png"/>
+</Frame>
+
+### Customization Options
+
+<AccordionGroup>
+    <Accordion title="Custom Messages">
+        <Info>Using the `--pingable` flag allows you to mention roles!</Info>
+
+        This command is used to set a custom message for notifications.
+
+        You can view this message with `instagram message view [handle]`
+
+        ```
+        instagram message [handle] [message] [--pingable on/off]
+        ```
+    </Accordion>
+</AccordionGroup>
+
+## Related Commands
+
+<AccordionGroup>
+    <Accordion title="Remove an Instagram Feed">
+        This commoand is used to remove an Instagram feed from a channel.
+
+        ```
+        instagram remove [channel] [handle]
+        ```
+    </Accordion>
+    <Accordion title="List your server's Instagram feeds">
+        This command is used to list all Instagram feeds in your server.
+
+        ```
+        instagram list
+        ```
+    </Accordion>
+</AccordionGroup>

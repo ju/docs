@@ -1,4 +1,63 @@
 ---
 title: 'TikTok'
-description: 'Description of your new file.'
+description: 'Integrate [TikTok](https://tiktok.com) into your server.'
 ---
+
+## TikTok User Information
+
+By running the command `tiktok [username]`, you can get information on the given profile, such as likes, followers, etc.
+
+<Frame caption="Command response showing a user's TikTok profile" type="glass">
+  <img src="https://i.postimg.cc/pV688HVg/image.png" />
+</Frame>
+
+## Creating a TikTok feed
+<Card title="Tier 2 Subscription Required" icon="medal" iconType="duotone" color="c0c0c0" horizontal>
+  TikTok feeds require an active **Tier 2** subscription. You can learn more [here](/perks).
+</Card>
+
+By adding a feed, all posts from a user will be reposted into your desired channel automatically.
+
+To add a feed from TikTok, run `tiktok add #channel [username]`
+
+<Frame caption="Adding a TikTok feed to a channel" type="glass">
+  <img src="https://i.postimg.cc/15c8BnpV/image.png" />
+</Frame>
+
+### Customization Options
+
+<AccordionGroup>
+    <Accordion title="Custom Messages">
+        Add a custom message that is sent to your channel alongside the TikTok.
+        <Tip>Supports **raw text** and **embed code**! Add `--pingable on` to ping a role in the message.</Tip>
+        ```
+        // Command syntax
+        tiktok message [username] [message]
+
+        // Raw text example without ping
+        tiktok message [username] Bryce posted!
+
+        // Embed example with ping
+        tiktok message [username] {embed}$v{description: Bryce posted!}$v{message:@everyone} --pingable on
+        ```
+        You can view the message set with `tiktok message view [username]`
+    </Accordion>
+</AccordionGroup>
+
+### Related Commands
+
+<AccordionGroup>
+    <Accordion title="Remove a TikTok feed">
+        Used to remove a TikTok feed from a channel
+        ```
+        tiktok remove [channel] [username]
+        ```
+    </Accordion>
+
+    <Accordion title="List all TikTok feeds">
+        Used to list all TikTok feeds within your server
+        ```
+        tiktok list
+        ```
+    </Accordion>
+</AccordionGroup>

@@ -9,17 +9,40 @@ You can add or remove a boost message in a channel with **embed code** or **raw 
 </Card>
 ### Syntax
 ```
-,boost add #channel Thanks for boosting {guild.name} {user.mention}!
-,boost add #channel Thanks for boosting {guild.name} {user.mention}! --self_destruct 6
+boost add #channel Thanks for boosting {guild.name} {user.mention}!
+boost add #channel Thanks for boosting {guild.name} {user.mention}! --self_destruct 6
 
-,boost add #channel {embed}$v{description: Thanks for boosting {guild.name}, {user.mention}!}
-,boost add #channel {embed}$v{description: Thanks for boosting {guild.name}, {user.mention}!} --self_destruct 30
+boost add #channel {embed}$v{description: Thanks for boosting {guild.name}, {user.mention}!}
+boost add #channel {embed}$v{description: Thanks for boosting {guild.name}, {user.mention}!} --self_destruct 30
 ```
 
-## Related commands
-```
-,boost remove #channel
-,boost view #channel
-,boost list
-,boost variables
-```
+### Related commands
+<AccordionGroup>
+  <Accordion title="Remove a boost message">
+    This command is used to remove a boost message from a channel.
+    ```
+    boost remove #channel
+    ```
+  </Accordion>
+
+  <Accordion title="View a boost message">
+    This command is used to view a boost message in a channel.
+    ```
+    boost view #channel
+    ```
+  </Accordion>
+
+  <Accordion title="List all boost messages">
+    This command is used to list all boost messages in a server.
+    ```
+    boost list
+    ```
+  </Accordion>
+
+  <Accordion title="View all variables">
+    This command is used to view all variables that can be used in a boost message.
+    ```
+    boost variables
+    ```
+  </Accordion>
+</AccordionGroup>

@@ -1,4 +1,61 @@
 ---
 title: 'YouTube'
-description: 'Description of your new file.'
+description: 'Integrate [YouTube](https://youtube.com/) notifications into your server.'
 ---
+
+## Searching YouTube
+
+With bleed, you can search YouTube for videos via the base `youtube` command.
+
+<Frame caption="Searching YouTube with bleed" type="glass">
+    <img src="https://i.imgur.com/y3SMxWg.png"/>
+</Frame>
+
+## Creating a YouTube feed
+
+bleed allows your server to recieve notifications when a user uploads content to YouTube.
+
+You can add a YouTube feed to a channel with the `youtube add [channel] [handle]` command.
+
+<Frame caption="Adding a YouTube feed to a channel" type="glass">
+    <img src="https://i.imgur.com/oC6ZP4z.png"/>
+</Frame>
+
+### Customization Options
+
+<AccordionGroup>
+    <Accordion title="Custom Messages">
+        <Info>
+            The message parameter takes either embed code or raw text!
+
+            You can use [YouTube variables](/extras/variables) in your message.
+        </Info>
+
+        This command is used to set a custom message for new uploads.
+
+        You can view this message with `youtube message view [handle]`
+
+        ```
+        youtube message [handle] [message] [--pingable on/off]
+        ```
+    </Accordion>
+</AccordionGroup>
+
+## Related Commands
+
+<AccordionGroup>
+    <Accordion title="Remove a YouTube feed">
+        This command is used to remove a YouTube feed from a channel.
+
+        ```
+        youtube remove [channel] [handle]
+        ```
+    </Accordion>
+    <Accordion title="List your server's YouTube feeds">
+        This command is used to list all YouTube feeds in your server.
+
+        ```
+        youtube list
+        ```
+    </Accordion>
+</AccordionGroup>

@@ -5,11 +5,11 @@ description: 'Giveaways allow your server to easily create events where particip
 
 ## Starting a Giveaway
 
-You can start a giveaway in your server via the `,giveaway start` command.
+You can start a giveaway in your server via the `giveaway start` command.
 
 ```
-,giveaway start [channel] [duration] [winners] [prize]
-,giveaway start #giveaways 24h 4 Concert Tickets
+giveaway start [channel] [duration] [winners] [prize]
+giveaway start #giveaways 24h 4 Concert Tickets
 ```
 
 <Frame type="glass" caption="Simple giveaway usage">
@@ -18,7 +18,7 @@ You can start a giveaway in your server via the `,giveaway start` command.
 
 ## Editing a Giveaway
 
-You can edit options and requirements of a giveaway with the `,giveaway edit` command.
+You can edit options and requirements of a giveaway with the `giveaway edit` command.
 
 <Info>The `[message link]` parameter in command syntax should be replaced with the giveaway embed's message link.</Info>
 
@@ -27,7 +27,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change a giveaway's embed thumbnail.
 
     ```
-    ,giveaway edit thumbnail [message link] [url or attachment]
+    giveaway edit thumbnail [message link] [url or attachment]
     ```
   </Accordion>
 
@@ -35,7 +35,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change a giveaway's embed image.
 
     ```
-    ,giveaway edit image [message link] [url or attachment]
+    giveaway edit image [message link] [url or attachment]
     ```
   </Accordion>
 
@@ -43,7 +43,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change a giveaway's embed description.
 
     ```
-    ,giveaway edit description [message link] [description]
+    giveaway edit description [message link] [description]
     ```
   </Accordion>
 
@@ -53,7 +53,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This feature only works with bleed's [level system](/guides/configuration/levels).
 
     ```
-    ,giveaway edit minlevel [message link] [level]
+    giveaway edit minlevel [message link] [level]
     ```
   </Accordion>
 
@@ -63,7 +63,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This feature only works with bleed's [level system](/guides/configuration/levels).
 
     ```
-    ,giveaway edit maxlevel [message link] [level]
+    giveaway edit maxlevel [message link] [level]
     ```
   </Accordion>
 
@@ -71,7 +71,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to set the role requirement for giveaway entry.
 
     ```
-    ,giveaway edit host [message link] [member]
+    giveaway edit host [message link] [member]
     ```
   </Accordion>
 
@@ -79,7 +79,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change the giveaway's ending prize.
 
     ```
-    ,giveaway edit maxlevel [message link] [prize]
+    giveaway edit maxlevel [message link] [prize]
     ```
   </Accordion>
 
@@ -87,7 +87,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change the giveaway winner's rewarding role.
 
     ```
-    ,giveaway edit roles [message link] [role]
+    giveaway edit roles [message link] [role]
     ```
   </Accordion>
 
@@ -95,7 +95,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change the remaining duration of a giveaway.
 
     ```
-    ,giveaway edit roles [message link] [duration]
+    giveaway edit roles [message link] [duration]
     ```
   </Accordion>
 
@@ -103,7 +103,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change a giveaway's host.
 
     ```
-    ,giveaway edit host [message link] [member]
+    giveaway edit host [message link] [member]
     ```
   </Accordion>
 
@@ -111,7 +111,7 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to change a giveaway's winner count.
 
     ```
-    ,giveaway edit host [message link] [winners]
+    giveaway edit host [message link] [winners]
     ```
   </Accordion>
 </AccordionGroup>
@@ -125,10 +125,10 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
    This command is used to end a giveaway without picking any winners.
 
     ```
-    ,giveaway cancel [message link]
+    giveaway cancel [message link]
     ```
     ```
-    ,giveaway cancel https://discord.com/channels/.../.../...
+    giveaway cancel https://discord.com/channels/.../.../...
     ```
 
   </Accordion>
@@ -137,10 +137,10 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to choose a new winner on the specified giveaway.
 
     ```
-    ,giveaway reroll [message link]
+    giveaway reroll [message link]
     ```
     ```
-    ,giveaway reroll https://discord.com/channels/.../.../...
+    giveaway reroll https://discord.com/channels/.../.../...
     ```
   </Accordion>
 
@@ -148,17 +148,17 @@ You can edit options and requirements of a giveaway with the `,giveaway edit` co
     This command is used to end an active giveaway early.
 
     ```
-    ,giveaway end [message link]
+    giveaway end [message link]
     ```
     ```
-    ,giveaway end https://discord.com/channels/.../.../...
+    giveaway end https://discord.com/channels/.../.../...
     ```
   </Accordion>
   <Accordion title="List all giveaways">
     Used to list all giveaways in your sever.
 
     ```
-    ,giveaway list
+    giveaway list
     ```
   </Accordion>
 </AccordionGroup>

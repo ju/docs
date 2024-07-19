@@ -1,4 +1,69 @@
 ---
 title: 'X'
-description: 'Description of your new file.'
+description: 'Integrate [X](https://x.com) into your server.'
 ---
+
+## X User Information
+
+By running the command `x [handle]`, you can get information on the given profile, such as join date, followers, etc.
+
+<Frame caption="Command response showing a user's X profile" type="glass">
+  <img src="https://i.postimg.cc/nhrNhcDW/image.png" />
+</Frame>
+
+## Creating an X feed
+
+By adding a feed, all posts from a user will be reposted into your desired channel automatically.
+
+To add a feed from X, run `x add [channel] [user]`
+
+<Frame caption="Adding an X feed to a channel" type="glass">
+  <img src="https://i.postimg.cc/85ZhcDWy/image.png" />
+</Frame>
+
+### Customization Options
+
+<AccordionGroup>
+    <Accordion title="Custom Messages">
+        Add a custom message that is sent to your channel alongside the tweet.
+        <Warning> When setting a pingable message with X, it is advised to private the channel when setting up. Bleed will bulk send the first portion of tweets, which can cause people to be pinged repeatedly in a matter of seconds. </Warning>
+        <Tip>Supports **raw text** and **embed code**! Add `--pingable on` to ping a role in the message.</Tip>
+        ```
+        // Command syntax
+        x message [handle] [message]
+
+        // Raw text example without ping
+        x message [handle] New post!
+
+        // Embed example with ping
+        x message [handle] {embed}$v{description: New post!}$v{message:@everyone} --pingable on
+        ```
+        You can view the message set with `x message view [handle]`
+    </Accordion>
+
+    <Accordion title="Include Retweets">
+        Allows you to enable or disable a user's retweets from showing up in the channel
+        <Info>This is turned **off** by default!</Info>
+        ```
+        x retweets #channel [handle] (yes or no)
+        ```
+    </Accordion>
+</AccordionGroup>
+
+### Related Commands
+
+<AccordionGroup>
+    <Accordion title="Remove an X feed">
+        Used to remove an X feed from a channel
+        ```
+        x remove [channel] [handle]
+        ```
+    </Accordion>
+
+    <Accordion title="List all X feeds">
+        Used to list all X feeds within your server
+        ```
+        x list
+        ```
+    </Accordion>
+</AccordionGroup>

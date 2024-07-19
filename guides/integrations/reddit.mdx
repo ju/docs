@@ -1,4 +1,66 @@
 ---
 title: 'Reddit'
-description: 'Description of your new file.'
+description: 'Integrate [Reddit](https://reddit.com) into your server.'
 ---
+
+## Subreddit Information
+
+Running the `subreddit [name]` command will give you information on a subreddit, like so:
+
+<Frame caption="Embed with Subreddit information" type="glass">
+    <img src="https://i.imgur.com/SGVZjMS.png"/>
+</Frame>
+
+## Creating a Reddit feed
+
+bleed allows your server to recieve notifications when a user uploads to a subreddit.
+
+You can add a Subreddit feed to a channel with the `subreddit add [channel] [subreddit]` command.
+
+<Info>Subreddit feeds can take up to **30 minutes** to start posting content.</Info>
+
+<Frame caption="Adding a Reddit feed to a channel" type="glass">
+    <img src="https://i.imgur.com/vy4ju0q.png"/>
+</Frame>
+
+### Customization Options
+
+<AccordionGroup>
+    <Accordion title="Custom Messages">
+        <Info>Using the `--pingable` flag allows you to mention roles!</Info>
+
+        This command is used to set a custom message for new posts.
+
+        You can view this message with `subreddit message view [subreddit]`
+
+        ```
+        subreddit message [subreddit] [message] [--pingable on/off]
+        ```
+    </Accordion>
+    <Accordion title="Embed Colors">
+        This command is used to set a custom embed color for new posts.
+
+        ```
+        subreddit message [subreddit] [color]
+        ```
+    </Accordion>
+</AccordionGroup>
+
+## Related Commands
+
+<AccordionGroup>
+    <Accordion title="Remove a Reddit feed">
+        This command is used to remove a Reddit feed from a channel.
+
+        ```
+        subreddit remove [channel] [handle]
+        ```
+    </Accordion>
+    <Accordion title="List your server's Reddit feeds">
+        This command is used to list all Reddit feeds in your server.
+
+        ```
+        subreddit list
+        ```
+    </Accordion>
+</AccordionGroup>

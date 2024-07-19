@@ -7,32 +7,53 @@ You can add or remove a welcome/goodbye message in a channel with **embed code**
 <Card title="Accepted Parameters" icon="lightbulb" iconType="duotone" color="#69919d">
   These commands accepts the `--self_destruct 6` parameter, which makes the message autodelete after 6 seconds. You can add a higher number to make it stay in the channel longer, but 6 seconds is the minimum.
 </Card>
+
 ### Syntax
 ```
-,welcome add #channel welcome to {guild.name} {user.mention}!
-,welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
+welcome add #channel welcome to {guild.name} {user.mention}!
+welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
 
-,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
-,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
+welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
+welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
 ```
 ```
-,goodbye add #channel see you soon {user.mention}!
-,goodbye add #channel see you soon {user.mention} --self_destruct 6
+goodbye add #channel see you soon {user.mention}!
+goodbye add #channel see you soon {user.mention} --self_destruct 6
 
-,goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
-,goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
+goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
+goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
 ```
 
 ## Related commands
-```
-,welcome remove #channel
-,welcome view #channel
-,welcome list
-,welcome variables
-```
-```
-,goodbye remove #channel
-,goodbye view #channel
-,goodbye list
-,goodbye variables
-```
+Welcome & Goodbye messages have the **same subcommands**, so the examples below are for **welcome messages** only.
+For goodbye messages, replace `welcome` with `goodbye`.
+
+<AccordionGroup>
+  <Accordion title="Removing a welcome message">
+    This command is used to remove a welcome message from a channel.
+    ```
+    welcome remove #channel
+    ```
+  </Accordion>
+
+  <Accordion title="Viewing a welcome message">
+    This command is used to view a welcome message in a channel.
+    ```
+    welcome view #channel
+    ```
+  </Accordion>
+
+  <Accordion title="Listing all welcome messages">
+    This command is used to list all welcome messages in a server.
+    ```
+    welcome list
+    ```
+  </Accordion>
+
+  <Accordion title="Viewing all variables">
+    This command is used to view all variables that can be used in a welcome message.
+    ```
+    welcome variables
+    ```
+  </Accordion>
+</AccordionGroup>
