@@ -1,24 +1,24 @@
 ---
 title: 'Counters'
-description: 'Counters allow you to have a channel that shows live updates about your guild, like the member count.'
+description: 'Counters create a channel or category that displays live updates about your server, such as member count.'
 ---
 
 ## Setup
 
-Counters can be added with the `counter add` command.
+Counters can be added using `counter add`.
 ```
-counter add (option) (type of channel)
+counter add (counter type) (type of channel)
 ```
 ```
 counter add members vc
 ```
-This will create an automatically updating channel that keeps track of your member count, as shown below.
+This will create a channel that keeps track of your member count, as shown below.
 <Frame>
-  <img src="https://github.com/ju/docs/blob/main/static/counter.png?raw=true" />
+  <img src="https://i.postimg.cc/rwsM8wvp/image.png" />
 </Frame>
 
-## Available types
-For the option, you can use:
+## Counter Types
+You can keep track of the following:
 - `members` 
 - `users_only` 
 - `bots_only` 
@@ -32,14 +32,14 @@ For the option, you can use:
 - `boosts` 
 - `booster_count`
 
-For the channel type, you can use:
+You can use the following channel types:
 - `vc` 
 - `text`
 - `category`
 - `announce`
 - `stage`
 
-## Related commands
+## Related Commands
 <AccordionGroup>
   <Accordion title="List all counters">
     ```
@@ -56,5 +56,3 @@ For the channel type, you can use:
     ```
   </Accordion>
 </AccordionGroup>
-
-

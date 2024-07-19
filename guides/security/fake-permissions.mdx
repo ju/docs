@@ -1,15 +1,15 @@
 ---
 title: 'Fake Permissions'
-description: "Fake permissions allow you to restrict a moderators native role permissions and making a nuke impossible by forcing usage of bleed's moderation commands."
+description: "Fake permissions restrict a moderator's native role permissions, making a server nuke impossible by requiring the use of bleed's moderation commands."
 ---
 ## What are the benefits of fake permissions?
 
-Fake permissions restrict your moderators and administrators access to native discord permissions, such as `ban_members` or `manage_channels`. This means that, for example, even though the `ban_members` discord permission is not attached to that role, they can still use the `,ban` command within bleed.
+Fake permissions restrict your moderator's and administrator's access to native Discord permissions, such as `ban_members` or `manage_channels`. This means that, for example, even though the `ban_members` Discord permission is not attached to that role, they can still use the `,ban` command with bleed.
 
-This negates the possibility of a rogue administrator or moderator using a script that spams the Discord API and mass bans all members or deletes all channels as they don't have that permission - it makes nuking practically impossible. 
+This negates the possibility of a rogue administrator or moderator using a script that spams the Discord API and mass bans all members or deletes all channels as they don't have that permission. It makes nuking practically impossible. 
 
-## How to manage a role's fake permissions.
-<Info>You must be the **server owner** to run these commands. - a full list of supported permissions can be found [here](/extras/fplist).</Info>
+## How to Manage a Role's Fake Permissions
+<Info>You must be the **server owner** to run these commands. A full list of supported permissions can be found [here](/extras/fplist).</Info>
 
 ```
 // syntax
@@ -23,7 +23,7 @@ fakepermissions remove (role mention or id) ban_members
 // example
 fakepermissions remove @Moderator ban_members
 ```
-## Examples for fake permission setups
+## Examples for Fake Permission Setup
 <Tabs>
   <Tab title="Moderator Role">
     `fakepermissions grant (mod role) manage_messages`
@@ -34,7 +34,7 @@ fakepermissions remove @Moderator ban_members
 
     `fakepermissions grant (mod role)  kick_members`
   </Tab>
-  <Tab title="Administrator Tole">
+  <Tab title="Administrator Role">
     `fakepermissions grant (admin role) manage_messages`
 
     `fakepermissions grant (admin role) moderate_members`
@@ -52,7 +52,5 @@ fakepermissions remove @Moderator ban_members
     `fakepermissions grant (co-owner role) administrator`
   </Tab>
 </Tabs>
-<Info>The above is just reccomended and not required. You can fully customise it to your server's needs.</Info>
 
-
-
+<Info>The above is just recommended and is not required. You can fully customize it to your server's needs.</Info>

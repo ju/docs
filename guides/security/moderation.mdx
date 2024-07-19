@@ -1,32 +1,49 @@
 ---
 title: 'Moderation'
-description: "As soon as you invite the bot to a server that its never been in before, you'll want to set up moderation commands and moderation logs with the commands below."
+description: 'As soon as you invite the bot to a server for the first time, set up moderation commands and logs.'
 ---
 
-```
-setup - Configures jail and mod logs
-setupmute - Configures necessary mute roles
-```
-You should then see that bleed has created two channels, as shown below. The **jail-log** channel is where all the logs for moderation command usage goes, and the **jail** channel is where jailed users are restricted to. 
-<img height="300" width="300" src="https://bleed.bot/img/mod-channels.png" />
+## Initial Setup
+<Steps>
+  <Step title="Running setup commands">
+    Make sure to run these two commands before using the bot.
+   ```
+   setup - Configures jail & mod logs
+   setupmute - Configures mute roles
+   ```
+  </Step>
+</Steps>
+<Frame type="glass" caption="Running setup commands">
+  <img src="https://i.postimg.cc/pXsrR71P/image.png"/>
+</Frame>
+
+Upon completion, you will notice that bleed has created two channels, as shown below. The **jail-log** channel is where all the logs for moderation actions goes, and the **jail** channel is where jailed users are restricted to.
+<Frame type="glass" caption="Newly created jail and jail-log channels">
+  <img src="https://i.postimg.cc/VkwgPJTx/image.png"/>
+</Frame>
+
 Additionally, Bleed will have created 3 roles for muting of members, as seen below.
-<img height="200" width="600" src="https://bleed.bot/img/mod-muted-roles.png" />
-### What do all these roles do?
+<Frame type="glass" caption="Newly created mute roles">
+  <img src="https://i.postimg.cc/Rhrf18xk/image.png"/>
+</Frame>
+
+### What do these roles do?
 <AccordionGroup>
   <Accordion title="Jail">
-    Restricts a member to being only able to see your jail channel that you setup earlier. Make sure to run `settings jailroles true` in order to make bleed remove a users roles upon jailing them.
+    Restricts a member to only being able to see your jail channel. Make sure to run `settings jailroles true` in order to remove a user's roles upon jailing them.
   </Accordion>
 
   <Accordion title="Muted">
-  Removes a member's permission to talk in channels via the addition of a role with that permission denied.
+  Removes a member's permission to talk in channels. This is made possible with the addition of the mute role with the permission denied.
   </Accordion>
 
   <Accordion title="Image Muted">
-    Removes a member's permission to attach files and embed links in channels via the addition of a role with that permission denied.
+    Removes a member's permission to attach files and embed links in channels. This is made possble with the addition of the imute role with that permission denied.
   </Accordion>
 
   <Accordion title="Reaction Muted">
-    Removes a member's permission to add reactions and send external emoji and stickers in channels via the addition of a role with that permission denied.
+    Removes a member's permission to add reactions and send external emoji and stickers in channels. This is made possible with the addition of the rmute role with that permission denied.
   </Accordion>
 </AccordionGroup>
-From here, you can setup and configure other modules as you need or want them. Setup guides for most features are included in this documentation.
+
+From here, you can set up and configure other modules as you'd like. Setup guides for most features are included in this documentation.
