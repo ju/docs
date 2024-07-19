@@ -1,11 +1,11 @@
 ---
 title: 'Pinterest'
-description: 'The Pinterest integration allows your server to create feeds from a Pinterest users public board.'
+description: 'Integrate [Pinterest](https://pinterest.com) into your server.'
 ---
 
 ## Pinterest User Information
 
-Running the `,pinterest [handle]` command will give you information on a Pinterest profile, like so:
+Running the `pinterest [handle]` command will give you information on a Pinterest profile, like so:
 
 <Frame type="glass" caption="Embed with Pinterest user information">
   <img src="https://github.com/ju/docs/blob/main/static/pinlookup.png?raw=true"/>
@@ -13,14 +13,14 @@ Running the `,pinterest [handle]` command will give you information on a Pintere
 
 ## Searching images with Pinterest Lens
 
-You can reverse search an image/member avatar via Pinterest Lens with the `,pinsearch` command.
+You can reverse search an image/member avatar via Pinterest Lens with the `pinsearch` command.
 
 ```
 // Search an image
-,pinsearch [attachment or url]
+pinsearch [attachment or url]
 
 // Search a member's avatar
-,pinsearch [member mention]
+pinsearch [member mention]
 ```
 
 <Frame type="glass" caption="Searching a member's avatar with pinsearch">
@@ -32,7 +32,7 @@ You can reverse search an image/member avatar via Pinterest Lens with the `,pins
 bleed allows your server to recieve images from a user's Pinterest board to a Discord channel.
 This can be used for things like auto profile picture publishing.
 
-You can add a Pinterest feed to a channel with the `,pinterest add [channel] [handle]` command.
+You can add a Pinterest feed to a channel with the `pinterest add [channel] [handle]` command.
 
 <Frame type="glass" caption="Adding a Pinterest feed to a channel">
   <img src="https://github.com/ju/docs/blob/main/static/pinfeed.png?raw=true"/>
@@ -45,19 +45,19 @@ You can add a Pinterest feed to a channel with the `,pinterest add [channel] [ha
     This command is used to enable/disable embeds for new pins.
 
     ```
-    ,pinterest embeds [channel] [yes or no]
+    pinterest embeds [channel] [yes or no]
     ```
   </Accordion>
 
   <Accordion title="Custom Messages">
-    <Info>Using the `--pingable` flag will allow you to ping roles!</Info>
+    <Info>Using the `--pingable` flag allows you to mention roles!</Info>
 
     This command is used to set a custom message for new pins.
 
-    You can view this message with `,pinterest message view [handle]`
+    You can view this message with `pinterest message view [handle]`
 
     ```
-    ,pinterest message [handle] [message] [--pingable on/off]
+    pinterest message [handle] [message] [--pingable on/off]
     ```
   </Accordion>
 </AccordionGroup>
@@ -69,7 +69,7 @@ You can add a Pinterest feed to a channel with the `,pinterest add [channel] [ha
     This command is used to remove a Pinterest feed from a channel.
 
     ```
-    ,pinterest remove [channel] [handle]
+    pinterest remove [channel] [handle]
     ```
   </Accordion>
 
@@ -77,13 +77,7 @@ You can add a Pinterest feed to a channel with the `,pinterest add [channel] [ha
     This command is used to list all Pinterest feeds in your server.
 
     ```
-    ,pinterest list
+    pinterest list
     ```
   </Accordion>
 </AccordionGroup>
-
-<Info>
-  You can repost a **Pinterest post** by going to a channel and saying `bleed (link)`!
-
-  Example: `bleed https://www.pinterest.com/pin/462885667969100317/`
-</Info>

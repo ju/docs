@@ -1,24 +1,24 @@
 ---
-title: 'Autoresponders'
+title: 'Auto Responders'
 description: 'Autoresponders are used to have bleed automatically respond with text or an embed to a trigger word or phrase.'
 ---
 
 ## How to add an autoresponder
 
-`,autoresponder add` is the way to get started with autoresponders. This command is used to add an autoresponder to your server - Autoresponders can be either **raw text** or an **embed**.
+`autoresponder add` is the way to get started with autoresponders. This command is used to add an autoresponder to your server - Autoresponders can be either **raw text** or an **embed**.
 ```
 // adding a text autoresponder without parameters
-,autoresponder add [trigger], [response]
-,autoresponder add welc, welcome to the server!
+autoresponder add [trigger], [response]
+autoresponder add welc, welcome to the server!
 
 // adding a text autoresponder with parameters
-,autoresponder add welc, welcome to the server! --reply
+autoresponder add welc, welcome to the server! --reply
 
 // adding an embed autoresponder without parameters
-,autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!}
+autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!}
 
 // adding an embed autoresponder with parameters
-,autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!} --reply
+autoresponder add welc, {embed}$v{title:Weclome}$v{description: welcome to the server!} --reply
 ```
 ## Parameters
 | Parameter used on end of response | Function|
@@ -45,10 +45,10 @@ description: 'Autoresponders are used to have bleed automatically respond with t
    This command is used to restrict certain autoresponders to certain roles only.
 
    ```
-   ,autoresponder role [role] [allow or deny] [trigger]
+   autoresponder role [role] [allow or deny] [trigger]
    ```
    ```
-   ,autoresponder role @staff allow prices
+   autoresponder role @staff allow prices
    ```
 
   </Accordion>
@@ -56,38 +56,38 @@ description: 'Autoresponders are used to have bleed automatically respond with t
   <Accordion title="Restrict by channel">
     This command is used to restrict certain autoresponders to certain channels only.
    ```
-   ,autoresponder channel [channel] [allow or deny] [trigger]
+   autoresponder channel [channel] [allow or deny] [trigger]
    ```
    ```
-   ,autoresponder channel #buy allow prices 
+   autoresponder channel #buy allow prices 
    ```
   </Accordion>
 
   <Accordion title="Update an autoresponder">
     Use this command to update the response for a pre existing autoresponder.
     ```
-   ,autoresponder update [trigger], [new response]
+   autoresponder update [trigger], [new response]
    ```
    ```
-   ,autoresponder update welcome, welcome to the server, check out #selfroles
+   autoresponder update welcome, welcome to the server, check out #selfroles
    ```
   </Accordion>
   <Accordion title="Check variables">
     This command returns a link to the [variables](/extras/variables) page.
     ```
-   ,autoresponder variables
+   autoresponder variables
    ```
   </Accordion>
   <Accordion title="List guild autoresponders">
     Used to list all autoresponses in your guild. 
     ```
-   ,autoresponder list
+   autoresponder list
    ```
   </Accordion>
   <Accordion title="Reset autoresponders">
     Used to delete all autoresponses in your guild. 
     ```
-   ,autoresponder reset
+   autoresponder reset
    ```
    </Accordion>
 </AccordionGroup>

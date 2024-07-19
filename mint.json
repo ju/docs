@@ -69,7 +69,7 @@
         {
             "group": "Server Configuration",
             "icon": "gear",
-            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts", "guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/levels", "guides/configuration/vanityroles"]
+            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts", "guides/configuration/aliases", "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/vanityroles", "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/levels"]
         },
         {
             "group": "Embed Scripting",
@@ -90,7 +90,8 @@
         "extras/parameters",
         "extras/voices",
         "extras/fplist",
-        "extras/langcodes"
+        "extras/langcodes",
+        "extras/parameters"
       ]
     }
   ],

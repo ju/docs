@@ -2,19 +2,18 @@
 title: 'Antinuke'
 description: 'Antinuke consists of bleed imposing limits on your server staff to prevent the destruction of your server or an administrator overstepping their boundries.'
 ---
-## About antinuke.
+## Getting started
 Antinuke is triggered by a threshold set per user - for example, the threshold could be 3 bans before triggering. Something to note is that your threshold should never be too high. Your threshold should be set between 1-6 if you really want antinuke to work properly.
 
 You should also keep in mind that whitelisting a member in your server will exempt the member from triggering antiraid - meaning they can just nuke your server and easily get away with it. Please only whitelist members that you feel truly confident in whitelisting.
 
-## Antinuke configuration.
+## Configuration
 ### Description
-Initially, only the server owner can run commands relating to antinuke. However, the owner can designate 'Antinuke Admins' that have full access to enabling, disabling, and whitelisting in relation to Antinuke. Antinuke Admins can be added with the command `,an admin @user`, for example: `,an admin @upuri`.
-
+Initially, only the server owner can run commands relating to antinuke. However, the owner can designate 'Antinuke Admins' that have full access to enabling, disabling, and whitelisting in relation to Antinuke. Antinuke Admins can be added with the command `an admin [user]`.
 Antinuke commands have 3 main parameters:
 - `--threshold` (How many actions are allowed before trigger)
 - `--do` (What punishment to enact)
-- `--command` (If bleed commands, eg. `,ban`, also count towards the threshold)
+- `--command` (If bleed commands, eg. `ban`, also count towards the threshold)
 
 And 8 main modules:
 - `role deletion`
@@ -28,17 +27,17 @@ And 8 main modules:
 <Info>The `--command` paramter only applies to modules with command equivalents - for example you cannot apply the `--command` parameter on the `channel deletion` module as there is no channel delete command within bleed</Info>
 ### Example
 ```
-,antinuke role on
-,antinuke role on --do ban
-,antinuke role on --threshold 3
-,antinuke role on --do ban --command on
-,antinuke role on --do ban --command on --threshold 3
+antinuke role on
+antinuke role on --do ban
+antinuke role on --threshold 3
+antinuke role on --do ban --command on
+antinuke role on --do ban --command on --threshold 3
 ```
 <Warning>The `vanity protection` module only takes the `--do` parameter. The ` anti bot join filter` module doesn't take any.</Warning>
 ```
-,antinuke vanity on 
-,antinuke botadd on
-,antinuke vanity on --do kick
+antinuke vanity on 
+antinuke botadd on
+antinuke vanity on --do kick
 ```
 
 
