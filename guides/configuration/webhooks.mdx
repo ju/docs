@@ -4,32 +4,32 @@ description: 'A guide on how to use webhooks with bleed.'
 ---
 ## What are webhooks?
 Webhooks can be created with bleed, Webhooks are a low-effort way to post messages to channels in Discord with a custom name and avatar. 
-<Info>Webhooks can be sent with embed code by using `{embed}` in the message section. For help with this, join the [Embed Support Server]((https://discord.gg/embeds).</Info>
+<Info>Webhooks can be sent with embed code by using `{embed}` in the message section. For help with this, join the [Embed Support Server](https://discord.gg/embeds).</Info>
 
 <Steps> 
 <Step title= "Create your webhook">
-When creating a webhook with bleed, run the following command: `,webhook create (name of your webhook)`. You can change this name later within discord channel settings under "Integrations".
+When creating a webhook with bleed, run the following command: `webhook create (name of your webhook)`. You can change this name later within discord channel settings under "Integrations".
 ```
-,webhook create rules
+webhook create rules
 ```
 
 <Frame type="glass" caption="Webhook Create">
   <img src="https://i.imgur.com/4Acd3D3.png"/>
 </Frame>
 
-<Warning>Make a note of your webhook identifier, this can be viewed with `,webhook list`.</Warning> 
+<Warning>Make a note of your webhook identifier, this can be viewed with `webhook list`.</Warning> 
 
 </Step>
 
 <Step title= "How to use your webhook">
-To use the webhook you just created, run `,webhook send (identifier) (message)` 
+To use the webhook you just created, run `webhook send (identifier) (message)` 
 <Frame type="glass" caption="Webhook Send">
   <img src="https://i.imgur.com/LRAtgxh.png"/>
 </Frame>
 </Step>
 
 <Step title= "Edit your webhook">
-To edit your webhook use `,webhook edit (messagelink) (new message or embed code)`
+To edit your webhook use `webhook edit (messagelink) (new message or embed code)`
 <Frame type="glass" caption="Webhook Edit">
   <img src="https://i.imgur.com/9dpxJs4.png"/>
 </Frame>
@@ -43,14 +43,14 @@ To edit your webhook use `,webhook edit (messagelink) (new message or embed code
     <Accordion title="Delete your webhook">
         Delete a webhook you have made.
         ```
-        ,webhook delete (identifier)
+        webhook delete (identifier)
         ```
     </Accordion>
     
     <Accordion title="View all the webhooks created">
         View a list of all the webhooks in the server and who they belong to.
         ```
-        ,webhook list
+        webhook list
         ```
     </Accordion>
 </AccordionGroup>
