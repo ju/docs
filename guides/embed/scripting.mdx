@@ -1,4 +1,54 @@
 ---
 title: 'Scripting'
-description: 'Description of your new file.'
+description: "Here you'll learn how to script embed code for commands that support it."
 ---
+### Properly create an embed
+To create a embed, you must know what [parameters](/extras/parameters) and [variables](/extras/variables) are and how they are used. <br />
+The following examples will help you understand how to use these.
+
+  <Frame type="glass">
+    <img src="https://i.imgur.com/ytj8EjS.png"/>
+  </Frame>
+
+In the screenshot above, the embed parameters being used are [**title**](/extras/parameters#title), [**description**](/extras/parameters#description), [**color**](/extras/parameters#color), [**author**](/extras/parameters#author), [**footer**](/extras/parameters#footer), [**url**](/extras/parameters#url), [**field**](/extras/parameters#field) and [**timestamp**](/extras/parameters#timestamp).
+
+### Structure
+
+ `{` begins a parameter. <br /> `:` seperates parameter from content.  <br /> `$v` seperates the parameters. <br /> `}` ends a parameter.
+
+### Variables inside parameters
+
+Now, we'll be implenting [variables](/extras/variables) into our embed code.
+ ``` 
+{description: {guild.name}}$v{message: Hello! {user.mention}}
+```
+  <Frame type="glass">
+    <img src="https://i.imgur.com/PDikvh8.png"/>
+  </Frame>
+
+`{guild.name}` returns the guild's name, while `{user.mention}` mentions the targeted user.
+
+
+### How can I add a new line to my description parameter?
+It's very simple. All you do is enter SHIFT+ENTER / go to the next line in your message-box on Discord. <br /> **(Note: embed code may not look visually appealing)**            
+
+### Why isn't my embed code working for some commands?
+
+Some commands allow both raw text and embed code. Because of this, you'll need to specify if youre gonna enter an embed. To do this, you'll need to begin your embed code with `{embed}$v` then proceed to write your embed code after as normally.
+
+
+ ```
+  ,welcome add #channel {embed}$v$v{message: Welcome to /{guild.name} {user.mention}}$v{description: Welcome Slatt}
+ ```
+
+### Commands that require/support embed code
+> **(!)** means that the command take both raw text and embed code.
+- createembed
+- editembed
+- lastfm mode **(!)**
+- welcome add **(!)**
+- goodbye add **(!)**
+- boosts add **(!)**
+- levels message **(!)**
+- pagination add 
+- pagination update
