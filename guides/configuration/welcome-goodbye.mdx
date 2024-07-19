@@ -10,18 +10,18 @@ You can add or remove a welcome/goodbye message in a channel with **embed code**
 
 ### Syntax
 ```
-,welcome add #channel welcome to {guild.name} {user.mention}!
-,welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
+welcome add #channel welcome to {guild.name} {user.mention}!
+welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
 
-,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
-,welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
+welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
+welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
 ```
 ```
-,goodbye add #channel see you soon {user.mention}!
-,goodbye add #channel see you soon {user.mention} --self_destruct 6
+goodbye add #channel see you soon {user.mention}!
+goodbye add #channel see you soon {user.mention} --self_destruct 6
 
-,goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
-,goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
+goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
+goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
 ```
 
 ## Related commands
@@ -32,28 +32,28 @@ For goodbye messages, replace `welcome` with `goodbye`.
   <Accordion title="Removing a welcome message">
     This command is used to remove a welcome message from a channel.
     ```
-    ,welcome remove #channel
+    welcome remove #channel
     ```
   </Accordion>
 
   <Accordion title="Viewing a welcome message">
     This command is used to view a welcome message in a channel.
     ```
-    ,welcome view #channel
+    welcome view #channel
     ```
   </Accordion>
 
   <Accordion title="Listing all welcome messages">
     This command is used to list all welcome messages in a server.
     ```
-    ,welcome list
+    welcome list
     ```
   </Accordion>
 
   <Accordion title="Viewing all variables">
     This command is used to view all variables that can be used in a welcome message.
     ```
-    ,welcome variables
+    welcome variables
     ```
   </Accordion>
 </AccordionGroup>

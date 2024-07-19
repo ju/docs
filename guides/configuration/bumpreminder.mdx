@@ -8,10 +8,10 @@ description: 'This integration with disboard allows users to be reminded wheneve
   <img src="https://github.com/ju/docs/blob/main/static/bprm.png?raw=true" />
 </Frame>
 ## Setup
-Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872383242240&permissions=2147486737&scope=bot%20applications.commands) is invited, you can then setup the bleed integration by adding the bump channel with `,bumpreminder channel`.
+Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872383242240&permissions=2147486737&scope=bot%20applications.commands) is invited, you can then setup the bleed integration by adding the bump channel with `bumpreminder channel`.
 
 ```
-,bumpreminder channel #bump
+bumpreminder channel #bump
 ```
 
 
@@ -23,14 +23,14 @@ Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872
         This can be raw text or an embed, and you can add a role to be pinged - remember to use the `--pingable` parameter: 
 
         ```
-        ,bumpreminder message @bump please bump the server --pingable on
+        bumpreminder message @bump please bump the server --pingable on
         ```
     </Accordion>
     <Accordion title="Bump Reminder thank you message">
-        After running `,bumpreminder`, you can then set your own custom message that is sent when users run `/bump`: 
+        After running `bumpreminder`, you can then set your own custom message that is sent when users run `/bump`: 
 
         ```
-        ,bumpreminder thank you {user.mention} for running /bump!
+        bumpreminder thank you {user.mention} for running /bump!
         ```
     </Accordion>
     <Accordion title="Bump Reminder auto clean">
@@ -38,12 +38,12 @@ Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872
 
         Enable this feature by running the following command:
         ```
-        ,bumpreminder autoclean true
+        bumpreminder autoclean true
         ```
 
         To disable this feature, run the following command:
         ```
-        ,bumpreminder autoclean false
+        bumpreminder autoclean false
         ``` 
     </Accordion>
     
@@ -52,12 +52,12 @@ Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872
 
         Enable this feature by running the following command:
         ```
-        ,bumpreminder autolock true
+        bumpreminder autolock true
         ```
 
         To disable this feature, run the following command:
         ```
-        ,bumpreminder autolock false
+        bumpreminder autolock false
         ```
 
     </Accordion>
@@ -67,7 +67,7 @@ Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872
         It gives an overall summary of the settings you have applied.
 
         ```
-        ,bumpreminder settings
+        bumpreminder settings
         ```
     </Accordion>
 </AccordionGroup>
