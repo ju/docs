@@ -1,21 +1,20 @@
 ---
 title: 'Antinuke'
-description: 'Antinuke consists of bleed imposing limits on your server staff to prevent the destruction of your server or an administrator overstepping their boundries.'
+description: 'Antinuke imposes limits on your server staff to prevent the destruction of your server and to keep administrators from overstepping their boundaries.'
 ---
 ## Getting started
-Antinuke is triggered by a threshold set per user - for example, the threshold could be 3 bans before triggering. Something to note is that your threshold should never be too high. Your threshold should be set between 1-6 if you really want antinuke to work properly.
-
-You should also keep in mind that whitelisting a member in your server will exempt the member from triggering antiraid - meaning they can just nuke your server and easily get away with it. Please only whitelist members that you feel truly confident in whitelisting.
+Antinuke is triggered by a threshold set per user. For example, the threshold could be 3 bans before triggering. Your threshold should never be too high, and should be set between **1-6** if you want antinuke to work properly.
 
 ## Configuration
-### Description
-Initially, only the server owner can run commands relating to antinuke. However, the owner can designate 'Antinuke Admins' that have full access to enabling, disabling, and whitelisting in relation to Antinuke. Antinuke Admins can be added with the command `an admin [user]`.
-Antinuke commands have 3 main parameters:
+### Antinuke Admins
+Initially, only the **server owner** can run commands relating to antinuke. However, the owner can designate 'Antinuke Admins' that have full access to enabling, disabling, and whitelisting in relation to Antinuke. Antinuke Admins can be added with the command `an admin [user]`. **Make sure you trust these people**.
+
+### The 3 main parameters
 - `--threshold` (How many actions are allowed before trigger)
 - `--do` (What punishment to enact)
 - `--command` (If bleed commands, eg. `ban`, also count towards the threshold)
 
-And 8 main modules:
+### The 8 main modules
 - `role deletion`
 - `channel deletion`
 - `emoji deletion`
@@ -40,6 +39,41 @@ antinuke botadd on
 antinuke vanity on --do kick
 ```
 
+### Related Commands
 
+<AccordionGroup>
+    <Accordion title="antinuke configuration">
+        See all your antinuke configurations at a glance
+        ```
+        antinuke config
+        ```
+        <Frame type="glass" caption="Antinuke config with everything disabled">
+            <img src="https://i.postimg.cc/rsm1wWcm/image.png"/>
+        </Frame>
+    </Accordion>
 
+    <Accordion title="antinuke admins">
+        View all antinuke admins
+        ```
+        antinuke admins
+        ```
+        <Frame type="glass" caption="Antinuke admins list">
+            <img src="https://i.postimg.cc/wBgsBJQp/image.png"/>
+        </Frame>
+    </Accordion>
 
+    <Accordion title="antinuke list">
+        View all enabled modules along with whitelisted members & bots
+        ```
+        antinuke list
+        ```
+    </Accordion>
+
+    <Accordion title="antinuke whitelist">
+        Whitelist a member from triggering antinuke or allow a bot to join
+        ```
+        antinuke whitelist (member or bot id)
+        ```
+        <Tip>Whitelisting a member in your server will exempt the member from triggering antiraid. This means they can nuke your server and easily get away with it. Please only whitelist members that you feel truly confident in whitelisting.</Tip>
+    </Accordion>
+</AccordionGroup>

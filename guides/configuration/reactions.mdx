@@ -1,11 +1,11 @@
 ---
 title: 'Reaction Triggers'
-description: 'Reaction triggers allow bleed to react to a message when a condition is met, like having a certain word in a message.'
+description: 'Reaction triggers let bleed react to messages when specific conditions, like containing a certain word, are met.'
 ---
 
-## Reaction triggers
+## Setup
 
-You can add reaction triggers with the `reactiontrigger add` command - or `rt add` for simplicity. 
+You can add reaction triggers with `reactiontrigger add`, or `rt add` for simplicity. 
 
 <Info>
   Note that reaction triggers have to be a minimum of 3 characters, and certain common words like `hi` and `hey` are not allowed to prevent spamming the bot and slowing it down.
@@ -15,15 +15,15 @@ You can add reaction triggers with the `reactiontrigger add` command - or `rt ad
   <img src="https://bleed.bot/img/reaction_trigger.png" />
 </Frame>
 
-## Reaction messages
-You can also setup bleed so every message sent in a channel with will be have up to 3 reactions added with `reaction messages`. 
+## Reaction Messages
+You can also set up bleed so every message sent in a channel with will be have up to 3 reactions added with `reaction messages`. 
 The channel must be an `imgonly` channel or have a slowmode of at least **one minute** to prevent spam.
 
 <Frame caption="Reaction messages setup" type="glass">
   <img src="https://bleed.bot/img/reaction_messages.png" />
 </Frame>
 
-## Related commands
+## Related Commands
 
 <AccordionGroup>
   <Accordion title="Delete a reaction trigger">
@@ -51,11 +51,11 @@ The channel must be an `imgonly` channel or have a slowmode of at least **one mi
     ```
     
     ```
-    ,reaction https://discord.com/channels/xxx 😂
+    reaction https://discord.com/channels/xxx 😂
     ```
   </Accordion>
   <Accordion title="Find the owner of a trigger">
-  Use this command to view the user which added a reaction trigger.
+  Use this command to view the user who added a reaction trigger.
     ```
     reaction owner [trigger]
     ```
@@ -73,7 +73,7 @@ The channel must be an `imgonly` channel or have a slowmode of at least **one mi
     ```
     
     ```
-    ,reaction deleteall welcome
+    reaction deleteall welcome
     ```
   </Accordion>
   
@@ -84,4 +84,3 @@ The channel must be an `imgonly` channel or have a slowmode of at least **one mi
     ```
   </Accordion>
 </AccordionGroup>
-
