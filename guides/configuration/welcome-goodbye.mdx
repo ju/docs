@@ -1,57 +1,60 @@
 ---
 title: 'Welcome & Goodbye Messages'
-description: 'Welcome and goodbye messages are used to send a message when a user leaves and joins your server, respectively.'
+description: 'Welcome and goodbye messages allow bleed to send notifications when a user joins or leaves your server.'
 ---
 ### Information
-You can add or remove a welcome/goodbye message in a channel with **embed code** or **raw text**, and you can use all supported [variables](/extras/variables). For help making an embed, see our [scripting guide](/guides/embed/scripting) or join our [Embed Server](https://discord.gg/embeds) for premade embeds to use.
+You can add or remove a welcome/goodbye message in a channel with **embed code** or **raw text**, and you can use all supported [variables](/extras/variables). For help making an embed, see our [scripting guide](/guides/embed/scripting) or join our [Embed Server](https://discord.gg/embeds) for pre-made embeds you can use.
 <Card title="Accepted Parameters" icon="lightbulb" iconType="duotone" color="#69919d">
-  These commands accepts the `--self_destruct 6` parameter, which makes the message autodelete after 6 seconds. You can add a higher number to make it stay in the channel longer, but 6 seconds is the minimum.
+  These commands accept the `--self_destruct 6` parameter, which makes the message auto-delete after 6 seconds. You can add a higher number to make it stay in the channel longer, but 6 seconds is the minimum.
 </Card>
 
 ### Syntax
 ```
+// Raw text
 welcome add #channel welcome to {guild.name} {user.mention}!
 welcome add #channel welcome to {guild.name} {user.mention}! --self_destruct 6
 
+// Embed
 welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!}
 welcome add #channel {embed}$v{description: welcome to {guild.name}, {user.mention}!} --self_destruct 30
 ```
 ```
+// Raw text
 goodbye add #channel see you soon {user.mention}!
 goodbye add #channel see you soon {user.mention} --self_destruct 6
 
+// Embed
 goodbye add #channel {embed}$v{description: see you soon {user.mention}!}
 goodbye add #channel {embed}$v{description: see you soon {user.mention}!} --self_destruct 30
 ```
 
-## Related commands
-Welcome & Goodbye messages have the **same subcommands**, so the examples below are for **welcome messages** only.
-For goodbye messages, replace `welcome` with `goodbye`.
+## Related Commands
+Welcome & goodbye messages have the **same subcommands**, so the examples below are for **welcome messages** only. For goodbye messages, replace `welcome` with `goodbye`.
 
 <AccordionGroup>
   <Accordion title="Removing a welcome message">
-    This command is used to remove a welcome message from a channel.
+    Used to remove a welcome message from a channel.
     ```
     welcome remove #channel
     ```
   </Accordion>
 
   <Accordion title="Viewing a welcome message">
-    This command is used to view a welcome message in a channel.
+    Used to view a welcome message in a channel.
     ```
     welcome view #channel
     ```
   </Accordion>
 
   <Accordion title="Listing all welcome messages">
-    This command is used to list all welcome messages in a server.
+    Used to list all welcome messages in a server.
     ```
     welcome list
     ```
   </Accordion>
 
   <Accordion title="Viewing all variables">
-    This command is used to view all variables that can be used in a welcome message.
+    Used to view all variables that can be used in a welcome message.
     ```
     welcome variables
     ```

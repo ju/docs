@@ -1,12 +1,12 @@
 ---
 title: 'Antiraid'
-description: 'Antiraid is used to prevent the joining of automated accounts into your server which are often used maliciously. Antiraid has 3 modules as detailed below.'
+description: 'Antiraid prevents the joining of malicious automated accounts into your server and consists of three modules detailed below.'
 ---
 
-## Antiraid Massjoin.
+## Antiraid Massjoin
 Antiraid Massjoin triggers when five (or more, depending on your threshold) members join a server within 1.61 seconds. From then on, all suspected raid accounts will be punished with the punishment you have set.
 
-This command takes both the ``--threshold`` parameter, to define how many accounts it takes to trigger the antiraid; and the ``--do`` parameter to determine the punishment.
+This command takes both the ``--threshold`` parameter, to define how many accounts it takes to trigger the antiraid, and the ``--do`` parameter to determine the punishment.
 ### Example:
 ```
 antiraid massjoin on
@@ -14,7 +14,7 @@ antiraid massjoin on --threshold 4
 antiraid massjoin on --threshold 4 --do kick
 ```
 ## Antiraid Defaultpfp
-This module punishes users that use discord's deafult pfp. This is useful as a lot of automated raid accounts do not have a pdp set. 
+This module punishes users that have Discord's default profile picture. This is useful as a lot of automated raid accounts do not have a unique profile picture set. 
 
 This command only takes the `--do` parameter for the punishment.
 ### Example:
@@ -22,10 +22,10 @@ This command only takes the `--do` parameter for the punishment.
 antiraid defaultpfp on
 antiraid defaultpfp on --do kick
 ```
-## Antiraid Newaccounts.
-This module punishes users that have a new discord account. A lot of raid accounts are freshly created, and this is an effective way at stopping them.  
+## Antiraid Newaccounts
+This module punishes users that have a new Discord account. A lot of raid accounts are freshly created, and therefore, this is an effective way to stop them.  
 
-This command takes both the ``--threshold`` parameter, to define how many days young the account has to be to trigger; and the ``--do`` parameter to determine the punishment.
+This command takes both the ``--threshold`` parameter, to define how many days young the account has to be to trigger, and the ``--do`` parameter to determine the punishment.
 ### Example:
 ```
 antiraid newaccounts on
@@ -34,8 +34,41 @@ antiraid newaccounts on --threshold 4 --do kick
 ```
 
 ## I've been raided, what now?
-- If you didn't have bleed's protections enabled - enable them. You can remove the raid accounts from your server with the `raid` command, which has the syntax `raid (time) (kick or ban) (reason)` - for example `raid 5m ban Suspected raid`.
+- **If you didn't have bleed's protections enabled**, make sure to enable them. You can remove the raid accounts from your server with the `raid` command.
+```
+//Syntax
+raid (time) (kick or ban) (reason)
 
-- If you did have protections enabled, then congratulations - your server is safe. Once you have verified that the raid is over run `antiraid raidstate off` to remove bleed's raid state. 
+// Example 
+raid 5m ban Suspected raid
+```
 
+- **If you did have protections enabled**, congratulations! Your server is safe. Once you have verified that the raid is over, run `antiraid raidstate off` to remove bleed's raid state. 
 
+### Related Commands
+
+<AccordionGroup>
+    <Accordion title="antiraid configuration">
+        See all your antiraid configurations at a glance
+        ```
+        antiraid config
+        ```
+        <Frame type="glass" caption="Antiraid config">
+            <img src="https://i.postimg.cc/2jMmGDJb/image.png"/>
+        </Frame>
+    </Accordion>
+
+    <Accordion title="antiraid whitelist">
+        Create a one-time whitelist to allow a user to join
+        ```
+        antiraid whitelist <user id>
+        ```
+    </Accordion>
+
+    <Accordion title="antiraid whitelist view">
+        View all current antinuke whitelists
+        ```
+        antiraid whitelist view
+        ```
+    </Accordion>
+</AccordionGroup>
