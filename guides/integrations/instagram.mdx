@@ -1,4 +1,92 @@
 ---
 title: 'Instagram'
-description: 'Description of your new file.'
+description: 'Instagrams integrations with bleed.'
 ---
+## Instagram Commands
+Below is a list of all the Instagram commands and examples of each
+<Steps> 
+<Step title= "Bring up a users profile on Instagram">
+```
+,instagram (user)
+```
+
+<Frame type="glass" caption="">
+  <img src="https://i.imgur.com/8k6DrQA.png"/>
+</Frame>
+ 
+</Step>
+
+<Step title= "View a users story ">
+```
+,instagramstory (user)
+```
+<Frame type="glass" caption="">
+
+  <img src="https://i.imgur.com/2cPMp0r.png"/>
+</Frame>
+</Step>
+<Step title= "View a users highlights">
+```
+,highlights (user)
+```
+<img src="https://i.imgur.com/p2WT87O.png"/>
+  <img src="https://i.imgur.com/GzddyU1.png"/>
+
+</Step>
+</Steps>
+
+<Warning> The following commands for tier 3 users only, to read more about tier 3 press [here](/perks) </Warning>
+## Instagram story feed setup
+<Steps> 
+<Step title= "Setup your desired feed">
+```
+,instagram add (channel) (instagram handle)
+```
+
+<Frame type="glass" caption="">
+  <img src="https://i.imgur.com/utfwbGO.png"/>
+</Frame>
+ 
+</Step>
+
+<Step title= "Set a custom message for your feed ">
+This command lets you set your own custom message that sends with the instagram post. This message can be used to ping roles which is especially useful for alert pings.
+```
+,instagram message (message)
+```
+<Info> To let bleed ping roles make sure to add the `--pingable on` flag at the end of your desired message </Info>
+<Frame type="glass" caption="">
+
+  <img src="https://i.imgur.com/6Hfj14Z.png"/>
+</Frame>
+
+</Step>
+<Step title= "Successful instagram integration">
+<Frame type="glass" caption="">
+
+  <img src="https://i.imgur.com/MavqEGg.png"/>
+</Frame>
+</Step>
+</Steps>
+# Related Commands
+<AccordionGroup>
+    <Accordion title="Delete your feed">
+        Delete an instagram feed you have made.
+        ```
+        ,instagram remove (channel) (instagram username)
+        ```
+    </Accordion>
+    
+    <Accordion title="View the current message set">
+        View the feed message that has been set
+        ```
+        ,instagram message view (username)
+        ```
+    </Accordion>
+    <Accordion title="Gather a list of the user feeds">
+        Gather a list of all the current feeds that exist within the server.
+        ```
+        ,instagram list
+        ```
+    </Accordion>
+</AccordionGroup>
