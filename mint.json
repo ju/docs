@@ -87,6 +87,7 @@
      "group": "Resources",
       "pages": [
         "extras/variables",
+        "extras/parameters",
         "extras/voices",
         "extras/fplist",
         "extras/langcodes",
