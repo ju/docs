@@ -1,15 +1,15 @@
 ---
 title: 'Auto Messages'
-description: 'Setup repeating messages to be posted in your server.'
+description: 'Allows bleed to send repeating messages to a channel after a certain interval of time.'
 ---
-<Warning> Timers are limited to 1 per channel, cannot be set at intervals for less than 10 minutes, and must be longer than 7 characters in length. </Warning>
+<Warning> Timers are limited to **one** per channel and cannot be set at intervals for less than **ten** minutes. They must also be longer than **seven** characters in length. </Warning>
 
-## Add a timer
+## Add a Timer
 To add a repeating message using bleed, run the command `timer add #channel (time in minutes/m) (message)`. This can also be an embedded message, just add `{embed}` in the message field.
 <Frame type="glass" caption="Timer Addition">
   <img src="https://i.imgur.com/gsxAoKR.png"/>
 </Frame>
-## Remove a timer
+## Remove a Timer
 To delete a set message using bleed, run the command `timer delete #channel `.
 <Frame type="glass" caption="Timer Deletion">
   <img src="https://i.imgur.com/gCwmII0.png"/>

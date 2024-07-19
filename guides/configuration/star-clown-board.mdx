@@ -1,20 +1,20 @@
 ---
 title: 'Starboard & Clownboard'
-description: 'Starboards and Clownboards are used to have bleed repost messages that have hit a certain amount of a certain reaction to a channel of your choice.'
+description: 'Starboards and Clownboards allow bleed to repost messages to a chosen channel once they receive a specified number reactions.'
 ---
-<Info>Both starboard and clownboard use the exact same commands for configuration, to setup the clownboard use `clownboard` in your commands as shown below. </Info>
+<Info>Both **starboard** and **clownboard** use the exact same commands for configuration. To set up the clownboard use `clownboard` in your commands as shown below. </Info>
 
-## Basic setup.
+## Basic Setup
 
 <Steps>
-  <Step title="Unlock the starboard.">
+  <Step title="Unlock the Starboard">
     Used to unlock and lock your starboard, this command is used to temporarily block new starred posts. It is automatically set to locked.
     ```
     starboard unlock
     clownboard unlock
     ```
   </Step>
-  <Step title="Set the starboard channel.">
+  <Step title="Set the Starboard Channel">
     Set the channel that starred messages will be reposted to.
     ```
     starboard set #stars
@@ -22,15 +22,15 @@ description: 'Starboards and Clownboards are used to have bleed repost messages 
     ```
     <Warning>Don't confuse this command with `starboard channel`.</Warning>
   </Step>
-  <Step title="Set the threshold.">
+  <Step title="Set the Threshold">
     This is the number of reactions it takes before bleed reposts the message. The minimum threshold is 3.
     ```
     starboard threshold 4
     clownboard threshold 5
     ```
   </Step>
-  <Step title="Set the emoji.">
-    This is the emoji that Bleed will watch for when considering when to repost a message to the starboard.
+  <Step title="Set the Emoji">
+    This is the emoji that bleed will watch for when deciding to repost a message to the starboard.
     ```
     starboard emoji 🌟
     clownboard emoji 💀
@@ -42,7 +42,7 @@ description: 'Starboards and Clownboards are used to have bleed repost messages 
   <img src="https://github.com/ju/docs/blob/main/static/starboard.png?raw=true" />
 </Frame>
 
-## Related commands
+## Related Commands
 <AccordionGroup>
   <Accordion title="Toggle starboard message link">
    Choose to enable if a URL leading to the original message will be displayed on the starboard.
@@ -91,7 +91,7 @@ description: 'Starboards and Clownboards are used to have bleed repost messages 
    ```
   </Accordion>
   <Accordion title="Set the embed colour">
-    This sets the deafult colour for the starboard embeds. 
+    This sets the default colour for the starboard embeds. 
     ```
    starboard color #cf7c08
    ```
@@ -118,5 +118,3 @@ description: 'Starboards and Clownboards are used to have bleed repost messages 
    ```
   </Accordion>
 </AccordionGroup>
-
-
