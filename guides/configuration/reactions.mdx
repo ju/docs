@@ -28,40 +28,40 @@ The channel must be an `imgonly` channel or have a slowmode of at least **one mi
 <AccordionGroup>
   <Accordion title="Delete a reaction trigger">
     ```
-    reactiontrigger delete [emoji] [word]
+    ,reactiontrigger delete [emoji] [word]
     ```
   </Accordion>
 
   <Accordion title="List all reaction triggers">
     ```
-    reactiontrigger list
+    ,reactiontrigger list
     ```
   </Accordion>
 
   <Accordion title="List all reaction messages">
     ```
-    reaction messages list
+    ,reaction messages list
     ```
   </Accordion>
   
   <Accordion title="Manually add a reaction">
     Use this command to have bleed add a reaction to a message.
     ```
-    reaction [message link] [emote]
+    ,reaction [message link] [emote]
     ```
     
     ```
-    reaction https://discord.com/channels/xxx 😂
+    ,reaction https://discord.com/channels/xxx 😂
     ```
   </Accordion>
   <Accordion title="Find the owner of a trigger">
   Use this command to view the user which added a reaction trigger.
     ```
-    reaction owner [trigger]
+    ,reaction owner [trigger]
     ```
     
     ```
-    reaction owner welcome
+    ,reaction owner welcome
     ```
   </Accordion>
   
@@ -69,18 +69,18 @@ The channel must be an `imgonly` channel or have a slowmode of at least **one mi
     Use this command to delete all reactions tied to a trigger.
     
     ```
-    reaction deleteall [trigger]
+    ,reaction deleteall [trigger]
     ```
     
     ```
-    reaction deleteall welcome
+    ,reaction deleteall welcome
     ```
   </Accordion>
   
   <Accordion title="Delete all reaction triggers">
     Use this command to delete all reaction triggers in your server.
     ```
-    reaction clear
+    ,reaction clear
     ```
   </Accordion>
 </AccordionGroup>
