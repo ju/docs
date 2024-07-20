@@ -10,6 +10,10 @@
     "primary": "#658a95",
     "light": "#95b6bd",
     "dark": "#658a95",
+    "background": {
+      "light": "#f5f5f5",
+      "dark": "#0c0c0c"
+    },
     "anchors": {
       "from": "#658a95",
       "to": "#95b6bd"
@@ -26,10 +30,10 @@
     "url": "https://bleed.bot"
   },
   "tabs": [
-      {
-          "name": "Resources",
-          "url": "extras"
-      }
+    {
+      "name": "Resources",
+      "url": "extras"
+    }
   ],
   "anchors": [
     {
@@ -50,41 +54,75 @@
   ],
   "navigation": [
     {
-     "group": "Bot Information",
-      "pages": [
-        "intro",
-        "perks",
-        "updates"
-      ]
+      "group": "Bot Information",
+      "pages": ["intro", "perks"]
     },
     {
       "group": "Guides",
       "pages": [
         {
-            "group": "Security Setup",
-            "icon": "hammer",
-            "pages": ["guides/security/moderation", "guides/security/fake-permissions",  "guides/security/antinuke", "guides/security/antiraid"]
-
+          "group": "Security Setup",
+          "icon": "hammer",
+          "pages": [
+            "guides/security/moderation",
+            "guides/security/fake-permissions",
+            "guides/security/antinuke",
+            "guides/security/antiraid"
+          ]
         },
         {
-            "group": "Server Configuration",
-            "icon": "gear",
-            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts",  "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/vanityroles", "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/aliases", "guides/configuration/levels"]
+          "group": "Server Configuration",
+          "icon": "gear",
+          "pages": [
+            "guides/configuration/welcome-goodbye",
+            "guides/configuration/star-clown-board",
+            "guides/configuration/boosts",
+            "guides/configuration/autoresponder",
+            "guides/configuration/invoke",
+            "guides/configuration/reactions",
+            "guides/configuration/bumpreminder",
+            "guides/configuration/timers",
+            "guides/configuration/reaction-roles",
+            "guides/configuration/booster-roles",
+            "guides/configuration/vanityroles",
+            "guides/configuration/voicemaster",
+            "guides/configuration/giveaways",
+            "guides/configuration/webhooks",
+            "guides/configuration/counters",
+            "guides/configuration/aliases",
+            "guides/configuration/levels"
+          ]
         },
         {
-            "group": "Embed Scripting",
-            "icon": "code",
-            "pages": ["guides/embed/scripting", "guides/embed/pagination", "guides/embed/Embed Server"]
+          "group": "Embed Scripting",
+          "icon": "code",
+          "pages": [
+            "guides/embed/scripting",
+            "guides/embed/pagination",
+            "guides/embed/Embed Server"
+          ]
         },
         {
-            "group": "Integrations",
-            "icon": "share-nodes",
-            "pages": ["guides/integrations/discogs","guides/integrations/fortnite","guides/integrations/instagram","guides/integrations/kick", "guides/integrations/lastfm","guides/integrations/pinterest","guides/integrations/reddit","guides/integrations/tiktok","guides/integrations/twitch","guides/integrations/x","guides/integrations/youtube"]
+          "group": "Integrations",
+          "icon": "share-nodes",
+          "pages": [
+            "guides/integrations/discogs",
+            "guides/integrations/fortnite",
+            "guides/integrations/instagram",
+            "guides/integrations/kick",
+            "guides/integrations/lastfm",
+            "guides/integrations/pinterest",
+            "guides/integrations/reddit",
+            "guides/integrations/tiktok",
+            "guides/integrations/twitch",
+            "guides/integrations/x",
+            "guides/integrations/youtube"
+          ]
         }
       ]
     },
     {
-     "group": "Resources",
+      "group": "Resources",
       "pages": [
         "extras/voices",
         "extras/variables",
