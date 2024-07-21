@@ -1,4 +1,117 @@
 ---
 title: 'Music'
-description: 'Description of your new file.'
+description: 'Music allows you to stream your favorite songs from multiple sources in a voice channel.'
 ---
+
+## Base Commands
+
+With bleed, you can stream songs from multiple different sources to a voice channel. This can be done through the base `play` command.
+
+<Tip>If bleed doesn't play your desired track, try including the artist. If that still doesn't work, you can use a link!</Tip>
+
+<Frame type="glass" caption="Queueing a track">
+    <img src="https://imgur.com/rIK7W2A.png"/>
+</Frame>
+
+You aren't limited to tracks with this command! You can use Spotify playlists as well.
+To queue a playlist, use the `play (playlist link)` command.
+
+To view the current queue, you can use the `queue` command.
+
+<Frame type="glass" caption="Viewing the current queue">
+    <img src="https://imgur.com/3Ib33jY.png"/>
+</Frame>
+
+### Queue Subcommands
+
+<AccordionGroup>
+    <Accordion title="Remove a track from the queue">
+        This command is used to remove a track from the queue.
+        You can see a track's position by using the `queue` command and finding the track number.
+        
+        ```
+        queue remove [position]
+        ```
+    </Accordion>
+    <Accordion title="Move a track's position">
+        This command is used to move a track to a different position in the queue.
+
+        ```
+        queue move [position] [new position]
+        ```
+    </Accordion>
+    <Accordion title="Shuffle the queue">
+        This command is used to shuffle the current queue.
+
+        ```
+        queue shuffle
+        ```
+    </Accordion>
+    <Accordion title="Empty the queue">
+        This command is used to remove all tracks from the queue.
+
+        ```
+        queue empty
+        ```
+    </Accordion>
+</AccordionGroup>
+
+## Setting a DJ role
+
+When a member who didn't start the music tries to control the player, they might get a warning saying only a DJ or an admin can control the player.
+
+Setting a DJ role can be done by using the `settings dj [role]` command.
+
+<Frame type="glass" caption="Setting a DJ role">
+    <img src="https://imgur.com/xlFJdcJ.png"/>
+</Frame>
+
+Any member with this role will be able to bypass this restriction and control the player.
+
+## Autoplay
+
+When your final track finishes, bleed will stop playing music. This can be avoided by turning on **autoplay**!
+Autoplay fetches tracks from Spotify that you might like based on your previous tracks.
+
+You can enable this by using the `settings autoplay on` command.
+
+<Frame type="glass" caption="Turning on autoplay">
+    <img src="https://imgur.com/EcA1vvi.png"/>
+</Frame>
+
+You can disable autoplay with the `settings autoplay off` command.
+
+## Presets
+
+While listening to music with bleed, you can apply presets, like filters, to the track.
+This creates a unique listening experience that can be modified to fit your liking.
+
+<Info>You can view all applied presets with the `preset active` command.</Info>
+
+| Command | Description |
+| ------ | ------ |
+| `preset soft` | Cuts high and mid frequencies, allowing only low frequencies |
+| `preset 8d` | Creates a stereo-like panning effect, rotating audio for immersive sound |
+| `preset chipmunk` | Accelerates track playback to produce a high-pitched, chipmunk-like sound |
+| `preset boost` | Enhances track with heightened bass and highs for a lively, energetic feel |
+| `preset vaporwave` | Slows track playback for nostalgic and vintage half-speed effect |
+| `preset vibrato` | Introduces a wavering pitch effect for dynamic tone |
+| `preset piano` | Enhances mid and high tones for standout piano-based tracks |
+| `preset metal` | Amplifies midrange for a fuller, concert-like sound, ideal for metal tracks |
+| `preset flat` | Represents a neutral EQ setting with default levels across the board |
+| `preset karaoke` | Filters out vocals from the track, leaving only the instrumental |
+| `preset nightcore` | Accelerates track playback for nightcore-style music |
+
+## Music Management Commands
+
+| Command | Description |
+| ------ | ------ |
+| `fastforward` | Fast forward to the desired position |
+| `rewind` | Rewind to the desired position |
+| `volume` | Change the player volume |
+| `pause` | Pause the current track |
+| `resume` | Resume a paused track |
+| `skip` | Skip to the next track |
+| `shuffle` | Shuffle the current queue |
+| `repeat` | Change the current loop mode |
+| `disconnect` | Stop playing music and leave the voice channel |
