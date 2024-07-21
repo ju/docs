@@ -1,4 +1,83 @@
 ---
 title: 'Spotify'
-description: 'Description of your new file.'
+description: 'Integrate your Spotify account with bleed to control your music using commands.'
 ---
+## Initial Setup
+<Steps>
+  <Step title="Running the login command">
+    To connect your Spotify account to bleed, you must first run `spotify login`.
+
+    ```
+    spotify login
+    ```
+    
+    Subsequently, you will recieve a response from bleed, as shown in the image below. Click the link, then wait for the redirect to Spotify's website. 
+        <Frame type="glass" caption="bleed's command response">
+        <img src="https://imgur.com/a/bCwbDy8" />
+        </Frame>
+    </Step>
+
+    <Step title="Grant bleed access through Spotify">
+    After following the link, make sure to click "Agree," as seen below.
+        <Frame type="glass" caption="Allowing bleed access to Spotify">
+        <img src="https://imgur.com/a/C26Df69" />
+        </Frame>
+    </Step>
+
+    <Step title="Copy your code">
+    Upon granting access to bleed, you will be redirected to bleed's website. You will see a page with a code, which you'll want to copy to your clipboard.
+        <Frame type="glass" caption="Sample redirect page (this code is not legit)">
+        <img src="https://imgur.com/a/rqLcJBq" />
+        </Frame>
+    </Step>
+
+    <Step title="Put your code back into the command">
+    Once you've copied the code to your clipboard, you can exit that page, and go back to the channel in which you ran the command. Once back, click the gray **"Submit Code"** button, and paste your code.
+        <Frame type="glass" caption="Putting code back into the command">
+        <img src="https://imgur.com/a/RTpj8zV" />
+        </Frame>
+    </Step>
+</Steps>
+Upon completion, you will see bleed's response, shown below. You are now able to use commands listed below inside of your server, or other servers with bleed!
+<Frame type="glass" caption="bleed's response upon completion">
+        <img src="https://imgur.com/a/yAKFKLa" />
+        </Frame>
+
+## Control Commands
+Commands below can be used after logging into your Spotify account.
+<Warning>Some commands, such as `spotify next`, require a **premium** Spotify account.</Warning>
+
+| Command | Usage | Notes |
+| -------- | -------- | -------- |
+| `sp next` | Skip to the next song | N/A |
+| `sp shuffle` | Toggle playback shuffle | N/A |
+| `sp pause` | Pause the current song | N/A |
+| `sp like` | Like your current playing song on Spotify | N/A |
+| `sp play` | Immediately skip to the requested song | N/A |
+| `sp queue` | Queue a song | N/A |
+| `sp repeat` | Repeat the current song | N/A |
+| `sp device` | Change the device that youre listening to Spotify with | N/A |
+| `sp unlike` | Unlike your current playing song on Spotify | N/A |
+| `sp topartists` | Show top artists for the specified time frame | N/A |
+| `sp seek` | Seek to position in current song | N/A |
+| `sp previous` | Go back to the previous song | N/A |
+| `sp vc` | Play your current track in a voice channel | N/A |
+| `sp volume` | Adjust current player volume | This changes **Spotify's** volume, not your device's |
+| `sp resume` | Resume the current song | N/A |
+| `sp toptracks` | Show top tracks for the specified time frame | N/A |
+
+## Related Commands
+<AccordionGroup>
+    <Accordion title="spotify logout">
+        Disconnect your Spotify account from bleed's servers.
+        ```
+        spotify logout
+        ```
+    </Accordion>
+    <Accordion title="spotify device list">
+        List all current devices connected to your Spotify account
+        ```
+        spotify device list
+        ```
+    </Accordion>
+</AccordionGroup>
