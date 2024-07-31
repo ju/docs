@@ -1,90 +1,93 @@
 ---
-title: 'Last.fm'
-description: 'Last.fm integration allows users to share what music they are listening to, get statistics on their listening habits, and more.'
+title: "Last.fm"
+description: "Last.fm integration allows users to share what music they are listening to, get statistics on their listening habits, and more."
 ---
+
 ## About Last.fm
+
 [Last.fm](https://www.last.fm/home) is a music tracking and statsitics site that watches what you listen to. By users linking their Last.fm accounts with Bleed, users can automatically update their current listening status, showcase their top tracks and artists.
 
 <Warning>
-Last.fm accounts that are marked as private will not be able to utilise some of Bleed's commands due to the bot not having access to the data.
+  Last.fm accounts that are marked as private will not be able to utilise some
+  of Bleed's commands due to the bot not having access to the data.
 </Warning>
 
 # Last.fm Setup
-To begin with lastfm, run `lastfm login`. Bleed will then direct message you (ensure direct messages are enabled otherwise this wont work) 
+
+To begin with lastfm, run `lastfm login`. Bleed will then direct message you (ensure direct messages are enabled otherwise this wont work)
 
 Once you have recieved this dm, click "[here](https://last.fm/api/auth/?api_key=b734cbac65e49025a8cdfd16145458fd&cb=https://q2ewba9f8jh8pszy.bleed.bot/lastfm/callback?i=IWpzySR)" on the embed. This will take you to a connect application page on lastfm, simply press "allow access"
 
-![Last.fm Connection](https://github.com/ju/docs/blob/main/static/lflogin.png?raw=true)
+![Last.fm Connection](/images/lflogin.png?raw=true)
 
 Once you have allowed access, you will be taken to bleeds website confirming authorisation, if the website displays there was an error doing this, run `lastfm login` again and retrace your steps.
 
-Make sure that your spotify is connected in order for bleed to read what your current playing track is by pressing this button. 
+Make sure that your spotify is connected in order for bleed to read what your current playing track is by pressing this button.
 
-![Latfm spotify connection](https://github.com/ju/docs/blob/main/static/spscrobble.png?raw=true)
+![Latfm spotify connection](/images/spscrobble.png?raw=true)
 
-Once all of these steps have been completed, your lastfm should be ready to use with bleed once it completes indexing. This will be identifiable when bleed displays this message: 
+Once all of these steps have been completed, your lastfm should be ready to use with bleed once it completes indexing. This will be identifiable when bleed displays this message:
 
-![Ready to use lastfm module](https://github.com/ju/docs/blob/main/static/lfconfirm.png?raw=true)
+![Ready to use lastfm module](/images/lfconfirm.png?raw=true)
 
 To check if everything is working, run `,np` in a channel, bleed should display a nowplaying embed (this will only work aslong as you are currently listening to a song on spotify.)
 
-
-| Command | What It Does | Aliases |
-|--|--|--|
-| `lf login` | Login and authenticate bleed to use your Last.fm account |  |
-| `lf logout` | Remove your Last.fm account with bleed's internal system |  |
-| `lf now` | Shows your current song playing from Last.fm | `np, nowplaying, fm` |
-| `lf overview` | See your statistics for an artist | `lf ov` |
-| `lf color hex,rgb,etc or dominant` | Set embed color for Last.fm commands |  |
-| `lf vote artist album` | Vote for submitted album artworks to display on the Now Playing Command |  |
-| `lf toptenalbums` | View your top ten albums for an artist | `lf tta` |
-| `lf wktrack` | View the top listeners for a specific song by an artist (per server) | `lf wkt` |
-| `lf globalwktrack` | View the top listeners globally for a specific song by an artist | `lf gwkt` |
-| `lf playsalbum` | Check how many plays you have for an album | `lf playsa` |
-| `lf plays`  | Check how many plays you have for an artist |  |
-| `lf wkalbum` | View the top listeners for an album (server) | `lf wka` |
-| `lf globalwkalbum` | View the top listeners for an album globally | `lf gwka` |
-| `lf soundcloud` | Gives SoundCloud link for the current song playing | `lf sc` |
-| `lf spotify` | Gives Spotify link for the current song playing |  |
-| `lf itunes` | Gives iTunes link for the current song playing |  |
-| `lf scoreboard` | View the Last.fm server scoreboard (reactions) |  |
-| `lf globalboard` | View the Last.fm Globalboard (reactions) |  |
-| `lf score` | View your Last.fm score and statistics |  |
-| `lf favorites` | View yours or a member's liked tracks |  |
-| `lf whoknows` | View top listeners for an artist in a server | `lf wk` |
-| `lf globalwhoknows` | View the top listeners for an artist globally  | `lf gwk` |
-| `lf playstrack` | Check how many plays you have for a specific artist | `lf playst` |
-| `lf toptracks` | View your most listened to tracks | `track, tracks, ttr, toptrack, tt` |
-| `lf topartists` | View your most listened to artists | `lf ta` |
-| `lf url` | Submit your own artworks for an album cover |  |
-| `lf youtube` | Gives YouTube link for the current song playing | `lf yt` |
-| `lf playsall` | Check how many plays you have for every song on an album |  |
-| `lf hide` | Hide users from appearing on whoknows commands |  |
-| `lf hide list` | View the list of all hidden members |  |
-| `lf recentfor` | View your recent tracks for an artist |  |
-| `lf mostcrowns` | View a list of members with the most crowns | `lf crownsall` |
-| `lf crowns` | View a list of your crowns |  |
-| `lf customcommand` | Set your own custom Now Playing command | `lf cc` |
-| `lf cuscomcommand public` | Toggle public flag for a custom command | `lf cc` |
-| `lf customcommand blacklist` | Blacklist users from using their own custom Now Playing command | `lf cc` |
-| `lf customcommand blacklist list` | View a list of blacklisted custom command users for NP | `lf cc` |
-| `lf customcommand list` | View a list of custom commands for NP | `lf cc` |
-| `lf customcommand reset` | Resets all custom commands | `lf cc` |
-| `lf customcommand remove` | Remove a custom command for a member | `lf cc` |
-| `lf lyrics` | Gets lyrics from Musixmatch for current song playing | `lf lyr` |
-| `lf recent` | View your recent tracks | `recenttracks, last, lp` |
-| `lf taste` | Compare your music taste between you and someone else |  |
-| `lf toptentracks` | View your top ten tracks for an artist | `lf ttt` |
-| `lf recommendation` | Recommends a random artist from your library |  |
-| `lf collage` | View a collage of your most listened to albums |  |
-| `lf update` | Update your Last.fm library |  |
-| `lf streak` | View your current listening streak |  |
-| `lf topalbums` | View your most listened to albums | `tab, album, topalbum, albums, tl` |
-| `lf whois` | View Last.fm profile information | `lf profile` |
-| `lf plays` | Check how many plays you have for an artist |  |
-| `lf react` | Set server upvote and downvote reaction for Now Playing |  |
-| `lf playing` | See what song everyone is listening to in a server |  |
-| Donator Only Commands  | What It Does | Alias |
-|--|--|--|
-| `lf mode` | Use a different embed for NP or create your own |  |
-| `lf customreactions` | Set personal upvote and downvote reaction for NP | `lf cr` |
+| Command                            | What It Does                                                            | Aliases                            |
+| ---------------------------------- | ----------------------------------------------------------------------- | ---------------------------------- |
+| `lf login`                         | Login and authenticate bleed to use your Last.fm account                |                                    |
+| `lf logout`                        | Remove your Last.fm account with bleed's internal system                |                                    |
+| `lf now`                           | Shows your current song playing from Last.fm                            | `np, nowplaying, fm`               |
+| `lf overview`                      | See your statistics for an artist                                       | `lf ov`                            |
+| `lf color hex,rgb,etc or dominant` | Set embed color for Last.fm commands                                    |                                    |
+| `lf vote artist album`             | Vote for submitted album artworks to display on the Now Playing Command |                                    |
+| `lf toptenalbums`                  | View your top ten albums for an artist                                  | `lf tta`                           |
+| `lf wktrack`                       | View the top listeners for a specific song by an artist (per server)    | `lf wkt`                           |
+| `lf globalwktrack`                 | View the top listeners globally for a specific song by an artist        | `lf gwkt`                          |
+| `lf playsalbum`                    | Check how many plays you have for an album                              | `lf playsa`                        |
+| `lf plays`                         | Check how many plays you have for an artist                             |                                    |
+| `lf wkalbum`                       | View the top listeners for an album (server)                            | `lf wka`                           |
+| `lf globalwkalbum`                 | View the top listeners for an album globally                            | `lf gwka`                          |
+| `lf soundcloud`                    | Gives SoundCloud link for the current song playing                      | `lf sc`                            |
+| `lf spotify`                       | Gives Spotify link for the current song playing                         |                                    |
+| `lf itunes`                        | Gives iTunes link for the current song playing                          |                                    |
+| `lf scoreboard`                    | View the Last.fm server scoreboard (reactions)                          |                                    |
+| `lf globalboard`                   | View the Last.fm Globalboard (reactions)                                |                                    |
+| `lf score`                         | View your Last.fm score and statistics                                  |                                    |
+| `lf favorites`                     | View yours or a member's liked tracks                                   |                                    |
+| `lf whoknows`                      | View top listeners for an artist in a server                            | `lf wk`                            |
+| `lf globalwhoknows`                | View the top listeners for an artist globally                           | `lf gwk`                           |
+| `lf playstrack`                    | Check how many plays you have for a specific artist                     | `lf playst`                        |
+| `lf toptracks`                     | View your most listened to tracks                                       | `track, tracks, ttr, toptrack, tt` |
+| `lf topartists`                    | View your most listened to artists                                      | `lf ta`                            |
+| `lf url`                           | Submit your own artworks for an album cover                             |                                    |
+| `lf youtube`                       | Gives YouTube link for the current song playing                         | `lf yt`                            |
+| `lf playsall`                      | Check how many plays you have for every song on an album                |                                    |
+| `lf hide`                          | Hide users from appearing on whoknows commands                          |                                    |
+| `lf hide list`                     | View the list of all hidden members                                     |                                    |
+| `lf recentfor`                     | View your recent tracks for an artist                                   |                                    |
+| `lf mostcrowns`                    | View a list of members with the most crowns                             | `lf crownsall`                     |
+| `lf crowns`                        | View a list of your crowns                                              |                                    |
+| `lf customcommand`                 | Set your own custom Now Playing command                                 | `lf cc`                            |
+| `lf cuscomcommand public`          | Toggle public flag for a custom command                                 | `lf cc`                            |
+| `lf customcommand blacklist`       | Blacklist users from using their own custom Now Playing command         | `lf cc`                            |
+| `lf customcommand blacklist list`  | View a list of blacklisted custom command users for NP                  | `lf cc`                            |
+| `lf customcommand list`            | View a list of custom commands for NP                                   | `lf cc`                            |
+| `lf customcommand reset`           | Resets all custom commands                                              | `lf cc`                            |
+| `lf customcommand remove`          | Remove a custom command for a member                                    | `lf cc`                            |
+| `lf lyrics`                        | Gets lyrics from Musixmatch for current song playing                    | `lf lyr`                           |
+| `lf recent`                        | View your recent tracks                                                 | `recenttracks, last, lp`           |
+| `lf taste`                         | Compare your music taste between you and someone else                   |                                    |
+| `lf toptentracks`                  | View your top ten tracks for an artist                                  | `lf ttt`                           |
+| `lf recommendation`                | Recommends a random artist from your library                            |                                    |
+| `lf collage`                       | View a collage of your most listened to albums                          |                                    |
+| `lf update`                        | Update your Last.fm library                                             |                                    |
+| `lf streak`                        | View your current listening streak                                      |                                    |
+| `lf topalbums`                     | View your most listened to albums                                       | `tab, album, topalbum, albums, tl` |
+| `lf whois`                         | View Last.fm profile information                                        | `lf profile`                       |
+| `lf plays`                         | Check how many plays you have for an artist                             |                                    |
+| `lf react`                         | Set server upvote and downvote reaction for Now Playing                 |                                    |
+| `lf playing`                       | See what song everyone is listening to in a server                      |                                    |
+| Donator Only Commands              | What It Does                                                            | Alias                              |
+| --                                 | --                                                                      | --                                 |
+| `lf mode`                          | Use a different embed for NP or create your own                         |                                    |
+| `lf customreactions`               | Set personal upvote and downvote reaction for NP                        | `lf cr`                            |

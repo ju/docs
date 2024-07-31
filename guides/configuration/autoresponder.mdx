@@ -1,11 +1,12 @@
 ---
-title: 'Auto Responders'
-description: 'Autoresponders allow bleed to automatically respond to a trigger with text or an embed.'
+title: "Auto Responders"
+description: "Autoresponders allow bleed to automatically respond to a trigger with text or an embed."
 ---
 
 ## How to add an autoresponder
 
 `autoresponder add` is used to add an autoresponder into your server. They can be either **raw text** or an **embed**.
+
 ```
 // Adding a text autoresponder without parameters
 autoresponder add [trigger], [response]
@@ -20,51 +21,61 @@ autoresponder add welc, {embed}$v{title:Welcome}$v{description: welcome to the s
 // Adding an embed autoresponder with parameters
 autoresponder add welc, {embed}$v{title:Welcome}$v{description: welcome to the server!} --reply
 ```
+
 ## Parameters
+
 <Info>Parameters are appended onto the end of the command.</Info>
 
-| Parameter | Function |
-| ------------- | ------ |
-`--reply` | bleed will reply to the trigger message.
-`--delete` | bleed will delete the trigger message after posting the response.
-`--self_destruct 6` | bleed will automatically delete the response after a set amount of time (6 seconds minimum).
-`--not_strict` | bleed will respond if the trigger message is included anywhere in a sentence, rather than it having to be that exact message.
-`--ignore_command_check` | bleed will ignore the check for if your trigger message is already a pre-existing bleed command, as it wouldn't trigger if this is the case.
+| Parameter                | Function                                                                                                                                     |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--reply`                | bleed will reply to the trigger message.                                                                                                     |
+| `--delete`               | bleed will delete the trigger message after posting the response.                                                                            |
+| `--self_destruct 6`      | bleed will automatically delete the response after a set amount of time (6 seconds minimum).                                                 |
+| `--not_strict`           | bleed will respond if the trigger message is included anywhere in a sentence, rather than it having to be that exact message.                |
+| `--ignore_command_check` | bleed will ignore the check for if your trigger message is already a pre-existing bleed command, as it wouldn't trigger if this is the case. |
 
-<Tip>If on mobile, make sure to use `--` as such devices may automatically autocorrect it to `—`, which won't function.</Tip>
+<Tip>
+  If on mobile, make sure to use `--` as such devices may automatically
+  autocorrect it to `—`, which won't function.
+</Tip>
 
 ## Image Examples
-<Frame caption="Adding a text autoresponder with the reply parameter" type="glass">
-  <img src="https://github.com/ju/docs/blob/main/static/textar.png?raw=true" />
+
+<Frame
+  caption="Adding a text autoresponder with the reply parameter"
+  type="glass"
+>
+  <img src="/images/textar.png?raw=true" />
 </Frame>
-ㅤ
-<Frame caption="Adding an embed autoresponder with the not_strict parameter" type="glass">
-  <img src="https://github.com/ju/docs/blob/main/static/embedar.png?raw=true" />
+ㅤ<Frame
+  caption="Adding an embed autoresponder with the not_strict parameter"
+  type="glass"
+>
+  <img src="/images/embedar.png?raw=true" />
 </Frame>
 
 ## Related Commands
+
 <AccordionGroup>
   <Accordion title="Restrict by role">
    Used to restrict certain autoresponders to certain roles only.
 
-   ```
-   autoresponder role [role] [allow or deny] [trigger]
-   ```
-   ```
-   autoresponder role @staff allow prices
-   ```
+```
+autoresponder role [role] [allow or deny] [trigger]
+```
+
+```
+autoresponder role @staff allow prices
+```
 
   </Accordion>
 
-  <Accordion title="Restrict by channel">
-    Used to restrict certain autoresponders to certain channels only.
-   ```
-   autoresponder channel [channel] [allow or deny] [trigger]
-   ```
-   ```
-   autoresponder channel #buy allow prices 
-   ```
-  </Accordion>
+{" "}
+<Accordion title="Restrict by channel">
+  Used to restrict certain autoresponders to certain channels only. ```
+  autoresponder channel [channel] [allow or deny] [trigger] ``` ```
+  autoresponder channel #buy allow prices ```
+</Accordion>
 
   <Accordion title="Update an autoresponder">
     Used to update the response for a pre-existing autoresponder.
@@ -94,4 +105,3 @@ autoresponder add welc, {embed}$v{title:Welcome}$v{description: welcome to the s
    ```
    </Accordion>
 </AccordionGroup>
-

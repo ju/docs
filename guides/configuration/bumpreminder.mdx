@@ -1,14 +1,18 @@
 ---
-title: 'Bump Reminder'
-description: 'This integration with [Disboard](https://disboard.org/) reminds users to run the bump command.'
+title: "Bump Reminder"
+description: "This integration with [Disboard](https://disboard.org/) reminds users to run the bump command."
 ---
+
 ## About
+
 [Disboard](https://disboard.org/) is a server list service that is commonly used to promote servers. To ensure that your server is getting the most visibility, you can use the disboard bot to "bump" your server on their website to get more engagement. Bleed's integration allows users to be reminded when it is time to run the `/bump` command.
+
 <Frame caption="Example bump reminder usage">
-  <img src="https://github.com/ju/docs/blob/main/static/bprm.png?raw=true" />
+  <img src="/images/bprm.png?raw=true" />
 </Frame>
 
 ## Setup
+
 Once the [Disboard Bot](https://discord.com/oauth2/authorize?client_id=302050872383242240&permissions=2147486737&scope=bot%20applications.commands) is invited, you can then set up the bleed integration by adding the bump channel with `bumpreminder channel`.
 
 ```
@@ -16,18 +20,19 @@ bumpreminder channel #bump
 ```
 
 ## Customization Options
+
 <AccordionGroup>
     <Accordion title="bumpreminder message">
         This command allows you to set your own custom message that will be sent when `/bump` is ready to be run again. 
         
-        This can be raw text or an embed, and you can add a role to be pinged - remember to use the `--pingable` parameter: 
+        This can be raw text or an embed, and you can add a role to be pinged - remember to use the `--pingable` parameter:
 
         ```
         bumpreminder message @bump please bump the server --pingable on
         ```
     </Accordion>
     <Accordion title="bumpreminder thank you message">
-        After running `bumpreminder`, you can then set your own custom message that is sent when users run `/bump`: 
+        After running `bumpreminder`, you can then set your own custom message that is sent when users run `/bump`:
 
         ```
         bumpreminder thank you {user.mention} for running /bump!
@@ -44,9 +49,9 @@ bumpreminder channel #bump
         To disable this feature, run the following command:
         ```
         bumpreminder autoclean false
-        ``` 
+        ```
     </Accordion>
-    
+
     <Accordion title="bumpreminder auto-lock">
         This command allows you to lock the bump channel so that no members can speak in the channel until it is time to run `/bump` again.
 
@@ -61,15 +66,16 @@ bumpreminder channel #bump
         ```
 
     </Accordion>
-    
+
     <Accordion title="bumpreminder settings">
-        This command allows you to view your servers configuration that has just been set up with `bumpreminder`. 
+        This command allows you to view your servers configuration that has just been set up with `bumpreminder`.
         It gives an overall summary of the settings you have applied.
 
         ```
         bumpreminder settings
         ```
     </Accordion>
+
 </AccordionGroup>
 <Info>
     All messages support [variables](/extras/variables)!
