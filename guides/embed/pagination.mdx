@@ -1,39 +1,30 @@
 ---
-title: 'Pagination'
-description: 'Using pagination, you can combine multiple embeds into one by adding them on as pages. Users can swap between pages with arrow reactions under the embed.'
+title: "Pagination"
+description: "Using pagination, you can combine multiple embeds into one by adding them on as pages. Users can swap between pages with arrow reactions under the embed."
 ---
+
 ## Setup
-<Warning>
-    Only embeds created with `createembed` can be paginated.
-</Warning>
+
+<Warning>Only embeds created with `createembed` can be paginated.</Warning>
 <Steps>
   <Step title="Set the embed">
-    Firstly you must set the embed to work with pagination.
-    ```
-    ,pagination set [message link]
-    ```
-    ![pn set](https://github.com/ju/docs/blob/main/static/pnset.png?raw=true)
+    Firstly you must set the embed to work with pagination. ``` ,pagination set
+    [message link] ``` ![pn set](/images/pnset.png?raw=true)
   </Step>
   <Step title="Add the next page">
-   You can now add further pages to your embed. This command works with adding any number of pages required.
-   ```
-   ,pagination add [message link] [embed content]
-   ```
-   ![pn add](https://github.com/ju/docs/blob/main/static/pnadd.png?raw=true)
+    You can now add further pages to your embed. This command works with adding
+    any number of pages required. ``` ,pagination add [message link] [embed
+    content] ``` ![pn add](/images/pnadd.png?raw=true)
   </Step>
   <Step title="Updating a paginated embed">
-    If you need to edit a page you've made during setup, you can use the command below.
-    ```
-    ,pagination update [message link] [page number]
-    ```
-    ![pn update](https://github.com/ju/docs/blob/main/static/pnupdate.png?raw=true)
+    If you need to edit a page you've made during setup, you can use the command
+    below. ``` ,pagination update [message link] [page number] ``` ![pn
+    update](/images/pnupdate.png?raw=true)
   </Step>
   <Step title="Removing a page">
     If you want to remove a page you have setup, you can use the below command
-    ```
-    ,pagination remove [message link] [page number]
-    ```
-    ![pn del](https://github.com/ju/docs/blob/main/static/pndel.png?raw=true)
+    ``` ,pagination remove [message link] [page number] ``` ![pn
+    del](/images/pndel.png?raw=true)
   </Step>
 </Steps>
 
@@ -46,11 +37,10 @@ description: 'Using pagination, you can combine multiple embeds into one by addi
     ```
   </Accordion>
 
-  <Accordion title="Reset all paginated embeds in a guild">
-    ```
-    ,pagination reset
-    ```
-  </Accordion>
+{" "}
+<Accordion title="Reset all paginated embeds in a guild">
+  ``` ,pagination reset ```
+</Accordion>
 
   <Accordion title="List all active paginations">
     ```

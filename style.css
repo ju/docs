@@ -1,9 +1,0 @@
-:root {
-  theme-color: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    theme-color: #0c0c0c;
-  }
-}
