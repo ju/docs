@@ -1,0 +1,63 @@
+---
+title: "Last.fm"
+description: "Share your music listening activity with your friends."
+icon: "lastfm"
+---
+
+## What is Last.fm?
+
+Last.fm is a website which tracks the music you listen to and provides statistics based on your listening history. You can register for a Last.fm account by clicking [here](https://www.last.fm/join).
+
+## Creating a Last.fm account
+
+<Steps>
+  <Step title="Registration">
+    Visit the [Last.fm registration page](https://www.last.fm/join) and fill in
+    the required information.
+  </Step>
+  <Step title="Verification">
+    Verify your email address by clicking the link sent to your
+    [inbox](https://gmail.com/).
+  </Step>
+</Steps>
+After creating your account, you'll likely want to connect your **Spotify account**
+to automatically scrobble your listening activity. You can do this by visiting the
+[Last.fm connections](https://www.last.fm/settings/applications) page and clicking
+the **Connect** button next to **Spotify Scrobbling**.
+
+<Frame>
+  <img src="/images/integrations/lastfm/spotify-scrobbling.png" />
+</Frame>
+
+## Connecting your Last.fm account
+
+Use the `lastfm login` command, and follow the instructions sent in your direct messages.
+
+<Frame>
+  <img src="/images/integrations/lastfm/authentication.png" />
+</Frame>
+<Warning>
+  bleed will automatically cache your library, please be patient before using
+  any commands that rely on your library, as it may take a few seconds to fully
+  index your library.
+</Warning>
+<Info>
+  Your library will be automatically refreshed every **24 hours**. You can also
+  manually refresh your library early with the `lastfm refresh` command.
+</Info>
+
+## Known Issues
+
+### Out of Sync
+
+**Last.fm** and **Spotify** struggle to stay in sync, causing outdated information to be displayed.
+
+- Restart your **Spotify application** to force a refresh.
+- Disconnect and reconnect your **Spotify account** in the [Last.fm connections](https://www.last.fm/settings/applications).
+
+### Last.fm Failure
+
+If you see an unexpected error message, it's possible that **Last.fm** is currently down.
+
+- Check the [Last.fm status page](https://status.last.fm/) for more information.
+- If the issue persists, please join our [support server](/discord) for further assistance.
