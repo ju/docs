@@ -1,0 +1,149 @@
+---
+title: "Social Notifications"
+description: "Automatically announce new social media posts from your favorite creators."
+icon: "bell"
+---
+
+## Supported Platforms
+
+There are eight social notification commands, each with the same subcommands.
+
+<Card
+  title="Subscription Required"
+  icon="medal"
+  iconType="duotone"
+  color="c0c0c0"
+  horizontal
+>
+  **TikTok** and **Instagram** require a [Subscription](/overview/donator-perks)
+  to use, while the other social notification commands are available to all
+  users without an additional subscription.
+</Card>
+
+- **TikTok** - Dispatched whenever a new video is uploaded.
+- **Instagram** - Dispatched whenever a new post or story is uploaded.
+- **YouTube** - Dispatched whenever a new video or short is uploaded.
+- **Twitter** - Dispatched whenever a new tweet is posted by a user.
+- **Subreddit** - Dispatched whenever a new post is made in a subreddit.
+- **Pinterest** - Dispatched whenever a new pin is saved to a board.
+- **Twitch** & **Kick** - Dispatched whenever a streamer goes live.
+
+## Commands
+
+The following examples use the `twitter` command, but the same syntax applies to the other social notification commands.
+
+<AccordionGroup>
+    <Accordion title="Creating a new feed">
+        Use the `twitter add` subcommand receive notifications for a specific user.
+        <Tip>
+        For **YouTube**, you can use a **channel URL** instead of a **username**.
+        </Tip>
+        <CodeGroup>
+        ```javascript Syntax
+        ;twitter add (channel) (username)
+        ```
+
+        ```javascript Example
+        ;twitter add #notifs playboicarti
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Removing a social feed">
+        Use the `twitter remove` subcommand to no longer receive notifications for a specific user.
+        <CodeGroup>
+
+        ```javascript Syntax
+        ;twitter remove (channel) (username)
+        ```
+
+        ```javascript Example
+        ;twitter remove #notifs playboicarti
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Customizing the message">
+        Use the `twtter message` subcommand to customize the message content that is displayed when a social notification is dispatched.
+        <Tip>
+        This command is usually used to ping a role or user. In order for the message to actually notify the role or user, you must include the `--pingable only` flag in the command.
+        </Tip>
+        <CodeGroup>
+
+        ```javascript Syntax
+        ;twitter message (username) (message) [--pingable on|off]
+        ```
+
+        ```javascript Example
+        ;twitter message playboicarti @everyone he posted?? --pingable on
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Viewing all users being monitored">
+        Use the `twitter list` subcommand to view all users being monitored.
+    </Accordion>
+
+</AccordionGroup>
+
+## Specific Commands
+
+<AccordionGroup>
+    <Accordion title="Twitter Retweets">
+        The `twitter retweets` subcommand allows you to toggle notifications for retweets.
+        <CodeGroup>
+        ```javascript Syntax
+        ;twitter retweets (channel) (username) (yes|no)
+        ```
+
+        ```javascript Example
+        ;twitter retweets #notifs playboicarti yes
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Pinterest Embeds">
+        The `pinterest embeds` subcommand allows you to toggle the embed for the notification.
+        <CodeGroup>
+        ```javascript Syntax
+        ;pinterest embeds (channel) (yes|no)
+        ```
+
+        ```javascript Example
+        ;pinterest embeds #pfps no
+        ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
+
+## Important Notes
+
+<Card title="Twitter Spamming" icon="twitter" horizontal>
+It's important to make the **channel private** while setting up Twitter.
+
+This is to avoid spamming the channel with notifications, as the bot will bulk
+send the first few tweets from the user, which can cause people to get pinged
+multiple times repeatedly in a short period of time.
+
+</Card>
+
+<Card title="YouTube Incorrect" icon="youtube" horizontal>
+Sometimes **YouTube** provides the incorrect channel from the username.
+
+This is because the channel isn't a known result on YouTube. If this happens, you can use the **channel URL** instead of the **username** to fix this issue.
+
+</Card>
+
+<Card title="Slight Delay in Notifications" icon="clock" horizontal>
+Most social notifications are monitored at an interval.
+
+This can cause a slight delay in the notification being dispatched, however **YouTube** and **Twitch**
+notifications should be dispatched instantly whenever a new video or stream goes live.
+
+</Card>
+
+<Card title="Customizing the Message" icon="message" horizontal>
+You can't customize the embed for social notifications.
+
+However you can customize the **message content** that is dispatched with the `message`
+subcommand. The `pinterest` command is the only exception, as it has an
+`embeds` subcommand which can be used to toggle the embed for the notification.
+
+</Card>
