@@ -15,86 +15,66 @@
       "to": "#95b6bd"
     }
   },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
+  "metadata": {
+    "theme-color": "#658a95",
+    "og:site_name": "bleed.bot"
+  },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:contact@bleed.bot"
+      "name": "Support Server",
+      "url": "https://discord.gg/bleed"
     }
   ],
   "topbarCtaButton": {
     "name": "Home",
     "url": "https://bleed.bot"
   },
-  "tabs": [
-      {
-          "name": "Resources",
-          "url": "extras"
-      }
-  ],
-  "anchors": [
+  "redirects": [
     {
-      "name": "Commands",
-      "icon": "square-terminal",
-      "url": "https://bleed.bot/commands"
+      "source": "/commands",
+      "destination": "https://bleed.bot/commands"
     },
     {
-      "name": "Status",
-      "icon": "signal-stream",
-      "url": "https://bleed.bot/status"
+      "source": "/status",
+      "destination": "https://bleed.bot/status"
     },
     {
-      "name": "Discord",
-      "icon": "discord",
-      "url": "https://discord.gg/bleed"
+      "source": "/discord",
+      "destination": "https://discord.gg/bleed"
     }
   ],
   "navigation": [
     {
-     "group": "Bot Information",
+      "group": "Overview",
       "pages": [
-        "intro",
-        "perks",
-        "updates"
+        "overview/introduction",
+        "overview/donator-perks",
+        "overview/recent-updates"
       ]
     },
     {
-      "group": "Guides",
-      "pages": [
-        {
-            "group": "Security Setup",
-            "icon": "hammer",
-            "pages": ["guides/security/moderation", "guides/security/fake-permissions",  "guides/security/antinuke", "guides/security/antiraid"]
-
-        },
-        {
-            "group": "Server Configuration",
-            "icon": "gear",
-            "pages": ["guides/configuration/welcome-goodbye", "guides/configuration/star-clown-board", "guides/configuration/boosts",  "guides/configuration/autoresponder", "guides/configuration/invoke", "guides/configuration/reactions", "guides/configuration/bumpreminder", "guides/configuration/timers", "guides/configuration/reaction-roles", "guides/configuration/booster-roles",  "guides/configuration/vanityroles", "guides/configuration/voicemaster", "guides/configuration/giveaways", "guides/configuration/webhooks", "guides/configuration/counters", "guides/configuration/aliases", "guides/configuration/levels", "guides/configuration/music"]
-        },
-        {
-            "group": "Embed Scripting",
-            "icon": "code",
-            "pages": ["guides/embed/scripting", "guides/embed/pagination", "guides/embed/Embed Server"]
-        },
-        {
-            "group": "Integrations",
-            "icon": "share-nodes",
-            "pages": ["guides/integrations/discogs","guides/integrations/fortnite","guides/integrations/instagram","guides/integrations/kick", "guides/integrations/lastfm","guides/integrations/pinterest","guides/integrations/reddit","guides/integrations/tiktok","guides/integrations/twitch","guides/integrations/x","guides/integrations/youtube", "guides/integrations/spotify"]
-        }
-      ]
+      "group": "Security Setup",
+      "pages": ["security/moderation", "security/fake-permissions"]
     },
     {
-     "group": "Resources",
-      "pages": [
-        "extras/voices",
-        "extras/variables",
-        "extras/langcodes",
-        "extras/parameters",
-        "extras/fplist"
-      ]
+      "group": "Server Configuration",
+      "pages": ["configuration/system-messages"]
+    },
+    {
+      "group": "Integrations",
+      "pages": ["integrations/social-notifications"]
+    },
+    {
+      "group": "Resources",
+      "pages": ["resources/permissions"]
     }
   ],
   "footerSocials": {
-    "discord": "https://discord.gg/bleed"
+    "discord": "https://discord.gg/bleed",
+    "github": "https://github.com/ju/docs"
   }
 }

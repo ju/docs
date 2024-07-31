@@ -1,0 +1,63 @@
+---
+title: Moderation
+description: "Guide to setting up moderation commands in your server."
+icon: hammer
+---
+
+## Overview
+
+Moderation commands require some basic setup before they can be used. This includes **moderation logs**, **mute roles**, and the **jailed role & channel**.
+
+<Steps>
+    <Step title="Creating the case logs & jail role">
+        <Info>
+            Jail is a feature similar to mute, but it restricts the user's access to all channels except the jail channel.
+        </Info>
+
+        Use the `,setup` command to create the case logs channel and jail role.
+    </Step>
+    <Step title="Creating the necessary mute roles">
+        <Info>
+            This will create a **text mute**, **image mute**, and **reaction mute** role.
+        </Info>
+        Use the `,setupmute` command to create the necessary mute roles.
+    </Step>
+
+</Steps>
+
+Upon completion of the setup, you'll notice a few new roles and channels in your server.
+
+- **Muted** - Used to restrict users from sending messages.
+- **Image Muted** - Used to restrict users from uploading attachments.
+- **Reaction Muted** - Used to restrict users from reacting to messages.
+- **Jailed** - Used to restrict users from all channels except the `#jail` channel.
+
+<Info>
+  The `#jail-log` channel logs all moderation actions done through bleed (e.g.
+  `,ban` & `,kick`). The `#jail` channel is where users jailed by the `jail`
+  command are restricted to.
+</Info>
+
+## Invoke Messages
+
+You can customize the response for moderation commands which is by default `👍` and the direct message which will be sent after punishing the user.
+
+The following moderation commands can be customized:
+
+- `jail`, `kick`, `ban`, `tempban`, `softban`, `hardban`, `timeout` & `warn`.
+
+<Tip>
+The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/variables).
+</Tip>
+<CodeGroup>
+```javascript Syntax
+,invoke (command) message (message)
+,invoke (command) dm (message)
+```
+
+```javascript Example
+,invoke jail message {user.mention} has been jailed for {reason}
+,invoke jail dm you have been jailed for {reason}
+```
+
+</CodeGroup>

@@ -1,0 +1,279 @@
+---
+title: "Donator Perks"
+description: "Donator perks are rewards given to those who choose to donate to Bleed."
+icon: "dollar-sign"
+---
+
+## How to obtain Donator Perks
+
+Donator perks can be purchased via **server subscriptions** in our [Support Server](https://discord.gg/bleed) which can be found at the top of the channel list labeled as **Server Shop**.
+
+<Frame>
+  <img src="/images/overview/donator-perks/subscriptions.png" />
+</Frame>
+<Warning>
+  Users on **iOS** or **Android** devices will be subject to pay extra due to
+  the **App Store** or **Google Play** fees.
+</Warning>
+
+<Tabs>
+  <Tab title="Tier 3">
+    <Info>
+      **Tier 3** donator perks grant you **early access** to new commands before they are released.
+    </Info>
+<AccordionGroup>
+    <Accordion title="ChatGPT">
+      Ask ChatGPT a question.
+      <CodeGroup>
+      ```javascript Syntax
+      ,chatgpt (question)
+      ```
+      ```javascript Example
+      ,chatgpt am i cute?
+      ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Last.fm Mode">
+      Customize the embed layout of the `nowplaying` command.
+      <CodeGroup>
+        ```javascript Syntax
+        ,lastfm mode (embed script)
+        ,lastfm mode (check|reset)
+        ```
+        ```javascript Example
+        ,lastfm mode {embed}$v{title:Now Playing}$v{description: {track.name}}$v{thumbnail: {album.cover}}
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Last.fm Custom Reactions">
+      Customize the reactions that appear under the `nowplaying` command.
+      <CodeGroup>
+        ```javascript Syntax
+        ,lastfm cr (upvote emoji) (downvote emoji)
+        ```
+        ```javascript Example
+        ,lastfm cr 👍 👎
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Video to GIF conversion">
+      Easily convert a video to a GIF.
+      <CodeGroup>
+        ```javascript Syntax
+        ,makegif (video URL) <quality> <fps> <ff>
+        ```
+        ```javascript Example
+        ,makegif https://bleed.bot/backflip.mp4 100 30 2
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Clever Chatbot">
+      Interact with the latest model of cleverbot.
+      <Info>
+        `bleed clever` is the unique prefix for this command.
+      </Info>
+      <CodeGroup>
+        ```javascript Syntax
+        bleed clever (question)
+        ```
+        ```javascript Example
+        bleed clever I know what you are...
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Background Removal">
+      Remove the background from an image.
+      <CodeGroup>
+        ```javascript Syntax
+        ,transparent (image URL)
+        ```
+        ```javascript Example
+        ,transparent https://bleed.bot/epic_face.png
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="VoiceMaster Ghost">
+      Hide your temporary VoiceMaster channel.
+      ```javascript Syntax
+      ,voicemaster ghost
+      ```
+    </Accordion>
+    <Accordion title="Custom Prefix">
+      Set your own custom command prefix across all servers that utilize bleed.
+      <CodeGroup>
+        ```javascript Syntax
+        ,prefix self (prefix)
+        ```
+        ```javascript Example
+        ,prefix self j
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="TikTok Notifications">
+      Stream posts from a TikTok account to a text channel.
+      <Tip>More information on this command can be found in the [Social Notifications](/integrations/social-notifications) section.</Tip>
+      <CodeGroup>
+        ```javascript Syntax
+        ,tiktok add (channel) (username)
+        ```
+        ```javascript Example
+        ,tiktok add #notifs kyliejenner
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Instagram Notifications">
+      Stream posts & stories from a Instagram account to a text channel.
+      <Tip>More information on this command can be found in the [Social Notifications](/integrations/social-notifications) section.</Tip>
+      <CodeGroup>
+        ```javascript Syntax
+        ,instagram add (channel) (username)
+        ```
+        ```javascript Example
+        ,instagram add #notifs jonathan
+        ```
+      </CodeGroup>
+    </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Tier 2">
+    <AccordionGroup>
+    <Accordion title="ChatGPT">
+      Ask ChatGPT a question.
+      <CodeGroup>
+      ```javascript Syntax
+      ,chatgpt (question)
+      ```
+      ```javascript Example
+      ,chatgpt am i cute?
+      ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Last.fm Mode">
+      Customize the embed layout of the `nowplaying` command.
+      <CodeGroup>
+        ```javascript Syntax
+        ,lastfm mode (embed script)
+        ,lastfm mode (check|reset)
+        ```
+        ```javascript Example
+        ,lastfm mode {embed}$v{title:Now Playing}$v{description: {track.name}}$v{thumbnail: {album.cover}}
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Last.fm Custom Reactions">
+      Customize the reactions that appear under the `nowplaying` command.
+      <CodeGroup>
+        ```javascript Syntax
+        ,lastfm cr (upvote emoji) (downvote emoji)
+        ```
+        ```javascript Example
+        ,lastfm cr 👍 👎
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Video to GIF conversion">
+      Easily convert a video to a GIF.
+      <CodeGroup>
+        ```javascript Syntax
+        ,makegif (video URL) <quality> <fps> <ff>
+        ```
+        ```javascript Example
+        ,makegif https://bleed.bot/backflip.mp4 100 30 2
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Clever Chatbot">
+      Interact with the latest model of cleverbot.
+      <Info>
+        `bleed clever` is the unique prefix for this command.
+      </Info>
+      <CodeGroup>
+        ```javascript Syntax
+        bleed clever (question)
+        ```
+        ```javascript Example
+        bleed clever I know what you are...
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Background Removal">
+      Remove the background from an image.
+      <CodeGroup>
+        ```javascript Syntax
+        ,transparent (image URL)
+        ```
+        ```javascript Example
+        ,transparent https://bleed.bot/epic_face.png
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="VoiceMaster Ghost">
+      Hide your temporary VoiceMaster channel.
+      ```javascript Syntax
+      ,voicemaster ghost
+      ```
+    </Accordion>
+    <Accordion title="Custom Prefix">
+      Set your own custom command prefix across all servers that utilize bleed.
+      <CodeGroup>
+        ```javascript Syntax
+        ,prefix self (prefix)
+        ```
+        ```javascript Example
+        ,prefix self j
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="TikTok Notifications">
+      Stream posts from a TikTok account to a text channel.
+      <Tip>More information on this command can be found in the [Social Notifications](/integrations/social-notifications) section.</Tip>
+      <CodeGroup>
+        ```javascript Syntax
+        ,tiktok add (channel) (username)
+        ```
+        ```javascript Example
+        ,tiktok add #notifs kyliejenner
+        ```
+      </CodeGroup>
+    </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Tier 1">
+    <AccordionGroup>
+    <Accordion title="ChatGPT">
+      Ask ChatGPT a question.
+      <CodeGroup>
+      ```javascript Syntax
+      ,chatgpt (question)
+      ```
+      ```javascript Example
+      ,chatgpt am i cute?
+      ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Last.fm Mode">
+      Customize the embed layout of the `nowplaying` command.
+      <CodeGroup>
+        ```javascript Syntax
+        ,lastfm mode (embed script)
+        ,lastfm mode (check|reset)
+        ```
+        ```javascript Example
+        ,lastfm mode {embed}$v{title:Now Playing}$v{description: {track.name}}$v{thumbnail: {album.cover}}
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Last.fm Custom Reactions">
+      Customize the reactions that appear under the `nowplaying` command.
+      <CodeGroup>
+        ```javascript Syntax
+        ,lastfm cr (upvote emoji) (downvote emoji)
+        ```
+        ```javascript Example
+        ,lastfm cr 👍 👎
+        ```
+      </CodeGroup>
+    </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
