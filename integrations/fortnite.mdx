@@ -1,0 +1,116 @@
+---
+title: Fortnite
+description: "Receive shop rotation updates and set reminders for cosmetics."
+icon: foursquare # fontawesome doesn't have a Fortnite icon and mintlify doesn't support custom svg icons -_-
+---
+
+## Viewing information about a cosmetic
+
+You can use the `fortnite item` command to view information about a cosmetic in Fortnite.
+
+<CodeGroup>
+    
+    ```javascript Syntax
+    ,fortnite item (cosmetic)
+    ```
+    
+    ```javascript Example
+    ,fortnite item Toosie Slide
+    ```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/integrations/fortnite/item.png" />
+</Frame>
+
+## Receiving reminders for cosmetics
+
+You can use the `fortnite watch` command to be notified when a cosmetic is in the shop.
+
+<Warning>You currently cannot remove a cosmetic from being watched.</Warning>
+
+<CodeGroup>
+    
+    ```javascript Syntax
+    ,fortnite watch (cosmetic)
+    ```
+    
+    ```javascript Example
+    ,fortnite watch Toosie Slide
+    ```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/integrations/fortnite/watch.png" />
+</Frame>
+When the cosmetic is available in the shop, you will receive a message in your DMs.
+<Frame>
+    <img src="/images/integrations/fortnite/watch/notification.png" />
+</Frame>
+
+### Viewing what cosmetics you are watching
+
+You can use the `fortnite watch list` command to view what cosmetics you are watching.
+
+<Frame>
+  <img src="/images/integrations/fortnite/watch/list.png" />
+</Frame>
+
+## Receiving shop rotation updates
+
+You can use the `fortnite shop` command to receive daily shop rotation updates.
+
+<Warning>
+  You currently cannot remove a channel from receiving shop rotation updates.
+</Warning>
+
+<CodeGroup>
+    
+    ```javascript Syntax
+    ,fortnite shop (channel)
+    ```
+    
+    ```javascript Example
+    ,fortnite shop #updates
+    ```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/integrations/fortnite/shop.png" />
+</Frame>
+
+### Notifying a role when the shop updates
+
+You can use the `fortnite shop ping` command to notify a role when the shop updates.
+
+<CodeGroup>
+    
+    ```javascript Syntax
+    ,fortnite shop ping (role)
+    ```
+    
+    ```javascript Example
+    ,fortnite shop ping @Updates
+    ```
+
+</CodeGroup>
+
+### Letting people vote on the shop
+
+You can use the `fortnite shop voting` command to let people vote on the shop.
+
+<Info>This will add an upvote & downvote reaction to the shop message.</Info>
+<CodeGroup>
+    
+    ```javascript Syntax
+    ,fortnite shop voting (on or off)
+    ```
+    
+    ```javascript Example
+    ,fortnite shop voting on
+    ```
+
+</CodeGroup>
