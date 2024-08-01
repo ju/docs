@@ -1,0 +1,223 @@
+---
+title: VoiceMaster
+description: "Create temporary voice channels which can be customized to your liking."
+icon: microphone
+---
+
+## Getting started
+
+The first step to using **VoiceMaster** is to use the `voicemaster setup` command.
+
+<Frame>
+  <img src="/images/configuration/voicemaster/setup.png" />
+</Frame>
+<Tip>The created channels can be moved and renamed to your liking.</Tip>
+
+### What is the interface channel?
+
+The `#interface` channel will contain an embed with buttons that allow members to customize their temporary voice channel. This channel should be locked to keep the embed message at the top of the channel.
+
+<Frame>
+  <img src="/images/configuration/voicemaster/interface.png" />
+</Frame>
+
+### What is the Join to Create channel?
+
+The **Join to Create** channel is where members will join to create their temporary voice channel. This channel is required for the **VoiceMaster** system to work.
+
+<Frame>
+  <img src="/images/configuration/voicemaster/join-to-create.gif" />
+</Frame>
+
+## Customizing new voice channels
+
+You can customize what the temporary voice channels look like when they're created.
+
+The following commands are subcommands of the `voicemaster default` command.
+
+<AccordionGroup>
+    <Accordion title="Redirecting voice channels">
+        Redirect voice channels to a specific category.
+        <CodeGroup>
+            ```javascript Syntax
+            ,voicemaster category (category)
+            ```
+
+            ```javascript Example
+            ,voicemaster category Voice Channels
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Setting the default channel name">
+        <Info>The name can use the `{user}`, `{user.name}` and `{user.display_name}` variables.</Info>
+        <CodeGroup>
+            ```javascript Syntax
+            ,voicemaster default name (name)
+            ```
+
+            ```javascript Example
+            ,voicemaster default name {user.display_name}'s vc
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Setting the default channel bitrate">
+        <Info>The bitrate must be between `8` and `384`.</Info>
+        <CodeGroup>
+            ```javascript Syntax
+            ,voicemaster default bitrate (kbps)
+            ```
+
+            ```javascript Example
+            ,voicemaster default bitrate 384
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Setting the default channel region">
+        <Info>
+        The region must be one of the following
+        <br />`brazil`, `hongkong`, `india`, `japan`, `rotterdam`, `russia`, `singapore`, `south-korea`, `southafrica`, `sydney`, `us-central`, `us-east`, `us-south`, `us-west`
+        </Info>
+        <CodeGroup>
+            ```javascript Syntax
+            ,voicemaster default region (region)
+            ```
+
+            ```javascript Example
+            ,voicemaster default region russia
+            ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
+
+## Granting a role to members
+
+You can set a role that members will receive when they create a temporary voice channel.
+This is useful if you want your `#interface` channel to only be visible to members inside a temporary voice channel.
+
+<CodeGroup>
+    ```javascript Syntax
+    ,voicemaster default role (role)
+    ```
+
+    ```javascript Example
+    ,voicemaster default role @VoiceMaster
+    ```
+
+</CodeGroup>
+
+### Setting up the permissions
+
+If you're interested in making your `#interface` channel only visible to members inside a temporary voice channel, you would need to set the permissions accordingly.
+
+You would need to deny the `View Channel` permission for the `@everyone` role and allow the `View Channel` permission for the role you set in the previous step.
+
+<Frame>
+  <img src="/images/configuration/voicemaster/interface-permissions.gif" />
+</Frame>
+
+## Customizing your voice channel
+
+The following commands can be done via the `#interface` channel.
+
+### Renaming your voice channel
+
+You can use the `voicemaster rename` command to change the name of your voice channel.
+
+<Info>This command can only be used **once** every **10 minutes**.</Info>
+
+<CodeGroup>
+    ```javascript Syntax
+    ,voicemaster rename (name)
+    ```
+
+    ```javascript Example
+    ,voicemaster rename ethan's vc
+    ```
+
+</CodeGroup>
+
+### Limiting the number of members
+
+You can use the `voicemaster limit` command to set a limit on the number of members that can join your voice channel.
+
+<CodeGroup>
+    ```javascript Syntax
+    ,voicemaster limit (number)
+    ```
+
+    ```javascript Example
+    ,voicemaster limit 5
+    ```
+
+</CodeGroup>
+
+### Making your voice channel private
+
+You can lock & hide your voice channel with the following commands.
+
+- `voicemaster lock` - Prevents anyone from joining the voice channel.
+  - `voicemaster unlock` - Allows anyone join the voice channel.
+- `voicemaster ghost` - Hides the voice channel from the channel list.
+  - `voicemaster unghost` - Reveals the voice channel in the channel list.
+
+<Card title="Subscription Required" icon="medal" iconType="duotone" horizontal>
+  You must have a [Tier 2 Subscription](/overview/donator-perks) to use the
+  `voicemaster ghost` command.
+</Card>
+
+#### Permitting members to join
+
+You can use the `voicemaster permit` command to allow specific members to join your voice channel.
+
+<CodeGroup>
+    ```javascript Syntax
+    ,voicemaster permit (member or role)
+    ```
+
+    ```javascript Example
+    ,voicemaster permit @jonathan
+    ```
+
+</CodeGroup>
+
+### Granting a role to members in your voice channel
+
+You can use the `voicemaster role` command to set a role that members will receive when they join your voice channel.
+
+<Info>You must have the `Manage Roles` permission to use this command.</Info>
+
+<CodeGroup>
+    ```javascript Syntax
+    ,voicemaster role (role)
+    ```
+
+    ```javascript Example
+    ,voicemaster role @Listening Party
+    ```
+
+</CodeGroup>
+
+## Related commands
+
+<AccordionGroup>
+    <Accordion title="Claiming ownership">
+        If the owner of a voice channel leaves, you can use the `voicemaster claim` command to take ownership of the voice channel.
+    </Accordion>
+    <Accordion title="Transferring ownership">
+        You can use the `voicemaster transfer` command to transfer ownership of a voice channel to another member.
+        <CodeGroup>
+            ```javascript Syntax
+            ,voicemaster transfer (member)
+            ```
+
+            ```javascript Example
+            ,voicemaster transfer @jonathan
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Setting the channel as a music channel">
+        You can use the `voicemaster music` command which will prevent members from speaking in the voice channel.
+    </Accordion>
+
+</AccordionGroup>

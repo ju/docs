@@ -62,7 +62,11 @@
     },
     {
       "group": "Server Configuration",
-      "pages": ["configuration/system-messages", "configuration/level-rewards"]
+      "pages": [
+        "configuration/system-messages",
+        "configuration/level-rewards",
+        "configuration/voicemaster"
+      ]
     },
     {
       "group": "Integrations",
