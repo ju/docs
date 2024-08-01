@@ -1,0 +1,144 @@
+---
+title: "Booster Roles"
+description: "Reward your boosters with unique roles for themselves."
+icon: hands-holding-diamond
+---
+
+## What are booster roles?
+
+Booster roles are unique roles that are given to members which have boosted your server. These roles can be fully customized by the members themselves.
+
+## Setting the base role
+
+In order for the booster roles to work, you must set a base role. All booster roles will be placed under this role.
+
+<Tip>The base role should be a role which is above any roles with a color, otherwise the color won't be visible due to Discord's role hierarchy.</Tip>
+<CodeGroup>
+```javascript Syntax
+,boosterrole base (role)
+```
+
+```javascript Example
+,boosterrole base @------
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/booster/base-position.png" />
+</Frame>
+
+## Creating a booster role
+
+You can create a booster role by using the `boosterrole` command itself.
+
+<Info>The `color` parameter can be a hex code or a color name.</Info>
+
+<CodeGroup>
+```javascript Syntax
+,boosterrole (color) <name>
+```
+
+```javascript Example
+,boosterrole #3498DB boss
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/booster/create.png" />
+</Frame>
+
+## Customizing your booster role
+
+### Changing the name
+
+You can use the `boosterrole rename` command to change the name of your booster role.
+
+<CodeGroup>
+```javascript Syntax
+,boosterrole rename (new name)
+```
+
+```javascript Example
+,boosterrole rename boss role
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/booster/rename.png" />
+</Frame>
+
+### Changing the icon
+
+You can use the `boosterrole icon` command to change the icon of your booster role.
+
+<Info>You can use an emoji or an attachment.</Info>
+
+<CodeGroup>
+```javascript Syntax
+,boosterrole icon (emoji or attachment)
+```
+
+```javascript Example
+,boosterrole icon :cool:
+,boosterrole icon https://bleed.bot/bleed.png
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/booster/icon.png" />
+</Frame>
+
+## Removing your booster role
+
+If you no longer want your booster role, you can use the `boosterrole remove` command.
+
+## Automatically grant a role to boosters
+
+You can reward your boosters with a role upon boosting your server. You can use the `boosterrole award` command to set this up.
+
+<CodeGroup>
+```javascript Syntax
+,boosterrole award (role)
+```
+
+```javascript Example
+,boosterrole award @immunity
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/booster/award.png" />
+</Frame>
+
+### Viewing the role being awarded
+
+You can use the `boosterrole award view` command to view the role being awarded.
+
+<Frame>
+  <img src="/images/configuration/roles/booster/award-view.png" />
+</Frame>
+
+### Removing the role being awarded
+
+You can use the `boosterrole award remove` command to remove the role being awarded.
+
+<Frame>
+  <img src="/images/configuration/roles/booster/award-remove.png" />
+</Frame>
+
+## Related commands
+
+<AccordionGroup>
+  <Accordion title="Viewing all booster roles">
+    You can use the `boosterrole list` command to view all booster roles.
+  </Accordion>
+  <Accordion title="Cleaning up booster roles">
+    You can use the `boosterrole cleanup` command if they weren't removed
+    properly.
+  </Accordion>
+</AccordionGroup>
