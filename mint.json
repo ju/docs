@@ -62,7 +62,7 @@
     },
     {
       "group": "Server Configuration",
-      "pages": ["configuration/system-messages"]
+      "pages": ["configuration/system-messages", "configuration/level-rewards"]
     },
     {
       "group": "Integrations",

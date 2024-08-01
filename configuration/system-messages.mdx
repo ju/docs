@@ -1,7 +1,7 @@
 ---
 title: "System Messages"
 description: "Automatically send messages when certain member events occur."
-icon: "message"
+icon: message
 ---
 
 ## Commands
@@ -34,7 +34,7 @@ The following examples use the `welcome` command, but the same syntax is applied
 
         ```javascript Example
         ,welcome add #joneral welcome to {guild} {user.mention} --delete_after 30
-        ,welcome add #joneral {message: {user.mention}}$v{embed}$v{description: welcome to {guild.name}}
+        ,welcome add #joneral {embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
         ```
 
         </CodeGroup>
@@ -44,11 +44,11 @@ The following examples use the `welcome` command, but the same syntax is applied
         <CodeGroup>
 
         ```javascript Syntax
-        ;welcome view <channel>
+        ,welcome view <channel>
         ```
 
         ```javascript Example
-        ;welcome view #joneral
+        ,welcome view #joneral
         ```
 
         </CodeGroup>
@@ -58,11 +58,11 @@ The following examples use the `welcome` command, but the same syntax is applied
         <CodeGroup>
 
         ```javascript Syntax
-        ;welcome remove <channel>
+        ,welcome remove <channel>
         ```
 
         ```javascript Example
-        ;welcome remove #general
+        ,welcome remove #joneral
         ```
 
         </CodeGroup>
