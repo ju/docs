@@ -69,7 +69,10 @@
         {
           "group": "Roles",
           "icon": "users-gear",
-          "pages": ["configuration/roles/vanity-rewards"]
+          "pages": [
+            "configuration/roles/booster-roles",
+            "configuration/roles/vanity-rewards"
+          ]
         }
       ]
     },
