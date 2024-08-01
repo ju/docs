@@ -69,6 +69,7 @@
       "pages": [
         "integrations/spotify",
         "integrations/lastfm",
+        "integrations/fortnite",
         "integrations/social-notifications"
       ]
     },
