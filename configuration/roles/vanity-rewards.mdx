@@ -1,0 +1,126 @@
+---
+title: "Vanity Rewards"
+description: "Reward your members for advertising your server in their status."
+icon: user-crown
+---
+
+## Getting started
+
+This feature uses a dedicated bot due to some limitations with the main bleed bot. You can invite the dedicated bot by clicking [here](https://discord.com/oauth2/authorize?client_id=996638412675227668&permissions=8&scope=bot%20applications.commands).
+
+<Warning>
+  Your server must be **Level 3** with at least **14 boosts** prior to inviting
+  the dedicated bot.
+</Warning>
+<Info>
+  All commands are **slash commands** and can be accessed by typing `/vanity` in
+  a text channel.
+</Info>
+
+## Setting the vanity to monitored
+
+You'll need to set what vanity you want to monitor. You can do this by using the `/vanity set` command.
+
+<Tip>It's recommended to prefix the substring with a `/` (e.g. `/bleed`).</Tip>
+<CodeGroup>
+```javascript Syntax
+/vanity set (substring)
+```
+
+```javascript Example
+/vanity set /bleed
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/vanity/set-substring.png" />
+</Frame>
+
+## Setting up roles to reward
+
+You can use the `/vanity add` command to add a vanity reward.
+
+<Info>
+  If you no longer want to reward a role for a vanity, you can use the `/vanity
+  role remove` command.
+</Info>
+<CodeGroup>
+```javascript Syntax
+/vanity add (role)
+/vanity role remove (role)
+```
+
+```javascript Example
+/vanity add @Vanity
+/vanity role remove @Vanity
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/vanity/setting-roles.png" />
+</Frame>
+
+### Viewing all roles being rewarded
+
+You can use the `/vanity role list` command to view all roles being rewarded.
+
+<Frame>
+  <img src="/images/configuration/roles/vanity/role-list.png" />
+</Frame>
+
+## Setting up the award message
+
+You can set a thank you message for when a user advertises your server in their status.
+
+<Tip>
+  The `message` parameter can be raw text or an [embed](/resources/scripting)
+  with dynamic [variables](/resources/variables).
+</Tip>
+
+<CodeGroup>
+```javascript Syntax
+/vanity message (message)
+```
+
+```javascript Example
+/vanity message thank you {user.mention}
+/vanity message {embed}$v{message: {user.mention}}$v{description: thank you for advertising our server!}
+```
+
+</CodeGroup>
+
+### Setting where the message is sent
+
+You can use the `/vanity award channel` command to set where the message is sent.
+
+<CodeGroup>
+```javascript Syntax
+/vanity award channel (channel)
+```
+
+```javascript Example
+/vanity award channel #general
+```
+
+</CodeGroup>
+
+## Setting up the log channel
+
+You can use the `/vanity log channel` command to log when a user adds or removes the vanity from their status.
+
+<CodeGroup>
+```javascript Syntax
+/vanity log channel (channel)
+```
+
+```javascript Example
+/vanity log channel #logs
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/vanity/log-example.png" />
+</Frame>
