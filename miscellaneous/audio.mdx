@@ -1,0 +1,201 @@
+---
+title: Audio
+description: "Listen to music from a variety of sources inside voice channels."
+icon: music
+---
+
+## Configuration
+
+### Setting the DJ role
+
+You can set a DJ role which restricts who can control the audio player.
+
+<CodeGroup>
+```javascript Syntax
+,settings dj (role)
+```
+
+```javascript Example
+,settings dj @DJ
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/audio/bind-dj.png" />
+</Frame>
+
+### Auto play similar tracks
+
+You can toggle auto play which will automatically play similar tracks when the queue is empty.
+
+<CodeGroup>
+```javascript Syntax
+,settings autoplay (on or off)
+```
+
+```javascript Example
+,settings autoplay on
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/audio/bind-autoplay.png" />
+</Frame>
+
+## Queueing Music
+
+You can queue music with the `play` command.
+
+<Tip>
+  By default, the `play` command will search **YouTube**. You're able to provide
+  a **URL** which will queue the music directly from the source you provide.
+</Tip>
+
+<CodeGroup>
+```javascript Syntax
+,play (query or URL)
+```
+
+```javascript Example
+,play jeans 2hollis
+,play https://open.spotify.com/track/6C2nVSSeXNqfoY8t6tliZ4
+```
+
+</CodeGroup>
+
+## Managing the Queue
+
+### Viewing the tracks in the queue
+
+Use the `queue` command to view the tracks in the queue.
+Each track has a corresponding position which can be used to interact with the queue.
+
+<Frame>
+  <img src="/images/miscellaneous/audio/queue.png" />
+</Frame>
+
+### Removing a track from the queue
+
+Use the `queue remove` command to remove a track from the queue.
+You must provide the [track position](#viewing-the-tracks-in-the-queue) which can be found with the `queue` command.
+
+<CodeGroup>
+```javascript Syntax
+,queue remove (position)
+```
+
+```javascript Example
+,queue remove 2
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/audio/queue-remove.png" />
+</Frame>
+
+### Moving a track in the queue
+
+Use the `queue move` command to move a track in the queue.
+You must provide the [current position](#viewing-the-tracks-in-the-queue) and the new position.
+
+<CodeGroup>
+```javascript Syntax
+,queue move (position) (new_position)
+```
+
+```javascript Example
+,queue move 3 1
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/audio/queue-move.png" />
+</Frame>
+
+## Controlling Playback
+
+You can control playback with the following commands
+
+<AccordionGroup>
+    <Accordion title="Skipping to the next track">
+        Use the `skip` command to skip to the next track.
+    </Accordion>
+    <Accordion title="Pausing & Resuming playback">
+        Use the `pause` & `resume` commands to pause and resume playback.
+    </Accordion>
+    <Accordion title="Seeking to a specific position">
+        Use the `seek` command to seek to a specific position in the track.
+        <Tip>
+            The position must use the format `mm:ss`, (e.g. `1:20`).
+        </Tip>
+        <CodeGroup>
+        ```javascript Syntax
+        ,seek (position)
+        ```
+        ```javascript Example
+        ,seek 2:30
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Changing the track volume">
+        Use the `volume` command to change the volume.
+        <Tip>
+            The percentage must be between `0` and `100`.
+        </Tip>
+        <CodeGroup>
+        ```javascript Syntax
+        ,volume (percentage)
+        ```
+        ```javascript Example
+        ;volume 50
+        ```
+        </CodeGroup>
+
+    </Accordion>
+    <Accordion title="Setting the repeat mode">
+        Use the `repeat` command to set the repeat mode.
+        <CodeGroup>
+        ```javascript Syntax
+        ,repeat (off | queue | current)
+        ```
+        ```javascript Example
+        ,repeat current
+        ```
+        </CodeGroup>
+
+    </Accordion>
+
+</AccordionGroup>
+
+## Audio Filters
+
+You can use an equalizer preset to adjust how the audio sounds.
+
+<Info>
+  You can view which presets are applied with the `preset active` command.
+</Info>
+
+| Command            | Description                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| `preset soft`      | Cuts high and mid frequencies, allowing only low frequencies                |
+| `preset 8d`        | Creates a stereo-like panning effect, rotating audio for immersive sound    |
+| `preset chipmunk`  | Accelerates track playback to produce a high-pitched, chipmunk-like sound   |
+| `preset boost`     | Enhances track with heightened bass and highs for a lively, energetic feel  |
+| `preset vaporwave` | Slows track playback for nostalgic and vintage half-speed effect            |
+| `preset vibrato`   | Introduces a wavering pitch effect for dynamic tone                         |
+| `preset piano`     | Enhances mid and high tones for standout piano-based tracks                 |
+| `preset metal`     | Amplifies midrange for a fuller, concert-like sound, ideal for metal tracks |
+| `preset flat`      | Represents a neutral EQ setting with default levels across the board        |
+| `preset karaoke`   | Filters out vocals from the track, leaving only the instrumental            |
+| `preset nightcore` | Accelerates track playback for nightcore-style music                        |
+
+## Audio Sources
+
+- **YouTube**
+- **Spotify**
+- **SoundCloud**
+- **Apple Music**
