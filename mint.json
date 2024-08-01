@@ -69,6 +69,10 @@
       ]
     },
     {
+      "group": "Miscellaneous",
+      "pages": ["miscellaneous/audio", "miscellaneous/webhook"]
+    },
+    {
       "group": "Integrations",
       "pages": [
         "integrations/spotify",
