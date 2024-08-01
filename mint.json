@@ -65,7 +65,12 @@
       "pages": [
         "configuration/system-messages",
         "configuration/level-rewards",
-        "configuration/voicemaster"
+        "configuration/voicemaster",
+        {
+          "group": "Roles",
+          "icon": "users-gear",
+          "pages": ["configuration/roles/vanity-rewards"]
+        }
       ]
     },
     {
