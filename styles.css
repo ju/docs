@@ -1,0 +1,19 @@
+::-webkit-scrollbar {
+  height: 25px;
+  width: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: #505050;
+  border: 8px solid transparent;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3d3d3d;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
