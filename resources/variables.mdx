@@ -1,0 +1,184 @@
+---
+title: Variables
+description: "All available variables within bleed."
+icon: signature
+---
+
+These variables are accessible throughout bleed and can be used
+in any command context which contains a `message` or `embed code` parameter (e.g. `welcome`, `leave` & `goodbye`)
+
+<Tabs>
+<Tab title="Guild">
+
+| Variable                          | Output                                                               |
+| --------------------------------- | -------------------------------------------------------------------- |
+| `{guild.name}`                    | The guild's name                                                     |
+| `{guild.id}`                      | The guild's ID                                                       |
+| `{guild.count}`                   | The guild's member count                                             |
+| `{guild.region}`                  | The guild's voice region                                             |
+| `{guild.shard}`                   | The guild's shard ID on bot                                          |
+| `{guild.owner_id}`                | The guild's owner ID                                                 |
+| `{guild.created_at}`              | The guild's creation date in UTC                                     |
+| `{guild.created_at_timestamp}`    | The guild's creation date in UNIX                                    |
+| `{guild.emoji_count}`             | The guild's emoji count                                              |
+| `{guild.role_count}`              | The guild's role count                                               |
+| `{guild.boost_count}`             | The guild's boost count                                              |
+| `{guild.boost_tier}`              | The guild's boost tier, defaults to No Level if none                 |
+| `{guild.preferred_locale}`        | The guild's preferred locale                                         |
+| `{guild.key_features}`            | The guild's list of features (possibly `N/A`)                        |
+| `{guild.icon}`                    | The guild's icon URL as a PNG (possibly `N/A`)                       |
+| `{guild.banner}`                  | The guild's banner URL as a PNG (possibly `N/A`)                     |
+| `{guild.splash}`                  | The guild's splash URL as a PNG (possibly `N/A`)                     |
+| `{guild.discovery}`               | The guild's discovery splash URL as a PNG (possibly `N/A`)           |
+| `{guild.max_presences}`           | The guild's max presences amount                                     |
+| `{guild.max_members}`             | The guild's max members amount                                       |
+| `{guild.max_video_channel_users}` | The guild's max video channel users                                  |
+| `{guild.afk_timeout}`             | The guild's AFK timeout in seconds                                   |
+| `{guild.afk_channel}`             | The guild's AFK channel (possibly `N/A`)                             |
+| `{guild.channels}`                | The guild's list of text, voice & category channels (possibly `N/A`) |
+| `{guild.channels_count}`          | The guild's total channel count                                      |
+| `{guild.text_channels}`           | The guild's list of text channels                                    |
+| `{guild.text_channels_count}`     | The guild's text channel count                                       |
+| `{guild.voice_channels}`          | The guild's list of voice channels                                   |
+| `{guild.voice_channels_count}`    | The guild's voice channel count                                      |
+| `{guild.category_channels}`       | The guild's list of category channels                                |
+| `{guild.category_channels_count}` | The guild's category channel count                                   |
+
+</Tab>
+<Tab title="User">
+
+| Variable                       | Output                                                 |
+| ------------------------------ | ------------------------------------------------------ |
+| `{user}`                       | The user's name and discriminator                      |
+| `{user.id}`                    | The user's ID                                          |
+| `{user.mention}`               | The user's mention                                     |
+| `{user.name}`                  | The user's name                                        |
+| `{user.tag}`                   | The user's discriminator                               |
+| `{user.avatar}`                | The user's profile picture                             |
+| `{user.guild_avatar}`          | The user's guild profile picture                       |
+| `{user.display_avatar}`        | The user's available profile picture                   |
+| `{user.joined_at}`             | The user's guild join date in UTC                      |
+| `{user.joined_at_timestamp}`   | The user's guild join date in UNIX                     |
+| `{user.created_at}`            | The user's account creation date in UTC                |
+| `{user.created_at_timestamp}`  | The user's account creation date in UNIX               |
+| `{user.display_name}`          | The user's current display name                        |
+| `{user.boost}`                 | `Yes`/`No` if the user is boosting the guild           |
+| `{user.boost_since}`           | The user's initial guild boost date                    |
+| `{user.boost_since_timestamp}` | The user's initial guild boost date in UNIX            |
+| `{user.color}`                 | The user's top role hex code                           |
+| `{user.top_role}`              | The user's top role name, defaults to N/A              |
+| `{user.role_list}`             | The user's role list (possibly `N/A`)                  |
+| `{user.role_text_list}`        | The user's role list in text (possibly `N/A`)          |
+| `{user.bot}`                   | `Yes`/`No` if the user is a bot                        |
+| `{user.badges_icons}`          | The user's profile badges with emotes (possibly `N/A`) |
+| `{user.badges}`                | The user's profile badges in text (possibly `N/A`)     |
+| `{user.join_position}`         | The user's join position                               |
+| `{user.join_position_suffix}`  | The user's join position with suffix                   |
+
+</Tab>
+<Tab title="Channel">
+
+| Variable                   | Output                                                    |
+| -------------------------- | --------------------------------------------------------- |
+| `{channel.name}`           | The channel's name                                        |
+| `{channel.id}`             | The channel's ID                                          |
+| `{channel.mention}`        | The channel's mention                                     |
+| `{channel.topic}`          | The channel's topic                                       |
+| `{channel.type}`           | The channel's type (`text`/`news`/`..`)                   |
+| `{channel.category_id}`    | The channel's category ID (possibly `N/A`)                |
+| `{channel.category_name}`  | The channel's category name (possibly `N/A`)              |
+| `{channel.position}`       | The channel's position in the guild channel list          |
+| `{channel.slowmode_delay}` | The channel's slowmode delay in seconds (defaults to `0`) |
+
+</Tab>
+<Tab title="Date & Time">
+
+| Variable                  | Output                        |
+| ------------------------- | ----------------------------- |
+| `{date.now}`              | Current date in PST           |
+| `{date.utc_timestamp}`    | Current date as UNIX          |
+| `{date.now_proper}`       | Better formatted date in PST  |
+| `{date.now_short}`        | Short formatted date in PST   |
+| `{date.now_shorter}`      | Shorter formatted date in PST |
+| `{time.now}`              | 12 hour timestamp in PST      |
+| `{time.now_military}`     | 24 hour timestamp in PST      |
+| `{date.utc_now}`          | Current date in UTC           |
+| `{date.utc_now_proper}`   | Better formatted date in UTC  |
+| `{date.utc_now_short}`    | Short formatted date in UTC   |
+| `{date.utc_now_shorter}`  | Shorter formatted date in UTC |
+| `{time.utc_now}`          | 12 hour timestamp in UTC      |
+| `{time.utc_now_military}` | 24 hour timestamp in UTC      |
+
+</Tab>
+
+<Tab title="Last.fm">
+
+<Warning>
+  This section is only available for the `lastfm mode` command which requires a
+  [subscription](/overview/donator-perks).
+</Warning>
+
+| Variable                 | Output                                                 |
+| ------------------------ | ------------------------------------------------------ |
+| `{user.name}`            | Last.fm username                                       |
+| `{user.avatar}`          | Last.fm profile picture                                |
+| `{user.plays}`           | Total scrobbles for Last.fm account                    |
+| `{proper(user.plays)}`   | Total scrobbles for Last.fm account (formatted number) |
+| `{user.artist_crown}`    | Displays crown emoji if user has crown for artist      |
+| `{user.url}`             | Profile URL for Last.fm account                        |
+| `{author}`               | Author name and discriminator                          |
+| `{author.name}`          | Author username                                        |
+| `{author.nickname}`      | Author nickname                                        |
+| `{author.discriminator}` | Author discriminator                                   |
+| `{album.name}`           | Current playing album title                            |
+| `{lower(album.name)}`    | Current playing album title in all lowercase           |
+| `{album.url}`            | Current playing album URL                              |
+| `{album.cover}`          | Current playing album cover                            |
+| `{track.name}`           | Current playing track title                            |
+| `{lower(track.name)}`    | Current playing track title in all lowercase           |
+| `{track.url}`            | Current playing track URL (from Last.fm)               |
+| `{track.spotify_url}`    | Current playing track URL (from Spotify)               |
+| `{track.release_date}`   | Current playing track release date (from Spotify)      |
+| `{track.duration}`       | Current playing track duration (from Spotify)          |
+| `{track.plays}`          | Current playing track playcount                        |
+| `{proper(track.plays)}`  | Current playing track playcount (formatted number)     |
+| `{artist.name}`          | Current playing artist name (from Last.fm)             |
+| `{lower(artist.name)}`   | Current playing artist name in all lowercase           |
+| `{artist.plays}`         | Current playing artist plays (from local database)     |
+| `{artist.url}`           | Current playing artist URL (from Last.fm)              |
+| `{artist.image}`         | Current playing artist image (from Spotify)            |
+
+</Tab>
+
+<Tab title="Level & XP">
+
+<Info>This section is only available for the `level message` command.</Info>
+
+| Variable           | Output                                 |
+| ------------------ | -------------------------------------- |
+| `{level.new_rank}` | Member's new level at time of level up |
+| `{level.user_xp}`  | Member's current XP                    |
+
+</Tab>
+
+<Tab title="Boost">
+
+<Info>This section is only available for the `boost` command.</Info>
+
+| Variable              | Output                           |
+| --------------------- | -------------------------------- |
+| `{boost.count}`       | Amount of times user has boosted |
+| `{guild.boost.count}` | Overall guild boost count        |
+
+</Tab>
+
+<Tab title="Bump Reminder">
+
+<Info>This section is only available for the `bumpreminder` command.</Info>
+
+| Variable                        | Output                                    |
+| ------------------------------- | ----------------------------------------- |
+| `{bumpreminder.last_user_bump}` | Shows the user who last bumped the server |
+
+</Tab>
+</Tabs>

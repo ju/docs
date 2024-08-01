@@ -70,7 +70,17 @@
     },
     {
       "group": "Resources",
-      "pages": ["resources/permissions"]
+      "pages": [
+        "resources/syntax",
+        "resources/variables",
+        "resources/permissions",
+        "resources/voices",
+        "resources/languages"
+      ]
+    },
+    {
+      "group": "Common Issues",
+      "pages": ["common-issues/ios-dash"]
     }
   ],
   "footerSocials": {
