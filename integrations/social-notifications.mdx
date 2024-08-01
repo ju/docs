@@ -109,33 +109,29 @@ The following examples use the `twitter` command, but the same syntax applies to
 
 ## Important Notes
 
-<Card title="Twitter Spamming" icon="twitter" horizontal>
+<Card title="Twitter Spamming" icon="twitter">
 It's important to make the **channel private** while setting up Twitter.
-
 This is to avoid spamming the channel with notifications, as the bot will bulk
 send the first few tweets from the user, which can cause people to get pinged
 multiple times repeatedly in a short period of time.
 
 </Card>
 
-<Card title="YouTube Incorrect" icon="youtube" horizontal>
+<Card title="YouTube Channel Incorrect" icon="youtube">
 Sometimes **YouTube** provides the incorrect channel from the username.
-
 This is because the channel isn't a known result on YouTube. If this happens, you can use the **channel URL** instead of the **username** to fix this issue.
 
 </Card>
 
-<Card title="Slight Delay in Notifications" icon="clock" horizontal>
+<Card title="Slight Delay in Notifications" icon="clock">
 Most social notifications are monitored at an interval.
-
 This can cause a slight delay in the notification being dispatched, however **YouTube** and **Twitch**
 notifications should be dispatched instantly whenever a new video or stream goes live.
 
 </Card>
 
-<Card title="Customizing the Message" icon="message" horizontal>
+<Card title="Customizing the Message" icon="message">
 You can't customize the embed for social notifications.
-
 However you can customize the **message content** that is dispatched with the `message`
 subcommand. The `pinterest` command is the only exception, as it has an
 `embeds` subcommand which can be used to toggle the embed for the notification.
