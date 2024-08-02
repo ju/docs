@@ -1,0 +1,282 @@
+---
+title: Antinuke
+description: "Impose restrictions on moderators to prevent destructive behavior."
+icon: fingerprint
+---
+
+## Why use an antinuke system?
+
+It's important to have an antinuke system in place to prevent moderators from abusing their permissions. This is a security measure which lets your server stay safe from any harmful actions.
+
+## How does the antinuke work?
+
+The antinuke will set a limit on the number of actions a moderator can perform in a certain time frame. If the limit is exceeded, the moderator will be punished and a message will be sent to the owner.
+
+## Configuring the antinuke
+
+### Allowing users to configure the antinuke
+
+Initially, only the **server owner** can configure the antinuke. However, you can allow other users to configure the antinuke with the `antinuke admin` command.
+
+<Warning>
+  This is a dangerous command and will allow the user to entirely alter the
+  antinuke configuration.
+</Warning>
+
+<CodeGroup>
+```javascript Syntax
+,antinuke admin (user)
+```
+
+```javascript Example
+,antinuke admin @jonathan
+```
+
+</CodeGroup>
+
+### Exempting users from the antinuke
+
+You can exempt users from the antinuke with the `antinuke whitelist` command.
+
+<Warning>
+  This is a dangerous command and will allow the user to bypass the antinuke
+  entirely.
+</Warning>
+<CodeGroup>
+```javascript Syntax
+,antinuke whitelist (user)
+```
+
+```javascript Example
+,antinuke whitelist @jonathan
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/security/antinuke/whitelist.png" />
+</Frame>
+
+## Enabling an antinuke module
+
+### Available Flags
+
+The following flags can be used to define the antinuke module
+
+<AccordionGroup>
+    <Accordion title="Threshold">
+        The threshold is the number of actions a moderator can perform before being punished.
+        <CodeGroup>
+        ```javascript Syntax
+        --threshold (number)
+        ```
+
+        ```javascript Example
+        --threshold 3
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Punishment">
+        The punishment which will be applied to the moderator.
+        <Info>Available punishments can be found in the [punishments](/resources/syntax#flag-punishments) section.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        --do (punishment)
+        ```
+
+        ```javascript Example
+        --do ban
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Command Detection">
+        Whether bleed commands should be counted towards the threshold. (e.g. `,ban`)
+        <CodeGroup>
+        ```javascript Syntax
+        --command (on | off)
+        ```
+
+        ```javascript Example
+        --command on
+        ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
+
+### Available Modules
+
+<AccordionGroup>
+    <Accordion title="Punishing members for changing the vanity URL">
+        You can prevent members from changing the vanity URL with the following command
+
+        <Warning>bleed can not change the vanity URL back to the original due to Discord limitations.</Warning>
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke vanity (on or off) [--do (punishment)]
+        ```
+
+        ```javascript Example
+        ,antinuke vanity on --do ban
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/vanity.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Preventing bots from being added">
+        You can prevent bots from being mass added with the following command
+
+        <Info>You'll need to use `antinuke whitelist (bot ID)` to invite bots.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke botadd (on or off)
+        ```
+
+        ```javascript Example
+        ,antinuke botadd on
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/botadd.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Preventing members from being banned">
+        You can prevent members from being mass banned with the following command
+
+        <Info>It's recommended to include the `--command on` flag.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke ban (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+        ```
+
+        ```javascript Example
+        ,antinuke ban on --threshold 3 --do ban --command on
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/ban.png" />
+        </Frame>
+
+    </Accordion>
+    <Accordion title="Preventing members from being kicked">
+        You can prevent members from being mass kicked with the following command
+
+        <Info>It's recommended to include the `--command on` flag.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke kick (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+        ```
+
+        ```javascript Example
+        ,antinuke kick on --threshold 3 --do ban --command on
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/kick.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Preventing roles from being deleted">
+        You can prevent roles from being mass deleted with the following command
+
+        <Info>It's recommended to include the `--command on` flag.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke role (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+        ```
+
+        ```javascript Example
+        ,antinuke role on --threshold 3 --do ban --command on
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/role.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Preventing channels from being created or deleted">
+        You can prevent channels from being mass created or deleted with the following command
+
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke channel (on or off) [--threshold (number)] [--do (punishment)]
+        ```
+
+        ```javascript Example
+        ,antinuke channel on --threshold 3 --do ban
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/channel.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Preventing emojis from being deleted">
+        You can prevent emojis from being mass deleted with the following command
+
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke emoji (on or off) [--threshold (number)] [--do (punishment)]
+        ```
+
+        ```javascript Example
+        ,antinuke emoji on --threshold 3 --do ban
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/emoji.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Preventing webhooks from being created">
+        You can prevent webhooks from being mass created with the following command
+
+        <CodeGroup>
+        ```javascript Syntax
+        ,antinuke webhook (on or off) [--threshold (number)] [--do (punishment)]
+        ```
+
+        ```javascript Example
+        ,antinuke webhook on --threshold 3 --do ban
+        ```
+        </CodeGroup>
+        <br />
+        <Frame>
+        <img src="/images/security/antinuke/webhook.png" />
+        </Frame>
+
+    </Accordion>
+
+</AccordionGroup>
+
+## Disabling an antinuke module
+
+You can disable an antinuke module with the same command you used to enable it, but with the status set to `off`.
+
+## Viewing the antinuke configuration
+
+You can use the `antinuke config` command to view the current antinuke configuration.
+
+<Frame>
+  <img src="/images/security/antinuke/config.png" />
+</Frame>
+
+### Viewing the modules & whitelist
+
+You can use the `antinuke list` command to view the enabled modules and whitelisted users.
+
+<Frame>
+  <img src="/images/security/antinuke/list.png" />
+</Frame>
+
+### Viewing users with antinuke admin
+
+You can use the `antinuke admins` command to view users which can configure the antinuke.
+
+<Frame>
+  <img src="/images/security/antinuke/admins.png" />
+</Frame>
