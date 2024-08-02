@@ -12,69 +12,84 @@ There are three system message commands, each with the same subcommands.
 - `goodbye` - Dispatched whenever a user leaves the server.
 - `boost` - Dispatched whenever a user boosts the server.
 
-## Subcommands
-
-The following examples use the `welcome` command, but the same syntax is applied for the other system message commands.
-
-<AccordionGroup>
-    <Accordion title="Creating a system message">
-        You can add a system message with the `welcome add` command.
-        <Tip>
-        The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/variables).
-        </Tip>
-        <Info>
-        The `--delete_after` flag in system messages schedules the message for
-        deletion after a specified time, which must be between `6` and `60` seconds.
-        </Info>
-        <CodeGroup>
-
-        ```javascript Syntax
-        ,welcome add (channel) (message) [--delete_after [6-60]]
-        ```
-
-        ```javascript Example
-        ,welcome add #joneral welcome to {guild} {user.mention} --delete_after 30
-        ,welcome add #joneral {embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
-        ```
-
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Viewing a system message">
-        Use the `welcome view` subcommand to dispatch a system message.
-        <CodeGroup>
-
-        ```javascript Syntax
-        ,welcome view <channel>
-        ```
-
-        ```javascript Example
-        ,welcome view #joneral
-        ```
-
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Removing a system message">
-        Use the `welcome remove` subcommand to remove a system message.
-        <CodeGroup>
-
-        ```javascript Syntax
-        ,welcome remove <channel>
-        ```
-
-        ```javascript Example
-        ,welcome remove #joneral
-        ```
-
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Viewing all system messages">
-        Use the `welcome list` subcommand to view all system messages.
-    </Accordion>
-
-</AccordionGroup>
 <Tip>
   The `boost` event is only dispatched if the server has the **Discord System
   Message** enabled or whenever the user receives the **Server Booster** role
   which only occurs once.
   <img src="/images/configuration/messages/system/integrated.png" />
 </Tip>
+
+<Info>
+  The following examples use the `welcome` command, but the same syntax is
+  applied for the other system message commands.
+</Info>
+
+## Creating a system message
+
+You can create a system message with the `welcome add` command.
+
+<Tip>
+The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/variables).
+</Tip>
+<Info>
+The `--self_destruct` flag in system messages schedules the message for
+deletion after a specified time, which must be between `6` and `60` seconds.
+</Info>
+<CodeGroup>
+
+```javascript Syntax
+,welcome add (channel) (message) [--self_destruct [6-60]]
+```
+
+```javascript Example
+,welcome add #general welcome to {guild} {user.mention} --self_destruct 30
+,welcome add #general {embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/messages/system/add.png" />
+</Frame>
+
+# Removing a system message
+
+You can remove a system message with the `welcome remove` command.
+
+<CodeGroup>
+
+```javascript Syntax
+,welcome remove <channel>
+```
+
+```javascript Example
+,welcome remove #joneral
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/messages/system/remove.png" />
+</Frame>
+
+## Related commands
+
+<AccordionGroup>
+  <Accordion title="Viewing a system message">
+    You can use the `welcome view` command to view a system message.
+    <CodeGroup>
+    ```javascript Syntax
+    ,welcome view (channel)
+    ```
+
+    ```javascript Example
+    ,welcome view #general
+    ```
+
+    </CodeGroup>
+
+  </Accordion>
+  <Accordion title="Viewing all system messages">
+    You can use the `welcome list` command to view all system messages.
+  </Accordion>
+</AccordionGroup>
