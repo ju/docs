@@ -1,0 +1,104 @@
+---
+title: "Command Aliases"
+description: "Create custom command aliases for your server."
+icon: command
+---
+
+## Overview
+
+Command aliases allow you to create custom commands that run other commands. This can be useful for creating shorter or more memorable commands for your server. For example, you could create an alias that runs the `role` command with a specific role.
+
+## Creating an alias
+
+You can create an alias using the `alias add` command.
+
+<CodeGroup>
+
+```javascript Syntax
+,alias add (shortcut) (command)
+```
+
+```javascript Example
+,alias add deport ban
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/aliases/add.png" />
+</Frame>
+
+### Predefined arguments
+
+You're able to use predefined arguments in your aliases, however, if you want to use the user's input as an argument, you have to use `{}`.
+Keep in mind that the first argument is `{0}`, the second argument is `{1}`, and so on, it doesn't start at `{1}`.
+
+```javascript
+,ban @jonathan Harrassing Members
+// {0} would be @jonathan
+// {1} would be Harrassing Members
+```
+
+Below is an example of an alias that uses predefined arguments:
+
+```javascript
+,alias add shh timeout {0} 10m
+,shh @jonathan
+```
+
+This alias would run the `timeout` command with the first argument being `@jonathan` from the user's input and the second argument being `10m` as predefined.
+
+### Making a command to grant image permissions
+
+If you're interested in creating a command that grants image permissions to a user, you can use the following alias which invokes the `role` command with the predefined image role.
+
+```javascript
+,alias add pic role {0} @image-role
+,pic @jonathan
+```
+
+<Frame>
+  <img src="/images/configuration/aliases/add-pic.png" />
+</Frame>
+
+## Removing an alias
+
+You can remove an alias using the `alias remove` command.
+
+<CodeGroup>
+
+```javascript Syntax
+,alias remove (shortcut)
+```
+
+```javascript Example
+,alias remove deport
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/aliases/remove.png" />
+</Frame>
+
+## Related commands
+
+<AccordionGroup>
+  <Accordion title="Viewing an alias">
+    You can use the `alias view` command to view what an alias invokes.
+    <CodeGroup>
+    ```javascript Syntax
+    ,alias view (shortcut)
+    ```
+
+    ```javascript Example
+    ,alias view deport
+    ```
+
+    </CodeGroup>
+
+  </Accordion>
+  <Accordion title="Viewing all aliases">
+    You can use the `alias list` command to view all aliases.
+  </Accordion>
+</AccordionGroup>
