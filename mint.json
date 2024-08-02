@@ -58,7 +58,12 @@
     },
     {
       "group": "Security Setup",
-      "pages": ["security/moderation", "security/fake-permissions"]
+      "pages": [
+        "security/antinuke",
+        "security/antiraid",
+        "security/moderation",
+        "security/fake-permissions"
+      ]
     },
     {
       "group": "Server Configuration",
