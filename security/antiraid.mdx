@@ -3,3 +3,225 @@ title: Join Gate
 description: "Prevent automated accounts from joining your server."
 icon: person-to-door
 ---
+
+## Configuring the antiraid system
+
+### Preventing mass joins
+
+This module will trigger when the number of accounts joining the server exceeds the threshold within a short time frame.
+
+<Warning>
+  Whenever the threshold is reached, the server will be placed in a raid state.
+  This will temporarily disable intensive events which bleed dispatches, such as
+  **welcome** and **goodbye** messages.
+</Warning>
+
+<CodeGroup>
+```javascript Syntax
+,antiraid massjoin (on or off) [--threshold (number)] [--do (action)] [--lock (true | false)] [--punish (true | false)]
+```
+
+```javascript Example
+,antiraid massjoin on --threshold 5 --do ban --lock true --punish true
+```
+
+</CodeGroup>
+<AccordionGroup>
+    <Accordion title="Threshold">
+        The threshold is the number of accounts that can join the server within the time frame.
+        <Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        --threshold (number)
+        ```
+
+        ```javascript Example
+        --threshold 5
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Punishment">
+        The action which will be taken when the threshold is reached.
+        <Info>Available actions are `ban` and `kick`.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        --do (action)
+        ```
+
+        ```javascript Example
+        --do ban
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Lock channels">
+        Whether to lock all channels when the threshold is reached.
+        <CodeGroup>
+        ```javascript Syntax
+        --lock (true | false)
+        ```
+
+        ```javascript Example
+        --lock true
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Punish new accounts">
+        Whether to punish new accounts that join the server.
+        <CodeGroup>
+        ```javascript Syntax
+        --punish (true | false)
+        ```
+
+        ```javascript Example
+        --punish true
+        ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
+<Frame>
+  <img src="/images/security/antiraid/massjoin.png" />
+</Frame>
+
+### Requiring an avatar
+
+This module will trigger when an account joins the server without an avatar.
+
+<CodeGroup>
+```javascript Syntax
+,antiraid avatar (on or off) [--do (action)]
+```
+
+```javascript Example
+,antiraid avatar on --do kick
+```
+
+</CodeGroup>
+
+<AccordionGroup>
+    <Accordion title="Punishment">
+        The action which will be taken when the threshold is reached.
+        <Info>Available actions are `ban` and `kick`.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        --do (action)
+        ```
+
+        ```javascript Example
+        --do ban
+        ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
+<Frame>
+  <img src="/images/security/antiraid/avatar.png" />
+</Frame>
+
+### Setting a minimum account age
+
+This module will trigger when an account joins the server that is younger than the specified age.
+
+<Info>
+  The `threshold` flag is the numbers of days for an account to be considered
+  old enough.
+</Info>
+
+<CodeGroup>
+```javascript Syntax
+,antiraid age (on or off) [--threshold (number)] [--do (action)]
+```
+
+```javascript Example
+,antiraid age on --threshold 7 --do ban
+```
+
+</CodeGroup>
+<AccordionGroup>
+    <Accordion title="Threshold">
+        The threshold is the number of accounts that can join the server within the time frame.
+        <Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        --threshold (number)
+        ```
+
+        ```javascript Example
+        --threshold 5
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Punishment">
+        The action which will be taken when the threshold is reached.
+        <Info>Available actions are `ban` and `kick`.</Info>
+        <CodeGroup>
+        ```javascript Syntax
+        --do (action)
+        ```
+
+        ```javascript Example
+        --do ban
+        ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
+<Frame>
+  <img src="/images/security/antiraid/age.png" />
+</Frame>
+
+### Exempting accounts from the antiraid
+
+You can exempt accounts from the antiraid with the `antiraid whitelist` command.
+
+<Info>You can use the `antiraid whitelist view` command to view all whitelisted accounts.</Info>
+<CodeGroup>
+```javascript Syntax
+,antiraid whitelist (user)
+```
+
+```javascript Example
+,antiraid whitelist @jonathan
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/security/antiraid/whitelist.png" />
+</Frame>
+
+## Viewing the antiraid configuration
+
+You can use the `antiraid config` command to view the current antiraid configuration.
+
+<Frame>
+  <img src="/images/security/antiraid/config.png" />
+</Frame>
+
+## What to do after a raid
+
+<Steps>
+    <Step title="Cleaning up">
+        After a raid, it's recommended to clean up the server by removing all the accounts that joined during the raid, you can do this with the `recentban` and `raid` commands.
+
+        <Info>
+        The `duration` parameter must use the proper format, you can learn more
+        [here](/resources/syntax#formatting-a-duration).
+        </Info>
+        <CodeGroup>
+        ```javascript Syntax
+        ,recentban (amount) <reason>
+        ,raid (duration) (kick or ban) <reason>
+        ```
+
+        ```javascript Example
+        ,recentban 50 // Bans the last 50 accounts that joined the server
+        ,raid 2h ban // Bans all accounts that joined the server in the last 2 hours
+        ```
+        </CodeGroup>
+    </Step>
+    <Step title="Disabling the raid state">
+        After the raid is over, you can disable the raid state with the `antiraid state` command, this will re-enable events, unlock channels, and allow accounts to join the server.
+    </Step>
+
+</Steps>
