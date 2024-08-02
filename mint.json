@@ -113,7 +113,15 @@
       "group": "Resources",
       "pages": [
         "resources/syntax",
-        "resources/variables",
+        {
+          "group": "Scripting",
+          "icon": "scroll",
+          "pages": [
+            "resources/scripting/embeds",
+            "resources/scripting/variables",
+            "resources/scripting/pagination"
+          ]
+        },
         "resources/permissions",
         "resources/voices",
         "resources/languages"
