@@ -63,6 +63,7 @@
     {
       "group": "Server Configuration",
       "pages": [
+        "configuration/bump-reminder",
         "configuration/level-rewards",
         "configuration/voicemaster",
         {
@@ -87,7 +88,11 @@
     },
     {
       "group": "Miscellaneous",
-      "pages": ["miscellaneous/audio", "miscellaneous/webhook"]
+      "pages": [
+        "miscellaneous/audio",
+        "miscellaneous/webhook",
+        "miscellaneous/giveaway"
+      ]
     },
     {
       "group": "Integrations",
