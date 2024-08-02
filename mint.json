@@ -70,8 +70,9 @@
           "group": "Roles",
           "icon": "users-gear",
           "pages": [
-            "configuration/roles/booster-roles",
-            "configuration/roles/vanity-rewards"
+            "configuration/roles/booster",
+            "configuration/roles/reaction",
+            "configuration/roles/vanity"
           ]
         }
       ]
