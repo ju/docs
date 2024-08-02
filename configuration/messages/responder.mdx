@@ -1,0 +1,154 @@
+---
+title: "Auto Responders"
+description: "Automatically respond to trigger messages."
+icon: reply
+---
+
+## Creating an auto responder
+
+You can create an auto responder with the `autoresponder add` command.
+
+<Warning>
+  The **trigger** and **response** must be separated by a comma (`,`).
+</Warning>
+<Tip>
+The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/variables).
+</Tip>
+<CodeGroup>
+
+```javascript Syntax
+,autoresponder add (trigger, response) [--flags]
+```
+
+```javascript Example
+,autoresponder add welc, welcome to the server!
+,autoresponder add welc, {embed}$v{title: welcome}$v{description: welcome to the server!}
+```
+
+```javascript Example with flags
+,autoresponder add welc, welcome to the server! --self_destruct 10 --reply
+,autoresponder add ,welc, welcome to the server! --not_strict --ignore_command_check
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/messages/responder/add.png" />
+</Frame>
+
+### Available flags
+
+The following flags can be used to customize the response
+
+<AccordionGroup>
+  <Accordion title="Not strict">
+    The `--not_strict` flag will search for the trigger anywhere in the message.
+    For example, if the trigger is `hello`, it will respond to `hello there`.
+  </Accordion>
+  <Accordion title="Self destruct">
+    The `--self_destruct` flag schedules the response for deletion after a
+    specified time, which must be between `6` and `60` seconds.
+  </Accordion>
+  <Accordion title="Delete trigger">
+    The `--delete` flag will delete the trigger message after the response is
+    sent.
+  </Accordion>
+  <Accordion title="Reply to trigger">
+    The `--reply` flag will reply to the trigger message.
+  </Accordion>
+  <Accordion title="Ignore command check">
+    The `--ignore_command_check` flag will allow the responder to trigger even
+    if it's a pre-existing command.
+  </Accordion>
+</AccordionGroup>
+
+## Removing an auto responder
+
+You can remove an auto responder with the `autoresponder remove` command.
+
+<Info>If you're struggling to remove an auto responder, refer to the [selection removal](/resources/syntax#removing-entries-via-id).</Info>
+<CodeGroup>
+```javascript Syntax
+,autoresponder remove (trigger)
+```
+
+```javascript Example
+,autoresponder remove welc
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/messages/responder/remove.png" />
+</Frame>
+
+## Restricting auto responders
+
+### Restricting to a channel
+
+You can restrict an auto responder to a specific channel with the `autoresponder channel` command.
+
+<CodeGroup>
+```javascript Syntax
+,autoresponder channel (channel) allow (trigger)
+,autoresponder channel (channel) deny (trigger)
+```
+
+```javascript Example
+,autoresponder channel #welc allow welc
+,autoresponder channel #jail deny welc
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/messages/responder/channel.png" />
+</Frame>
+
+### Restricting to a role
+
+You can restrict an auto responder to a specific role with the `autoresponder role` command.
+
+<CodeGroup>
+```javascript Syntax
+,autoresponder role (role) allow (trigger)
+,autoresponder role (role) deny (trigger)
+```
+
+```javascript Example
+,autoresponder role @staff allow welc
+,autoresponder role @lame deny welc
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/messages/responder/role.png" />
+</Frame>
+
+## Related commands
+
+<AccordionGroup>
+    <Accordion title="Updating an auto responder">
+        You can use the `autoresponder update` command to update an auto responder.
+        <Info>This command uses the same syntax as the `autoresponder add` command.</Info>
+    </Accordion>
+    <Accordion title="Viewing an auto responder">
+        You can use the `autoresponder view` command to view an auto responder.
+        <CodeGroup>
+        ```javascript Syntax
+        ,autoresponder view (trigger)
+        ```
+
+        ```javascript Example
+        ,autoresponder view welc
+        ```
+
+        </CodeGroup>
+
+    </Accordion>
+    <Accordion title="Viewing all auto responders">
+        You can use the `autoresponder list` command to view all auto responders.
+    </Accordion>
+
+</AccordionGroup>
