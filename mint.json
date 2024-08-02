@@ -63,16 +63,23 @@
     {
       "group": "Server Configuration",
       "pages": [
-        "configuration/system-messages",
         "configuration/level-rewards",
         "configuration/voicemaster",
+        {
+          "group": "Messages",
+          "icon": "message",
+          "pages": [
+            "configuration/messages/system",
+            "configuration/messages/timer"
+          ]
+        },
         {
           "group": "Roles",
           "icon": "users-gear",
           "pages": [
+            "configuration/roles/vanity",
             "configuration/roles/booster",
-            "configuration/roles/reaction",
-            "configuration/roles/vanity"
+            "configuration/roles/reaction"
           ]
         }
       ]

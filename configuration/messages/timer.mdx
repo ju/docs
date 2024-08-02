@@ -1,0 +1,78 @@
+---
+title: "Auto Messages"
+description: "Schedule messages to be sent at an interval."
+icon: clock
+---
+
+<Warning>
+  You can only have **one** auto message per channel, and the interval must be
+  at least **10 minutes**.
+</Warning>
+
+## Creating an auto message
+
+You can create an auto message with the `timer add` command.
+
+<Info>
+  The `interval` parameter must use the proper format, you can learn more
+  [here](/resources/syntax#formatting-a-duration).
+</Info>
+<Tip>
+The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/variables).
+</Tip>
+<CodeGroup>
+
+```javascript Syntax
+,timer add (channel) (interval) (message)
+```
+
+```javascript Example
+,timer add #general 2h hey sexy ass people
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/messages/timer/add.png" />
+</Frame>
+
+## Removing an auto message
+
+You can remove an auto message with the `timer remove` command.
+
+<CodeGroup>
+```javascript Syntax
+,timer remove (channel)
+```
+
+```javascript Example
+,timer remove #general
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/messages/timer/remove.png" />
+</Frame>
+
+## Related commands
+
+<AccordionGroup>
+  <Accordion title="Viewing an auto messages">
+    You can use the `timer view` command to view all auto messages.
+    <CodeGroup>
+    ```javascript Syntax
+    ,timer view (channel)
+    ```
+
+    ```javascript Example
+    ,timer view #general
+    ```
+
+    </CodeGroup>
+
+  </Accordion>
+  <Accordion title="Viewing all auto messages">
+    You can use the `timer list` command to view all auto messages.
+  </Accordion>
+</AccordionGroup>
