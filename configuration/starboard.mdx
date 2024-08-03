@@ -1,0 +1,194 @@
+---
+title: Starboard
+description: "Allow members to repost interesting messages to a starboard channel."
+icon: star
+---
+
+## What is Starboard?
+
+The starboard is a channel where members can react to messages and after a certain number of reactions, the message will be reposted to the starboard channel.
+
+<Frame>
+  <img src="/images/configuration/starboard/starboard.png" />
+</Frame>
+<Info>
+  You can create two starboards, both `starboard` and `clownboard` use the
+  structure.
+</Info>
+
+## Getting started
+
+Before you run any commands, it's important to use the `starboard unlock` command otherwise
+messages will not be reposted to the starboard channel. You can also use the `starboard lock` command to temporarily stop messages from being reposted.
+
+## Setting the starboard channel
+
+You can use the `starboard set` command to set which channel messages will be reposted to.
+
+<CodeGroup>
+```javascript Syntax
+,starboard set (channel)
+```
+
+```javascript Example
+,starboard set #starboard
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/starboard/set.png" />
+</Frame>
+
+## Restricting the starboard
+
+### Restricting to specific roles
+
+You can restrict the starboard to only allow specific roles to star messages.
+
+<Info>
+  If you no longer want to restrict the starboard to specific roles, you can
+  re-run the command. You can also use `starboard role list` to view all
+  restricted roles.
+</Info>
+
+<CodeGroup>
+```javascript Syntax
+,starboard role (role)
+```
+
+```javascript Example
+,starboard role @boss
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/starboard/role.png" />
+</Frame>
+
+### Ignoring specific channels
+
+You can ignore specific channels from having their messages reposted to the starboard.
+
+<Info>
+  If you no longer want to ignore a channel, you can re-run the command. You can
+  also use `starboard channel list` to view all ignored channels.
+</Info>
+
+<CodeGroup>
+```javascript Syntax
+,starboard channel (channel)
+```
+
+```javascript Example
+,starboard channel #commands
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/starboard/channel.png" />
+</Frame>
+
+## Customizing the starboard
+
+### Changing the reaction threshold
+
+You can change the minimum number of reactions a message needs to be reposted.
+
+<CodeGroup>
+```javascript Syntax
+,starboard threshold (amount)
+```
+
+```javascript Example
+,starboard threshold 3
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/starboard/threshold.png" />
+</Frame>
+
+### Changing the emoji to watch for
+
+You can set the emoji that members need to react with for a message to be reposted.
+
+<Info>
+  By default, this emoji is set as `⭐` for the starboard and `🤡` for the
+  clownboard.
+</Info>
+
+<CodeGroup>
+```javascript Syntax
+,starboard emoji (emoji)
+```
+
+```javascript Example
+,starboard emoji 🤩
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/starboard/emoji.png" />
+</Frame>
+
+### Customizing the message displayed
+
+You can customize the message that is sent to the starboard channel.
+
+<AccordionGroup>
+    <Accordion title="Changing the embed color">
+        Use the `starboard color` command to change the color of the embed.
+        <CodeGroup>
+            ```javascript Syntax
+            ,starboard color (color)
+            ```
+
+            ```javascript Example
+            ,starboard color #cf7c08
+            ,starboard color pink
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Toggling the embed timestamp">
+        Use the `starboard timestamp` command to toggle the timestamp in the embed.
+        <CodeGroup>
+            ```javascript Syntax
+            ,starboard timestamp (true or false)
+            ```
+
+            ```javascript Example
+            ,starboard timestamp false
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Toggling the message attachments">
+        Use the `starboard attachments` command to toggle if attachments are included.
+        <CodeGroup>
+            ```javascript Syntax
+            ,starboard attachments (true or false)
+            ```
+
+            ```javascript Example
+            ,starboard attachments false
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Toggling the message jump URL">
+        Use the `starboard jumpurl` command to toggle if the message jump URL is included.
+        <CodeGroup>
+            ```javascript Syntax
+            ,starboard jumpurl (true or false)
+            ```
+
+            ```javascript Example
+            ,starboard jumpurl false
+            ```
+        </CodeGroup>
+    </Accordion>
+
+</AccordionGroup>
