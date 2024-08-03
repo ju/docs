@@ -86,10 +86,12 @@
             "configuration/messages/timer"
           ]
         },
+        "configuration/starboard",
         "configuration/voicemaster",
         "configuration/level-rewards",
         "configuration/bump-reminder",
-        "configuration/aliases"
+        "configuration/reaction-triggers",
+        "configuration/command-aliases"
       ]
     },
     {
