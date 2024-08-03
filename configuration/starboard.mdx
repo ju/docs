@@ -9,7 +9,7 @@ icon: star
 The starboard is a channel where members can react to messages and after a certain number of reactions, the message will be reposted to the starboard channel.
 
 <Frame>
-  <img src="/images/configuration/starboard/starboard.png" />
+  <img src="/images/configuration/starboard/example.png" />
 </Frame>
 <Info>
   You can create two starboards, both `starboard` and `clownboard` use the
@@ -136,6 +136,25 @@ You can set the emoji that members need to react with for a message to be repost
   <img src="/images/configuration/starboard/emoji.png" />
 </Frame>
 
+### Allowing self-starring messages
+
+You can allow members to star their own messages with the `starboard selfstar` command.
+
+<CodeGroup>
+```javascript Syntax
+,starboard selfstar (true or false)
+```
+
+```javascript Example
+,starboard selfstar true
+```
+
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/starboard/selfstar.png" />
+</Frame>
+
 ### Customizing the message displayed
 
 You can customize the message that is sent to the starboard channel.
@@ -165,18 +184,10 @@ You can customize the message that is sent to the starboard channel.
             ,starboard timestamp false
             ```
         </CodeGroup>
-    </Accordion>
-    <Accordion title="Toggling the message attachments">
-        Use the `starboard attachments` command to toggle if attachments are included.
-        <CodeGroup>
-            ```javascript Syntax
-            ,starboard attachments (true or false)
-            ```
-
-            ```javascript Example
-            ,starboard attachments false
-            ```
-        </CodeGroup>
+        <br />
+        <Frame>
+          <img src="/images/configuration/starboard/timestamp.png" />
+        </Frame>
     </Accordion>
     <Accordion title="Toggling the message jump URL">
         Use the `starboard jumpurl` command to toggle if the message jump URL is included.
@@ -189,6 +200,26 @@ You can customize the message that is sent to the starboard channel.
             ,starboard jumpurl false
             ```
         </CodeGroup>
+        <br />
+        <Frame>
+          <img src="/images/configuration/starboard/jumpurl.png" />
+        </Frame>
+    </Accordion>
+    <Accordion title="Toggling the message attachments">
+        Use the `starboard attachments` command to toggle if attachments are included.
+        <CodeGroup>
+            ```javascript Syntax
+            ,starboard attachments (true or false)
+            ```
+
+            ```javascript Example
+            ,starboard attachments false
+            ```
+        </CodeGroup>
+        <br />
+        <Frame>
+          <img src="/images/configuration/starboard/attachments.png" />
+        </Frame>
     </Accordion>
 
 </AccordionGroup>
