@@ -16,7 +16,6 @@ When a moderator is given fake permissions, such as `ban_members`, they will be 
 ### Getting command permissions
 
 You can locate the required permissions for a command with `,help (command)`.
-Permissions need to be rewrote in `snake_case` format, such as `ban_members` or `kick_members`.
 
 <Frame>
   <img src="/images/security/moderation/permissions.png" />
@@ -74,10 +73,7 @@ Permissions need to be rewrote in `snake_case` format, such as `ban_members` or 
         - `kick_members` - Allows the moderator to kick members from the server.
         
         ```javascript
-        ,fakepermissions grant (moderator role) manage_messages
-        ,fakepermissions grant (moderator role) moderate_members
-        ,fakepermissions grant (moderator role) manage_nicknames
-        ,fakepermissions grant (moderator role) kick_members
+        ,fakepermissions grant (moderator role) manage_messages, moderate_members, manage_nicknames, kick_members
         ```
         </Tab>
     <Tab title="Administrator">
@@ -89,12 +85,7 @@ Permissions need to be rewrote in `snake_case` format, such as `ban_members` or 
         - `kick_members` - Allows the administrator to kick members.
         
         ```javascript
-        ,fakepermissions grant (admin role) manage_messages
-        ,fakepermissions grant (admin role) moderate_members
-        ,fakepermissions grant (admin role) manage_nicknames
-        ,fakepermissions grant (admin role) manage_roles
-        ,fakepermissions grant (admin role) ban_members
-        ,fakepermissions grant (admin role) kick_members
+        ,fakepermissions grant (admin role) manage_messages, moderate_members, manage_nicknames, manage_roles, ban_members, kick_members
         ```
     </Tab>
     <Tab title="Co-Owner">

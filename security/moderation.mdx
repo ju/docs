@@ -11,7 +11,7 @@ Moderation commands require some basic setup before they can be used. This inclu
 <Steps>
     <Step title="Creating the case logs & jail role">
         <Info>
-            Jail is a feature similar to mute, but it restricts the user's access to all channels except the jail channel.
+            Jail is a feature similar to mute, but it restricts users from all channels except `#jail`.
         </Info>
 
         Use the `,setup` command to create the case logs channel and jail role.
@@ -31,6 +31,7 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
 - **Image Muted** - Used to restrict users from uploading attachments.
 - **Reaction Muted** - Used to restrict users from reacting to messages.
 - **Jailed** - Used to restrict users from all channels except the `#jail` channel.
+  - The jailed role cannot be renamed since it's found by its name.
 
 <Info>
   The `#jail-log` channel logs all moderation actions done through bleed (e.g.

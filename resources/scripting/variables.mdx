@@ -150,7 +150,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
 
 </Tab>
 
-<Tab title="Level & XP">
+<Tab title="Leveling">
 
 <Info>This section is only available for the `level message` command.</Info>
 
@@ -176,9 +176,24 @@ in any command context which contains a `message` or `embed code` parameter (e.g
 
 <Info>This section is only available for the `bumpreminder` command.</Info>
 
-| Variable                        | Output                                    |
-| ------------------------------- | ----------------------------------------- |
-| `{bumpreminder.last_user_bump}` | Shows the user who last bumped the server |
+| Variable                        | Output                                 |
+| ------------------------------- | -------------------------------------- |
+| `{bumpreminder.last_user_bump}` | The last user to bump the server       |
+| `{bumpreminder.next_bump}`      | A relative timestamp for the next bump |
+
+</Tab>
+<Tab title="YouTube">
+
+<Info>This section is only available for the `youtube message` command.</Info>
+
+| Variable                        | Output                        |
+| ------------------------------- | ----------------------------- |
+| `{youtube.channel.name}`        | The YouTube channel's name    |
+| `{youtube.channel.url}`         | The YouTube channel's URL     |
+| `{youtube.channel.id}`          | The YouTube channel's ID      |
+| `{youtube.video.url}`           | The YouTube video's URL       |
+| `{youtube.video.title}`         | The YouTube video's title     |
+| `{youtube.video.thumbnail_url}` | The YouTube video's thumbnail |
 
 </Tab>
 </Tabs>
