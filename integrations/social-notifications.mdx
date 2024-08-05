@@ -1,17 +1,17 @@
 ---
 title: "Social Notifications"
-description: "Automatically announce new social media posts from your favorite creators."
+description: "Automatically announce new posts from your favorite creators."
 icon: bells
 ---
 
 ## Supported Platforms
 
-There are eight social notification commands, each with the same subcommands.
+There are nine social notification commands, each with the same subcommands.
 
 <Card title="Subscription Required" icon="medal" iconType="duotone" horizontal>
-  **TikTok** and **Instagram** require a [Subscription](/overview/donator-perks)
+  **TikTok**, **Instagram**, and **SoundCloud** require a [subscription](/overview/donator-perks)
   to use, while the other social notification commands are available to all
-  users without an additional subscription.
+  users without any additional cost.
 </Card>
 
 - **TikTok** - Dispatched whenever a new video is uploaded.
@@ -21,6 +21,7 @@ There are eight social notification commands, each with the same subcommands.
 - **Subreddit** - Dispatched whenever a new post is made in a subreddit.
 - **Pinterest** - Dispatched whenever a new pin is saved to a board.
 - **Twitch** & **Kick** - Dispatched whenever a streamer goes live.
+- **SoundCloud** - Dispatched whenever an artist releases a song or album.
 
 ## Commands
 
@@ -34,11 +35,11 @@ The following examples use the `twitter` command, but the same syntax applies to
         </Tip>
         <CodeGroup>
         ```javascript Syntax
-        ;twitter add (channel) (username)
+        ,twitter add (channel) (username)
         ```
 
         ```javascript Example
-        ;twitter add #notifs playboicarti
+        ,twitter add #notifs playboicarti
         ```
         </CodeGroup>
     </Accordion>
@@ -47,11 +48,11 @@ The following examples use the `twitter` command, but the same syntax applies to
         <CodeGroup>
 
         ```javascript Syntax
-        ;twitter remove (channel) (username)
+        ,twitter remove (channel) (username)
         ```
 
         ```javascript Example
-        ;twitter remove #notifs playboicarti
+        ,twitter remove #notifs playboicarti
         ```
         </CodeGroup>
     </Accordion>
@@ -63,11 +64,11 @@ The following examples use the `twitter` command, but the same syntax applies to
         <CodeGroup>
 
         ```javascript Syntax
-        ;twitter message (username) (message) [--pingable on|off]
+        ,twitter message (username) (message) [--pingable on|off]
         ```
 
         ```javascript Example
-        ;twitter message playboicarti @everyone he posted?? --pingable on
+        ,twitter message playboicarti @everyone he posted?? --pingable on
         ```
         </CodeGroup>
     </Accordion>
@@ -84,11 +85,11 @@ The following examples use the `twitter` command, but the same syntax applies to
         The `twitter retweets` subcommand allows you to toggle notifications for retweets.
         <CodeGroup>
         ```javascript Syntax
-        ;twitter retweets (channel) (username) (yes|no)
+        ,twitter retweets (channel) (username) (yes|no)
         ```
 
         ```javascript Example
-        ;twitter retweets #notifs playboicarti yes
+        ,twitter retweets #notifs playboicarti yes
         ```
         </CodeGroup>
     </Accordion>
@@ -96,11 +97,11 @@ The following examples use the `twitter` command, but the same syntax applies to
         The `pinterest embeds` subcommand allows you to toggle the embed for the notification.
         <CodeGroup>
         ```javascript Syntax
-        ;pinterest embeds (channel) (yes|no)
+        ,pinterest embeds (channel) (yes|no)
         ```
 
         ```javascript Example
-        ;pinterest embeds #pfps no
+        ,pinterest embeds #pfps no
         ```
         </CodeGroup>
     </Accordion>
@@ -135,5 +136,10 @@ You can't customize the embed for social notifications.
 However you can customize the **message content** that is dispatched with the `message`
 subcommand. The `pinterest` command is the only exception, as it has an
 `embeds` subcommand which can be used to toggle the embed for the notification.
+
+</Card>
+
+<Card title="SoundCloud Problems" icon="soundcloud">
+SoundCloud is in the **testing** phase for Tier 3. You may experience unexpected issues or problems. If you experience one of these flaws, please report it in our [Discord server](https://discord.gg/bleed).
 
 </Card>
