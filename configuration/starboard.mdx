@@ -13,13 +13,13 @@ The starboard is a channel where members can react to messages and after a certa
 </Frame>
 <Info>
   You can create two starboards, both `starboard` and `clownboard` use the
-  structure.
+  same structure.
 </Info>
 
 ## Getting started
 
-Before you run any commands, it's important to use the `starboard unlock` command otherwise
-messages will not be reposted to the starboard channel. You can also use the `starboard lock` command to temporarily stop messages from being reposted.
+Before you run any commands, it's important to use the `starboard unlock` command. Otherwise,
+messages will not be reposted to the starboard channel. You can use `starboard lock` to temporarily stop messages from being reposted.
 
 ## Setting the starboard channel
 
@@ -40,55 +40,29 @@ You can use the `starboard set` command to set which channel messages will be re
   <img src="/images/configuration/starboard/set.png" />
 </Frame>
 
-## Restricting the starboard
+## Ignoring channels, roles, or members
 
-### Restricting to specific roles
-
-You can restrict the starboard to only allow specific roles to star messages.
+You can ignore certain channels, roles, or members within your server to prevent their messages from appearing on the starboard.
 
 <Info>
-  If you no longer want to restrict the starboard to specific roles, you can
-  re-run the command. You can also use `starboard role list` to view all
-  restricted roles.
+  If you no longer want to ignore the channel, role, or member, you can re-run the command. Alternatively, you can run `starboard ignore list` to view all ignored channels, roles, and members.
 </Info>
 
 <CodeGroup>
 ```javascript Syntax
-,starboard role (role)
+,starboard ignore (role, member, or channel)
 ```
 
-```javascript Example
-,starboard role @boss
+```javascript Examples
+,starboard ignore #giveaways
+,starboard ignore @bryce
+,starboard ignore @Member
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-  <img src="/images/configuration/starboard/role.png" />
-</Frame>
-
-### Ignoring specific channels
-
-You can ignore specific channels from having their messages reposted to the starboard.
-
-<Info>
-  If you no longer want to ignore a channel, you can re-run the command. You can
-  also use `starboard channel list` to view all ignored channels.
-</Info>
-
-<CodeGroup>
-```javascript Syntax
-,starboard channel (channel)
-```
-
-```javascript Example
-,starboard channel #commands
-```
-
-</CodeGroup>
-<br />
-<Frame>
-  <img src="/images/configuration/starboard/channel.png" />
+  <img src="/images/configuration/starboard/ignore.png" />
 </Frame>
 
 ## Customizing the starboard
