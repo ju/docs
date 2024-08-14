@@ -55,6 +55,17 @@ You can locate the required permissions for a command with `,help (command)`.
     </Accordion>
     <Accordion title="Viewing fake permissions">
         Use the `fakepermissions list` command to view all fake permissions.
+        <Info>You can optionally specify a role to only view the fake permissions of that role.</Info>
+        <CodeGroup>
+
+        ```javascript Syntax
+        ,fakepermissions list <role>
+        ```
+
+        ```javascript Example
+        ,fakepermissions list @admin
+        ```
+        </CodeGroup>
     </Accordion>
     <Accordion title="Revoking all fake permissions">
         Use the `fakepermissions reset` command to reset all fake permissions.
