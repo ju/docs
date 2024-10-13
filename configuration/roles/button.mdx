@@ -1,0 +1,94 @@
+---
+title: "Button Roles"
+description: "Allow your members to assign themselves roles by clicking a button."
+icon: square-check
+---
+
+## What are button roles?
+
+Button roles are roles that are assigned to members when they click a button on an existing message or embed. They can be useful for letting members choose unique roles or as a way to verify themselves.
+
+## Creating a button role
+
+You can create multiple button roles for a single message.
+
+<Warning>
+  Button roles can only be placed on messages & embeds sent by bleed. Learn how to create an embed [**here**](/resources/scripting/embeds)!
+</Warning>
+
+<CodeGroup>
+```javascript Syntax
+,buttonrole add (message link) (role) (style) (emoji) (label)
+
+// Available styles: "green," "blurple," "gray," or "red."
+```
+
+```javascript Example
+,buttonrole add .../channels/... Verified green ✅ Verify
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/button/add.gif" />
+</Frame>
+
+## Removing a button role
+
+You can remove a specific button role by using the `buttonrole remove` command.
+
+<Tip>
+You can use the `buttonrole list` command to see all button roles in your server.
+<Frame>
+    <img src="/images/configuration/roles/button/list.png" />
+</Frame>
+</Tip>
+
+<CodeGroup>
+```javascript Syntax
+,buttonrole remove (message link) (button number)
+```
+
+```javascript Example
+,buttonrole remove .../channels/... 1
+```
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/button/remove.png" />
+</Frame>
+
+### Removing all button roles for a message
+
+Additionally, you can remove all button roles from a message by using the `buttonrole removeall` command.
+
+<CodeGroup>
+```javascript Syntax
+,buttonrole removeall (message link)
+```
+
+```javascript Example
+,buttonrole removeall .../channels/...
+```
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/roles/button/removeall.png" />
+</Frame>
+
+### Removing all button roles from the server
+
+You can remove all button roles from the server by using the `buttonrole reset` command.
+
+<Warning>
+  Please note that this **cannot** be undone & will **permanently** remove **all** button roles from the
+  server.
+</Warning>
+
+```
+,buttonrole reset
+```
+
+<Frame>
+  <img src="/images/configuration/roles/button/reset.png" />
+</Frame>
