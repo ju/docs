@@ -43,6 +43,10 @@
       "destination": "https://bleed.bot/status"
     },
     {
+      "source": "/invite",
+      "destination": "https://bleed.bot/invite"
+    },
+    {
       "source": "/discord",
       "destination": "https://discord.gg/bleed"
     }
@@ -131,7 +135,7 @@
     },
     {
       "group": "Common Issues",
-      "pages": ["common-issues/ios-dash"]
+      "pages": ["common-issues/ios-dash", "common-issues/permissions", "common-issues/server-removal"]
     }
   ],
   "footerSocials": {
