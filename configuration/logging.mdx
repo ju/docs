@@ -1,0 +1,95 @@
+---
+title: "Logging"
+description: "Log events in your server."
+icon: gear
+---
+
+## Overview
+
+Logging allows you to log events in your server. This can be useful for keeping track of what's happening in your server.
+
+## Adding a logging event
+
+You can add a logging event using the `log add` command.
+
+<Info>
+  Available logging events are `messages`, `members`, `roles`, `channels`,
+  `invites`, `emojis` and `voice`.
+</Info>
+
+<Warning>
+  Do not delete the webhook that bleed creates in your logging channels!
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+,log add (channel) (event)
+```
+
+```javascript Example
+,log add #logs messages
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/logging/add.png" />
+</Frame>
+<br />
+<Frame>
+  <img src="/images/configuration/logging/example.png" />
+</Frame>
+
+## Removing a logging event
+
+You can remove a logging event using the `log remove` command.
+
+<CodeGroup>
+
+```javascript Syntax
+,log remove (channel) (event)
+```
+
+```javascript Example
+,log remove #logs messages
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/logging/remove.png" />
+</Frame>
+
+<Tip>
+  You can leave the event parameter empty to add or remove all logging events
+  from a channel.
+</Tip>
+
+## Ignoring a member or channel
+
+You can ignore and unignore a member or channel from being logged using the `log ignore` command.
+
+<CodeGroup>
+
+```javascript Syntax
+,log ignore (member or channel)
+```
+
+```javascript Example
+,log ignore @jonathan
+,log ignore #staff-chat
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/configuration/logging/ignore.png" />
+</Frame>
+
+## Related commands
+
+<Info>
+  You can use the `log ignore list` command to view all ignored members and
+  channels.
+</Info>
