@@ -91,12 +91,12 @@ You can restrict an auto responder to a specific channel with the `autoresponder
 <CodeGroup>
 ```javascript Syntax
 ,autoresponder channel (channel) allow (trigger)
-,autoresponder channel (channel) deny (trigger)
+,autoresponder channel (channel) disallow (trigger)
 ```
 
 ```javascript Example
 ,autoresponder channel #welc allow welc
-,autoresponder channel #jail deny welc
+,autoresponder channel #jail disallow welc
 ```
 
 </CodeGroup>
@@ -112,12 +112,12 @@ You can restrict an auto responder to a specific role with the `autoresponder ro
 <CodeGroup>
 ```javascript Syntax
 ,autoresponder role (role) allow (trigger)
-,autoresponder role (role) deny (trigger)
+,autoresponder role (role) disallow (trigger)
 ```
 
 ```javascript Example
 ,autoresponder role @staff allow welc
-,autoresponder role @lame deny welc
+,autoresponder role @lame disallow welc
 ```
 
 </CodeGroup>
