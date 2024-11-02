@@ -54,10 +54,7 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": [
-        "overview/introduction",
-        "overview/donator-perks"
-      ]
+      "pages": ["overview/introduction", "overview/donator-perks"]
     },
     {
       "group": "Security Setup",
@@ -95,7 +92,8 @@
         "configuration/level-rewards",
         "configuration/bump-reminder",
         "configuration/reaction-triggers",
-        "configuration/command-aliases"
+        "configuration/command-aliases",
+        "configuration/logging"
       ]
     },
     {
@@ -135,7 +133,11 @@
     },
     {
       "group": "Common Issues",
-      "pages": ["common-issues/ios-dash", "common-issues/permissions", "common-issues/server-removal"]
+      "pages": [
+        "common-issues/ios-dash",
+        "common-issues/permissions",
+        "common-issues/server-removal"
+      ]
     }
   ],
   "footerSocials": {
