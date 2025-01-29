@@ -86,23 +86,21 @@ You can remove an auto responder with the `autoresponder remove` command.
 
 ### Restricting to a channel
 
-You can restrict an auto responder to a specific channel with the `autoresponder channel` command.
+Toggle exclusive access for an autoresponder to a role or channel with the `autoresponder exclusive` command
 
 <CodeGroup>
 ```javascript Syntax
-,autoresponder channel (channel) allow (trigger)
-,autoresponder channel (channel) deny (trigger)
+,autoresponder exclusive (role or channel) (trigger)
 ```
 
 ```javascript Example
-,autoresponder channel #welc allow welc
-,autoresponder channel #jail deny welc
+,autoresponder exclusive #general lifetime
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/configuration/messages/responder/channel.png" />
+    <img src="/images/configuration/messages/responder/role3.png" />
 </Frame>
 
 ### Restricting to a role
