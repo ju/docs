@@ -196,4 +196,24 @@ in any command context which contains a `message` or `embed code` parameter (e.g
 | `{youtube.video.thumbnail_url}` | The YouTube video's thumbnail |
 
 </Tab>
+<Tab title="Punishments">
+
+<Info>Only available for `bandm`, `softbandm`, `kickdm`, `warndm`, `jaildm`, `unjaildm`, `timeoutdm`, `ban message`, `kick message`, etc.</Info>
+
+| Punishment Variables     | Output                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| `{moderator}`            | Moderator name who performed action                                             |
+| `{moderator.name}`       | Moderator username                                                              |
+| `{moderator.tag}`        | Moderator discriminator (will always return 0 due to removal of discriminators) |
+| `{moderator.avatar}`     | Moderator avatar                                                                |
+| `{moderator.bot}`        | Return True or False if mod is a bot                                            |
+| `{moderator.color}`      | Moderator’s highest role color                                                  |
+| `{moderator.mention}`    | Mention moderator                                                               |
+| `{moderator.created_at}` | Moderator discord creation date                                                 |
+| `{reason}`               | Reason for punishment                                                           |
+| `{duration}`             | Duration for a jail/unjail punishment                                           |
+| `{invite_url}`           | Invite url generated for punishment (softban)                                   |
+| `{moderator.id}`         | The ID of the moderator that enacted the punishment                             |
+
+</Tab>
 </Tabs>
