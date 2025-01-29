@@ -86,23 +86,21 @@ You can remove an auto responder with the `autoresponder remove` command.
 
 ### Restricting to a channel
 
-You can restrict an auto responder to a specific channel with the `autoresponder channel` command.
+Toggle exclusive access for an autoresponder to a role or channel with the `autoresponder exclusive` command
 
 <CodeGroup>
 ```javascript Syntax
-,autoresponder channel (channel) allow (trigger)
-,autoresponder channel (channel) deny (trigger)
+,autoresponder exclusive (role or channel) (trigger)
 ```
 
 ```javascript Example
-,autoresponder channel #welc allow welc
-,autoresponder channel #jail deny welc
+,autoresponder exclusive #general lifetime
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/configuration/messages/responder/channel.png" />
+    <img src="/images/configuration/messages/responder/role3.png" />
 </Frame>
 
 ### Restricting to a role
@@ -141,3 +139,31 @@ You can restrict an auto responder to a specific role with the `autoresponder ro
     </Accordion>
 
 </AccordionGroup>
+
+## Autoresponder Roles
+Allow your members to assign or remove themselves roles by saying a specific message.
+### What are Autoresponder Roles?
+Autoresponder roles are roles that are assigned or removed to members when they say a specific message.
+
+**Creating an autoresponder role**
+
+You can create multiple autoresponder roles for a single trigger.
+
+**Syntax**
+<CodeGroup>
+```javascript Syntax
+,autoresponder role add (role) (trigger)
+```
+
+**Example**
+```javascript Example
+,autoresponder role add Verified Verify
+```
+</CodeGroup>
+<Frame>
+    <img src="/images/configuration/messages/responder/role2.png" />
+</Frame>
+
+**Removing an autoresponder role**
+
+You can remove an autoresponder role by running the same command again. This action will reverse the previous configuration and remove the assignment or removals of the role
