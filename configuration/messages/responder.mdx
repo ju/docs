@@ -84,7 +84,7 @@ You can remove an auto responder with the `autoresponder remove` command.
 
 ## Restricting auto responders
 
-### Restricting to a channel
+### Restricting to a channel or role
 
 Toggle exclusive access for an autoresponder to a role or channel with the `autoresponder exclusive` command
 
@@ -103,27 +103,6 @@ Toggle exclusive access for an autoresponder to a role or channel with the `auto
     <img src="/images/configuration/messages/responder/role3.png" />
 </Frame>
 
-### Restricting to a role
-
-You can restrict an auto responder to a specific role with the `autoresponder role` command.
-
-<CodeGroup>
-```javascript Syntax
-,autoresponder role (role) allow (trigger)
-,autoresponder role (role) deny (trigger)
-```
-
-```javascript Example
-,autoresponder role @staff allow welc
-,autoresponder role @lame deny welc
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/messages/responder/role.png" />
-</Frame>
-
 ## Related commands
 
 <AccordionGroup>
@@ -140,24 +119,21 @@ You can restrict an auto responder to a specific role with the `autoresponder ro
 
 </AccordionGroup>
 
-## Autoresponder Roles
+## Auto Responder Roles
 Allow your members to assign or remove themselves roles by saying a specific message.
 ### What are Autoresponder Roles?
 Autoresponder roles are roles that are assigned or removed to members when they say a specific message.
+The `add` subcommand will grant roles to members and the `remove` subcommand will remove roles from members. 
 
-**Creating an autoresponder role**
+<Warning>It's easy to confuse these commands! Running the `add` command again would undo the functionality of giving members roles.</Warning>
 
-You can create multiple autoresponder roles for a single trigger.
-
-**Syntax**
 <CodeGroup>
 ```javascript Syntax
-,autoresponder role add (role) (trigger)
+,autoresponder role (add or remove) (role) (trigger)
 ```
 
-**Example**
 ```javascript Example
-,autoresponder role add Verified Verify
+,autoresponder role (add or remove) Verified Verify
 ```
 </CodeGroup>
 <Frame>
