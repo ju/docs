@@ -9,8 +9,8 @@ icon: brackets-curly
 Each parameter in the embed is represented by a key-value pair which is separated by a colon. For example, the `title` parameter will look like `{title: hello {user}}`. The `{user}` is a [variable](/resources/scripting/variables) which will be filled in with the user's display name.
 
 - `{` begins a parameter.
-- `:` seperates parameter from content.
-- `$v` seperates the parameters.
+- `:` separates parameter from content.
+- `$v` separates the parameters.
 - `}` ends a parameter.
 
 ### Parameters
@@ -106,7 +106,7 @@ If you want to add a new line to your description parameter, you can press `SHIF
 
 ### Why isn't my embed code working for some commands?
 
-Some commands allow both raw text and embed code. Because of this, you'll need to specify if youre gonna enter an embed. To do this, you'll need to begin your embed code with `{embed}$v` then proceed to write your embed code after as normally.
+Some commands allow both raw text and embed code. Because of this, you'll need to specify if you're entering an embed. To do this, you'll need to begin your embed code with `{embed}$v` then proceed to write your embed code after as normal.
 
 ```
  welcome add #channel {embed}$v{message: Welcome to /{guild.name} {user.mention}}$v{description: Welcome}
