@@ -6,7 +6,7 @@ icon: timer
 
 ## Overview
 
-Counters allows you to show important info in your server. This can be useful to show your members about signifcant milestones.
+Counters allows you to show important info in your server. This can be useful to show your members about significant milestones.
 
 ## Adding a counter
 
@@ -15,7 +15,7 @@ You can add a counter using the `counter add` command.
 <Info>
   Available counter options are `members`, `users_only`, `bots_only`, `pending_members`,
   `all_channels`, `text_channels`, `voice_channels`, `categories`, `announcement_channels`,
-  `staging_channels`, `boosts`, `booster_count` and `unix`.
+  `staging_channels`, `boosts`, `booster_count` and unix timestamps.
 </Info>
 
 <Info>
@@ -59,7 +59,7 @@ You can remove a counter using the `counter remove` command.
 ```
 
 ```javascript Example
-,counter remove #!members
+,counter remove #members
 ```
 
 </CodeGroup>
@@ -67,12 +67,3 @@ You can remove a counter using the `counter remove` command.
 <Frame>
     <img src="/images/miscellaneous/counters/remove.png" />
 </Frame>
-
-
-## Related commands
-
-<AccordionGroup>
-    <Accordion title="Removing all reaction triggers">
-        You can use the `reaction reset` command to remove all reaction triggers.
-    </Accordion>
-</AccordionGroup>
