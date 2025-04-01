@@ -1,0 +1,69 @@
+---
+title: "Counters"
+description: "Create counters in your server"
+icon: timer
+---
+
+## Overview
+
+Counters allows you to show important info in your server. This can be useful to show your members about significant milestones.
+
+## Adding a counter
+
+You can add a counter using the `counter add` command.
+
+<Info>
+  Available counter options are `members`, `users_only`, `bots_only`, `pending_members`,
+  `all_channels`, `text_channels`, `voice_channels`, `categories`, `announcement_channels`,
+  `staging_channels`, `boosts`, `booster_count` and unix timestamps.
+</Info>
+
+<Info>
+  Available counter types are `voice` (suggested), `text`, `category`, `announce`,
+  and `stage`.
+</Info>
+
+<Tip>
+  You can create a fun and visble countdown using a UNIX timestamp.
+</Tip>
+
+<CodeGroup>
+
+```javascript Syntax
+,counter add (option) (type of channel)
+```
+
+```javascript Example
+,counter add members vc
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/counters/add.png" />
+</Frame>
+<br />
+
+## Removing a counter
+
+You can remove a counter using the `counter remove` command.
+
+<Warning>
+  After removing counter, you will have to delete the channel (or category) manually.
+</Warning>
+
+<CodeGroup>
+
+```javascript Syntax
+,counter remove (channel)
+```
+
+```javascript Example
+,counter remove #members
+```
+
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/counters/remove.png" />
+</Frame>
