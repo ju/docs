@@ -1,0 +1,158 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "bleed",
+  "colors": {
+    "primary": "#658a95",
+    "light": "#95b6bd",
+    "dark": "#658a95"
+  },
+  "favicon": "favicon.png",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Overview",
+        "pages": [
+          "overview/introduction",
+          "overview/donator-perks"
+        ]
+      },
+      {
+        "group": "Security Setup",
+        "pages": [
+          "security/antinuke",
+          "security/antiraid",
+          "security/moderation",
+          "security/fake-permissions"
+        ]
+      },
+      {
+        "group": "Server Configuration",
+        "pages": [
+          {
+            "group": "Roles",
+            "icon": "users-gear",
+            "pages": [
+              "configuration/roles/vanity",
+              "configuration/roles/booster",
+              "configuration/roles/reaction",
+              "configuration/roles/button"
+            ]
+          },
+          {
+            "group": "Messages",
+            "icon": "message",
+            "pages": [
+              "configuration/messages/system",
+              "configuration/messages/responder",
+              "configuration/messages/timer"
+            ]
+          },
+          "configuration/starboard",
+          "configuration/voicemaster",
+          "configuration/level-rewards",
+          "configuration/bump-reminder",
+          "configuration/reaction-triggers",
+          "configuration/command-aliases",
+          "configuration/logging"
+        ]
+      },
+      {
+        "group": "Miscellaneous",
+        "pages": [
+          "miscellaneous/music",
+          "miscellaneous/webhook",
+          "miscellaneous/giveaway",
+          "miscellaneous/counters"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/spotify",
+          "integrations/lastfm",
+          "integrations/fortnite",
+          "integrations/social-notifications"
+        ]
+      },
+      {
+        "group": "Resources",
+        "pages": [
+          "resources/syntax",
+          {
+            "group": "Scripting",
+            "icon": "scroll",
+            "pages": [
+              "resources/scripting/embeds",
+              "resources/scripting/variables",
+              "resources/scripting/pagination"
+            ]
+          },
+          "resources/permissions",
+          "resources/voices",
+          "resources/languages"
+        ]
+      },
+      {
+        "group": "Common Issues",
+        "pages": [
+          "common-issues/ios-dash",
+          "common-issues/permissions",
+          "common-issues/server-removal"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "https://bleed.bot/bleed.png",
+    "dark": "https://bleed.bot/bleed.png"
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": true
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support Server",
+        "href": "https://discord.gg/bleed"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Home",
+      "href": "https://bleed.bot"
+    }
+  },
+  "seo": {
+    "metatags": {
+      "theme-color": "#658a95",
+      "og:site_name": "bleed.bot"
+    },
+    "indexing": "navigable"
+  },
+  "footer": {
+    "socials": {
+      "discord": "https://discord.gg/bleed",
+      "github": "https://github.com/ju/docs"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/commands",
+      "destination": "https://bleed.bot/commands"
+    },
+    {
+      "source": "/status",
+      "destination": "https://bleed.bot/status"
+    },
+    {
+      "source": "/invite",
+      "destination": "https://bleed.bot/invite"
+    },
+    {
+      "source": "/discord",
+      "destination": "https://discord.gg/bleed"
+    }
+  ]
+}
