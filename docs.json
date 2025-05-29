@@ -89,6 +89,7 @@
             ]
           },
           "resources/permissions",
+          "resources/events",
           "resources/voices",
           "resources/languages"
         ]
