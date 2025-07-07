@@ -1,7 +1,7 @@
 ---
-title: Antinuke
+title: "Antinuke"
 description: "Impose restrictions on moderators to prevent destructive behavior."
-icon: fingerprint
+icon: "fingerprint"
 ---
 
 ## Why use an antinuke system?
@@ -16,7 +16,7 @@ The antinuke will set a limit on the number of actions a moderator can perform i
 
 <Warning>
   Discord recently implemented a new **mass ban** feature which can quickly ban
-  **100+ members**. It's **HIGHLY** recommended to utilize [fake
+  **100\+ members**. It's **HIGHLY** recommended to utilize [fake
   permissions](/security/fake-permissions) to prevent moderators from using this
   feature.
 </Warning>
@@ -31,18 +31,22 @@ Initially, only the **server owner** can configure the antinuke. However, you ca
 </Warning>
 
 <CodeGroup>
+
 ```javascript Syntax
 ,antinuke admin (user)
 ```
+
 
 ```javascript Example
 ,antinuke admin @jonathan
 ```
 
 </CodeGroup>
+
 <br />
+
 <Frame>
-  <img src="/images/security/antinuke/admin.png" />
+  ![](/images/security/antinuke/admin.png)
 </Frame>
 
 ### Exempting users from the antinuke
@@ -53,19 +57,24 @@ You can exempt users from the antinuke with the `antinuke whitelist` command.
   This is a dangerous command and will allow the user to bypass the antinuke
   entirely.
 </Warning>
+
 <CodeGroup>
+
 ```javascript Syntax
 ,antinuke whitelist (user)
 ```
+
 
 ```javascript Example
 ,antinuke whitelist @jonathan
 ```
 
 </CodeGroup>
+
 <br />
+
 <Frame>
-  <img src="/images/security/antinuke/whitelist.png" />
+  ![](/images/security/antinuke/whitelist.png)
 </Frame>
 
 ## Enabling an antinuke module
@@ -75,194 +84,256 @@ You can exempt users from the antinuke with the `antinuke whitelist` command.
 The following flags can be used to define the antinuke module
 
 <AccordionGroup>
-    <Accordion title="Threshold">
-        The threshold is the number of actions a moderator can perform before being punished.
-        <Info>It's recommended to keep the threshold between `1` and `6` to stay safe.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --threshold (number)
-        ```
+  <Accordion title="Threshold">
+    The threshold is the number of actions a moderator can perform before being punished.
+    <Info>
+      It's recommended to keep the threshold between `1` and `6` to stay safe.
+    </Info>
 
-        ```javascript Example
-        --threshold 3
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Punishment">
-        The punishment which will be applied to the moderator.
-        <Info>Available punishments can be found in the [punishments](/resources/syntax#flag-punishments) section.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --do (punishment)
-        ```
+    <CodeGroup>
 
-        ```javascript Example
-        --do ban
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Command Detection">
-        Whether bleed commands should be counted towards the threshold. (e.g. `,ban`)
-        <CodeGroup>
-        ```javascript Syntax
-        --command (on | off)
-        ```
+    ```javascript Syntax
+    --threshold (number)
+    ```
 
-        ```javascript Example
-        --command on
-        ```
-        </CodeGroup>
-    </Accordion>
+    
+    ```javascript Example
+    --threshold 3
+    ```
 
+    </CodeGroup>
+  </Accordion>
+  <Accordion title="Punishment">
+    The punishment which will be applied to the moderator.
+    <Info>
+      Available punishments can be found in the [punishments](/resources/syntax#flag-punishments) section.
+    </Info>
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    --do (punishment)
+    ```
+
+    
+    ```javascript Example
+    --do ban
+    ```
+
+    </CodeGroup>
+  </Accordion>
+  <Accordion title="Command Detection">
+    Whether bleed commands should be counted towards the threshold. (e.g. `,ban`)
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    --command (on | off)
+    ```
+
+    
+    ```javascript Example
+    --command on
+    ```
+
+    </CodeGroup>
+  </Accordion>
 </AccordionGroup>
 
 ### Available Modules
 
 <AccordionGroup>
-    <Accordion title="Punishing members for changing the vanity URL">
-        You can prevent members from changing the vanity URL with the following command
+  <Accordion title="Punishing members for changing the vanity URL">
+    You can prevent members from changing the vanity URL with the following command
 
-        <Warning>bleed can not change the vanity URL back to the original due to Discord limitations.</Warning>
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke vanity (on or off) [--do (punishment)]
-        ```
+    <Warning>
+      bleed can not change the vanity URL back to the original due to Discord limitations.
+    </Warning>
+    <CodeGroup>
 
-        ```javascript Example
-        ,antinuke vanity on --do ban
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/vanity.png" />
-        </Frame>
-    </Accordion>
-    <Accordion title="Preventing bots from being added">
-        You can prevent bots from being mass added with the following command
+    ```javascript Syntax
+    ,antinuke vanity (on or off) [--do (punishment)]
+    ```
 
-        <Info>You'll need to use `antinuke whitelist (bot ID)` to invite bots.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke botadd (on or off)
-        ```
+    
+    ```javascript Example
+    ,antinuke vanity on --do ban
+    ```
 
-        ```javascript Example
-        ,antinuke botadd on
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/botadd.png" />
-        </Frame>
-    </Accordion>
-    <Accordion title="Preventing members from being banned">
-        You can prevent members from being mass banned with the following command
+    </CodeGroup>
 
-        <Info>It's recommended to include the `--command on` flag.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke ban (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
-        ```
+    <br />
 
-        ```javascript Example
-        ,antinuke ban on --threshold 3 --do ban --command on
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/ban.png" />
-        </Frame>
+    <Frame>
+      ![](/images/security/antinuke/vanity.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing bots from being added">
+    You can prevent bots from being mass added with the following command
 
-    </Accordion>
-    <Accordion title="Preventing members from being kicked">
-        You can prevent members from being mass kicked with the following command
+    <Info>
+      You'll need to use `antinuke whitelist (bot ID)` to invite bots.
+    </Info>
+    <CodeGroup>
 
-        <Info>It's recommended to include the `--command on` flag.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke kick (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
-        ```
+    ```javascript Syntax
+    ,antinuke botadd (on or off)
+    ```
 
-        ```javascript Example
-        ,antinuke kick on --threshold 3 --do ban --command on
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/kick.png" />
-        </Frame>
-    </Accordion>
-    <Accordion title="Preventing roles from being deleted">
-        You can prevent roles from being mass deleted with the following command
+    
+    ```javascript Example
+    ,antinuke botadd on
+    ```
 
-        <Info>It's recommended to include the `--command on` flag.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke role (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
-        ```
+    </CodeGroup>
 
-        ```javascript Example
-        ,antinuke role on --threshold 3 --do ban --command on
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/role.png" />
-        </Frame>
-    </Accordion>
-    <Accordion title="Preventing channels from being created or deleted">
-        You can prevent channels from being mass created or deleted with the following command
+    <br />
 
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke channel (on or off) [--threshold (number)] [--do (punishment)]
-        ```
+    <Frame>
+      ![](/images/security/antinuke/botadd.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing members from being banned">
+    You can prevent members from being mass banned with the following command
 
-        ```javascript Example
-        ,antinuke channel on --threshold 3 --do ban
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/channel.png" />
-        </Frame>
-    </Accordion>
-    <Accordion title="Preventing emojis from being deleted">
-        You can prevent emojis from being mass deleted with the following command
+    <Info>
+      It's recommended to include the `--command on` flag.
+    </Info>
+    <CodeGroup>
 
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke emoji (on or off) [--threshold (number)] [--do (punishment)]
-        ```
+    ```javascript Syntax
+    ,antinuke ban (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+    ```
 
-        ```javascript Example
-        ,antinuke emoji on --threshold 3 --do ban
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/emoji.png" />
-        </Frame>
-    </Accordion>
-    <Accordion title="Preventing webhooks from being created">
-        You can prevent webhooks from being mass created with the following command
+    
+    ```javascript Example
+    ,antinuke ban on --threshold 3 --do ban --command on
+    ```
 
-        <CodeGroup>
-        ```javascript Syntax
-        ,antinuke webhook (on or off) [--threshold (number)] [--do (punishment)]
-        ```
+    </CodeGroup>
 
-        ```javascript Example
-        ,antinuke webhook on --threshold 3 --do ban
-        ```
-        </CodeGroup>
-        <br />
-        <Frame>
-        <img src="/images/security/antinuke/webhook.png" />
-        </Frame>
+    <br />
 
-    </Accordion>
+    <Frame>
+      ![](/images/security/antinuke/ban.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing members from being kicked">
+    You can prevent members from being mass kicked with the following command
 
+    <Info>
+      It's recommended to include the `--command on` flag.
+    </Info>
+    <CodeGroup>
+
+    ```javascript Syntax
+    ,antinuke kick (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+    ```
+
+    
+    ```javascript Example
+    ,antinuke kick on --threshold 3 --do ban --command on
+    ```
+
+    </CodeGroup>
+
+    <br />
+
+    <Frame>
+      ![](/images/security/antinuke/kick.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing roles from being deleted">
+    You can prevent roles from being mass deleted with the following command
+
+    <Info>
+      It's recommended to include the `--command on` flag.
+    </Info>
+    <CodeGroup>
+
+    ```javascript Syntax
+    ,antinuke role (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+    ```
+
+    
+    ```javascript Example
+    ,antinuke role on --threshold 3 --do ban --command on
+    ```
+
+    </CodeGroup>
+
+    <br />
+
+    <Frame>
+      ![](/images/security/antinuke/role.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing channels from being created or deleted">
+    You can prevent channels from being mass created or deleted with the following command
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    ,antinuke channel (on or off) [--threshold (number)] [--do (punishment)]
+    ```
+
+    
+    ```javascript Example
+    ,antinuke channel on --threshold 3 --do ban
+    ```
+
+    </CodeGroup>
+
+    <br />
+
+    <Frame>
+      ![](/images/security/antinuke/channel.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing emojis from being deleted">
+    You can prevent emojis from being mass deleted with the following command
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    ,antinuke emoji (on or off) [--threshold (number)] [--do (punishment)]
+    ```
+
+    
+    ```javascript Example
+    ,antinuke emoji on --threshold 3 --do ban
+    ```
+
+    </CodeGroup>
+
+    <br />
+
+    <Frame>
+      ![](/images/security/antinuke/emoji.png)
+    </Frame>
+  </Accordion>
+  <Accordion title="Preventing webhooks from being created">
+    You can prevent webhooks from being mass created with the following command
+
+    <CodeGroup>
+
+    ```javascript Syntax
+    ,antinuke webhook (on or off) [--threshold (number)] [--do (punishment)]
+    ```
+
+    
+    ```javascript Example
+    ,antinuke webhook on --threshold 3 --do ban
+    ```
+
+    </CodeGroup>
+
+    <br />
+
+    <Frame>
+      ![](/images/security/antinuke/webhook.png)
+    </Frame>
+  </Accordion>
 </AccordionGroup>
 
 ## Disabling an antinuke module
@@ -274,7 +345,7 @@ You can disable an antinuke module with the same command you used to enable it, 
 You can use the `antinuke config` command to view the current antinuke configuration.
 
 <Frame>
-  <img src="/images/security/antinuke/config.png" />
+  ![](/images/security/antinuke/config.png)
 </Frame>
 
 ### Viewing the modules & whitelist
@@ -282,7 +353,7 @@ You can use the `antinuke config` command to view the current antinuke configura
 You can use the `antinuke list` command to view the enabled modules and whitelisted users.
 
 <Frame>
-  <img src="/images/security/antinuke/list.png" />
+  ![](/images/security/antinuke/list.png)
 </Frame>
 
 ### Viewing users with antinuke admin
@@ -290,22 +361,22 @@ You can use the `antinuke list` command to view the enabled modules and whitelis
 You can use the `antinuke admins` command to view users which can configure the antinuke.
 
 <Frame>
-  <img src="/images/security/antinuke/admins.png" />
+  ![](/images/security/antinuke/admins.png)
 </Frame>
 
 ### Permissions available for `antinuke permissions (grant or remove)`
 
-| Antinuke Permissions  |
-|-----------------------|
-| `administrator`       |
-| `ban_members`         |
-| `mention_everyone`    |
-| `kick_members`        |
-| `moderate_members`    |
-| `manage_guild`        |
-| `manage_channels`     |
-| `manage_roles`        |
-| `view_audit_log`      |
-| `manage_webhooks`     |
-| `manage_expressions`  |
-| `manage_nicknames`    |
+| Antinuke Permissions |
+| -------------------- |
+| `administrator`      |
+| `ban_members`        |
+| `mention_everyone`   |
+| `kick_members`       |
+| `moderate_members`   |
+| `manage_guild`       |
+| `manage_channels`    |
+| `manage_roles`       |
+| `view_audit_log`     |
+| `manage_webhooks`    |
+| `manage_expressions` |
+| `manage_nicknames`   |
