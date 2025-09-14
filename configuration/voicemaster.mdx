@@ -93,16 +93,15 @@ The following commands are subcommands of the `voicemaster default` command.
 
 ## Granting a role to members
 
-You can set a role that members will receive when they create a temporary voice channel.
-This is useful if you want your `#interface` channel to only be visible to members inside a temporary voice channel.
+You can assign a role that members receive when they join a temporary voice channel, which is automatically removed when they leave. This is helpful if you want your `#interface` channel to be visible only to members currently in a temporary voice channel.
 
 <CodeGroup>
     ```javascript Syntax
-    ,voicemaster default role (role)
+    ,voicemaster role (role)
     ```
 
     ```javascript Example
-    ,voicemaster default role @VoiceMaster
+    ,voicemaster role @bryce's vc role
     ```
 
 </CodeGroup>
