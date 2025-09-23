@@ -29,6 +29,7 @@
       {
         "group": "Server Configuration",
         "pages": [
+          "configuration/customization",
           {
             "group": "Roles",
             "icon": "users-gear",
