@@ -14,7 +14,8 @@
         "group": "Overview",
         "pages": [
           "overview/introduction",
-          "overview/donator-perks"
+          "overview/donator-perks",
+          "overview/customization"
         ]
       },
       {
@@ -29,7 +30,6 @@
       {
         "group": "Server Configuration",
         "pages": [
-          "configuration/customization",
           {
             "group": "Roles",
             "icon": "users-gear",
