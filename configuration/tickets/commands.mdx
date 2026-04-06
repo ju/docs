@@ -1,0 +1,166 @@
+---
+title: Commands & Permissions
+description: All the commands and permissions related to managing and using the Tickets system.
+icon: command
+---
+
+
+## Role Priority
+
+When an option uses a mix of support roles, trainee roles, and global staff roles, the system resolves them in this order:
+
+<Badge stroke color="red">Support</Badge> ➔ <Badge stroke color="orange">Trainee</Badge> ➔ <Badge stroke color="yellow">Staff</Badge>
+
+That means:
+- If someone has both a <Badge stroke color="red">Support</Badge> role and a <Badge stroke color="orange">Trainee</Badge> role for a ticket option, they are treated as <Badge stroke color="red">Support</Badge>.
+- If someone has a <Badge stroke color="orange">Trainee</Badge> role for a ticket option and also has a generic global <Badge stroke color="yellow">Staff</Badge> role, they are treated as <Badge stroke color="orange">Trainee</Badge>.
+- Generic <Badge stroke color="yellow">Staff</Badge> roles **do not** override option-specific trainee behavior.
+
+---
+# Commands
+
+<Callout icon="command" color="#658A95" iconType="regular">The primary command for the system is `tickets`. It also supports aliases `ticket` and `tix`.</Callout>
+
+<Info>Most commands can be run directly using Discord slash commands—look for the <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> badge! You don't need to use the `tickets` prefix (e.g., use `/claim` instead of `tickets claim`).</Info>
+
+<Danger>Some commands require the `administrator` permission. If you don't want users to have access to server settings, you can use [Fake Permissions](/security/fake-permissions) to let specific roles use ticket management commands only.</Danger>
+
+## Configuration Commands
+
+These commands let administrators configure the structure of the tickets system, as well as peek into ticket stats.
+
+<AccordionGroup>
+  <Accordion title="System Management" icon="gear">
+    **These require:**
+    - `administrator` permission
+
+    | Command | Description | Example |
+    | --------| ----------- | ------- |
+    | `tickets resend [channel]` | Resend/recreate a live ticket panel message. | `tickets resend #support` |
+    | `tickets panel [name]` | Manage ticket panels, or open a specific panel by name. | `tickets panel Contact ` |
+    | `tickets form [name]` | Manage reusable ticket forms, or open a specific form by name. | `tickets form ContactForm` |
+    | `tickets options` | Manage ticket panel options. | `tickets options` |
+    | `tickets blacklist [member OR role]` | View, add, or remove blacklist entries. | `tickets blacklist @bryce` |
+    | `tickets profiles` | Manage and disable server-wide ticket profiles. | `tickets profiles` |
+  </Accordion>
+
+  <Accordion title="Stats & Listings" icon="chart-bar">
+    **These require one of the following:**
+    - `administrator` permission
+    - A configured global ticket <Badge stroke color="yellow">Staff</Badge> role
+    - Any configured ticket option <Badge stroke color="red">Support</Badge> role
+
+    | Command | Description | Example |
+    | --------| ----------- | ------- |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets stats [30m\|2h\|4h20m\|3d\|2w\|today\|all] [member]` | Show ticket stats for the server, or workload stats for a staff member. | `tickets stats 2w @bryce` |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets list` | List all open tickets in the server. | `tickets list` |
+  </Accordion>
+
+  <Accordion title="Server Profiles" icon="id-card">
+   **These require one of the following:**
+    - `administrator` permission
+    - A configured global ticket <Badge stroke color="yellow">Staff</Badge> role
+    - Any configured ticket option <Badge stroke color="red">Support</Badge> role
+    - Any configured ticket option <Badge stroke color="orange">Trainee</Badge> role
+
+    | Command | Description | Example | Note |
+    | --------| ----------- | ------- | ----------- |
+    | `tickets profile` | Manage your personal ticket claim profile. | `tickets profile` | |
+    | `tickets profiles` (see note to the right) | Manage and disable server-wide ticket profiles. | `tickets profiles` | **This command requires the `administrator` permission.** |
+  </Accordion>
+</AccordionGroup>
+
+<br />
+
+## Ticket Interaction Commands
+
+Because ticket ecosystems have so many users and actions, **permissions are strictly grouped depending on what command you try to run.** 
+
+<AccordionGroup>
+  <Accordion title="Claiming" icon="hand">
+    **These require:**
+    - Claiming enabled on the panel
+    - The ticket is not already claimed
+    - The ticket creator cannot claim their own ticket
+    
+    **And one of the following:**
+    - Server owner / `administrator` permission
+    - A configured option <Badge stroke color="red">Support</Badge> role
+    - A configured option <Badge stroke color="orange">Trainee</Badge> role with *Trainees Can Claim* enabled
+    - A configured global ticket <Badge stroke color="yellow">Staff</Badge> role when no support roles are set on that option
+
+    | Command | Description | Example |
+    | --------| ----------- | ------- |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets claim [channel] [reason]`| Claim a ticket. | `tickets claim #case-1 bryce is now handling this ticket` |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets unclaim [channel]` | Remove the current claimer from a ticket. | `tickets unclaim #case-1` |
+  </Accordion>
+
+  <Accordion title="Closing" icon="door-closed">
+    **These require one of the following:**
+    - The ticket creator, if *Ticket Creator Can Close* is enabled on that option
+    - The current claimer
+    - Server owner / `administrator` permission
+    - A configured option <Badge stroke color="red">Support</Badge> role if the ticket is not currently claimed
+    - A configured option <Badge stroke color="orange">Trainee</Badge> role with *Trainees Can Close* enabled if the ticket is not currently claimed
+    - A configured global ticket <Badge stroke color="yellow">Staff</Badge> role if the ticket is not currently claimed and the option has no support roles
+
+    | Command | Description | Example |
+    | --------| ----------- | ------- |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets close [channel] [reason]`| Close a ticket. | `tickets close Resolved!` |
+  </Accordion>
+
+  <Accordion title="Ticket Modifications" icon="bolt">
+    For modifying ticket channels, these all share the same main access rule (**Delete, Reopen, Move, Transcript, Allow, Deny, Allow List, Unclaim**).
+
+    **These require one of the following:**
+    - The current claimer
+    - Server owner / `administrator` permission
+    - A configured option <Badge stroke color="red">Support</Badge> role if the ticket is not currently claimed
+    - A configured global ticket <Badge stroke color="yellow">Staff</Badge> role if the ticket is not currently claimed and the option has no support roles
+
+    | Command | Description | Example | Notes |
+    | --------| ----------- | ------- | ---- |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets delete [channel] [reason]`| Delete a ticket and its channel. | `tickets delete #case-1 Spam` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets reopen [channel] [reason]`| Reopen a ticket. | `tickets reopen #case-1 Actually needs help` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a ticket to another option. | `tickets move #case-1 Tickets2` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets transcript [channel OR case_id]` | Generate or refresh a ticket transcript, or fetch an existing one by case ID. | `tickets transcript #case-1` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow [user OR role]` | Allow a user or role to view and send in the current ticket. | `tickets allow @bryce` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow list` | List users and roles explicitly allowed in the current ticket. | `tickets allow list` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets deny [user OR role]` | Remove a user or role from the current ticket. | `tickets deny @bryce` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets unclaim [channel]` | Remove the current claimer from a ticket. | `tickets unclaim #case-1` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets rename [channel] (new name)` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `tickets rename #case-1 closed-case-1` | For non-ticket channels: The user must have `Manage Channels`. |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a regular text channel to a category if you have Manage Channels. | `tickets move #case-1 Tickets2` | For non-ticket channels: The user must have `Manage Channels`. |
+    <Info>
+      **Extra notes:**
+      - `tickets allow` and `tickets deny` require the bot to have `Manage Channels`.
+      - `tickets delete` is strict for trainees. A trainee cannot delete a ticket.
+      - `tickets transcript` by case ID falls back to archived transcript access. If there is no matching live ticket record, only the server owner or an administrator can access it.
+    </Info>
+  </Accordion>
+
+  <Accordion title="Reason Editing" icon="pen-to-square">
+    Reason editing uses its own access rule. The following can update stored claim, close, reopen, and delete reasons:
+    - `administrator` permission
+    - The current claimer
+    - Configured <Badge stroke color="red">Support</Badge> or <Badge stroke color="yellow">Staff</Badge> roles when the claimer is a trainee
+    - Configured <Badge stroke color="red">Support</Badge> or <Badge stroke color="yellow">Staff</Badge> roles when the ticket is currently unclaimed
+
+    | Command | Description | Example |
+    | --------| ----------- | ------- |
+    | `tickets reason [action] [target] [reason]` | Update a stored ticket action reason. | `tickets reason close #case-1 user was spamming` |
+  </Accordion>
+
+  <Accordion title="Trainee Options" icon="graduation-cap">
+    These commands manage permissions and roles for <Badge stroke color="orange">trainees</Badge>.
+
+    | Command | Description | Example |
+    | --------| ----------- | ------- |
+    | `tickets trainee` | Manage trainee permissions for the current ticket. | `tickets trainee` |
+    | `tickets trainee grant [member OR role]` | Grant trainee speak/claim/close permissions for the current ticket. | `tickets trainee grant @bryce` |
+    | `tickets trainee revoke [member OR role]` | Revoke trainee speak/claim/close permissions for the current ticket. | `tickets trainee revoke @bryce` |
+    | `tickets trainee list` | List trainee permission overrides for the current ticket. | `tickets trainee list` |
+  </Accordion>
+</AccordionGroup>
+
+
+<Callout icon="face-confounded" color="#658A95" iconType="regular">If you need help with any of these commands, feel free to open a thread in our <a href="https://discord.com/channels/721627270527188995/1020080271229452379">support server</a>. One of us will be happy to help you out.</Callout>

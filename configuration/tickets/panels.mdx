@@ -1,0 +1,46 @@
+---
+title: Panels
+description: Panels are the public entry points users click to open tickets.
+icon: layer-group
+---
+
+You can fully customize how the panel functions, and how it looks on the frontend. Panel management is structured into four key sections: **Behavior**, **Categories**, **Display**, and **Messages**.
+
+<Frame caption="An example of the panel options menu.">
+  <img src="/images/tickets/panel-options.png" alt="Ticket Panel Options" />
+</Frame>
+
+---
+
+## Panel Configuration Options
+
+<AccordionGroup>
+  <Accordion title="Behavior" icon="gear">
+    * **Delete Delay**: How long a deleted ticket waits before its channel is actually removed from the server. Set it to `0s` if you want deletion to happen immediately.
+    * **Maximum Open Tickets**: How many concurrent tickets a single member may have open on this specific panel at once.
+    * **Auto-Pin Controls**: Automatically pins the ticket control message in the created ticket.
+    * **Claims Enabled**: Panel-wide toggle controlling whether staff can claim tickets.
+  </Accordion>
+
+  <Accordion title="Categories" icon="folder-tree">
+    * **Default Category**: The primary category that dictates where tickets are spawned.
+    * **Overflow Category**: A fallback category used seamlessly if the default category is full (due to Discord channel limits) or unavailable.
+  </Accordion>
+
+  <Accordion title="Display" icon="desktop">
+    * **Channel Name Format**: Dictates how ticket channels are named. Built-in options include generating by *Case Number*, *Username*, or through a *Custom Template*.
+    * **Case Padding**: Pads your case numbers (for example, padding set to `3` causes case `7` to be generated as `007`).
+    * **Dropdown Placeholder**: Only shown and utilized when the panel is in "Dropdown" mode.
+    * **Tickets Mode**: Switch visually between `button` or `dropdown` operation. Each panel keeps saved options for both modes.
+  </Accordion>
+
+  <Accordion title="Messages" icon="message">
+    * **Panel Message**: The main public message members interact with to open tickets. It supports large custom embeds and internal variables.
+    * **Log Message**: The custom log template used when logging ticket closures or deletions to your set log channel.
+    * **Auto-Delete Message**: An optional custom template sent exclusively when a closed ticket is scheduled for automatic deletion (only used when `Auto-Delete After Close` is toggled on).
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Panel-level claim, close, reopen, and delete button stylings are no longer configured inside the overarching panel. Button styles now live inside the specific **ticket option** that opens the ticket! See [Ticket Options](/configuration/tickets/options) for more information.
+</Warning>
