@@ -79,11 +79,14 @@ Stacking roles means that users will keep all the roles they've earned when they
 
 You can customize the level-up message that will be sent when a user achieves a new level.
 
+<Danger>
+  Level up messages start sending at level four. This is intended behavior.
+</Danger>
 <Info>
   The `message` parameter can be raw text or an [embed](/resources/scripting)
   with dynamic [variables](/resources/scripting/variables).
 </Info>
-<Warning>You must include the `{guild.name}` variable in your message otherwise it will not work.</Warning>
+<Warning>You must include the `{guild.name}` variable in your message if `messagemode` is set to `pm`.</Warning>
 <CodeGroup>
 
 ```javascript Syntax

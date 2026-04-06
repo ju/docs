@@ -1,0 +1,101 @@
+---
+title: Overview
+description: Introduce a way for your server members to contact staff privately for support, reports, inquiries, applications, and more.
+icon: magnifying-glass
+---
+
+## What The System Supports
+
+The ticket system supports scaling and customizations to fit your server's needs.
+
+<Note>
+  Most options and toggles listed below can be configured per panel, meaning you can have different configurations for each panel you make.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="Limits" icon="server">
+    - Up to `15` ticket panels per server.
+    - Up to `10` active options per panel.
+    - Up to `10` standby options saved in inactive mode per panel.
+    - Up to `150` total active options at once (`10 * 15`).
+    - Up to `25` reusable forms per server.
+   </Accordion>
+
+  <Accordion title="Messages & Communication" icon="message">
+    - Custom messages for greetings, required roles, claims, moves, closing, reopening, inactivity, auto-closing, auto-deleting, and logs.
+    - <Badge stroke color="gray">Optional</Badge> DMs for greetings, closures, and reopenings. 
+    - Ticket transcripts.
+  </Accordion>
+  
+  <Accordion title="Automations & Timers" icon="robot">
+    - Inactivity reminders.
+    - Auto-close timers.
+    - Auto-delete timers.
+    - Close-on-leave automation.
+  </Accordion>
+
+  <Accordion title="Roles & Access" icon="shield">
+    - Support roles.
+    - Trainee roles.
+    - Personal ticket claim profiles for staff, support, and trainees.
+    - Server-wide ticket profile enable/disable controls.
+    - Required-role gating (any-role or all-role matching).
+    - Trainee toggles (claim, close, speak).
+    - System blacklists.
+    - Lifecycle-aware manual ticket access (`allow` / `deny`).
+  </Accordion>
+
+  <Accordion title="Interface & Customization" icon="palette">
+    - Claim, close, reopen, and delete button colors.
+    - Claim, close, reopen, and delete reason popup toggles.
+    - Channel name format overrides.
+    - Claim categories and claim rename templates.
+    - Close categories and close rename templates.
+    - Toggles controlling whether a creator can close their own ticket.
+    - Staff visibility toggles for claimed tickets.
+    - Support for button panels and dropdown panels.
+  </Accordion>
+</AccordionGroup>
+
+
+---
+
+## Quick Setup
+
+Follow these steps to create your first ticket panel. While there are many customization options available, this will get you started.
+<Steps>
+  <Step title="Create a panel">
+    Create a panel using the `tickets panels` command. Click `Add`, then add the panel's name, channel, and type (`Buttons` or `Dropdown`)
+  </Step>
+  <Step title="Configure the panel settings">
+   Go back to the dropdown and select the panel you just created. You can adjust the panel's behavior, categories, display, and messages.
+  </Step>
+  <Step title="Configure ticket options">
+    Use `tickets options`. Choose the option from the dropdown. Configure that option's settings - there are a lot!
+  </Step>
+  <Step title="Setup intake questions (Optional)"> 
+  If you want intake questions, create a form with `tickets forms` and attach it to the option.
+  </Step>
+  <Step title="You're all set!">
+    Use `tickets resend` if you want to recreate the panel message with its new configurations. You can now add more options to the ticket panel with `tickets options`.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Commands & Permissions" icon="terminal" href="/configuration/tickets/commands">
+    Understand the ticket commands and set up role permissions.
+  </Card>
+  <Card title="Configure Panels" icon="layer-group" href="/configuration/tickets/panels">
+    Set up your user-facing interfaces with custom styling.
+  </Card>
+  <Card title="Detailed Options" icon="sliders" href="/configuration/tickets/options">
+    Configure forms, categories, automations, behavior, and more.
+  </Card>
+  <Card title="Variables" icon="brackets-curly" href="/configuration/tickets/variables">
+    Use dynamic variables inside your custom embeds and messages.
+  </Card>
+</CardGroup>

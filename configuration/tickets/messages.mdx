@@ -1,0 +1,84 @@
+---
+title: Custom Messages
+description: Learn how to utilize custom messages & embeds inside the tickets system.
+icon: message
+---
+
+# Overview
+The ticket system supports plain messages, embed blocks via `{embed}`, variables, and conditional logic.
+<Tip>When a message field is left blank, the system falls back to the built-in default code (which matches exactly what the editor shows initially).</Tip>
+
+## Base Customization
+
+<Callout icon="terminal" color="#658A95" iconType="regular">You can learn how to create your own embeds on the [Embeds](/resources/scripting/embeds) documentation page.</Callout>
+<Callout icon="images" color="#658A95" iconType="regular">Don't want to make your own? Check out our community-created [Showcase](https://discord.com/channels/721627270527188995/1306162710815313921) channel.</Callout>
+
+### Basic Embed Example
+
+```txt
+{embed}
+$v{title: Ticket Intake}
+$v{description: A new ticket has been opened.}
+$v{field: Case && #{ticket.case} inline}
+$v{field: Creator && {ticket.creator.full} inline}
+$v{field: Option && {ticket.option.label} inline}
+```
+
+### Form Submission Example
+
+```txt
+{embed}
+$v{title: Ticket Intake}
+$v{description: A new ticket was opened with the submitted form info.}
+$v{field: User && {ticket.form.field.user} inline}
+$v{field: Reason && {ticket.form.field.reason}}
+```
+
+### Required Roles Message
+Each option has its own `Required Roles` message inside the `messages` section of the option settings. Use this to explain to a member why they are not permitted to open that option.
+- It is always sent <Tooltip headline="Ephemeral Messages" tip="Ephemeral messages are only visible to the user who triggered the command." cta="Learn more" href="https://support-apps.discord.com/hc/en-us/articles/26501839512855-Ephemeral-Messages-FAQ">ephemerally</Tooltip>.
+- Role mentions and `@everyone` are suppressed.
+- Only the pinged member can be mentioned.
+
+---
+
+## Conditional Blocks <Badge stroke color="orange">Advanced</Badge>
+
+Conditional blocks control what gets displayed based on the evaluation value (useful for dynamic flow handling). With conditionals, you can turn your embeds into a program that is able to change values based on given inputs.
+
+
+
+<Danger>
+Conditional blocks do not support nesting at this time.
+</Danger>
+
+### Supported Syntax
+```txt
+{if CONDITION}
+code here that displays if condition is met
+{elseif OTHER_CONDITION}
+other code here that displays if elseif condition is met
+{else}
+other code here if nothing else matches
+{/if}
+```
+
+### Condition Types
+- `{ticket.var} == value`
+- `{ticket.var} != value`
+- Truthy checks: `{if {ticket.form.id}}`
+
+### Auto-Close Example
+```txt
+{embed}
+$v{title: Ticket Closed}
+$v{description: This ticket has been closed.}
+
+{if {ticket.closed_automatically} == yes}
+$v{message: This ticket was closed automatically due to inactivity.}
+{else}
+$v{message: This ticket was closed by staff.}
+{/if}
+
+$v{field: Reason && {ticket.reason.closed}}
+```
