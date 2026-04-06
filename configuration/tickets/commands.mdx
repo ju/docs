@@ -21,13 +21,13 @@ That means:
 
 <Callout icon="command" color="#658A95" iconType="regular">The primary command for the system is `tickets`. It also supports aliases `ticket` and `tix`.</Callout>
 
-<Info>Most commands can be run directly using Discord slash commands—look for the <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> badge! You don't need to use the `tickets` prefix (e.g., use `/claim` instead of `tickets claim`).</Info>
+<Info>Most commands can be run directly using Discord slash commands - look for the <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> badge next to commands below. You don't need to use the `tickets` prefix (e.g., use `/claim` instead of `tickets claim`).</Info>
 
 <Danger>Some commands require the `administrator` permission. If you don't want users to have access to server settings, you can use [Fake Permissions](/security/fake-permissions) to let specific roles use ticket management commands only.</Danger>
 
 ## Configuration Commands
 
-These commands let administrators configure the structure of the tickets system, as well as peek into ticket stats.
+These commands let you configure the structure of the tickets system, as well as peek into ticket stats.
 
 <AccordionGroup>
   <Accordion title="System Management" icon="gear">
@@ -127,9 +127,10 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow [user OR role]` | Allow a user or role to view and send in the current ticket. | `tickets allow @bryce` | |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow list` | List users and roles explicitly allowed in the current ticket. | `tickets allow list` | |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets deny [user OR role]` | Remove a user or role from the current ticket. | `tickets deny @bryce` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets unclaim [channel]` | Remove the current claimer from a ticket. | `tickets unclaim #case-1` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets rename [channel] (new name)` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `tickets rename #case-1 closed-case-1` | For non-ticket channels: The user must have `Manage Channels`. |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a regular text channel to a category if you have Manage Channels. | `tickets move #case-1 Tickets2` | For non-ticket channels: The user must have `Manage Channels`. |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow [user OR role]` | Allow a user or role to view and send in the current ticket. | `tickets allow @bryce` |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow list` | List users and roles explicitly allowed in the current ticket. | `tickets allow list` |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets rename [channel] (new name)` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `tickets rename #case-1 closed-case-1` | For non-ticket channels: The user must have `Manage Channels`.
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a regular text channel to a category if you have Manage Channels. | `tickets move #case-1 Tickets2` | For non-ticket channels: The user must have `Manage Channels`.
     <Info>
       **Extra notes:**
       - `tickets allow` and `tickets deny` require the bot to have `Manage Channels`.
