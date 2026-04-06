@@ -1,0 +1,123 @@
+---
+title: Forms
+description: Reusable intake flows shown to users before they can create a ticket.
+icon: list-radio
+---
+
+## Form Rules
+
+<CardGroup cols={2}>
+  <Card title="Server Level" icon="server">
+    Forms are owned and managed at the server level.
+  </Card>
+  <Card title="Many-to-One" icon="diagram-project">
+    A single form can be attached to many different ticket options across various panels.
+  </Card>
+  <Card title="One per Option" icon="lock">
+    An individual option can have at most **one** intake form attached to it at a time.
+  </Card>
+  <Card title="Answer Snapshots" icon="camera">
+    Form answers are snapshotted onto the ticket. Old tickets keep the exact answers submitted at that time.
+  </Card>
+</CardGroup>
+
+
+## Form Limits
+
+Due to Discord's modal constraints, the following limits apply:
+- Up to `25` forms per server.
+- Up to `5` fields per form.
+- Up to `25` static options per `select` field.
+
+---
+
+## Attaching a Form
+
+Once you have created a form, you must attach it to an option so that it triggers when users interact with the panel. 
+
+<Steps>
+  <Step title="Open Ticket Forms">
+    Run the `tickets forms` command. Click `Add` to create a new form.
+  </Step>
+  <Step title="Configure Form Settings">
+    Configure the form settings using the information below.
+  </Step>
+  <Step title="Select Your Form">
+    Run the `tickets options` command. Choose your panel and option, then select `Form`.
+  </Step>
+  <Step title="Bind the Form">
+    Choose the form you just created from the dropdown. You're done!
+  </Step>
+</Steps>
+
+## Form Settings
+
+- **Name:** Internal form name (for your reference).
+- **Title:** Visible modal title shown to users.
+- **Filtering Enabled:** Whether server word filters and AutoMod keyword checks run against the text answers before a ticket is formally opened.
+
+---
+
+## Supported Field Types
+
+All form fields share a few baseline attributes:
+- `Label`
+- `Key`
+- `Required`
+
+### Field Type Options
+
+<AccordionGroup>
+  <Accordion title="short_text" icon="minus">
+    Includes:
+    - description
+    - placeholder
+    - min length
+    - max length
+  </Accordion>
+
+  <Accordion title="long_text" icon="align-left">
+    Includes:
+    - description
+    - placeholder
+    - min length
+    - max length
+  </Accordion>
+
+  <Accordion title="checkbox" icon="square-check">
+    Includes:
+    - description
+    - checked text
+    - unchecked text
+  </Accordion>
+
+  <Accordion title="select" icon="list">
+    Includes:
+    - description
+    - placeholder
+    - min values
+    - max values
+    - static child options
+  </Accordion>
+
+  <Accordion title="role_select" icon="users">
+    Includes:
+    - description
+    - placeholder
+    - single-select
+  </Accordion>
+  
+  <Accordion title="user_select" icon="user">
+    Includes:
+    - description
+    - placeholder
+    - single-select
+  </Accordion>
+
+  <Accordion title="channel_select" icon="hashtag">
+    Includes:
+    - description
+    - placeholder
+    - single-select
+  </Accordion>
+</AccordionGroup>

@@ -31,7 +31,6 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
 - **Image Muted** - Used to restrict users from uploading attachments.
 - **Reaction Muted** - Used to restrict users from reacting to messages.
 - **Jailed** - Used to restrict users from all channels except the `#jail` channel.
-  - The jailed role cannot be renamed since it's found by its name.
 
 <Info>
   The `#jail-log` channel logs all moderation actions done through bleed (e.g.
@@ -45,9 +44,15 @@ It's important to set the staff roles in your server to ensure that bleed can id
 
 Use the `,bind staff @role` command to set a role as a staff role, you would re-run the command if you don't want a role set as staff anymore.
 
+<Tip>
+  You can view set staff roles with the `,bind staff list` command.
+</Tip>
+
 <Frame>
   <img src="/images/security/moderation/staff-role.png" />
 </Frame>
+
+
 
 ## Invoke Messages
 

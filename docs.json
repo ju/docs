@@ -31,6 +31,21 @@
         "group": "Server Configuration",
         "pages": [
           {
+            "group": "Tickets",
+            "icon": "tickets",
+            "pages": [
+              "configuration/tickets/overview",
+              "configuration/tickets/commands",
+              "configuration/tickets/panels",
+              "configuration/tickets/options",
+              "configuration/tickets/forms",
+              "configuration/tickets/access",
+              "configuration/tickets/lifecycle",
+              "configuration/tickets/messages",
+              "configuration/tickets/variables"
+            ]
+          },
+          {
             "group": "Roles",
             "icon": "users-gear",
             "pages": [
