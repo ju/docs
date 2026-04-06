@@ -1,0 +1,240 @@
+---
+title: Variables
+description: Comprehensive list of context variables to use within the ticket system.
+icon: brackets-curly
+---
+
+You can use variables:
+- in plain message content
+- inside embeds
+- inside conditional blocks
+
+<Tip>
+You can also use other variables from the [scripting variables](/resources/scripting/variables) page for custom messages.
+</Tip>
+
+---
+
+## Variable Reference
+
+<Tabs>
+  <Tab title="Core">
+    | Variable | Output |
+    | -------- | ----------- |
+    | `{ticket.case}` | The ticket's case number |
+    | `{ticket.id}` | The ticket's ID |
+    | `{ticket.open}` | Whether the ticket is open |
+    | `{ticket.deleted}` | Whether the ticket is deleted |
+    | `{ticket.opened_label}` | The ticket's opening label |
+    | `{ticket.opened_at}` | The ticket's opening time |
+    | `{ticket.opened_at.raw}` | The ticket's opening time (unix) |
+    | `{ticket.opened_at.short}` | The ticket's opening time (short) |
+    | `{ticket.claimed_at}` | The ticket's claim time |
+    | `{ticket.claimed_at.raw}` | The ticket's claim time (unix) |
+    | `{ticket.claimed_at.short}` | The ticket's claim time (short) |
+    | `{ticket.migrated_at}` | The ticket's migration time |
+    | `{ticket.migrated_at.raw}` | The ticket's migration time (unix) |
+    | `{ticket.migrated_at.short}` | The ticket's migration time (short) |
+    | `{ticket.closed_at}` | The ticket's closure time |
+    | `{ticket.closed_at.raw}` | The ticket's closure time (unix) |
+    | `{ticket.closed_at.short}` | The ticket's closure time (short) |
+    | `{ticket.reopened_at}` | The ticket's reopen time |
+    | `{ticket.reopened_at.raw}` | The ticket's reopen time (unix) |
+    | `{ticket.reopened_at.short}` | The ticket's reopen time (short) |
+    | `{ticket.deleted_at}` | The ticket's deletion time |
+    | `{ticket.deleted_at.raw}` | The ticket's deletion time (unix) |
+    | `{ticket.deleted_at.short}` | The ticket's deletion time (short) |
+    | `{ticket.last_author_message_at}` | The ticket's last author message time |
+    | `{ticket.last_author_message_at.raw}` | The ticket's last author message time (unix) |
+    | `{ticket.last_inactivity_notice_at}` | The ticket's last inactivity notice time |
+    | `{ticket.last_inactivity_notice_at.raw}` | The ticket's last inactivity notice time (unix) |
+    | `{ticket.auto_delete_after_close}` | The auto-delete delay (seconds) |
+    | `{ticket.auto_delete_after_close.human}` | The auto-delete delay (formatted) |
+    | `{ticket.auto_delete_at}` | The scheduled auto-delete time |
+    | `{ticket.auto_delete_at.raw}` | The scheduled auto-delete time (unix) |
+    | `{ticket.auto_delete_at.short}` | The scheduled auto-delete time (short) |
+    | `{ticket.closed_automatically}` | Whether the ticket was closed automatically |
+
+    <Tip>
+Timestamps usually come in three forms:
+- Normal Discord timestamp: `{ticket.opened_at}`
+- `.raw` unix timestamp: `{ticket.opened_at.raw}`
+- `.short` short date format: `{ticket.opened_at.short}`
+</Tip>
+
+  </Tab>
+
+  <Tab title="Reasons">
+    | Variable | Output |
+    | -------- | ----------- |
+    | `{ticket.reason.claimed}` | The ticket's claim reason |
+    | `{ticket.reason.migrated}` | The ticket's migration reason |
+    | `{ticket.reason.closed}` | The ticket's closure reason |
+    | `{ticket.reason.reopened}` | The ticket's reopen reason |
+    | `{ticket.reason.deleted}` | The ticket's deletion reason |
+  </Tab>
+
+  <Tab title="Users">
+    These same user fields are available for each of the following:
+    `{ticket.author}`, `{ticket.creator}`, `{ticket.claimer}`, `{ticket.closer}`, `{ticket.reopener}`, `{ticket.deleter}`
+    <Info>`ticket.creator` is an alias of `ticket.author`</Info>
+
+    **Use any of the following suffixes with the above prefixes:**
+    <Tip>Member-specific fields like `.joined_at`, `.guild_avatar`, `.role_list`, `.top_role`, `.join_position`, and boost values return `N/A` when no data is available.</Tip>
+    | Variable Suffix | Output |
+    | -------- | ----------- |
+    | `.id` | The user's ID |
+    | `.name` | The user's username |
+    | `.display_name` | The user's display name |
+    | `.tag` | The user's tag |
+    | `.full` | The user's full name |
+    | `.mention` | The user's ping |
+    | `.bot` | Whether the user is a bot |
+    | `.display_avatar` | The user's displayed avatar |
+    | `.avatar` | The user's base avatar |
+    | `.guild_avatar` | The user's server avatar |
+    | `.created_at` | The account creation date |
+    | `.created_at_timestamp` | The account creation date (unix) |
+    | `.joined_at` | The server join date |
+    | `.joined_at_timestamp` | The server join date (unix) |
+    | `.color` | The user's top role color hex |
+    | `.role_list` | The user's roles list |
+    | `.role_text_list` | The user's roles text list |
+    | `.top_role` | The user's highest role |
+    | `.role_count` | The user's role count |
+    | `.join_position` | The user's join rank |
+    | `.join_position_suffix` | The user's join rank suffix |
+    | `.boost` | Whether the user is boosting |
+    | `.boost_since` | The user's boost start date |
+    | `.boost_since_timestamp` | The user's boost start date (unix) |
+
+  </Tab>
+
+  <Tab title="Channel">
+    | Variable | Output |
+    | -------- | ----------- |
+    | `{ticket.channel.id}` | The ticket channel's ID |
+    | `{ticket.channel.name}` | The ticket channel's name |
+    | `{ticket.channel.mention}` | The ticket channel's mention |
+  </Tab>
+
+  <Tab title="Panel / Controller">
+    The following variables apply to both `{ticket.panel}` and `{ticket.controller}` prefixes.
+
+    | Variable Suffix | Output |
+    | -------- | ----------- |
+    | `.name` | The panel's name |
+    | `.mode` | The panel's UI mode |
+    | `.message.id` | The panel's message ID |
+    | `.next_case_id` | The panel's upcoming case number |
+    | `.dropdown_placeholder` | The dropdown placeholder text |
+    | `.maximum` | The maximum tickets allowed |
+    | `.auto_delete_after_close` | The auto-delete delay (seconds) |
+    | `.auto_delete_after_close.human` | The auto-delete delay (formatted) |
+    | `.channel.id` | The deployed channel ID |
+    | `.channel.name` | The deployed channel name |
+    | `.channel.mention` | The deployed channel ping |
+    | `.category.default.id` | The default category ID |
+    | `.category.default.name` | The default category name |
+    | `.category.default.mention` | The default category ping |
+    | `.category.overflow.id` | The overflow category ID |
+    | `.category.overflow.name` | The overflow category name |
+    | `.category.overflow.mention`| The overflow category ping |
+  </Tab>
+
+  <Tab title="Option">
+    | Variable | Output |
+    | -------- | ----------- |
+    | `{ticket.option.label}` | The option's display label |
+    | `{ticket.option.emoji}` | The option's emoji |
+    | `{ticket.option.description}` | The option's description |
+    | `{ticket.option.style}` | The option's button style |
+    | `{ticket.option.disabled}` | Whether the option is disabled |
+    | `{ticket.option.auto_close_after}` | The auto-close delay (seconds) |
+    | `{ticket.option.auto_close_after.human}` | The auto-close delay (formatted) |
+    | `{ticket.option.auto_delete_after_close}` | The auto-delete delay (seconds) |
+    | `{ticket.option.auto_delete_after_close.human}` | The auto-delete delay (formatted) |
+    | `{ticket.option.inactivity_time}` | The inactivity delay (seconds) |
+    | `{ticket.option.inactivity_time.human}` | The inactivity delay (formatted) |
+    | `{ticket.option.category.id}` | The option's category ID |
+    | `{ticket.option.category.name}` | The option's category name |
+    | `{ticket.option.category.mention}`| The option's category ping |
+    | `{ticket.option.required_roles}` | Internal count of required roles |
+    | `{ticket.option.required_roles.names}` | The required roles (names list) |
+    | `{ticket.option.required_roles.mentions}` | The required roles (pings list) |
+    | `{ticket.option.required_roles.count}` | The amount of required roles |
+    | `{ticket.option.required_roles.mode}` | Requirement mode (`Any` or `All`) |
+    | `{ticket.option.required_roles.match_all}`| Match all explicitly (`yes` or `no`) |
+  </Tab>
+
+  <Tab title="Forms">
+    | Variable | Output |
+    | -------- | ----------- |
+    | `{ticket.form.id}` | The form's ID |
+    | `{ticket.form.name}` | The form's internal name |
+    | `{ticket.form.title}` | The form's visual title |
+    | `{ticket.form.submitted_at}` | The form's submission date |
+    | `{ticket.form.submitted_at.raw}` | The form's submission date (unix) |
+    | `{ticket.form.submitted_at.short}`| The form's submission date (short) |
+
+    <br />
+
+    **Form Field Entity Values:**
+    Use `{ticket.form.field.<key>}` for the display value users submitted. You can append the following parameters to the key:
+    * `.raw`: When you need the raw stored value or selected ID.
+    * `.label`: The question text for the field.
+    * `.required`: Whether the field was required.
+    * `.type`: The field's type.
+    
+    <AccordionGroup>
+      <Accordion title="User Select Fields" icon="user">
+        For `user_select`, the field supports the same user suffixes as the main ticket user variables.
+        
+        **Examples:**
+        * `{ticket.form.field.<key>.id}`
+        * `{ticket.form.field.<key>.name}`
+        * `{ticket.form.field.<key>.display_name}`
+        * `{ticket.form.field.<key>.tag}`
+        * `{ticket.form.field.<key>.full}`
+        * `{ticket.form.field.<key>.mention}`
+        * `{ticket.form.field.<key>.display_avatar}`
+        * `{ticket.form.field.<key>.joined_at}`
+        * `{ticket.form.field.<key>.role_list}`
+        * `{ticket.form.field.<key>.top_role}`
+        * `{ticket.form.field.<key>.boost_since}`
+      </Accordion>
+      
+      <Accordion title="Role & Channel Select Fields" icon="hashtag">
+        For `role_select` and `channel_select`, the field supports these explicit entity suffixes:
+
+        **Examples:**
+        * `{ticket.form.field.<key>.id}`
+        * `{ticket.form.field.<key>.name}`
+        * `{ticket.form.field.<key>.mention}`
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+
+  <Tab title="Transcript">
+    | Variable | Output |
+    | -------- | ----------- |
+    | `{ticket.transcript.url}` | The transcript's URL |
+    | `{ticket.transcript.created_at}` | The transcript's creation date |
+    | `{ticket.transcript.created_at.raw}` | The transcript's creation date (unix) |
+    | `{ticket.transcript.created_at.short}` | The transcript's creation date (short) |
+    | `{ticket.transcript.expires_at}` | The transcript's expiration date |
+    | `{ticket.transcript.expires_at.raw}` | The transcript's expiration date (unix) |
+    | `{ticket.transcript.expires_at.short}` | The transcript's expiration date (short) |
+  </Tab>
+</Tabs>
+
+---
+## <Icon icon="lightbulb" size={32} />  Quick Tips
+* The base timer variables return raw seconds. Use the `.human` variants for formatted values like `5m`, `2h`, or `1d12h`.
+* Use `ticket.form.field.<key>` for the display value users submitted.
+* Use `ticket.form.field.<key>.raw` when you need the raw stored value or selected ID.
+* `ticket.creator.*` is an alias of `ticket.author.*`.
+* Use `ticket.reason.closed`, `ticket.reason.reopened`, and the other reason vars for lifecycle messages.
+* Use `ticket.closed_automatically` when you want auto-close specific wording.
+* Use `ticket.option.required_roles.mentions` and `ticket.option.required_roles.mode` in the Required Roles message when you want the denial to explain exactly what the member is missing.
+* If you need a field to appear only sometimes, wrap it in `{if ...}{/if}`.

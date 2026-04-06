@@ -1,0 +1,123 @@
+---
+title: Options
+description: Options define the exact individual ticket types located underneath a panel.
+icon: sliders
+---
+
+In the configuration system, options are structured into five main categories: **Behavior**, **Form**, **Messages**, **Style**, and **Convert**. Each option contains completely unique settings, allowing you to cater every ticket scenario differently.
+
+<Frame caption="Viewing a single ticket option's configuration.">
+  <img src="/images/tickets/option-categories.png" alt="Option categories" />
+</Frame>
+
+---
+
+## Behavior
+
+The Behavior category is the deepest one, controlling exactly how the ticket acts and looks. It consists of Button UX, Categories, Naming, and Permissions.
+
+### Button UX
+Each action has its own editor: `Claim`, `Close`, `Reopen`, and `Delete`. Each allow you to configure:
+- The button **label**
+- The button **emoji**
+- The button **color**
+- Whether the action requires a **reason popup**
+<Info>
+  The `Delete` action will always maintain its safety confirmation step even if the reason popup is explicitly disabled, strictly to prevent accidental irreversible destruction.
+</Info>
+
+### Categories
+- **Category:** Per-option category override (falls back to panel categories if not set).
+- **Claim Category:** Per-option category override applied when the ticket is claimed.
+- **Close Category:** Per-option category override applied when the ticket is closed.
+
+### Naming
+- **Channel Name Format:** Per-option override for panel channel naming format.
+- **Claim Rename Template:** Optional rename template applied when the ticket is claimed.
+- **Close Rename Template:** Optional rename template applied when the ticket is closed.
+
+### Permissions
+Option permissions are broken into three distinct groups:
+
+<Tabs>
+  <Tab title="Member">
+    Controls basic user access.
+    * **Required Roles**: Only members with these roles can open tickets from this option. If left empty, any member can open a ticket.
+    * **Require All Roles**: Requires **every** selected role (instead of just any one).
+    * **Ticket Creator Can Close**: Controls whether the ticket creator can close tickets.
+    * **Close On Leave**: Automatically closes tickets if the ticket creator leaves the server. This uses the normal close flow and the documented reason will be `"Ticket creator left the server"`.
+  </Tab>
+  <Tab title="Support">
+    Controls support visibility and permissions.
+    * **Support Roles**: Staff roles that should see/manage tickets from this option exclusively. If not set, global staff roles will be used.
+    *  <Badge stroke color="red">Disabled by default</Badge> **Keep Staff Visible On Claim**: Lets option support roles keep seeing tickets even after they are claimed by another staff member.
+    *  <Badge stroke color="red">Disabled by default</Badge> **Staff Can Speak On Claim**: Lets support roles continue replying even when a ticket is claimed. `Keep Staff Visible On Claim` must be enabled for this to work.
+  </Tab>
+  <Tab title="Trainees">
+    Controls trainee visibility and permissions.
+    * **Trainee Roles**: Trainee roles that should always be able to visually see tickets from this option.
+    * **Trainees Can Claim**: Allows trainees to claim tickets.
+    * **Trainees Can Close**: Allows trainees to close tickets.
+    * **Trainees Can Speak**: Allows trainees to reply in tickets by default.
+  </Tab>
+</Tabs>
+
+---
+
+## Form
+
+Attach an optional intake form prior to ticket creation.
+<Info>
+  For full details on how to create forms, visit the [forms guide](/configuration/tickets/forms).
+</Info>
+
+---
+
+## Messages and Automations
+
+Messages dictate the literal output text at different points in the ticket workflow. You can easily utilize context variables inside of these.
+
+<AccordionGroup>
+  <Accordion title="Greeting" icon="hand-wave">
+    * **Greeting Message**: message sent into the newly opened ticket
+    * **Greeting DM** <Badge stroke color="gray">Optional</Badge>: DM version of the greeting
+  </Accordion>
+  <Accordion title="Claim / Move" icon="arrow-right-arrow-left">
+    * **Claim Message**: message sent when the ticket is claimed
+    * **Move Message**: message sent when the ticket is migrated to another option
+  </Accordion>
+  <Accordion title="Close / Reopen" icon="door-closed">
+    * **Close Message**: message sent when the ticket is closed
+    * **Close DM <Badge stroke color="gray">Optional</Badge>**: DM version of the close message
+    * **Reopen Message**: message sent when the ticket is reopened
+    * **Reopen DM <Badge stroke color="gray">Optional</Badge>**: DM version of the reopen message
+  </Accordion>
+  <Accordion title="Automations" icon="robot">
+    * **Auto-Close Message**: optional message sent when this option closes a ticket automatically
+    * **Auto-Close Timer**: optional per-option timer that closes tickets after author inactivity (set it between `1m` and `30d`)
+    * **Auto-Delete Message**: optional message sent when this option automatically deletes a closed ticket
+    * **Auto-Delete Timer**: optional per-option timer that deletes closed ticket channels automatically. Set it to `0s` if you want the ticket to delete immediately after it is closed. Reopening or manually deleting the ticket clears that pending auto-delete
+    * **Inactivity Message**: reminder sent when the creator has gone quiet for too long
+    * **Inactivity Timer**: how long to wait before sending the inactivity reminder
+  </Accordion>
+  <Accordion title="Required Roles" icon="shield">
+    * **Required Roles Message**: <Tooltip headline="Ephemeral Messages" tip="Ephemeral messages are only visible to the user who triggered the command." cta="Learn more" href="https://support-apps.discord.com/hc/en-us/articles/26501839512855-Ephemeral-Messages-FAQ">Ephemeral</Tooltip> denial message shown when a member fails this option's required-role check (edited from the option's `Messages` section)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Style
+
+Determines visual differences based on the parent panel type.
+
+**Both** allow you to configure the:
+- **Label**: The label shown on the button or dropdown.
+- **Emoji**: The emoji shown on the button or dropdown.
+- **Availability**: Whether the option is disabled or not.
+
+**Button panels** allow you to configure:
+- **Button Style**: The style/color of the button.
+
+**Dropdown panels** allow you to configure:
+- **Description**: Extra text shown under the dropdown label for more context.
