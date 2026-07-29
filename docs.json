@@ -24,7 +24,8 @@
           "security/antinuke",
           "security/antiraid",
           "security/moderation",
-          "security/fake-permissions"
+          "security/fake-permissions",
+          "security/honeypot"
         ]
       },
       {

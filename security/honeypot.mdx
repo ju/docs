@@ -1,0 +1,77 @@
+---
+title: "Honeypot"
+description: "Catch compromised accounts sending malicious messages."
+icon: "honey-pot"
+---
+
+## Overview
+
+Honeypots are a feature that allow you to set up "bait" channels. **Any account that sends a message in a honeypot channel will be automatically punished** based on your configuration. While this feature will punish anyone who types in the channel, it is specifically intended to catch compromised accounts or automated spammers who blindly send malicious messages to all channels.
+
+<Note>
+  Users with the **Administrator** permission or a configured **Staff role** are exempt from honeypot punishments.
+</Note>
+
+<Callout icon="shield" color="#658A95" iconType="regular">
+  All honeypot commands require the **Administrator** permission.
+</Callout>
+
+<Info>
+  All honeypot punishments are recorded in your server's designated moderation log channel. You can configure where these logs are sent using the `,settings modlog` command.
+</Info>
+
+---
+
+### Adding a Honeypot
+
+Add a honeypot channel to your server. When a user sends a message in this channel, they will automatically receive the specified punishment.
+
+<Tip>
+  The punishment can be set to `ban`, `softban` or `jail`.
+</Tip>
+
+<CodeGroup>
+```javascript Syntax
+,honeypot add (channel) (punishment)
+```
+
+```javascript Example
+,honeypot add #dont-type-here softban
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/security/honeypot/add.png" />
+</Frame>
+
+### Listing Honeypots
+
+View a list of all currently active honeypot channels and their configured punishments.
+
+<CodeGroup>
+```javascript Syntax
+,honeypot list
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/security/honeypot/list.png" />
+</Frame>
+
+### Removing a Honeypot
+
+Remove a channel from your honeypots. Users will no longer be punished for typing in it.
+
+<CodeGroup>
+```javascript Syntax
+,honeypot remove (channel)
+```
+
+```javascript Example
+,honeypot remove #dont-type-here
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/security/honeypot/remove.png" />
+</Frame>
