@@ -4,22 +4,26 @@ description: "Impose restrictions on moderators to prevent destructive behavior.
 icon: "fingerprint"
 ---
 
-## Why use an antinuke system?
+## Overview
 
-It's important to have an antinuke system in place to prevent moderators from abusing their permissions. This is a security measure which lets your server stay safe from any harmful actions.
+### Why use an antinuke system?
 
-## How does the antinuke work?
+It's important to have an antinuke system in place to prevent moderators from abusing their permissions. This is a security measure which keeps your server safe from any harmful actions.
 
-The antinuke will set a limit on the number of actions a moderator can perform in a certain time frame. If the limit is exceeded, the moderator will be punished and a message will be sent to the owner.
+### How does the antinuke work?
+
+Antinuke sets a limit on the number of actions a moderator can perform in a certain time frame. If the limit is exceeded, the moderator will be punished and a message will be sent to the owner.
+
+---
 
 ## Configuring the antinuke
 
-<Warning>
+<Tip>
   Discord recently implemented a new **mass ban** feature which can quickly ban
   **100\+ members**. It's **HIGHLY** recommended to utilize [fake
   permissions](/security/fake-permissions) to prevent moderators from using this
   feature.
-</Warning>
+</Tip>
 
 ### Allowing users to configure the antinuke
 
@@ -76,6 +80,8 @@ You can exempt users from the antinuke with the `antinuke whitelist` command.
 <Frame>
   ![](/images/security/antinuke/whitelist.png)
 </Frame>
+
+---
 
 ## Enabling an antinuke module
 
@@ -147,7 +153,7 @@ The following flags can be used to define the antinuke module
     You can prevent members from changing the vanity URL with the following command
 
     <Warning>
-      bleed can not change the vanity URL back to the original due to Discord limitations.
+      bleed cannot revert the vanity URL due to Discord limitations.
     </Warning>
     <CodeGroup>
 
