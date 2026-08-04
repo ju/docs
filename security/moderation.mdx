@@ -44,10 +44,10 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
 
 It's important to set the staff roles in your server to ensure that bleed can identify who has dangerous permissions. This is necessary for the `stripstaff` punishment to work.
 
-Use the `,bind staff @role` command to set a role as a staff role, you would re-run the command if you don't want a role set as staff anymore.
+Use the `,settings staff @role` command to set a role as a staff role, you would re-run the command if you don't want a role set as staff anymore.
 
 <Tip>
-  You can view set staff roles with the `,bind staff list` command.
+  You can view set staff roles with the `,settings staff list` command.
 </Tip>
 
 <Frame>
@@ -62,6 +62,10 @@ You can customize both the command response (which defaults to `👍`) and the d
 The following moderation commands can be customized:
 
 - `jail`, `kick`, `ban`, `tempban`, `softban`, `hardban`, `timeout` & `warn`.
+
+<Warning>
+You cannot customize the `hardban` direct message, instead it will be the `ban` direct message.
+</Warning>
 
 <Tip>
 The `message` parameter can be raw text or an [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
