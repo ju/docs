@@ -26,7 +26,7 @@ There are three system message commands, each with the same subcommands.
 
 ## Creating a system message
 
-You can create a system message with the `welcome add` command.
+You can create a system message with the `/config welcome add` command.
 
 <Tip>
 The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
@@ -35,39 +35,45 @@ The `message` parameter can be raw text or an [embed](/resources/scripting) with
 The `--self_destruct` flag in system messages schedules the message for
 deletion after a specified time, which must be between `6` and `60` seconds.
 </Info>
+
+This command will open a discord modal where you can specify the content of the message.
 <CodeGroup>
 
 ```javascript Syntax
-,welcome add (channel) (message) [--self_destruct [6-60]]
+/config welcome add channel:<channel> self_destruct:<seconds> pingable:<True|False> 
 ```
 
 ```javascript Example
-,welcome add #general welcome to {guild} {user.mention} --self_destruct 30
-,welcome add #general {embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
+/config welcome add channel:#general self_destruct:30 pingable:True
+welcome to {guild} {user.mention}
+
+/config welcome add channel:#general pingable:True
+{embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
 ```
 
 </CodeGroup>
-<br />
 <Frame>
   <img src="/images/configuration/messages/system/add.png" />
+</Frame>
+<Frame>
+  <img src="/images/configuration/messages/system/modal.png" />
 </Frame>
 
 # Removing a system message
 
-You can remove a system message with the `welcome remove` command.
+You can remove a system message with the `/config welcome remove` command.
 
 <CodeGroup>
 
 ```javascript Syntax
-,welcome remove <channel>
+/config welcome remove channel:<channel>
 ```
 
 ```javascript Example
-,welcome remove #joneral
+/config welcome remove channel:#joneral
 ```
 
 </CodeGroup>
-<br />
 <Frame>
   <img src="/images/configuration/messages/system/remove.png" />
 </Frame>
@@ -76,20 +82,21 @@ You can remove a system message with the `welcome remove` command.
 
 <AccordionGroup>
   <Accordion title="Viewing a system message">
-    You can use the `welcome view` command to view a system message.
+    You can use the `/config welcome view` command to view a system message.
     <CodeGroup>
     ```javascript Syntax
-    ,welcome view (channel)
+    /config welcome view channel:<channel>
+    ```
     ```
 
     ```javascript Example
-    ,welcome view #general
+    /config welcome view channel:#general
     ```
 
     </CodeGroup>
 
   </Accordion>
   <Accordion title="Viewing all system messages">
-    You can use the `welcome list` command to view all system messages.
+    You can use the `/config welcome list` command to view all system messages.
   </Accordion>
 </AccordionGroup>

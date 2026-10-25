@@ -6,26 +6,31 @@ icon: arrows-turn-to-dots
 
 ## Setup
 
-<Warning>Only embeds created with `createembed` can be paginated.</Warning>
+<Warning>Only [components](/resources/scripting/components) and [embeds](/resources/scripting/embeds) created by bleed can be paginated.</Warning>
 <Steps>
   <Step title="Set the embed">
-    Firstly you must set the embed to work with pagination. ``` ,pagination set
-    [message link] ``` ![pn set](/images/resources/scripting/pagination/set.png)
+    Firstly you must set the embed to work with pagination. ``` /automation pagination set message_link:<message_link>``` 
+    ![pn set](/images/resources/scripting/pagination/set.png)
   </Step>
   <Step title="Add the next page">
     You can now add further pages to your embed. This command works with adding
-    any number of pages required. ``` ,pagination add [message link] [embed
-    content] ``` ![pn add](/images/resources/scripting/pagination/add.png)
+    any number of pages required. ``` /automation pagination add message_link:<message_link> ``` 
+    
+    This will open a modal where you can add the code for your next page. 
+    ![pn add](/images/resources/scripting/pagination/add.png)
   </Step>
   <Step title="Updating a paginated embed">
     If you need to edit a page you've made during setup, you can use the command
-    below. ``` ,pagination update [message link] [page number] ``` ![pn
-    update](/images/resources/scripting/pagination/update.png)
+    below.
+     ``` /automation pagination update message_link:<message_link> page:<page number> ```
+
+     This will open a modal where you can edit the code for your page. 
+    ![pn update](/images/resources/scripting/pagination/update.png)
   </Step>
   <Step title="Removing a page">
     If you want to remove a page you have setup, you can use the below command
-    ``` ,pagination remove [message link] [page number] ``` ![pn
-    del](/images/resources/scripting/pagination/remove.png)
+    ``` /automation pagination remove message_link:<message_link> page:<page number> ``` 
+    ![pn remove](/images/resources/scripting/pagination/remove.png)
   </Step>
 </Steps>
 
@@ -33,27 +38,37 @@ icon: arrows-turn-to-dots
 
 <AccordionGroup>
   <Accordion title="Delete a paginated embed entirely">
+    <CodeGroup>
+    ```javascript Syntax
+    /automation pagination delete message_link:<message_link>
     ```
-    ,pagination delete [message link]
-    ```
+    </CodeGroup>
   </Accordion>
 
 {" "}
 
 <Accordion title="Reset all paginated embeds in a guild">
-  ``` ,pagination reset ```
+  <CodeGroup>
+    ```javascript Syntax
+    /automation pagination reset
+    ```
+  </CodeGroup>
 </Accordion>
 
   <Accordion title="List all active paginations">
-    ```
-    ,pagination list
-    ```
+    <CodeGroup>
+      ```javascript Syntax
+      /automation pagination list
+      ```
+    </CodeGroup>
   </Accordion>
   
   <Accordion title="Readd the navigation reactions">
     Use this command in case the arrow reactions allowing navigation between pages were deleted.
-    ```
-    ,pagination restorereactions (message link)
-    ```
+    <CodeGroup>
+      ```javascript Syntax
+      /automation pagination restorereactions message_link:<message_link>
+      ```
+    </CodeGroup>
   </Accordion>
 </AccordionGroup>

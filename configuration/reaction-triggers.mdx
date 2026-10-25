@@ -11,11 +11,11 @@ You can use the `reaction` command to react to a message with bleed.
 <CodeGroup>
 
 ```javascript Syntax
-,reaction (message link) (emoji)
+/reaction apply message:<message-link> emojis:<emojis>
 ```
 
 ```javascript Example
-,reaction .../channels/... 😍
+/reaction apply message:https://discord.com/channels/.../... emojis:😍
 ```
 
 </CodeGroup>
@@ -36,11 +36,11 @@ You can create a reaction trigger with the `reaction add` command.
 <CodeGroup>
 
 ```javascript Syntax
-,reaction add (emoji) (trigger)
+/reaction add emoji:<emoji> trigger:<trigger>
 ```
 
 ```javascript Example
-,reaction add 😍 jon
+/reaction add emoji:😍 trigger:jon
 ```
 
 </CodeGroup>
@@ -55,11 +55,11 @@ You can use the `reaction owner` command to view who added a reaction trigger.
 
 <CodeGroup>
 ```javascript Syntax
-,reaction owner (trigger)
+/reaction owner trigger:<trigger>
 ```
 
 ```javascript Example
-,reaction owner jon
+/reaction owner trigger:jon
 ```
 
 </CodeGroup>
@@ -70,17 +70,17 @@ You can use the `reaction owner` command to view who added a reaction trigger.
 
 ## Removing a reaction trigger
 
-You can remove a reaction trigger with the `reaction remove` command.
+You can remove a reaction trigger with the `/reaction remove` command.
 
 <Info>If you're struggling to remove a reaction trigger, refer to the [selection removal](/resources/syntax#removing-entries-via-id).</Info>
 <CodeGroup>
 
 ```javascript Syntax
-,reaction remove (emoji) (trigger)
+/reaction remove emoji:<emoji> trigger:<trigger>
 ```
 
 ```javascript Example
-,reaction remove 😍 jon
+/reaction remove emoji:😍 trigger:jon
 ```
 
 </CodeGroup>
@@ -91,16 +91,16 @@ You can remove a reaction trigger with the `reaction remove` command.
 
 ### Removing all reactions for a trigger
 
-You can remove all reactions for a trigger with the `reaction removeall` command.
+You can remove all reactions for a trigger with the `/reaction removeall` command.
 
 <CodeGroup>
 
 ```javascript Syntax
-,reaction removeall (trigger)
+/reaction removeall trigger:<trigger>
 ```
 
 ```javascript Example
-,reaction removeall jon
+/reaction removeall trigger:jon
 ```
 
 </CodeGroup>
@@ -111,7 +111,7 @@ You can remove all reactions for a trigger with the `reaction removeall` command
 
 ## Reacting to every message
 
-If you're interested in having reactions on every message, you can use the `reaction messages` command.
+If you're interested in having reactions on every message, you can use the `/reaction messages set` command.
 This is useful for channels like `#selfies` where messages can be voted on.
 
 <Warning>
@@ -121,11 +121,11 @@ This is useful for channels like `#selfies` where messages can be voted on.
 <CodeGroup>
 
 ```javascript Syntax
-,reaction messages (channel) (up to three emojis)
+/reaction messages set channel:<channel> first:<emoji> second:<emoji> third:<emoji>
 ```
 
 ```javascript Example
-,reaction messages #selfies 😍 😐 🤮
+/reaction messages set channel:#selfies first:😍 second:😐 third:🤮
 ```
 
 </CodeGroup>
@@ -136,16 +136,16 @@ This is useful for channels like `#selfies` where messages can be voted on.
 
 ### Removing all message reactions
 
-You can use the `reaction messages` command without emojis to remove all reactions.
+You can use the `/reaction messages remove` command without emojis to remove all reactions.
 
 <CodeGroup>
 
 ```javascript Syntax
-,reaction messages (channel)
+/reaction messages remove channel:<channel>
 ```
 
 ```javascript Example
-,reaction messages #selfies
+/reaction messages remove channel:#selfies
 ```
 
 </CodeGroup>
@@ -158,13 +158,13 @@ You can use the `reaction messages` command without emojis to remove all reactio
 
 <AccordionGroup>
     <Accordion title="Removing all reaction triggers">
-        You can use the `reaction reset` command to remove all reaction triggers.
+        You can use the `/reaction clear` command to remove all reaction triggers.
     </Accordion>
     <Accordion title="Viewing all reaction triggers">
-        You can use the `reaction list` command to view all reaction triggers.
+        You can use the `/reaction list` command to view all reaction triggers.
     </Accordion>
     <Accordion title="Viewing all channels that are receiving reactions">
-        You can use the `reaction messages list` command to view all channels receiving reactions.
+        You can use the `/reaction messages list` command to view all channels receiving reactions.
     </Accordion>
 
 </AccordionGroup>

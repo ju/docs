@@ -16,55 +16,34 @@ Support visibility is controlled per option. If an option does not define suppor
 ---
 
 ## Global Blacklist
-<Callout icon="earth" color="#658A95" iconType="regular">These commands apply globally and are not ticket-specific.</Callout>
+<Callout icon="earth" color="#658A95" iconType="regular">These commands apply to all tickets in a guild and are not per-ticket-specific.</Callout>
 
 <AccordionGroup>
-  <Accordion title="Blacklist Member" icon="user-minus">
-    Toggles a member on or off the ticket blacklist. Blacklisted users cannot open tickets.
+  <Accordion title="Blacklist Member or Role" icon="user-minus">
+    Toggles a member or role on or off the ticket blacklist. Blacklisted users or users with a blacklisted role cannot open tickets.
     <CodeGroup>
 
 ```javascript Syntax
-,tickets blacklist (member)
+/tickets blacklist target:<member|role>
 ```
 
 ```javascript Example
-,tickets blacklist @bryce
+/tickets blacklist target:@tr2c
 ```
 
 </CodeGroup>
-
-<Frame caption="Blacklisting a user.">
-  <img src="/images/tickets/blacklist-user.png" alt="Blacklist User" />
-</Frame>
-
-  </Accordion>
-
-  <Accordion title="Blacklist Role" icon="users-slash">
-    Toggles a role on or off the ticket blacklist. Anyone with a blacklisted role cannot open tickets.
-    <CodeGroup>
-
-```javascript Syntax
-,tickets blacklist (role)
-```
-
-```javascript Example
-,tickets blacklist @jailed
-```
-
-</CodeGroup>
-
-<Frame caption="Blacklisting a role.">
-  <img src="/images/tickets/blacklist-role.png" alt="Blacklist Role" />
+<Frame caption="Blacklisting a user or role.">
+  <img src="/images/tickets/blacklist-user.png" alt="Blacklist User or Role" />
 </Frame>
 
   </Accordion>
 
   <Accordion title="Blacklist List" icon="list-ol">
-    Shows the users and roles that are blacklisted from opening tickets.
+    Run `/tickets blacklist` without any arguments to show the users and roles that are blacklisted from opening tickets.
     <CodeGroup>
 
 ```javascript Syntax
-,tickets blacklist
+/tickets blacklist
 ```
 </CodeGroup>
   </Accordion>
@@ -76,32 +55,17 @@ Support visibility is controlled per option. If an option does not define suppor
 <Callout icon="ticket" color="#658A95" iconType="regular">These commands only apply to the ticket they are used in.</Callout>
 
 <AccordionGroup>
-  <Accordion title="Allow Member" icon="user-plus">
-    Explicitly lets a user view and send messages in the current ticket while it is open.
+  <Accordion title="Allow Member or Role" icon="user-plus">
+    Explicitly lets a user or a role view and send messages in the current ticket while it is open.
     <CodeGroup>
 
 ```javascript Syntax
-,tickets allow (member)
+/tickets allow add target:<member|role>
 ```
 
 ```javascript Example
-,tickets allow @bryce
-```
-
-</CodeGroup>
-
-  </Accordion>
-
-  <Accordion title="Allow Role" icon="users-medical">
-    Explicitly lets a role view and send messages in the current ticket while it is open.
-    <CodeGroup>
-
-```javascript Syntax
-,tickets allow (role)
-```
-
-```javascript Example
-,tickets allow @Helper
+/tickets allow add target:@bryce
+/tickets allow add target:@Helper
 ```
 
 </CodeGroup>
@@ -109,42 +73,28 @@ Support visibility is controlled per option. If an option does not define suppor
   </Accordion>
 
   <Accordion title="Allow List" icon="list-ol">
-    Shows the extra users and roles that were explicitly allowed into the current ticket.
+    Shows the extra users and roles that were explicitly allowed into the current ticket or the ticket specified.
     <CodeGroup>
 
 ```javascript Syntax
-,tickets allow list
+/tickets allow list channel:<channel>
 ```
 
 </CodeGroup>
 
   </Accordion>
   
-  <Accordion title="Deny Member" icon="user-xmark">
-    Removes a user's explicit ticket access.
+  <Accordion title="Deny Member or Role" icon="user-xmark">
+    Removes a user or role's explicit ticket access to the current ticket or the ticket specified.
     <CodeGroup>
 
 ```javascript Syntax
-,tickets deny (member)
+/tickets deny target:<member|role> channel:<channel>
 ```
 
 ```javascript Example
-,tickets deny @bryce
-```
-
-</CodeGroup>
-  </Accordion>
-
-  <Accordion title="Deny Role" icon="users-slash">
-    Removes a role's explicit ticket access.
-    <CodeGroup>
-
-```javascript Syntax
-,tickets deny (role)
-```
-
-```javascript Example
-,tickets deny @Helper
+/tickets deny target:@bryce channel:#ticket-123
+/tickets deny target:@Helper
 ```
 
 </CodeGroup>

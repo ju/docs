@@ -6,26 +6,26 @@ icon: ranking-star
 
 ## Getting started
 
-Before you run any commands, it's important to use the `levels unlock` command otherwise
-XP will not be tracked for users. You can also use the `levels lock` command to temporarily stop tracking XP.
+Before you run any commands, it's important to use the `/levels unlock` command otherwise
+XP will not be tracked for users. You can also use the `/levels lock` command to temporarily stop tracking XP.
 
 ## Ignoring channels and roles
 
-You should immediately ignore channels and roles that you don't want gaining XP. You can do this by using the `levels ignore` command.
+You should immediately ignore channels and roles that you don't want gaining XP. You can do this by using the `/levels ignore` command.
 
 <Info>
   If you no longer want to ignore a channel or role, you can re-run the command.
-  You can also use `levels list` to view all ignored channels and roles.
+  You can also use `/levels list` to view all ignored channels and roles.
 </Info>
 
 <CodeGroup>
 ```javascript Syntax
-,levels ignore (channel or role)
+/levels ignore role:<role>|channel:<channel>
 ```
 
 ```javascript Example
-,levels ignore #spam
-,levels ignore @jailed
+/levels ignore channel:#spam
+/levels ignore role:@jailed
 ```
 
 </CodeGroup>
@@ -36,22 +36,21 @@ You should immediately ignore channels and roles that you don't want gaining XP.
 
 ## Setting up roles to reward
 
-You can reward your members with roles when they reach a certain level. You can use the `levels add` command to add a level reward.
+You can reward your members with roles when they reach a certain level. You can use the `/levels add` command to add a level reward.
 
 <Info>
-  If you no longer want to reward a role for a level, you can use the `level
-  remove` command.
+  If you no longer want to reward a role for a level, you can use the `/levels remove` command.
 </Info>
-<Tip>If your server already has XP, you can use the `levels sync` command to ensure that all users have the correct roles based on their XP.</Tip>
+<Tip>If your server already has XP, you can use the `/levels sync` command to ensure that all users have the correct roles based on their XP.</Tip>
 <CodeGroup>
 ```javascript Syntax
-,levels add (role) (level)
-,levels remove (level)
+/levels add role:<role> rank:<level>
+/levels remove rank:<level>
 ```
 
 ```javascript Example
-,levels add @Levelone 5
-,levels remove 5
+/levels add role:@Lvl 5 rank:5
+/levels remove rank:5
 ```
 
 </CodeGroup>
@@ -66,11 +65,11 @@ Stacking roles means that users will keep all the roles they've earned when they
 
 <CodeGroup>
 ```javascript Syntax
-,levels stackroles (on or off)
+/levels stackroles setting:<On|Off>
 ```
 
 ```javascript Example
-,levels stackroles off
+/levels stackroles setting:On
 ```
 
 </CodeGroup>
@@ -90,12 +89,12 @@ You can customize the level-up message that will be sent when a user achieves a 
 <CodeGroup>
 
 ```javascript Syntax
-,levels message (text or embed code)
+/levels message set text:<text|embed code>
 ```
 
 ```javascript Example
-,levels message Congrats {user} on reaching level {level.new_rank} in {guild.name}!
-,levels message {embed}$v{message: {user.mention}}$v{description: you have reached level {level.new_rank} in {guild.name}}
+/levels message Congrats {user} on reaching level {level.new_rank} in {guild.name}!
+/levels message {embed}$v{message: {user.mention}}$v{description: you have reached level {level.new_rank} in {guild.name}}
 ```
 
 </CodeGroup>
@@ -104,21 +103,20 @@ You can customize the level-up message that will be sent when a user achieves a 
 
 You can set the channel where the level-up message will be sent. By default, the message is sent in the same channel where the user achieved the level.
 
-The `option` parameter can be one of the following:
-
-- `pm` - Sends the message in the user's direct messages.
-- `context` - Sends the message in the same channel where the user gained XP.
-- `#channel` - Sends the message in the specified channel.
-- `none` - Entirely disables the level-up message.
+There are four options for where the message can be sent:
+- `/levels messagemode dm` - Sends the message in the user's direct messages.
+- `/levels messagemode here` - Sends the message in the same channel where the user gained XP.
+- `/levels messagemode channel` - Sends the message in the specified channel.
+- `/levels messagemode off` - Entirely disables the level-up message.
 
 <CodeGroup>
 ```javascript Syntax
-,levels messagemode (option)
+/levels messagemode channel|dm|here|off channel:<channel> 
 ```
 
 ```javascript Example
-,levels messagemode #level-up
-,levels messagemode pm
+/levels messagemode channel channel:#level-up
+/levels messagemode dm
 ```
 
 </CodeGroup>
@@ -133,13 +131,13 @@ You can change a member's level to a specific level or set their XP to a specifi
 
 <CodeGroup>
 ```javascript Syntax
-,setlevel (member) (level)
-,setxp (member) (xp)
+/levels setlevel member:<member> level:<level>
+/levels setxp member:<member> amount:<amount>
 ```
 
 ```javascript Example
-,setlevel @user 5
-,setxp @user 10000
+/levels setlevel member:@J21234 level:5
+/levels setxp member:@Keesh amount:10000
 ```
 
 </CodeGroup>
@@ -150,11 +148,11 @@ You can change the XP multiplier to increase or decrease the amount of XP member
 
 <CodeGroup>
 ```javascript Syntax
-,levels setrate (multiplier)
+/levels setrate multiplier:<multiplier>
 ```
 
 ```javascript Example
-,levels setrate 2.4
+/levels setrate multiplier:2.4
 ```
 
 </CodeGroup>
@@ -163,13 +161,13 @@ You can change the XP multiplier to increase or decrease the amount of XP member
 
 <AccordionGroup>
   <Accordion title="Viewing a user's level and XP">
-    Use the `rank` command to view a user's level and XP.
+    Use the `/levels rank ` command to view a user's level and XP.
   </Accordion>
   <Accordion title="Viewing the XP leaderboard">
-    Use the `levels leaderboard` subcommand to highest XP earners in the server.
+    Use the `/levels leaderboard view` subcommand to highest XP earners in the server.
   </Accordion>
   <Accordion title="Viewing the level rewards">
-    Use the `levels roles` subcommand to view all level rewards and the
+    Use the `/levels roles` subcommand to view all level rewards and the
     remaining XP needed to receive them.
   </Accordion>
 </AccordionGroup>

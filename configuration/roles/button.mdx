@@ -13,18 +13,17 @@ Button roles are roles that are assigned to members when they click a button on 
 You can create multiple button roles for a single message.
 
 <Warning>
-  Button roles can only be placed on messages & embeds sent by bleed. Learn how to create an embed [**here**](/resources/scripting/embeds)!
+  Button roles can only be placed on messages, components, and embeds sent by bleed. Learn how to create a [component](/resources/scripting/components) or an [embed](/resources/scripting/embeds)!
 </Warning>
 
+This command will open a discord modal where you can specify the button style, emoji, and label for the button role.
 <CodeGroup>
 ```javascript Syntax
-,buttonrole add (message link) (role) (style) (emoji) (label)
-
-// Available styles: "green," "blurple," "gray," or "red."
+/autorole buttonrole add message_link:<message_link> role:<role>
 ```
 
 ```javascript Example
-,buttonrole add .../channels/... Verified green ✅ Verify
+/autorole buttonrole add message_link:.../channels/... role:<role>
 ```
 
 </CodeGroup>
@@ -35,10 +34,10 @@ You can create multiple button roles for a single message.
 
 ## Removing a button role
 
-You can remove a specific button role by using the `buttonrole remove` command.
+You can remove a specific button role by using the `/autorole buttonrole remove` command.
 
 <Tip>
-You can use the `buttonrole list` command to see all button roles in your server.
+You can use the `/autorole buttonrole list` command to see all button roles in your server.
 <Frame>
     <img src="/images/configuration/roles/button/list.png" />
 </Frame>
@@ -46,11 +45,11 @@ You can use the `buttonrole list` command to see all button roles in your server
 
 <CodeGroup>
 ```javascript Syntax
-,buttonrole remove (message link) (button number)
+/autorole buttonrole remove message_link:<message_link> index:<button number>
 ```
 
 ```javascript Example
-,buttonrole remove .../channels/... 1
+/autorole buttonrole remove message_link:.../channels/... index:1
 ```
 </CodeGroup>
 <br />
@@ -60,15 +59,15 @@ You can use the `buttonrole list` command to see all button roles in your server
 
 ### Removing all button roles for a message
 
-Additionally, you can remove all button roles from a message by using the `buttonrole removeall` command.
+Additionally, you can remove all button roles from a message by using the `/autorole buttonrole removeall` command.
 
 <CodeGroup>
 ```javascript Syntax
-,buttonrole removeall (message link)
+/autorole buttonrole removeall message_link:<message_link>
 ```
 
 ```javascript Example
-,buttonrole removeall .../channels/...
+/autorole buttonrole removeall message_link:.../channels/...
 ```
 </CodeGroup>
 <br />
@@ -78,17 +77,18 @@ Additionally, you can remove all button roles from a message by using the `butto
 
 ### Removing all button roles from the server
 
-You can remove all button roles from the server by using the `buttonrole reset` command.
+You can remove all button roles from the server by using the `/autorole buttonrole reset` command.
 
 <Warning>
   Please note that this **cannot** be undone & will **permanently** remove **all** button roles from the
   server.
 </Warning>
 
+<CodeGroup>
+```javascript Syntax
+/autorole buttonrole reset
 ```
-,buttonrole reset
-```
-
+</CodeGroup>
 <Frame>
   <img src="/images/configuration/roles/button/reset.png" />
 </Frame>

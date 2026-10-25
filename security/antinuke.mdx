@@ -25,9 +25,22 @@ Antinuke sets a limit on the number of actions a moderator can perform in a cert
   feature.
 </Tip>
 
-### Allowing users to configure the antinuke
+### Configuring modules with the modal
 
-Initially, only the **server owner** can configure the antinuke. However, you can allow other users to configure the antinuke with the `antinuke admin` command.
+Run `/antinuke config` to open the antinuke configuration modal. The modal shows
+which modules are enabled and lets you select a module to configure its
+settings. Use the matching commands in [configuring with commands](#configuring-with-commands)
+if you prefer to configure the antinuke with commands instead of the modal.
+
+<Frame caption="The antinuke configuration modal shows enabled modules and lets you select a module to configure.">
+  <img src="/images/security/antinuke/config-modal.png" alt="Antinuke configuration modal with the module selector open" />
+</Frame>
+
+
+#### Managing antinuke admins
+
+Initially, only the **server owner** can configure the antinuke. Use
+`/antinuke admin add` to allow another user to manage it.
 
 <Warning>
   This is a dangerous command and will allow the user to entirely alter the
@@ -37,25 +50,37 @@ Initially, only the **server owner** can configure the antinuke. However, you ca
 <CodeGroup>
 
 ```javascript Syntax
-,antinuke admin (user)
+/antinuke admin add user:<user>
 ```
 
 
 ```javascript Example
-,antinuke admin @jonathan
+/antinuke admin add user:@jonathan
 ```
 
 </CodeGroup>
 
 <br />
 
-<Frame>
-  ![](/images/security/antinuke/admin.png)
+<Frame caption="Placeholder">
+  <img src="/images/security/antinuke/admin.png" />
 </Frame>
 
-### Exempting users from the antinuke
+To remove an antinuke admin, use `/antinuke admin remove`.
+<CodeGroup>
 
-You can exempt users from the antinuke with the `antinuke whitelist` command.
+```javascript Syntax    
+/antinuke admin remove user:<user>
+```
+
+```javascript Example
+/antinuke admin remove user:@j21234
+```
+</CodeGroup>
+
+#### Exempting users from the antinuke
+
+You can exempt users from the antinuke with the `/antinuke whitelist` command.
 
 <Warning>
   This is a dangerous command and will allow the user to bypass the antinuke
@@ -65,12 +90,13 @@ You can exempt users from the antinuke with the `antinuke whitelist` command.
 <CodeGroup>
 
 ```javascript Syntax
-,antinuke whitelist (user)
+/antinuke whitelist add user:<user>
+/antinuke whitelist remove user:<user>
 ```
 
-
 ```javascript Example
-,antinuke whitelist @jonathan
+/antinuke whitelist add user:@jonathan
+/antinuke whitelist remove user:@j21234
 ```
 
 </CodeGroup>
@@ -81,72 +107,60 @@ You can exempt users from the antinuke with the `antinuke whitelist` command.
   ![](/images/security/antinuke/whitelist.png)
 </Frame>
 
----
+### Configuring with commands
 
-## Enabling an antinuke module
+#### Watching permission changes
 
-### Available Flags
+Use these commands to watch permission grants or removals, remove a permission
+from the watch list, or view the permissions currently watched. When a watched
+permission changes on a role, bleed reverts the change and reports who made it.
 
-The following flags can be used to define the antinuke module
+<CodeGroup>
 
-<AccordionGroup>
-  <Accordion title="Threshold">
-    The threshold is the number of actions a moderator can perform before being punished.
-    <Info>
-      It's recommended to keep the threshold between `1` and `6` to stay safe.
-    </Info>
+```javascript Syntax
+/antinuke permissions watch direction:<direction> permission:<permission>
+/antinuke permissions unwatch direction:<direction> permission:<permission>
+/antinuke permissions list
+```
 
-    <CodeGroup>
+```javascript Example
+/antinuke permissions watch direction:granted permission:manage_roles
+/antinuke permissions unwatch direction:removed permission:manage_roles
+/antinuke permissions list
+```
 
-    ```javascript Syntax
-    --threshold (number)
-    ```
+</CodeGroup>
 
-    
-    ```javascript Example
-    --threshold 3
-    ```
+Use `list` to see which permissions are currently watched. Available permission
+values are:
 
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Punishment">
-    The punishment which will be applied to the moderator.
-    <Info>
-      Available punishments can be found in the [punishments](/resources/syntax#flag-punishments) section.
-    </Info>
+| Permissions          |
+| -----------          |
+| `administrator`      |
+| `ban_members`        |
+| `mention_everyone`   |
+| `kick_members`       |
+| `moderate_members`   |
+| `manage_guild`       |
+| `manage_channels`    |
+| `manage_roles`       |
+| `view_audit_log`     |
+| `manage_webhooks`    |
+| `manage_expressions` |
+| `manage_nicknames`   |
 
-    <CodeGroup>
+#### Configuring modules
 
-    ```javascript Syntax
-    --do (punishment)
-    ```
+Set `setting` to `On` or `Off`. Thresholds define how many actions trigger the
+module, and punishment defines what happens when it is triggered. For modules
+that support `command_detection`, set it to `True` to include actions performed
+with bleed commands.
 
-    
-    ```javascript Example
-    --do ban
-    ```
-
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Command Detection">
-    Whether bleed commands should be counted towards the threshold. (e.g. `,ban`)
-
-    <CodeGroup>
-
-    ```javascript Syntax
-    --command (on | off)
-    ```
-
-    
-    ```javascript Example
-    --command on
-    ```
-
-    </CodeGroup>
-  </Accordion>
-</AccordionGroup>
-
-### Available Modules
+<Info>
+  It's recommended to keep thresholds between `1` and `6`. Available
+  punishments are listed in the [punishments](/resources/syntax#flag-punishments)
+  section.
+</Info>
 
 <AccordionGroup>
   <Accordion title="Punishing members for changing the vanity URL">
@@ -158,12 +172,12 @@ The following flags can be used to define the antinuke module
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke vanity (on or off) [--do (punishment)]
+    /antinuke vanity setting:<On or Off> punishment:<punishment>
     ```
 
     
     ```javascript Example
-    ,antinuke vanity on --do ban
+    /antinuke vanity setting:On punishment:ban
     ```
 
     </CodeGroup>
@@ -178,17 +192,17 @@ The following flags can be used to define the antinuke module
     You can prevent bots from being mass added with the following command
 
     <Info>
-      You'll need to use `antinuke whitelist (bot ID)` to invite bots.
+      Add a bot to the whitelist with `/antinuke whitelist add user:<bot>`.
     </Info>
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke botadd (on or off)
+    /antinuke botadd setting:<On or Off>
     ```
 
     
     ```javascript Example
-    ,antinuke botadd on
+    /antinuke botadd setting:On
     ```
 
     </CodeGroup>
@@ -203,17 +217,18 @@ The following flags can be used to define the antinuke module
     You can prevent members from being mass banned with the following command
 
     <Info>
-      It's recommended to include the `--command on` flag.
+      Set `command_detection` to `True` to include bans performed with bleed
+      commands.
     </Info>
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke ban (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+    /antinuke ban setting:<On or Off> punishment:<punishment> threshold:<number> command_detection:<True or False>
     ```
 
     
     ```javascript Example
-    ,antinuke ban on --threshold 3 --do ban --command on
+    /antinuke ban setting:On punishment:ban threshold:3 command_detection:True
     ```
 
     </CodeGroup>
@@ -228,17 +243,18 @@ The following flags can be used to define the antinuke module
     You can prevent members from being mass kicked with the following command
 
     <Info>
-      It's recommended to include the `--command on` flag.
+      Set `command_detection` to `True` to include kicks performed with bleed
+      commands.
     </Info>
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke kick (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+    /antinuke kick setting:<On or Off> punishment:<punishment> threshold:<number> command_detection:<True or False>
     ```
 
     
     ```javascript Example
-    ,antinuke kick on --threshold 3 --do ban --command on
+    /antinuke kick setting:On punishment:ban threshold:3 command_detection:True
     ```
 
     </CodeGroup>
@@ -253,17 +269,18 @@ The following flags can be used to define the antinuke module
     You can prevent roles from being mass deleted with the following command
 
     <Info>
-      It's recommended to include the `--command on` flag.
+      Set `command_detection` to `True` to include role changes performed with
+      bleed commands.
     </Info>
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke role (on or off) [--threshold (number)] [--do (punishment)] [--command (on | off)]
+    /antinuke role setting:<On or Off> punishment:<punishment> threshold:<number> command_detection:<True or False>
     ```
 
     
     ```javascript Example
-    ,antinuke role on --threshold 3 --do ban --command on
+    /antinuke role setting:On punishment:kick threshold:3 command_detection:True
     ```
 
     </CodeGroup>
@@ -280,12 +297,12 @@ The following flags can be used to define the antinuke module
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke channel (on or off) [--threshold (number)] [--do (punishment)]
+    /antinuke channel setting:<On or Off> punishment:<punishment> threshold:<number>
     ```
 
     
     ```javascript Example
-    ,antinuke channel on --threshold 3 --do ban
+    /antinuke channel setting:On punishment:ban threshold:3
     ```
 
     </CodeGroup>
@@ -302,12 +319,12 @@ The following flags can be used to define the antinuke module
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke emoji (on or off) [--threshold (number)] [--do (punishment)]
+    /antinuke emoji setting:<On or Off> punishment:<punishment> threshold:<number>
     ```
 
     
     ```javascript Example
-    ,antinuke emoji on --threshold 3 --do ban
+    /antinuke emoji setting:On punishment:ban threshold:3
     ```
 
     </CodeGroup>
@@ -324,12 +341,12 @@ The following flags can be used to define the antinuke module
     <CodeGroup>
 
     ```javascript Syntax
-    ,antinuke webhook (on or off) [--threshold (number)] [--do (punishment)]
+    /antinuke webhook setting:<On or Off> punishment:<punishment> threshold:<number>
     ```
 
     
     ```javascript Example
-    ,antinuke webhook on --threshold 3 --do ban
+    /antinuke webhook setting:On punishment:ban threshold:3
     ```
 
     </CodeGroup>
@@ -341,48 +358,3 @@ The following flags can be used to define the antinuke module
     </Frame>
   </Accordion>
 </AccordionGroup>
-
-## Disabling an antinuke module
-
-You can disable an antinuke module with the same command you used to enable it, but with the status set to `off`.
-
-## Viewing the antinuke configuration
-
-You can use the `antinuke config` command to view the current antinuke configuration.
-
-<Frame>
-  ![](/images/security/antinuke/config.png)
-</Frame>
-
-### Viewing the modules & whitelist
-
-You can use the `antinuke list` command to view the enabled modules and whitelisted users.
-
-<Frame>
-  ![](/images/security/antinuke/list.png)
-</Frame>
-
-### Viewing users with antinuke admin
-
-You can use the `antinuke admins` command to view users which can configure the antinuke.
-
-<Frame>
-  ![](/images/security/antinuke/admins.png)
-</Frame>
-
-### Permissions available for `antinuke permissions (grant or remove)`
-
-| Antinuke Permissions |
-| -------------------- |
-| `administrator`      |
-| `ban_members`        |
-| `mention_everyone`   |
-| `kick_members`       |
-| `moderate_members`   |
-| `manage_guild`       |
-| `manage_channels`    |
-| `manage_roles`       |
-| `view_audit_log`     |
-| `manage_webhooks`    |
-| `manage_expressions` |
-| `manage_nicknames`   |

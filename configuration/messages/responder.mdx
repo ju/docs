@@ -8,26 +8,21 @@ icon: reply
 
 You can create an auto responder with the `autoresponder add` command.
 
-<Warning>
-  The **trigger** and **response** must be separated by a comma (`,`).
-</Warning>
 <Tip>
-The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
+The `message` parameter can be raw text, [components](/resources/scripting/components), or [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
+
+This command will open a discord modal where you can specify the content of the message.
 </Tip>
 <CodeGroup>
 
 ```javascript Syntax
-,autoresponder add (trigger, response) [--flags]
+/autoresponder add trigger:<trigger> reply:<True|False> delete:<True|False> ignore_command_check:<True|False> strict:<True|False> self_destruct:<number> ticket_form:<ticket_form_name>
 ```
 
 ```javascript Example
-,autoresponder add welc, welcome to the server!
-,autoresponder add welc, {embed}$v{title: welcome}$v{description: welcome to the server!}
-```
-
-```javascript Example with flags
-,autoresponder add welc, welcome to the server! --self_destruct 10 --reply
-,autoresponder add ,welc, welcome to the server! --not_strict --ignore_command_check
+/autoresponder add trigger:welc reply:true delete:false ignore_command_check:false strict:false
+/autoresponder add trigger:welc reply:false delete:false ignore_command_check:false strict:false self_destruct:10 ticket_form:ticket
+/autoresponder add trigger:welc reply:true delete:false ignore_command_check:true strict:true
 ```
 
 </CodeGroup>
@@ -36,28 +31,28 @@ The `message` parameter can be raw text or an [embed](/resources/scripting) with
     <img src="/images/configuration/messages/responder/add.png" />
 </Frame>
 
-### Available flags
+### Available parameters
 
-The following flags can be used to customize the response
+The following parameters can be used to customize the response
 
 <AccordionGroup>
   <Accordion title="Not strict">
-    The `--not_strict` flag will search for the trigger anywhere in the message.
-    For example, if the trigger is `hello`, it will respond to `hello there`.
+    The `strict:` parameter will search for the trigger anywhere in the message.
+    For example, `strict:false` if the trigger is `hello`, it will respond to `hello there`.
   </Accordion>
   <Accordion title="Self destruct">
-    The `--self_destruct` flag schedules the response for deletion after a
+    The `self_destruct:` parameter schedules the response for deletion after a
     specified time, which must be between `6` and `60` seconds.
   </Accordion>
   <Accordion title="Delete trigger">
-    The `--delete` flag will delete the trigger message after the response is
+    The `delete:` parameter will delete the trigger message after the response is
     sent.
   </Accordion>
   <Accordion title="Reply to trigger">
-    The `--reply` flag will reply to the trigger message.
+    The `reply:` parameter will reply to the trigger message.
   </Accordion>
   <Accordion title="Ignore command check">
-    The `--ignore_command_check` flag will allow the responder to trigger even
+    The `ignore_command_check:` parameter will allow the responder to trigger even
     if it's a pre-existing command.
   </Accordion>
 </AccordionGroup>
@@ -69,11 +64,11 @@ You can remove an auto responder with the `autoresponder remove` command.
 <Info>If you're struggling to remove an auto responder, refer to the [selection removal](/resources/syntax#removing-entries-via-id).</Info>
 <CodeGroup>
 ```javascript Syntax
-,autoresponder remove (trigger)
+/autoresponder remove trigger:<trigger>
 ```
 
 ```javascript Example
-,autoresponder remove welc
+/autoresponder remove trigger:welc
 ```
 
 </CodeGroup>
@@ -90,11 +85,11 @@ Toggle exclusive access for an autoresponder to a role or channel with the `auto
 
 <CodeGroup>
 ```javascript Syntax
-,autoresponder exclusive (role or channel) (trigger)
+/autoresponder exclusive add trigger:<trigger> role:<role>|channel:<channel>
 ```
 
 ```javascript Example
-,autoresponder exclusive #general lifetime
+/autoresponder exclusive add trigger:welc role:@Verified
 ```
 
 </CodeGroup>
@@ -106,15 +101,15 @@ Toggle exclusive access for an autoresponder to a role or channel with the `auto
 ## Auto Responder Roles
 Autoresponder roles are roles that are assigned or removed to members when they say a specific message.
 
-<Warning>It's easy to confuse these commands! Running the `add` command again would undo the functionality of giving members roles.</Warning>
+<Warning>It's easy to confuse these commands! Running the `/autoresponder exclusive add` command again would undo the functionality of giving members roles.</Warning>
 
 <CodeGroup>
 ```javascript Syntax
-,autoresponder role (add or remove) (role) (trigger)
+/autoresponder role add|remove trigger:<trigger> role:<role> setting:<On|Off>
 ```
 
 ```javascript Example
-,autoresponder role add Verified Verify
+/autoresponder role add trigger:welc role:@Verified setting:On
 ```
 </CodeGroup>
 <Frame>
@@ -129,14 +124,17 @@ You can remove an autoresponder role by running the same command again. This act
 
 <AccordionGroup>
     <Accordion title="Updating an auto responder">
-        You can use the `autoresponder update` command to update an auto responder.
-        <Info>This command uses the same syntax as the `autoresponder add` command.</Info>
+        You can use the `/autoresponder update` command to update an auto responder.
+        <Info>This command uses the same syntax as the `/autoresponder add` command.</Info>
     </Accordion>
     <Accordion title="Removing all auto responders">
-        You can use the `autoresponder reset` command to remove all auto responders.
+        You can use the `/autoresponder reset` command to remove all auto responders.
     </Accordion>
     <Accordion title="Viewing all auto responders">
-        You can use the `autoresponder list` command to view all auto responders.
+        You can use the `/autoresponder list all` command to view all auto responders.
+    </Accordion>
+    <Accordion title="Viewing all ticket auto responders">
+        You can use the `/autoresponder list tickets` command to view all auto responders.
     </Accordion>
 
 </AccordionGroup>
