@@ -18,20 +18,25 @@ The starboard is a channel where members can react to messages and after a certa
 
 ## Getting started
 
-Before you run any commands, it's important to use the `starboard unlock` command. Otherwise,
-messages will not be reposted to the starboard channel. You can use `starboard lock` to temporarily stop messages from being reposted.
+Use `/starboard config` to view the current configuration of the starboard. The buttons on this message 
+allow you to quickly change the configuration of the starboard, but all commands can be run individually as well.
+<Frame>
+  <img src="/images/configuration/starboard/config.png" />
+</Frame>
+Before you run any commands, it's important to use the `/starboard unlock` command. Otherwise,
+messages will not be reposted to the starboard channel. You can use `/starboard lock` to temporarily stop messages from being reposted.
 
 ## Setting the starboard channel
 
-You can use the `starboard set` command to set which channel messages will be reposted to.
+You can use the `/starboard set` command to set which channel messages will be reposted to.
 
 <CodeGroup>
 ```javascript Syntax
-,starboard set (channel)
+/starboard set channel:<channel>
 ```
 
 ```javascript Example
-,starboard set #starboard
+/starboard set channel:#starboard
 ```
 
 </CodeGroup>
@@ -50,13 +55,13 @@ You can ignore certain channels, roles, or members within your server to prevent
 
 <CodeGroup>
 ```javascript Syntax
-,starboard ignore (role, member, or channel)
+/starboard ignore toggle channel:<channel>|member_or_role:<role|member>
 ```
 
 ```javascript Examples
-,starboard ignore #giveaways
-,starboard ignore @bryce
-,starboard ignore @Member
+/starboard ignore toggle channel:#giveaways
+/starboard ignore toggle member_or_role:@tr2c
+/starboard ignore toggle member_or_role:@Role
 ```
 
 </CodeGroup>
@@ -73,11 +78,11 @@ You can change the minimum number of reactions a message needs to be reposted.
 
 <CodeGroup>
 ```javascript Syntax
-,starboard threshold (amount)
+/starboard threshold threshold:<number>
 ```
 
 ```javascript Example
-,starboard threshold 3
+/starboard threshold threshold:3
 ```
 
 </CodeGroup>
@@ -97,11 +102,11 @@ You can set the emoji that members need to react with for a message to be repost
 
 <CodeGroup>
 ```javascript Syntax
-,starboard emoji (emoji)
+/starboard emoji emoji:<emoji>
 ```
 
 ```javascript Example
-,starboard emoji 🤩
+/starboard emoji emoji:🤩
 ```
 
 </CodeGroup>
@@ -112,15 +117,15 @@ You can set the emoji that members need to react with for a message to be repost
 
 ### Allowing self-starring messages
 
-You can allow members to star their own messages with the `starboard selfstar` command.
+You can allow members to star their own messages with the `/starboard selfstar` command.
 
 <CodeGroup>
 ```javascript Syntax
-,starboard selfstar (true or false)
+/starboard selfstar setting:<On|Off>
 ```
 
 ```javascript Example
-,starboard selfstar true
+/starboard selfstar setting:On
 ```
 
 </CodeGroup>
@@ -135,27 +140,27 @@ You can customize the message that is sent to the starboard channel.
 
 <AccordionGroup>
     <Accordion title="Changing the embed color">
-        Use the `starboard color` command to change the color of the embed.
+        Use the `/starboard color` command to change the color of the embed.
         <CodeGroup>
             ```javascript Syntax
-            ,starboard color (color)
+            /starboard color color:<hex>|<color_name>
             ```
 
             ```javascript Example
-            ,starboard color #cf7c08
-            ,starboard color pink
+            /starboard color color:#cf7c08
+            /starboard color color:pink
             ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Toggling the embed timestamp">
-        Use the `starboard timestamp` command to toggle the timestamp in the embed.
+        Use the `/starboard timestamp` command to toggle the timestamp in the embed.
         <CodeGroup>
             ```javascript Syntax
-            ,starboard timestamp (true or false)
+            /starboard timestamp setting:<On|Off>
             ```
 
             ```javascript Example
-            ,starboard timestamp false
+            /starboard timestamp setting:Off
             ```
         </CodeGroup>
         <br />
@@ -164,14 +169,14 @@ You can customize the message that is sent to the starboard channel.
         </Frame>
     </Accordion>
     <Accordion title="Toggling the message jump URL">
-        Use the `starboard jumpurl` command to toggle if the message jump URL is included.
+        Use the `/starboard jumpurl` command to toggle if the message jump URL is included.
         <CodeGroup>
             ```javascript Syntax
-            ,starboard jumpurl (true or false)
+            /starboard jumpurl setting:<On|Off>
             ```
 
             ```javascript Example
-            ,starboard jumpurl false
+            /starboard jumpurl setting:On
             ```
         </CodeGroup>
         <br />
@@ -180,14 +185,14 @@ You can customize the message that is sent to the starboard channel.
         </Frame>
     </Accordion>
     <Accordion title="Toggling the message attachments">
-        Use the `starboard attachments` command to toggle if attachments are included.
+        Use the `/starboard attachments` command to toggle if attachments are included.
         <CodeGroup>
             ```javascript Syntax
-            ,starboard attachments (true or false)
+            /starboard attachments setting:<On|Off>
             ```
 
             ```javascript Example
-            ,starboard attachments false
+            /starboard attachments setting:Off
             ```
         </CodeGroup>
         <br />

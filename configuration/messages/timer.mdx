@@ -11,23 +11,24 @@ icon: clock
 
 ## Creating an auto message
 
-You can create an auto message with the `timer add` command.
+You can create an auto message with the `/automation timer add` command.
 
 <Info>
   The `interval` parameter must use the proper format, you can learn more
   [here](/resources/syntax#formatting-a-duration).
 </Info>
 <Tip>
-The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
+This command where open a discord modal wher you can enter your message. The `message` can be raw text, [components](/resources/scripting/components) or [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <CodeGroup>
 
 ```javascript Syntax
-,timer add (channel) (interval) (message)
+/automation timer add channel:<channel> interval:<interval>
 ```
 
 ```javascript Example
-,timer add #general 2h hey sexy ass people
+/automation timer add channel:#general interval:2h 
+Hello people! This is an auto message that will be sent every 2 hours.
 ```
 
 </CodeGroup>
@@ -38,15 +39,15 @@ The `message` parameter can be raw text or an [embed](/resources/scripting) with
 
 ## Removing an auto message
 
-You can remove an auto message with the `timer remove` command.
+You can remove an auto message with the `/automation timer remove` command.
 
 <CodeGroup>
 ```javascript Syntax
-,timer remove (channel)
+/automation timer remove channel:<channel>
 ```
 
 ```javascript Example
-,timer remove #general
+/automation timer remove channel:#general
 ```
 
 </CodeGroup>
@@ -59,20 +60,20 @@ You can remove an auto message with the `timer remove` command.
 
 <AccordionGroup>
   <Accordion title="Viewing an auto messages">
-    You can use the `timer view` command to view auto message.
+    You can use the `/automation timer view` command to view auto message.
     <CodeGroup>
     ```javascript Syntax
-    ,timer view (channel)
+    /automation timer view channel:<channel>
     ```
 
     ```javascript Example
-    ,timer view #general
+    /automation timer view channel:#general
     ```
 
     </CodeGroup>
 
   </Accordion>
   <Accordion title="Viewing all auto messages">
-    You can use the `timer list` command to view all auto messages.
+    You can use the `/automation timer list` command to view all auto messages.
   </Accordion>
 </AccordionGroup>

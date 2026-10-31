@@ -10,7 +10,7 @@ Counters allows you to show important info in your server. This can be useful to
 
 ## Adding a counter
 
-You can add a counter using the `counter add` command.
+You can add a counter using the `/automation counter add` command.
 
 <Info>
   Available counter options are `members`, `users_only`, `bots_only`, `pending_members`,
@@ -30,11 +30,11 @@ You can add a counter using the `counter add` command.
 <CodeGroup>
 
 ```javascript Syntax
-,counter add (option) (type of channel)
+/automation counter add option:<option> channel_type:<type> prettyfy:<True|False>
 ```
 
 ```javascript Example
-,counter add members vc
+/automation counter add option:members channel_type:voice prettify:True
 ```
 
 </CodeGroup>
@@ -46,20 +46,20 @@ You can add a counter using the `counter add` command.
 
 ## Removing a counter
 
-You can remove a counter using the `counter remove` command.
+You can remove a counter using the `/automation counter remove` command.
 
-<Warning>
-  After removing counter, you will have to delete the channel (or category) manually.
-</Warning>
+<Info>
+  You can remove a counter and choose to either keep the channel or delete it. If you choose to keep the channel, the channel will remain but the counter will no longer update.
+</Info>
 
 <CodeGroup>
 
 ```javascript Syntax
-,counter remove (channel)
+/automation counter remove channel:<channel> action:<keep|delete>
 ```
 
 ```javascript Example
-,counter remove #members
+/automation counter remove channel:#members action:delete
 ```
 
 </CodeGroup>

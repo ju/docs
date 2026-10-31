@@ -25,55 +25,57 @@ There are nine social notification commands, each with the same subcommands.
 
 ## Commands
 
-The following examples use the `twitter` command, but the same syntax applies to the other social notification commands.
+The following examples use the `/social youtube` command, but the same syntax applies to the other social notification commands.
 
 <AccordionGroup>
     <Accordion title="Creating a new feed">
-        Use the `twitter add` subcommand receive notifications for a specific user.
+        Use the `/social youtube add` subcommand receive notifications for a specific user.
         <Tip>
-        For **YouTube**, you can use a **channel URL** instead of a **username**.
+        For **YouTube**, you can use a **channel URL** or a **username**.
         </Tip>
         <CodeGroup>
         ```javascript Syntax
-        ,twitter add (channel) (username)
+        /social youtube add creator:<url or username> channel:<channel>
         ```
 
         ```javascript Example
-        ,twitter add #notifs playboicarti
+        /social youtube add creator:NileRed channel:#notifs
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Removing a social feed">
-        Use the `twitter remove` subcommand to no longer receive notifications for a specific user.
+        Use the `/social youtube remove` subcommand to no longer receive notifications for a specific user.
         <CodeGroup>
 
         ```javascript Syntax
-        ,twitter remove (channel) (username)
+        /social youtube remove creator:<username> channel:<channel>
         ```
 
         ```javascript Example
-        ,twitter remove #notifs playboicarti
+        /social youtube remove creator:NileRed channel:#notifs
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Customizing the message">
-        Use the `twtter message` subcommand to customize the message content that is displayed when a social notification is dispatched.
+        Use the `/social youtube message` subcommand to customize the message content that is displayed when a social notification is dispatched.
+
+        This command opens a modal where you can customize the message content.
         <Tip>
-        This command is usually used to ping a role or user. In order for the message to actually notify the role or user, you must include the `--pingable on` flag in the command.
+        This command is usually used to ping a role or user. In order for the message to actually notify the role or user, you must include turn on the `pingable` flag in the command.
         </Tip>
         <CodeGroup>
 
         ```javascript Syntax
-        ,twitter message (username) (message) [--pingable on|off]
+        /social youtube message creator:<username> pingable:<on|off>
         ```
 
         ```javascript Example
-        ,twitter message playboicarti @everyone he posted?? --pingable on
+        /social youtube message creator:NileRed pingable:on
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Viewing all users being monitored">
-        Use the `twitter list` subcommand to view all users being monitored.
+        Use the `/social youtube list` subcommand to view all users being monitored.
     </Accordion>
 
 </AccordionGroup>
@@ -81,27 +83,29 @@ The following examples use the `twitter` command, but the same syntax applies to
 ## Specific Commands
 
 <AccordionGroup>
-    <Accordion title="Twitter Retweets">
-        The `twitter retweets` subcommand allows you to toggle notifications for retweets.
+    <Accordion title="Twitter/X Retweets">
+        The `/social x retweets` subcommand allows you to toggle notifications for retweets.
         <CodeGroup>
+
         ```javascript Syntax
-        ,twitter retweets (channel) (username) (yes|no)
+        /social x retweets handle:<handle> setting:<on|off> channel:<channel>
         ```
 
         ```javascript Example
-        ,twitter retweets #notifs playboicarti yes
+        /social x retweets handle:playboicarti setting:on channel:#notifs
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Pinterest Embeds">
-        The `pinterest embeds` subcommand allows you to toggle the embed for the notification.
+        The `/social pinterest embeds` subcommand allows you to toggle the embed for the notification.
         <CodeGroup>
+
         ```javascript Syntax
-        ,pinterest embeds (channel) (yes|no)
+        /social pinterest embeds setting:<on|off> channel:<channel>
         ```
 
         ```javascript Example
-        ,pinterest embeds #pfps no
+        /social pinterest embeds setting:off channel:#pfps
         ```
         </CodeGroup>
     </Accordion>
@@ -110,8 +114,8 @@ The following examples use the `twitter` command, but the same syntax applies to
 
 ## Important Notes
 
-<Card title="Twitter Spamming" icon="twitter">
-It's important to make the **channel private** while setting up Twitter.
+<Card title="Twitter/X Spamming" icon="twitter">
+It's important to make the **channel private** while setting up Twitter/X.
 This is to avoid spamming the channel with notifications, as the bot will bulk
 send the first few tweets from the user, which can cause people to get pinged
 multiple times repeatedly in a short period of time.

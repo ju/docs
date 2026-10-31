@@ -1,0 +1,384 @@
+---
+title: Components
+description: "Learn how to build messages with components scripting."
+icon: puzzle-piece
+---
+
+## Structure
+
+Components messages are made from text, containers, images, separators, buttons and select menus. You can use them anywhere the bot lets you set a custom message, including welcome, goodbye and boost messages, tags, sticky messages, timers, bump reminders, punishment messages, Last.fm now playing and `/config component create`.
+
+Each part of a script is written in braces. Write parts next to each other:
+
+```
+{container}{content: Hello!}{/container}
+```
+
+- `{container}` opens a box.
+- `{content: Hello!}` adds text inside it.
+- `{/container}` closes it.
+
+You can put each part on its own line to make a script easier to read. Spaces and new lines between parts do not change how the script works.
+
+<Info>
+A script can use embed scripting or components, but not both.
+</Info>
+
+## Containers
+
+A container is a rounded box that groups text and other components. It must contain at least one text block. Close it with `{/container}` before adding something after the box. If the container is the last part of your message, you can leave it open.
+
+```text
+{container}
+{color: #5865F2}
+{content: Welcome to the server!}
+{/container}
+```
+
+### Container Settings
+
+- **Color:** Add `{color: #5865F2}` to give the box a colored stripe. Hex colors can use `#5865F2`, `5865F2`, `0x5865F2` or the short form `#58F`. A container can have one color.
+- **Spoiler:** Add `{spoiler}` to hide the whole box until someone clicks it.
+
+Both settings must be inside the container. You can place multiple containers in one message, but close each one before opening the next.
+
+## Text
+
+Use `content:` for text inside a container and `text:` for text outside one. Inside a container, `content:` and `text:` work the same way.
+
+```text
+{container}{content: Welcome to the server!}{/container}
+{text: This text is outside the box.}
+```
+
+Each `content:` or `text:` part creates a text block. Numbering starts at 1 within each container. Thumbnails and side buttons use these numbers to choose which block they sit beside. Separators, images and button placeholders placed inside text can split it into more blocks.
+
+Press Enter inside a text part to start a new line. Typing `\n` displays the characters `\n` instead of starting a new line.
+
+Text supports Discord markdown:
+
+- `# Heading`, `## Heading` and `### Heading`
+- `-# Small text`
+- `**bold**`, `*italic*`, `__underline__` and `~~strikethrough~~`
+- `` `code` `` and `> quote`
+- `[link text](https://example.com)`
+- Timestamps such as `<t:1700000000:R>`
+
+## Images and Separators
+
+Use `{separator}` for a thin line with a small gap. Add `.large` for a larger gap, `.empty` for a gap without a line, or both for a larger empty gap.
+
+```text
+{container}{content: Before}{separator}{content: After}{/container}
+```
+
+You can also put a separator or image inside a text part:
+
+```text
+{container}{content: Before {separator} After}{/container}
+```
+
+Use `{image: URL}` to show one image, or `{gallery: URL, URL}` to show several images together. A gallery supports up to 10 images. Images and galleries work inside or outside containers. Variables can be used in image links, for example `{image: {user.avatar}}`.
+
+## Thumbnails
+
+A thumbnail is a small image displayed to the right of a text block. Thumbnails only work inside a container and default to block 1:
+
+```text
+{container}
+{content: ## Welcome {user.name}!}
+{thumbnail: {user.avatar}}
+{/container}
+```
+
+To attach a thumbnail to another block, add `&&` and the block number:
+
+```text
+{container}
+{content: First block}
+{content: Second block}
+{thumbnail: https://example.com/icon.png && 2}
+{/container}
+```
+
+Each text block can have one item on its right: a thumbnail or a side button. The block number must match an existing text block.
+
+## Buttons
+
+A button starts with its style. Separate settings with `&&`; you can leave out settings you do not need.
+
+```text
+{button: green && Accept}
+{button: https://example.com && Visit website}
+{button: blurple && 2 && Next && ➡️}
+```
+
+The first setting is required:
+
+- **Style:** `blurple`, `gray`, `green`, `red`, or a link starting with `https://`.
+- **Placement:** `row` places the button below the text; `side` places it beside a text block. The default is `row`.
+- **Number:** Selects a row, starting at 1. For `side`, it selects the text block. The default row is 1.
+- **Emoji:** A regular emoji or a server emoji such as `<:name:id>`.
+- **Label:** Any remaining text becomes the button label.
+- **Disabled:** Add `disabled` to make the button inactive.
+
+A button needs a label, an emoji, or both. Other accepted style names are `primary` (blurple), `secondary` or `grey` (gray), `success` (green) and `danger` (red).
+
+Link buttons open their URL. Colored buttons do not perform an action unless they have a reply; otherwise, they are decorative.
+
+### Button Replies
+
+Add `reply:` as the last setting on a colored button. Its response is visible only to the person who clicked:
+
+```text
+{container}
+{content: Need help?}
+{button: blurple && Help && reply: Ask in #support and staff will help!}
+{/container}
+```
+
+A reply can be plain text, embed scripting or a components script. Replies cannot be empty, and link buttons cannot have replies. Buttons inside a reply must be link buttons, and replies cannot contain other replies. Some message types do not support replies; the bot reports this when you save.
+
+Member and server variables in a reply, such as `{user.name}` and `{guild.name}`, are filled in when someone clicks. Feature variables, such as a track name, are filled in when the message is posted. Replies containing feature variables expire after 90 days; replies using only member and server variables do not expire.
+
+### Button Placement
+
+Buttons normally appear at the end of their container. Add a placeholder where you want a row to appear:
+
+```text
+{container}
+{content: ## Links {button1} -# Thanks for visiting}
+{button: https://example.com && Website}
+{/container}
+```
+
+`{button1}`, `{button2}` and so on place matching button rows. A placeholder can be part of text or its own part. Each placeholder can be used once and must have a matching row.
+
+## Select Menus
+
+A select menu is a dropdown list. Add a menu with `{select: ...}` and add its choices with `{option: ...}`. The number connects each option to its menu.
+
+```text
+{container}
+{content: Choose a color}
+{select: 1 && Pick a color && enabled}
+{option: 1 && Red && red && The color of fire}
+{option: 1 && Blue && blue && The color of the sea}
+{/container}
+```
+
+Menu settings are the menu number, placeholder, minimum choices, maximum choices and `enabled`, in that order. The number defaults to 1, the minimum defaults to 1, and the maximum defaults to the minimum (at least 1). Menus are disabled by default; put `enabled` at the end to let people use one.
+
+Option settings start with the menu number and label. The number and label are required; the value defaults to the label. If you include both a value and description, keep them in that order. An emoji and `default` can be added wherever convenient. You do not need empty slots for settings you omit.
+
+A menu needs 1–25 options. If an option has a `reply:`, the menu is enabled automatically and people can choose only one option at a time, so the maximum cannot be above 1. Add `disabled` to keep a reply menu disabled. Options without replies are allowed, but selecting one does nothing. After a choice, Discord keeps it selected; to see the same reply again, select another option first or reload Discord.
+
+Replies on options follow the same rules as button replies. Put `reply:` last, and do not provide a value when using a reply.
+
+Use `{select1}`, `{select2}` and so on to place matching menus in the message. A select placeholder must be used once and must have a matching menu. `{dropdown}` places a dropdown-role menu, while `{buttonrole1}` and higher place button-role buttons; these placeholders are only for those role messages.
+
+## Files, Variables, and JSON
+
+Use `{file: name}` to show an uploaded file in a command that supports file uploads. Use the file's exact name; elsewhere, a file part is an error.
+
+Variables such as `{user.mention}`, `{user.avatar}` and `{guild.name}` work in text, links, labels and replies. Features can provide additional variables, such as `{track.name}` for Last.fm. See the [variables guide](/resources/scripting/variables) for the full list.
+
+You can also paste Discord components JSON instead of a script:
+
+```json
+{"components": [{"type": 17, "components": [{"type": 10, "content": "Hello!"}]}]}
+```
+
+The same checks apply to JSON. It cannot be combined with `content`, `embeds` or a poll. Variables work in JSON too.
+
+Use `{pingable: ...}` to allow specific user or role mentions to ping, if the message type supports pings. For example:
+
+```text
+{pingable: {user.mention}}
+```
+
+## Limits
+
+The bot checks Discord's limits before sending and reports which limit was exceeded:
+
+- **Message:** 40 components and 4,000 total text characters. Containers, text blocks, rows, buttons, images and thumbnails count as components.
+- **Buttons:** 5 per row; labels up to 80 characters; link URLs up to 512 characters.
+- **Images:** 10 per gallery; image URLs up to 2,048 characters.
+- **Select menus:** 25 options; labels, values and descriptions up to 100 characters each; placeholders up to 150 characters.
+- **Pings:** Up to 100 members and 100 roles in `pingable:`.
+
+Some features have additional limits. For example, a Last.fm now playing script must be under 600 characters.
+
+## Switching From Embed Scripting
+
+Existing embed scripts keep working; you do not have to convert them. If you choose to use components, these are the common equivalents:
+
+| Embed scripting | Components |
+| --- | --- |
+| `{embed}`                                                | `{container}` |
+| `{title: Hi}`                                            | `{content: ## Hi}` |
+| `{description: Text}`                                    | `{content: Text}` |
+| `{author: Name}`                                         | `{content: -# Name}` |
+| `{footer: Footer}`                                       | `{content: -# Footer}` |
+| `{color: ...}`, `{thumbnail: ...}`, `{image: ...}`       | Same parts |
+| `{url: link}`                                            | A markdown link, such as `[text](link)` |
+| `{timestamp}`                                            | A timestamp in text, such as `<t:{date.timestamp}:f>` |
+| `{message: Text}`                                        | Not supported; use `content:` or `text:` |
+
+For fields, format the name in bold and put the value on the next line:
+
+```text
+{content: **Name**
+Value}
+```
+
+For example, this embed:
+
+```text
+{embed}{title: Welcome}{description: Hi {user.mention}}{color: #5865F2}{thumbnail: {user.avatar}}{footer: Enjoy your stay}
+```
+
+can be written as:
+
+```text
+{container}{color: #5865F2}{content: ## Welcome
+Hi {user.mention}}{thumbnail: {user.avatar}}{content: -# Enjoy your stay}{/container}
+```
+
+If you use an embed-only part in a components script, the error message explains what to use instead.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Why Is the Container Still Open or Empty?">
+    Close a container with `{/container}` before adding a part outside it. You can leave it open only when it is the final part of the message. Every container also needs at least one `content:` text block.
+  </Accordion>
+  <Accordion title="Why Does `content:` Fail Outside a Container?">
+    Use `text:` for text outside a container. `content:` belongs inside one.
+  </Accordion>
+  <Accordion title="Why Is My Button or Thumbnail in the Wrong Place?">
+    Check its row or text-block number. The selected row or block must exist, and a text block can have only one thumbnail or side button. A row can hold up to 5 buttons.
+  </Accordion>
+  <Accordion title="Why Does the Button Parser Report Two Labels or Require a Label or Emoji?">
+    Check for a misspelled setting, such as `rwo` instead of `row`, or a server emoji written as `:name:` instead of its full `<:name:id>` code. Buttons need a label, an emoji, or both.
+  </Accordion>
+  <Accordion title="Why Isn't My Button Clickable?">
+    Colored buttons need a `reply:` to do something. Without one, they are decorative. Link buttons open their URL.
+  </Accordion>
+  <Accordion title="Why Can a Menu With Replies Only Have One Choice?">
+    Select menus with replies allow one choice at a time, so their maximum must be 1.
+  </Accordion>
+  <Accordion title="Why Is My Color or Emoji Rejected?">
+    Write colors as hexadecimal values, such as `#5865F2`. Server emojis need their full code, such as `<:name:id>`.
+  </Accordion>
+  <Accordion title="Why Does It Say a Part Is Outside Any Block or Missing a Closing Brace?">
+    Put text inside a part, such as `{content: Hello}` or `{text: Hello}`, and make sure each part has a closing `}`.
+  </Accordion>
+  <Accordion title="Why Can't I Use `pingable:` in This Message?">
+    Some message types do not support pings. Remove the `pingable:` part if the bot reports that the message cannot use it.
+  </Accordion>
+  <Accordion title="Why Can't I Use Embed Scripting and Components Together?">
+    A message must use one format. Remove `{embed}` from a components script, or use embed scripting throughout.
+  </Accordion>
+</AccordionGroup>
+
+## Cheat Sheet
+
+Quick reference for the parts you can use in a components script:
+
+<CardGroup cols={2}>
+  <Card title="Boxes" icon="square">
+    - `{container}` ... `{/container}` — open and close a box
+    - `{color: #5865F2}` — set the box color
+    - `{spoiler}` — hide the box until clicked
+  </Card>
+  <Card title="Text" icon="font">
+    - `{content: Hello}` — add text inside a box
+    - `{text: Hello}` — add text anywhere, including outside a box
+  </Card>
+  <Card title="Layout" icon="table-columns">
+    - `{separator}` — add a line; use `.large`, `.empty` or `.large.empty` to change it
+    - `{image: https://...}` — add one image
+    - `{gallery: https://..., https://...}` — add up to 10 images
+    - `{thumbnail: https://... && 2}` — place an image beside text block 2
+  </Card>
+  <Card title="Buttons" icon="arrow-pointer">
+    - `{button: https://... && row && 1 && Open}` — link button
+    - `{button: green && row && 1 && Hi && reply: Hello!}` — button that replies
+    - `{button: gray && side && 1 && More}` — button beside text block 1
+    - `{button1}` — place row 1 here
+  </Card>
+  <Card title="Menus" icon="list">
+    - `{select: 1 && Pick one}` — create a select menu
+    - `{option: 1 && Red && red}` — add an option to menu 1
+    - `{option: 1 && Rules && reply: Read #rules}` — add an option that replies
+    - `{select1}` — place menu 1 here
+  </Card>
+  <Card title="Other" icon="ellipsis">
+    - `{pingable: {user.mention}}` — allow this mention to ping
+    - `{file: notes.txt}` — show an uploaded file
+  </Card>
+</CardGroup>
+
+## Full Examples
+
+Copy an example and customize the text, colors, and links for your server.
+
+<AccordionGroup>
+  <Accordion title="Welcome Message">
+    Greet new members with their name, member count, avatar, and a link.
+
+    ```text
+    {container}
+    {color: #5865F2}
+    {content: # Welcome to {guild.name}!
+    Hey {user.mention}, you're member **#{guild.count}**.}
+    {thumbnail: {user.avatar}}
+    {separator}
+    {content: -# Read the rules and grab your roles}
+    {button: https://discord.com/channels/{guild.id} && row && 1 && Open server}
+    {/container}
+    {pingable: {user.mention}}
+    ```
+  </Accordion>
+  <Accordion title="Rules With Reply Buttons">
+    Let members choose a button to see a short rule or reminder.
+
+    ```text
+    {container}
+    {content: ## Server rules
+    Click a button to learn more.}
+    {button: blurple && row && 1 && Chat rules && reply: Be kind, and keep it on topic.}
+    {button: blurple && row && 1 && Voice rules && reply: No loud noises or music bots.}
+    {button: red && row && 1 && Punishments && reply: Breaking the rules gets you a warning, then a mute.}
+    {/container}
+    ```
+  </Accordion>
+  <Accordion title="Two Boxes With Buttons">
+    Separate an announcement heading from its message, then add buttons below.
+
+    ```text
+    {container}
+    {color: #57F287}
+    {content: ## Announcements}
+    {/container}
+    {container}
+    {content: Our event starts soon! {separator.large} Bring your friends.}
+    {/container}
+    {button: https://example.com/event && row && 1 && Event page}
+    {button: green && row && 1 && Remind me && reply: Event starts <t:1900000000:R>!}
+    ```
+  </Accordion>
+  <Accordion title="Last.fm Now Playing">
+    Set this message with `/lastfm mode set` to show the current track and a Like button.
+
+    ```text
+    {container}
+    {content: ### {track.name}
+    by **{artist.name}** on *{album.name}*}
+    {thumbnail: {album.cover}}
+    {/container}
+    {button: blurple && row && 1 && Like && reply: you like {track.name}}
+    ```
+  </Accordion>
+</AccordionGroup>

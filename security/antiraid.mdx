@@ -1,14 +1,46 @@
 ---
-title: Join Gate
-description: "Prevent automated accounts from joining your server."
+title: Antiraid
+description: "Configure antiraid protections for your server."
 icon: person-to-door
 ---
 
-## Configuring the antiraid system
+## Configuring antiraid
 
-### Preventing mass joins
+Use `/antiraid config` to view the server's antiraid settings. The panel summarizes which protections are enabled and their current settings. Select the pencil button beside a protection to edit it in a modal. 
 
-This module will trigger when the number of accounts joining the server exceeds the threshold within a short time frame.
+You can also use the standalone slash commands below without opening the configuration panel.
+
+<CodeGroup>
+```javascript Syntax
+/antiraid config
+```
+
+```javascript Example
+/antiraid config
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/security/antiraid/config.png" />
+</Frame>
+
+## Join protections
+
+### Mass joins
+
+This module will trigger when the number of accounts joining the server exceeds the threshold within a short time frame. Configure how many joins trigger the protection, what punishment to use, and whether to lock channels.
+
+The threshold is the number of accounts that can join the server within the time frame.
+        <Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
+<CodeGroup>
+```javascript Syntax
+/antiraid massjoin setting:<On|Off> threshold:<number> punishment:<ban|kick> lock_channels:<True|False> punish_new_members:<True|False>
+```
+
+```javascript Example
+/antiraid massjoin setting:On threshold:5 punishment:ban lock_channels:True punish_new_members:True
+```
+</CodeGroup>
 
 <Warning>
   Whenever the threshold is reached, the server will be placed in a raid state.
@@ -16,213 +48,149 @@ This module will trigger when the number of accounts joining the server exceeds 
   **welcome** and **goodbye** messages.
 </Warning>
 
-<CodeGroup>
-```javascript Syntax
-,antiraid massjoin (on or off) [--threshold (number)] [--do (action)] [--lock (true | false)] [--punish (true | false)]
-```
-
-```javascript Example
-,antiraid massjoin on --threshold 5 --do ban --lock true --punish true
-```
-
-</CodeGroup>
-<br />
-<AccordionGroup>
-    <Accordion title="Threshold">
-        The threshold is the number of accounts that can join the server within the time frame.
-        <Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --threshold (number)
-        ```
-
-        ```javascript Example
-        --threshold 5
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Punishment">
-        The action which will be taken when the threshold is reached.
-        <Info>Available actions are `ban` and `kick`.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --do (action)
-        ```
-
-        ```javascript Example
-        --do ban
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Lock channels">
-        Whether to lock all channels when the threshold is reached.
-        <CodeGroup>
-        ```javascript Syntax
-        --lock (true | false)
-        ```
-
-        ```javascript Example
-        --lock true
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Punish new accounts">
-        Whether to punish new accounts that join the server.
-        <CodeGroup>
-        ```javascript Syntax
-        --punish (true | false)
-        ```
-
-        ```javascript Example
-        --punish true
-        ```
-        </CodeGroup>
-    </Accordion>
-
-</AccordionGroup>
 <Frame>
   <img src="/images/security/antiraid/massjoin.png" />
 </Frame>
 
-### Requiring an avatar
+### New accounts
 
-This module will trigger when an account joins the server without an avatar.
-
-<CodeGroup>
-```javascript Syntax
-,antiraid avatar (on or off) [--do (action)]
-```
-
-```javascript Example
-,antiraid avatar on --do kick
-```
-
-</CodeGroup>
-<br />
-<AccordionGroup>
-    <Accordion title="Punishment">
-        The action which will be taken when the threshold is reached.
-        <Info>Available actions are `ban` and `kick`.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --do (action)
-        ```
-
-        ```javascript Example
-        --do ban
-        ```
-        </CodeGroup>
-    </Accordion>
-
-</AccordionGroup>
-<Frame>
-  <img src="/images/security/antiraid/avatar.png" />
-</Frame>
-
-### Setting a minimum account age
-
-This module will trigger when an account joins the server that is younger than the specified age.
-
-<Info>
-  The `threshold` flag is the numbers of days for an account to be considered
-  old enough.
-</Info>
+This module will trigger when an account joins the server that is younger than the specified threshold age.
 
 <CodeGroup>
 ```javascript Syntax
-,antiraid age (on or off) [--threshold (number)] [--do (action)]
+/antiraid newaccounts setting:<On|Off> days:<age> punishment:<ban|kick>
 ```
 
 ```javascript Example
-,antiraid age on --threshold 7 --do ban
+/antiraid newaccounts setting:On days:7 punishment:ban
 ```
-
 </CodeGroup>
-<br />
-<AccordionGroup>
-    <Accordion title="Threshold">
-        The threshold is the number of accounts that can join the server within the time frame.
-        <Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --threshold (number)
-        ```
 
-        ```javascript Example
-        --threshold 5
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Punishment">
-        The action which will be taken when the threshold is reached.
-        <Info>Available actions are `ban` and `kick`.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        --do (action)
-        ```
-
-        ```javascript Example
-        --do ban
-        ```
-        </CodeGroup>
-    </Accordion>
-
-</AccordionGroup>
 <Frame>
   <img src="/images/security/antiraid/age.png" />
 </Frame>
 
-### Exempting accounts from the antiraid
+### Default avatars
 
-You can exempt accounts from the antiraid with the `antiraid whitelist` command.
+This module will trigger when an account joins the server without an avatar. Use the pencil button or run `/antiraid avatar` directly to configure this protection.
 
-<Info>You can use the `antiraid whitelist view` command to view all whitelisted accounts.</Info>
 <CodeGroup>
 ```javascript Syntax
-,antiraid whitelist (user)
+/antiraid avatar setting:<On|Off> punishment:<ban|kick>
 ```
 
 ```javascript Example
-,antiraid whitelist @jonathan
+/antiraid avatar setting:On punishment:kick
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/security/antiraid/avatar.png" />
+</Frame>
+
+## Honeypot
+
+A honeypot is a bait channel. Anyone who posts in one of your honeypot channels will be punished, making the feature useful for catching compromised accounts or automated spammers. 
+
+Use **View** beside Honeypot in `/antiraid config` to see the configured channels.
+
+<Warning>
+  Anyone who posts in a honeypot channel may be punished.
+</Warning>
+
+<Callout icon="shield" color="#658A95" iconType="regular">
+  All honeypot commands require the **Administrator** permission.
+</Callout>
+
+<Info>
+  All honeypot punishments are recorded in your server's designated moderation log channel. You can configure where these logs are sent using the `/settings modlog` command.
+</Info>
+
+<CodeGroup>
+```javascript Syntax
+/antiraid honeypot add channel:<channel> punishment:ban|softban|jail
+/antiraid honeypot remove channel:<channel>
 ```
 
+```javascript Example
+/antiraid honeypot add channel:#dont-type-here punishment:ban
+/antiraid honeypot remove channel:#dont-type-here
+```
 </CodeGroup>
-<br />
+
+<Frame>
+  <img src="/images/security/antiraid/honeypot.png" />
+</Frame>
+
+## Whitelist
+
+Whitelisted users can join once without being filtered by antiraid. Use **View** beside Whitelist in `/antiraid config` to see the users on the list.
+
+You can manage the whitelist from the panel or directly.
+
+<CodeGroup>
+```javascript Syntax
+/antiraid whitelist add user:<user>
+/antiraid whitelist remove user:<user>
+```
+
+```javascript Example
+/antiraid whitelist add user:@jonathan
+/antiraid whitelist remove user:@j21234
+```
+</CodeGroup>
+
 <Frame>
   <img src="/images/security/antiraid/whitelist.png" />
 </Frame>
 
-## Viewing the antiraid configuration
-
-You can use the `antiraid config` command to view the current antiraid configuration.
-
-<Frame>
-  <img src="/images/security/antiraid/config.png" />
-</Frame>
-
-## What to do after a raid
+## Responding to a raid
 
 <Steps>
-    <Step title="Cleaning up">
-        After a raid, it is recommended to clean up the server by removing all the accounts that joined during the raid. You can do this with the `recentban` and `raid` commands.
+  <Step title="Remove accounts that joined during the raid">
+    Use `/antiraid raid` to remove everyone who joined within a specified time
+    window.
 
-        <Info>
-        The `duration` parameter must use the [proper format](/resources/syntax#formatting-a-duration).
-        </Info>
-        <CodeGroup>
-        ```javascript Syntax
-        ,recentban (amount) <reason>
-        ,raid (duration) (kick or ban) <reason>
-        ```
+    <CodeGroup>
+    ```javascript Syntax
+    /antiraid raid within:<duration> action:<kick|ban> reason:<reason>
+    ```
 
-        ```javascript Example
-        ,recentban 50 // Bans the last 50 accounts that joined the server
-        ,raid 2h ban // Bans all accounts that joined the server in the last 2 hours
-        ```
-        </CodeGroup>
-    </Step>
-    <Step title="Disabling the raid state">
-        After the raid is over, you can disable the raid state with the `antiraid state` command. This will re-enable events, unlock channels, and allow accounts to join the server.
-    </Step>
+    ```javascript Example
+    /antiraid raid within:1h action:ban reason:Raid cleanup
+    ```
+    </CodeGroup>
 
+    To ban a set number of recent joiners, use `/ban` with `type:recent`.
+
+    <CodeGroup>
+    ```javascript Syntax
+    /ban type:<type> count:<number> reason:<reason> duration:<duration> silent:<True|False> delete_messages:<option>
+    ```
+
+    ```javascript Example
+    /ban type:recent count:10 reason:test duration:1d silent:True delete_messages:Previous 6 hours
+    ```
+    </CodeGroup>
+
+    <Info>
+      Duration values must use the [proper format](/resources/syntax#formatting-a-duration).
+    </Info>
+
+  </Step>
+  <Step title="End the raid state">
+    After the threat has passed, use `/antiraid state` to take the server out
+    of its raid state. This re-enables intensive events, unlocks channels
+    locked by the raid response, and allows accounts to join again.
+
+    <CodeGroup>
+    ```javascript Syntax
+    /antiraid state
+    ```
+
+    ```javascript Example
+    /antiraid state
+    ```
+    </CodeGroup>
+  </Step>
 </Steps>

@@ -6,7 +6,7 @@ icon: microphone
 
 ## Getting started
 
-The first step to using **VoiceMaster** is to use the `voicemaster setup` command.
+The first step to using **VoiceMaster** is to use the `/voicemaster setup` command.
 
 <Tip>The created channels can be moved and renamed to your liking.</Tip>
 
@@ -34,18 +34,21 @@ The **Join to Create** channel is where members will join to create their tempor
 
 You can customize what the temporary voice channels look like when they're created.
 
-The following commands are subcommands of the `voicemaster default` command.
+The following commands are subcommands of the `/voicemaster default` command.
 
 <AccordionGroup>
     <Accordion title="Redirecting voice channels">
         Redirect voice channels to a specific category.
         <CodeGroup>
             ```javascript Syntax
-            ,voicemaster category (category)
+            /voicemaster category public category:<category>
+            /voicemaster category private category:<category>
+            ```
             ```
 
             ```javascript Example
-            ,voicemaster category Voice Channels
+            /voicemaster category public category:Voice Channels
+            /voicemaster category private category:Private Voice Channels
             ```
         </CodeGroup>
     </Accordion>
@@ -53,11 +56,11 @@ The following commands are subcommands of the `voicemaster default` command.
         <Info>The name can use the `{user}`, `{user.name}` and `{user.display_name}` variables.</Info>
         <CodeGroup>
             ```javascript Syntax
-            ,voicemaster default name (name)
+            /voicemaster default name name:<name>
             ```
 
             ```javascript Example
-            ,voicemaster default name {user.display_name}'s vc
+            /voicemaster default name name:{user.display_name}'s vc
             ```
         </CodeGroup>
     </Accordion>
@@ -65,11 +68,11 @@ The following commands are subcommands of the `voicemaster default` command.
         <Info>The bitrate must be between `8` and `384`.</Info>
         <CodeGroup>
             ```javascript Syntax
-            ,voicemaster default bitrate (kbps)
+            /voicemaster default bitrate kbps:<bitrate>
             ```
 
             ```javascript Example
-            ,voicemaster default bitrate 384
+            /voicemaster default bitrate kbps:384
             ```
         </CodeGroup>
     </Accordion>
@@ -80,11 +83,11 @@ The following commands are subcommands of the `voicemaster default` command.
         </Info>
         <CodeGroup>
             ```javascript Syntax
-            ,voicemaster default region (region)
+            /voicemaster default region region:<region>
             ```
 
             ```javascript Example
-            ,voicemaster default region russia
+            /voicemaster default region region:russia
             ```
         </CodeGroup>
     </Accordion>
@@ -97,11 +100,11 @@ You can assign a role that members receive when they join a temporary voice chan
 
 <CodeGroup>
     ```javascript Syntax
-    ,voicemaster join role (role)
+    /voicemaster join role role:<role>
     ```
 
     ```javascript Example
-    ,voicemaster join role @in bryce's vc
+    /voicemaster join role role:@in bird vc
     ```
 
 </CodeGroup>
@@ -128,11 +131,11 @@ You can use the `voicemaster rename` command to change the name of your voice ch
 
 <CodeGroup>
     ```javascript Syntax
-    ,voicemaster rename (name)
+    /voicemaster name name:<name>
     ```
 
     ```javascript Example
-    ,voicemaster rename ethan's vc
+    /voicemaster name name:J2's VC
     ```
 
 </CodeGroup>
@@ -143,11 +146,11 @@ You can use the `voicemaster limit` command to set a limit on the number of memb
 
 <CodeGroup>
     ```javascript Syntax
-    ,voicemaster limit (number)
+    /voicemaster limit limit:<limit>
     ```
 
     ```javascript Example
-    ,voicemaster limit 5
+    /voicemaster limit limit:5
     ```
 
 </CodeGroup>
@@ -156,44 +159,44 @@ You can use the `voicemaster limit` command to set a limit on the number of memb
 
 You can lock & hide your voice channel with the following commands.
 
-- `voicemaster lock` - Prevents anyone from joining the voice channel.
-  - `voicemaster unlock` - Allows anyone join the voice channel.
-- `voicemaster ghost` - Hides the voice channel from the channel list.
-  - `voicemaster unghost` - Reveals the voice channel in the channel list.
+- `/voicemaster lock` - Prevents anyone from joining the voice channel.
+- `/voicemaster unlock` - Allows anyone join the voice channel.
+- `/voicemaster ghost` - Hides the voice channel from the channel list.
+- `/voicemaster unghost` - Reveals the voice channel in the channel list.
 
 <Card title="Subscription Required" icon="medal" iconType="duotone" horizontal>
   You must have a [Tier 2 Subscription](/overview/donator-perks) to use the
-  `voicemaster ghost` command.
+  `/voicemaster ghost` command.
 </Card>
 
 #### Permitting members to join
 
-You can use the `voicemaster permit` command to allow specific members to join your voice channel.
+You can use the `/voicemaster permit` command to allow specific members to join your voice channel.
 
 <CodeGroup>
     ```javascript Syntax
-    ,voicemaster permit (member or role)
+    /voicemaster permit target:<member|role>
     ```
 
     ```javascript Example
-    ,voicemaster permit @jonathan
+    /voicemaster permit target:@jonathan
     ```
 
 </CodeGroup>
 
 ### Granting a role to members in your voice channel
 
-You can use the `voicemaster role` command to set a role that members will receive when they join your voice channel.
+You can use the `/voicemaster role` command to set a role that members will receive when they join your voice channel.
 
 <Info>You must have the `Manage Roles` permission to use this command.</Info>
 
 <CodeGroup>
     ```javascript Syntax
-    ,voicemaster role (role)
+    /voicemaster role role:<role>
     ```
 
     ```javascript Example
-    ,voicemaster role @Listening Party
+    /voicemaster role role:@gaming in bird
     ```
 
 </CodeGroup>
@@ -205,19 +208,19 @@ You can use the `voicemaster role` command to set a role that members will recei
         If the owner of a voice channel leaves, you can use the `voicemaster claim` command to take ownership of the voice channel.
     </Accordion>
     <Accordion title="Transferring ownership">
-        You can use the `voicemaster transfer` command to transfer ownership of a voice channel to another member.
+        You can use the `/voicemaster transfer` command to transfer ownership of a voice channel to another member.
         <CodeGroup>
             ```javascript Syntax
-            ,voicemaster transfer (member)
+            /voicemaster transfer member:<member>
             ```
 
             ```javascript Example
-            ,voicemaster transfer @jonathan
+            /voicemaster transfer member:@jonathan
             ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Setting the channel as a music channel">
-        You can use the `voicemaster music` command which will prevent members from speaking in the voice channel.
+        You can use the `/voicemaster music` command which will prevent members from speaking in the voice channel.
     </Accordion>
 
 </AccordionGroup>

@@ -12,10 +12,6 @@ This feature uses a dedicated bot due to some limitations with the main bleed bo
   Your server must be **Level 3** with at least **14 boosts** prior to inviting
   the dedicated bot.
 </Warning>
-<Info>
-  All commands are **slash commands** and can be accessed by typing `/vanity` in
-  a text channel.
-</Info>
 
 ## Setting the vanity to be monitored
 
@@ -24,11 +20,12 @@ You'll need to set what vanity you want to monitor. You can do this by using the
 <Tip>It's recommended to prefix the substring with a `/` (e.g. `/bleed`).</Tip>
 <CodeGroup>
 ```javascript Syntax
-/vanity set (substring)
+/vanity set substring:<substring>
+```
 ```
 
 ```javascript Example
-/vanity set /bleed
+/vanity set substring:/bleed
 ```
 
 </CodeGroup>
@@ -47,13 +44,13 @@ You can use the `/vanity role add` command to add a vanity reward.
 </Info>
 <CodeGroup>
 ```javascript Syntax
-/vanity role add (role)
-/vanity role remove (role)
+/vanity role add role:<role>
+/vanity role remove role:<role>
 ```
 
 ```javascript Example
-/vanity role add @Vanity
-/vanity role remove @Vanity
+/vanity role add role:@Vanity
+/vanity role remove role:@Vanity
 ```
 
 </CodeGroup>
@@ -81,12 +78,12 @@ You can set a thank you message for when a user advertises your server in their 
 
 <CodeGroup>
 ```javascript Syntax
-/vanity message (message)
+/vanity message message:<message>
 ```
 
 ```javascript Example
-/vanity message thank you {user.mention}
-/vanity message {embed}$v{message: {user.mention}}$v{description: thank you for advertising our server!}
+/vanity message message:thank you {user.mention}
+/vanity message message:{embed}$v{message: {user.mention}}$v{description: thank you for advertising our server!}
 ```
 
 </CodeGroup>
@@ -97,11 +94,11 @@ You can use the `/vanity award channel` command to set where the message is sent
 
 <CodeGroup>
 ```javascript Syntax
-/vanity award channel (channel)
+/vanity award channel channel:<channel>
 ```
 
 ```javascript Example
-/vanity award channel #general
+/vanity award channel channel:#general
 ```
 
 </CodeGroup>

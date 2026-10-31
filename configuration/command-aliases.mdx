@@ -10,16 +10,16 @@ Command aliases allow you to create custom commands that run other commands. Thi
 
 ## Creating an alias
 
-You can create an alias using the `alias add` command.
+You can create an alias using the `/config alias add` command.
 
 <CodeGroup>
 
 ```javascript Syntax
-,alias add (shortcut) (command)
+/config alias add shortcut:<shortcut> command:<command>
 ```
 
 ```javascript Example
-,alias add deport ban
+/config alias add shortcut:bye command:ban
 ```
 
 </CodeGroup>
@@ -34,7 +34,7 @@ You're able to use predefined arguments in your aliases, however, if you want to
 Keep in mind that the first argument is `{0}`, the second argument is `{1}`, and so on, it doesn't start at `{1}`.
 
 ```javascript
-,ban @jonathan Harassing Members
+/ban @jonathan Harassing Members
 // {0} would be @jonathan
 // {1} would be Harassing Members
 ```
@@ -42,18 +42,18 @@ Keep in mind that the first argument is `{0}`, the second argument is `{1}`, and
 Below is an example of an alias that uses predefined arguments:
 
 ```javascript
-,alias add shh timeout {0} 10m
+/config alias add shortcut:shh command:timeout {0} 10m
 ,shh @jonathan
 ```
 
-This alias would run the `timeout` command with the first argument being `@jonathan` from the user's input and the second argument being `10m` as predefined.
+This alias would run the `/timeout add` command with the first argument being `@jonathan` from the user's input and the second argument being `10m` as predefined.
 
 ### Making a command to grant image permissions
 
-If you're interested in creating a command that grants image permissions to a user, you can use the following alias which invokes the `role` command with the predefined image role.
+If you're interested in creating a command that grants image permissions to a user, you can use the following alias which invokes the `/role add` command with the predefined image role.
 
 ```javascript
-,alias add pic role {0} @image-role
+/config alias add shortcut:pic command:role {0} @image-role
 ,pic @jonathan
 ```
 
@@ -68,11 +68,11 @@ You can remove an alias using the `alias remove` command.
 <CodeGroup>
 
 ```javascript Syntax
-,alias remove (shortcut)
+/config alias remove shortcut:<shortcut>
 ```
 
 ```javascript Example
-,alias remove deport
+/config alias remove shortcut:bye
 ```
 
 </CodeGroup>
@@ -85,20 +85,20 @@ You can remove an alias using the `alias remove` command.
 
 <AccordionGroup>
   <Accordion title="Viewing an alias">
-    You can use the `alias view` command to view what an alias invokes.
+    You can use the `/config alias view` command to view what an alias invokes.
     <CodeGroup>
     ```javascript Syntax
-    ,alias view (shortcut)
+    /config alias view shortcut:<shortcut>
     ```
 
     ```javascript Example
-    ,alias view deport
+    /config alias view shortcut:bye
     ```
 
     </CodeGroup>
 
   </Accordion>
   <Accordion title="Viewing all aliases">
-    You can use the `alias list` command to view all aliases.
+    You can use the `/config alias list` command to view all aliases.
   </Accordion>
 </AccordionGroup>

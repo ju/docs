@@ -14,13 +14,13 @@ Moderation commands require some basic setup before they can be used. This inclu
             Jail is a feature similar to mute, but it restricts users from all channels except `#jail`.
         </Info>
 
-        Use the `,setup` command to create the case logs channel and jail role.
+        Use the `/config setup` command to create the case logs channel and jail role.
     </Step>
     <Step title="Creating the necessary mute roles">
         <Info>
             This will create a **text mute**, **image mute**, and **reaction mute** role.
         </Info>
-        Use the `,setupmute` command to create the necessary mute roles.
+        Use the `/mute setup` command to create the necessary mute roles.
     </Step>
 
 </Steps>
@@ -34,7 +34,7 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
 
 <Info>
   The `#jail-log` channel logs all moderation actions done through bleed (e.g.
-  `,ban` & `,kick`). The `#jail` channel is where users jailed by the `jail`
+  `/ban` & `/kick`). The `#jail` channel is where users jailed by the `/jail add`
   command are restricted to.
 </Info>
 
@@ -42,12 +42,11 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
 
 ## Setting Staff Roles
 
-It's important to set the staff roles in your server to ensure that bleed can identify who has dangerous permissions. This is necessary for the `stripstaff` punishment to work.
+It's important to set the staff roles in your server to ensure that bleed can identify who has dangerous permissions. This is necessary for the `/role stripstaff` punishment to work.
 
-Use the `,bind staff @role` command to set a role as a staff role, you would re-run the command if you don't want a role set as staff anymore.
-
+Use the `/settings staff set` command to set a role as a staff role.
 <Tip>
-  You can view set staff roles with the `,bind staff list` command.
+  You can view set staff roles with the `/settings staff list` command.
 </Tip>
 
 <Frame>
@@ -59,22 +58,23 @@ Use the `,bind staff @role` command to set a role as a staff role, you would re-
 
 You can customize both the command response (which defaults to `👍`) and the direct message sent to the user upon punishment.
 
+The `/invoke set` command opens a discord modal where you can customize the either the message or the dm sent to the user.
+
 The following moderation commands can be customized:
 
 - `jail`, `kick`, `ban`, `tempban`, `softban`, `hardban`, `timeout` & `warn`.
 
 <Tip>
-The `message` parameter can be raw text or an [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
+The `message` parameter can be raw text, [components](/resources/scripting/components), or [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <CodeGroup>
 ```javascript Syntax
-,invoke (command) message (message)
-,invoke (command) dm (message)
+/invoke set punishment:<punishment> target:<dm|message>
 ```
 
 ```javascript Example
-,invoke jail message {user.mention} has been jailed for {reason}
-,invoke jail dm you have been jailed for {reason}
+/invoke set punishment:jail target:message
+{user.mention} has been jailed for {reason}
 ```
 
 </CodeGroup>

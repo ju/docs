@@ -26,33 +26,39 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Ask ChatGPT a question.
       <CodeGroup>
       ```javascript Syntax
-      ,chatgpt (question)
+      /search chatgpt question:<question>
       ```
       ```javascript Example
-      ,chatgpt am i cute?
+      /search chatgpt question:am i cute?
       ```
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Mode">
-      Customize the embed layout of the `nowplaying` command.
+      Customize the embed layout of the `/fm` command.
       <CodeGroup>
         ```javascript Syntax
-        ,lastfm mode (embed script)
-        ,lastfm mode (check|reset)
+        /lastfm mode set
         ```
         ```javascript Example
-        ,lastfm mode {embed}$v{title:Now Playing}$v{description: {track.name}}$v{thumbnail: {album.cover}}
+        /lastfm mode set
+
+        {container}
+        $v{content: ### {track.name}
+        by **{artist.name}** on *{album.name}*}
+        $v{thumbnail: {album.cover}}
+        $v{/container}
+        $v{button: blurple && row && 1 && Like && reply: you like {track.name}}
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Custom Reactions">
-      Customize the reactions that appear under the `nowplaying` command.
+      Customize the reactions that appear under the `/fm` command.
       <CodeGroup>
         ```javascript Syntax
-        ,lastfm cr (upvote emoji) (downvote emoji)
+        /lastfm config customreactions upvote:<emote> downvote:<emote>
         ```
         ```javascript Example
-        ,lastfm cr 👍 👎
+        /lastfm config customreactions upvote: 👍 downvote: 👎
         ```
       </CodeGroup>
     </Accordion>
@@ -60,10 +66,10 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Easily convert a video to a GIF.
       <CodeGroup>
         ```javascript Syntax
-        ,makegif (video URL) <quality> <fps> <ff>
+        /media gif url:<url> quality: fps: fast_forward:
         ```
         ```javascript Example
-        ,makegif https://bleed.bot/backflip.mp4 100 30 2
+        /media gif url: https://bleed.bot/backflip.mp4 quality: 100 fps: 30 fast_forward: 2
         ```
       </CodeGroup>
     </Accordion>
@@ -71,27 +77,27 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Remove the background from an image.
       <CodeGroup>
         ```javascript Syntax
-        ,transparent (image URL)
+        /media filter transparent url:<url>
         ```
         ```javascript Example
-        ,transparent https://bleed.bot/epic_face.png
+        /media filter transparent url: https://bleed.bot/epic_face.png
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="VoiceMaster Ghost">
       Hide your temporary VoiceMaster channel.
       ```javascript Syntax
-      ,voicemaster ghost
+      /voicemaster ghost 
       ```
     </Accordion>
     <Accordion title="Custom Prefix">
       Set your own custom command prefix across all servers that utilize bleed.
       <CodeGroup>
         ```javascript Syntax
-        ,prefix self (prefix)
+        /config prefix self prefix:<prefix>
         ```
         ```javascript Example
-        ,prefix self j
+        /config prefix self prefix:j
         ```
       </CodeGroup>
     </Accordion>
@@ -100,10 +106,10 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       <Tip>More information on this command can be found in the [Social Notifications](/integrations/social-notifications) section.</Tip>
       <CodeGroup>
         ```javascript Syntax
-        ,instagram add (channel) (username)
+        /social instagram add username:<username> channel:
         ```
         ```javascript Example
-        ,instagram add #notifs jonathan
+        /social instagram add username: jonathan channel: #notifs
         ```
       </CodeGroup>
     </Accordion>
@@ -115,33 +121,39 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Ask ChatGPT a question.
       <CodeGroup>
       ```javascript Syntax
-      ,chatgpt (question)
+      /search chatgpt question:<question>
       ```
       ```javascript Example
-      ,chatgpt am i cute?
+      /search chatgpt question:am i cute?
       ```
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Mode">
-      Customize the embed layout of the `nowplaying` command.
+      Customize the embed layout of the `/fm` command.
       <CodeGroup>
         ```javascript Syntax
-        ,lastfm mode (embed script)
-        ,lastfm mode (check|reset)
+        /lastfm mode set
         ```
         ```javascript Example
-        ,lastfm mode {embed}$v{title:Now Playing}$v{description: {track.name}}$v{thumbnail: {album.cover}}
+        /lastfm mode set
+
+        {container}
+        $v{content: ### {track.name}
+        by **{artist.name}** on *{album.name}*}
+        $v{thumbnail: {album.cover}}
+        $v{/container}
+        $v{button: blurple && row && 1 && Like && reply: you like {track.name}}
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Custom Reactions">
-      Customize the reactions that appear under the `nowplaying` command.
+      Customize the reactions that appear under the `/fm` command.
       <CodeGroup>
         ```javascript Syntax
-        ,lastfm cr (upvote emoji) (downvote emoji)
+        /lastfm config customreactions upvote:<emote> downvote:<emote>
         ```
         ```javascript Example
-        ,lastfm cr 👍 👎
+        /lastfm config customreactions upvote: 👍 downvote: 👎
         ```
       </CodeGroup>
     </Accordion>
@@ -149,10 +161,10 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Easily convert a video to a GIF.
       <CodeGroup>
         ```javascript Syntax
-        ,makegif (video URL) <quality> <fps> <ff>
+        /media gif url:<url> quality: fps: fast_forward:
         ```
         ```javascript Example
-        ,makegif https://bleed.bot/backflip.mp4 100 30 2
+        /media gif url: https://bleed.bot/backflip.mp4 quality: 100 fps: 30 fast_forward: 2
         ```
       </CodeGroup>
     </Accordion>
@@ -160,27 +172,27 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Remove the background from an image.
       <CodeGroup>
         ```javascript Syntax
-        ,transparent (image URL)
+        /media filter transparent url:<url>
         ```
         ```javascript Example
-        ,transparent https://bleed.bot/epic_face.png
+        /media filter transparent url: https://bleed.bot/epic_face.png
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="VoiceMaster Ghost">
       Hide your temporary VoiceMaster channel.
       ```javascript Syntax
-      ,voicemaster ghost
+      /voicemaster ghost
       ```
     </Accordion>
     <Accordion title="Custom Prefix">
       Set your own custom command prefix across all servers that utilize bleed.
       <CodeGroup>
         ```javascript Syntax
-        ,prefix self (prefix)
+        /config prefix self prefix:<prefix>
         ```
         ```javascript Example
-        ,prefix self j
+        /config prefix self prefix:j
         ```
       </CodeGroup>
     </Accordion>
@@ -192,33 +204,39 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Ask ChatGPT a question.
       <CodeGroup>
       ```javascript Syntax
-      ,chatgpt (question)
+      /search chatgpt question:<question>
       ```
       ```javascript Example
-      ,chatgpt am i cute?
+      /search chatgpt question:am i cute?
       ```
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Mode">
-      Customize the embed layout of the `nowplaying` command.
+      Customize the embed layout of the `/fm` command.
       <CodeGroup>
         ```javascript Syntax
-        ,lastfm mode (embed script)
-        ,lastfm mode (check|reset)
+        /lastfm mode set
         ```
         ```javascript Example
-        ,lastfm mode {embed}$v{title:Now Playing}$v{description: {track.name}}$v{thumbnail: {album.cover}}
+        /lastfm mode set
+
+        {container}
+        $v{content: ### {track.name}
+        by **{artist.name}** on *{album.name}*}
+        $v{thumbnail: {album.cover}}
+        $v{/container}
+        $v{button: blurple && row && 1 && Like && reply: you like {track.name}}
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Custom Reactions">
-      Customize the reactions that appear under the `nowplaying` command.
+      Customize the reactions that appear under the `/fm` command.
       <CodeGroup>
         ```javascript Syntax
-        ,lastfm cr (upvote emoji) (downvote emoji)
+        /lastfm config customreactions upvote:<emote> downvote:<emote>
         ```
         ```javascript Example
-        ,lastfm cr 👍 👎
+        /lastfm config customreactions upvote: 👍 downvote: 👎
         ```
       </CodeGroup>
     </Accordion>

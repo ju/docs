@@ -7,8 +7,8 @@ icon: "signature"
 These variables are accessible throughout bleed and can be used
 in any command context which contains a `message` or `embed code` parameter (e.g. `welcome`, `leave` & `goodbye`)
 
-<Tabs>
-  <Tab title="Guild">
+<AccordionGroup>
+  <Accordion title="Guild">
     | Variable                          | Output                                                               |
     | --------------------------------- | -------------------------------------------------------------------- |
     | `{guild.name}`                    | The guild's name                                                     |
@@ -43,8 +43,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{guild.category_channels}`       | The guild's list of category channels                                |
     | `{guild.category_channels_count}` | The guild's category channel count                                   |
     | `{guild.vanity}`                  | The guild's custom vanity url                                        |
-  </Tab>
-  <Tab title="User">
+  </Accordion>
+  <Accordion title="User">
     | Variable                       | Output                                                 |
     | ------------------------------ | ------------------------------------------------------ |
     | `{user}`                       | The user's name and discriminator                      |
@@ -72,8 +72,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{user.badges}`                | The user's profile badges in text (possibly `N/A`)     |
     | `{user.join_position}`         | The user's join position                               |
     | `{user.join_position_suffix}`  | The user's join position with suffix                   |
-  </Tab>
-  <Tab title="Channel">
+  </Accordion>
+  <Accordion title="Channel">
     | Variable                   | Output                                                    |
     | -------------------------- | --------------------------------------------------------- |
     | `{channel.name}`           | The channel's name                                        |
@@ -85,8 +85,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{channel.category_name}`  | The channel's category name (possibly `N/A`)              |
     | `{channel.position}`       | The channel's position in the guild channel list          |
     | `{channel.slowmode_delay}` | The channel's slowmode delay in seconds (defaults to `0`) |
-  </Tab>
-  <Tab title="Date & Time">
+  </Accordion>
+  <Accordion title="Date & Time">
     | Variable                  | Output                        |
     | ------------------------- | ----------------------------- |
     | `{date.now}`              | Current date in PST           |
@@ -102,8 +102,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{date.utc_now_shorter}`  | Shorter formatted date in UTC |
     | `{time.utc_now}`          | 12 hour timestamp in UTC      |
     | `{time.utc_now_military}` | 24 hour timestamp in UTC      |
-  </Tab>
-  <Tab title="Last.fm">
+  </Accordion>
+  <Accordion title="Last.fm">
     <Warning>
       This section is only available for the `lastfm mode` command which requires a
       [subscription](/overview/donator-perks).
@@ -138,8 +138,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{proper(artist.plays)}` | Current playing artist plays (formatted with commas)   |
     | `{artist.url}`           | Current playing artist URL (from Last.fm)              |
     | `{artist.image}`         | Current playing artist image (from Spotify)            |
-  </Tab>
-  <Tab title="Leveling">
+  </Accordion>
+  <Accordion title="Leveling">
     <Info>
       This section is only available for the `level message` command.
     </Info>
@@ -147,8 +147,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | ------------------ | -------------------------------------- |
     | `{level.new_rank}` | Member's new level at time of level up |
     | `{level.user_xp}`  | Member's current XP                    |
-  </Tab>
-  <Tab title="Boost">
+  </Accordion>
+  <Accordion title="Boost">
     <Info>
       This section is only available for the `boost` command.
     </Info>
@@ -156,8 +156,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | --------------------- | -------------------------------- |
     | `{boost.count}`       | Amount of times user has boosted |
     | `{guild.boost_count}` | Overall guild boost count        |
-  </Tab>
-  <Tab title="Bump Reminder">
+  </Accordion>
+  <Accordion title="Bump Reminder">
     <Info>
       This section is only available for the `bumpreminder` command.
     </Info>
@@ -165,8 +165,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | ------------------------------- | -------------------------------------- |
     | `{bumpreminder.last_user_bump}` | The last user to bump the server       |
     | `{bumpreminder.next_bump}`      | A relative timestamp for the next bump |
-  </Tab>
-  <Tab title="Roblox">
+  </Accordion>
+  <Accordion title="Roblox">
     | Variable                       | Output                                                     |
     | ------------------------------ | ---------------------------------------------------------- |
     | `{roblox.name}`                | The Roblox user's username                                 |
@@ -190,8 +190,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{roblox.badges}`              | The user's Roblox profile badges                           |
     | `{roblox.previous_names}`      | A list of the user's past usernames                        |
     | `{roblox.url}`                 | Profile URL for the Roblox account                         |
-  </Tab>
-  <Tab title="YouTube">
+  </Accordion>
+  <Accordion title="YouTube">
     <Info>
       This section is only available for the `youtube message` command.
     </Info>
@@ -203,8 +203,8 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{youtube.video.url}`           | The YouTube video's URL       |
     | `{youtube.video.title}`         | The YouTube video's title     |
     | `{youtube.video.thumbnail_url}` | The YouTube video's thumbnail |
-  </Tab>
-  <Tab title="Punishments">
+  </Accordion>
+  <Accordion title="Punishments">
     <Info>
       Only available for `bandm`, `softbandm`, `kickdm`, `warndm`, `jaildm`, `unjaildm`, `timeoutdm`, `ban message`, `kick message`, etc.
     </Info>
@@ -222,5 +222,5 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{duration}`             | Duration for punishments that use it                                            |
     | `{invite_url}`           | Invite url generated for punishment (softban)                                   |
     | `{moderator.id}`         | The ID of the moderator that enacted the punishment                             |
-  </Tab>
-</Tabs>
+  </Accordion>
+</AccordionGroup>

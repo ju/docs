@@ -15,7 +15,8 @@
         "pages": [
           "overview/introduction",
           "overview/donator-perks",
-          "overview/customization"
+          "overview/customization",
+          "overview/changelog"
         ]
       },
       {
@@ -24,8 +25,8 @@
           "security/antinuke",
           "security/antiraid",
           "security/moderation",
-          "security/fake-permissions",
-          "security/honeypot"
+          "security/filters",
+          "security/fake-permissions"
         ]
       },
       {
@@ -100,6 +101,7 @@
             "group": "Scripting",
             "icon": "scroll",
             "pages": [
+              "resources/scripting/components",
               "resources/scripting/embeds",
               "resources/scripting/variables",
               "resources/scripting/pagination"
@@ -107,14 +109,12 @@
           },
           "resources/permissions",
           "resources/events",
-          "resources/voices",
-          "resources/languages"
+          "resources/voices"
         ]
       },
       {
         "group": "Common Issues",
         "pages": [
-          "common-issues/ios-dash",
           "common-issues/permissions",
           "common-issues/server-removal"
         ]

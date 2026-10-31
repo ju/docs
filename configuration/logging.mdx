@@ -10,7 +10,7 @@ Logging allows you to log events in your server. This can be useful for keeping 
 
 ## Adding a logging event
 
-You can add a logging event using the `log add` command.
+You can add a logging event using the `/logs add` command.
 
 <Info>
   Available logging events are `messages`, `members`, `roles`, `channels`,
@@ -24,11 +24,11 @@ You can add a logging event using the `log add` command.
 <CodeGroup>
 
 ```javascript Syntax
-,log add (channel) (event)
+/logs add channel:<channel> event:<event>
 ```
 
 ```javascript Example
-,log add #logs messages
+/logs add channel:#logs event:messages
 ```
 
 </CodeGroup>
@@ -48,11 +48,11 @@ You can remove a logging event using the `log remove` command.
 <CodeGroup>
 
 ```javascript Syntax
-,log remove (channel) (event)
+/logs remove channel:<channel> event:<event>
 ```
 
 ```javascript Example
-,log remove #logs messages
+/logs remove channel:#logs event:voice
 ```
 
 </CodeGroup>
@@ -70,15 +70,20 @@ You can remove a logging event using the `log remove` command.
 
 You can ignore and unignore a member or channel from being logged using the `log ignore` command.
 
+<Info>
+  You can use the `/logs ignore list` command to view all ignored members and
+  channels.
+</Info>
+
 <CodeGroup>
 
 ```javascript Syntax
-,log ignore (member or channel)
+/logs ignore add member:<member> | channel:<channel>
 ```
 
 ```javascript Example
-,log ignore @jonathan
-,log ignore #staff-chat
+/logs ignore add member:@jonathan
+/logs ignore add channel:#staff-chat
 ```
 
 </CodeGroup>
@@ -87,9 +92,3 @@ You can ignore and unignore a member or channel from being logged using the `log
     <img src="/images/configuration/logging/ignore.png" />
 </Frame>
 
-## Related commands
-
-<Info>
-  You can use the `log ignore list` command to view all ignored members and
-  channels.
-</Info>

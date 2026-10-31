@@ -19,11 +19,11 @@ You can create multiple reaction roles for a single message with a different emo
 
 <CodeGroup>
 ```javascript Syntax
-,reactionrole add (message link) (emoji) (role)
+/autorole reactionrole add message_link:<message_link> reaction:<reaction> role:<role>
 ```
 
 ```javascript Example
-,reactionrole add .../channels/... ✅ @Member
+/autorole reactionrole add message_link:.../channels/... reaction:✅ role:@Member
 ```
 
 </CodeGroup>
@@ -34,21 +34,21 @@ You can create multiple reaction roles for a single message with a different emo
 
 ## Removing a reaction role
 
-You can remove a reaction role by using the `reactionrole remove` command.
+You can remove a reaction role by using the `/autorole reactionrole remove` command.
 
 <Tip>
-You can use the `reactionrole list` command to see all reaction roles and their emojis.
+You can use the `/autorole reactionrole list` command to see all reaction roles and their emojis.
 <Frame>
     <img src="/images/configuration/roles/reaction/list.png" />
 </Frame>
 </Tip>
 <CodeGroup>
 ```javascript Syntax
-,reactionrole remove (message link) (emoji)
+/autorole reactionrole remove message_link:<message_link> reaction:<reaction>
 ```
 
 ```javascript Example
-,reactionrole remove .../channels/... ✅
+/autorole reactionrole remove message_link:.../channels/... reaction:✅
 ```
 
 </CodeGroup>
@@ -59,16 +59,16 @@ You can use the `reactionrole list` command to see all reaction roles and their 
 
 ### Removing all reaction roles for a message
 
-You can remove all reaction roles for a message with the `reactionrole removeall` command.
+You can remove all reaction roles for a message with the `/autorole reactionrole removeall` command.
 
-<Info>This is different from `reactionrole reset` which removes all reaction roles from the server.</Info>
+<Info>This is different from `/autorole reactionrole reset` which removes all reaction roles from the server.</Info>
 <CodeGroup>
 ```javascript Syntax
-,reactionrole removeall (message link)
+/autorole reactionrole removeall message_link:<message_link>
 ```
 
 ```javascript Example
-,reactionrole removeall .../channels/...
+/autorole reactionrole removeall message_link:.../channels/...
 ```
 
 </CodeGroup>
@@ -79,7 +79,7 @@ You can remove all reaction roles for a message with the `reactionrole removeall
 
 ### Removing all reaction roles from the server
 
-You can remove all reaction roles from the server by using the `reactionrole reset` command.
+You can remove all reaction roles from the server by using the `/autorole reactionrole reset` command.
 
 <Warning>
   This **CAN NOT** be undone and will remove **ALL** reaction roles from the
@@ -98,4 +98,23 @@ Reaction roles can be used to create a verification system where members must re
   to members when they react to the message, such as a **Member** role.
 </Info>
 
-This section hasn't been written yet. If you'd like to contribute, open a pull request on [Github](https://github.com/ju/docs).
+<Steps>
+    <Step title="Create a role for verified members">
+      Create a role that will be assigned to members when they react to the message.
+    </Step>
+
+    <Step title="Restrict access to channels">
+       Restrict access to channels by removing the `@everyone` role from the channel
+       and adding the verified role you created in step 1.
+    </Step>
+
+    <Step title="Create a message for members to react to">
+       Create a message that members can react to in order to gain access to the
+       server.
+    </Step>
+
+    <Step title="Add a reaction role to the message">
+       Add a reaction role to the message with the verified role you created in step
+       1.
+    </Step>
+</Steps>

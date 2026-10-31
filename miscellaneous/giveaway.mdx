@@ -10,12 +10,11 @@ You can start a giveaway with the `giveaway start` command.
 
 <CodeGroup>
 ```javascript Syntax
-,giveaway start <channel> (duration) <winners> (prize)
+/giveaways start duration:<duration> prize:<prize> channel:<channel> winners:<winners>
 ```
 
 ```javascript Example
-,giveaway start #giveaways 24h 2 Concert Tickets
-,giveaway start 24h Concert Tickets
+/giveaways start duration:24h prize:"Concert Tickets" channel:#giveaways winners:2
 ```
 
 </CodeGroup>
@@ -30,54 +29,54 @@ You can customize the giveaway with the following commands
 
 <AccordionGroup>
     <Accordion title="Changing the host">
-        Use the `giveaway edit host` command to change the giveaway host.
+        Use the `/giveaways edit host` command to change the giveaway host.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit host (message link) (member)
+        /giveaways edit host giveaway:<name> user1:<user1> user2:<user2> user3:<user3>
         ```
 
         ```javascript Example
-        ,giveaway edit host .../channels/... @jonathan
+        /giveaways edit host giveaway:my-giveaway user1:@jonathan <user2:@j21234 user3:@shaymin.net
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Changing the prize">
-        Use the `giveaway edit prize` command to change the giveaway prize.
+        Use the `/giveaways edit prize` command to change the giveaway prize.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit prize (message link) (prize)
+        /giveaways edit prize giveaway:<name> prize:<prize>
         ```
 
         ```javascript Example
-        ,giveaway edit prize .../channels/... bleed whitelist
+        /giveaways edit prize giveaway:Concert-Tickets prize:"Concert Tickets"
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Changing the duration">
-        Use the `giveaway edit duration` command to change the duration of the giveaway.
+        Use the `/giveaways edit duration` command to change the duration of the giveaway.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit duration (message link) (duration)
+        /giveaways edit duration giveaway:<name> duration:<duration>
         ```
 
         ```javascript Example
-        ,giveaway edit duration .../channels/... 24h
+        /giveaways edit duration giveaway:Concert-Tickets duration:24h
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Changing the amount of winners">
-        Use the `giveaway edit winners` command to change the amount of people that can win the giveaway.
+        Use the `/giveaways edit winners` command to change the amount of people that can win the giveaway.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit winners (message link) (amount)
+        /giveaways edit winners giveaway:<name> count:<winners>
         ```
 
         ```javascript Example
-        ,giveaway edit winners .../channels/... 3
+        /giveaways edit winners giveaway:Concert-Tickets count:3
         ```
         </CodeGroup>
     </Accordion>
@@ -90,15 +89,15 @@ You can customize the giveaway embed with the following commands
 
 <AccordionGroup>
     <Accordion title="Changing the description">
-        Use the `giveaway edit description` command to change the giveaway description.
+        Use the `/giveaways edit description` command to change the giveaway description.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit description (message link) (text)
+        /giveaways edit description giveaway:<name> text:<description>
         ```
 
         ```javascript Example
-        ,giveaway edit description .../channels/... Tickets for the Ken Carson concert!
+        /giveaways edit description giveaway:Concert-Tickets text:"Tickets to Lollapalooza!"
         ```
 
         </CodeGroup>
@@ -108,15 +107,15 @@ You can customize the giveaway embed with the following commands
         </Frame>
     </Accordion>
     <Accordion title="Changing the thumbnail">
-        Use the `giveaway edit thumbnail` command to change the giveaway thumbnail.
+        Use the `/giveaways edit thumbnail` command to change the giveaway thumbnail.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit thumbnail (message link) (thumbnail)
+        /giveaways edit thumbnail giveaway:<name> url:<url>|attachment:<attachment>
         ```
 
         ```javascript Example
-        ,giveaway edit thumbnail .../channels/... https://bleed.bot/bleed.png
+        /giveaways edit thumbnail giveaway:Concert-Tickets url:https://bleed.bot/bleed.png
         ```
 
         </CodeGroup>
@@ -126,15 +125,15 @@ You can customize the giveaway embed with the following commands
         </Frame>
     </Accordion>
     <Accordion title="Changing the image">
-        Use the `giveaway edit image` command to change the giveaway image.
+        Use the `/giveaways edit image` command to change the giveaway image.
 
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit image (message link) (image)
+        /giveaways edit image giveaway:<name> url:<image>|attachment:<attachment>
         ```
 
         ```javascript Example
-        ,giveaway edit image .../channels/... https://bleed.bot/bleed.png
+        /giveaways edit image giveaway:Concert-Tickets url:https://bleed.bot/bleed.png
         ```
 
         </CodeGroup>
@@ -154,14 +153,13 @@ You can set requirements for the giveaway with the following commands
     <Accordion title="Setting a required role">
         You can set a required role to enter the giveaway with the following command.
         <Info>If you no longer want to require roles, you can re-run the command without a role.</Info>
-        <Warning>You can use multiple roles by separating them with a comma (`,`).</Warning>
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit requiredroles (message link) (roles)
+        /giveaways edit requiredroles giveaway:<name> role1: @Role1, role2: @Role2, role3: @Role3, role4: @Role4, role5: @Role5
         ```
 
         ```javascript Example
-        ,giveaway edit requiredroles .../channels/... @Staff, @Booster
+        /giveaways edit requiredroles giveaway:Concert-Tickets role1: @Regular, role2: @Booster
         ```
         </CodeGroup>
     </Accordion>
@@ -170,13 +168,13 @@ You can set requirements for the giveaway with the following commands
         <Warning>This relies on bleed's [leveling system](/configuration/level-rewards), not other bots.</Warning>
         <CodeGroup>
         ```javascript Syntax
-        ,giveaway edit minlevel (message link) (level)
-        ,giveaway edit maxlevel (message link) (level)
+        /giveaways edit minlevel giveaway:<name> level:<level>
+        /giveaways edit maxlevel giveaway:<name> level:<level>
         ```
 
         ```javascript Example
-        ,giveaway edit minlevel .../channels/... 10
-        ,giveaway edit maxlevel .../channels/... 50
+        /giveaways edit minlevel giveaway:Concert-Tickets level:1
+        /giveaways edit maxlevel giveaway:Concert-Tickets level:50
         ```
         </CodeGroup>
     </Accordion>
@@ -185,15 +183,15 @@ You can set requirements for the giveaway with the following commands
 
 ## Ending a Giveaway
 
-You can end a giveaway early with the `giveaway end` command.
+You can end a giveaway early with the `/giveaways end` command.
 
 <CodeGroup>
 ```javascript Syntax
-,giveaway end (message link)
+/giveaways end giveaway:<name>
 ```
 
 ```javascript Example
-,giveaway end .../channels/...
+/giveaways end giveaway:Concert-Tickets
 ```
 
 </CodeGroup>
@@ -204,15 +202,15 @@ You can end a giveaway early with the `giveaway end` command.
 
 ## Rerolling a Giveaway
 
-You can reroll the winners of a giveaway with the `giveaway reroll` command.
+You can reroll the winners of a giveaway with the `/giveaways reroll` command.
 
 <CodeGroup>
 ```javascript Syntax
-,giveaway reroll (message link)
+/giveaways reroll giveaway:Concert-Tickets winners:<number_of_winners>
 ```
 
 ```javascript Example
-,giveaway reroll .../channels/...
+/giveaways reroll giveaway:Concert-Tickets winners:3
 ```
 
 </CodeGroup>
@@ -223,7 +221,7 @@ You can reroll the winners of a giveaway with the `giveaway reroll` command.
 
 ## Canceling a Giveaway
 
-You can cancel a giveaway with the `giveaway cancel` command.
+You can cancel a giveaway with the `/giveaways cancel` command.
 
 <Warning>
   This will not draw any winners and will delete the giveaway message.
@@ -231,11 +229,11 @@ You can cancel a giveaway with the `giveaway cancel` command.
 
 <CodeGroup>
 ```javascript Syntax
-,giveaway cancel (message link)
+/giveaways cancel giveaway:<name>
 ```
 
 ```javascript Example
-,giveaway cancel .../channels/...
+/giveaways cancel giveaway:Concert-Tickets
 ```
 
 </CodeGroup>
@@ -246,7 +244,7 @@ You can cancel a giveaway with the `giveaway cancel` command.
 
 ## Viewing all Giveaways
 
-You can view all giveaways with the `giveaway list` command.
+You can view all giveaways with the `/giveaways list` command.
 
 <Info>This will display past and active giveaways.</Info>
 <Frame>
