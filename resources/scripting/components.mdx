@@ -35,7 +35,7 @@ A container is a rounded box that groups text and other components. It must cont
 {/container}
 ```
 
-### Container settings
+### Container Settings
 
 - **Color:** Add `{color: #5865F2}` to give the box a colored stripe. Hex colors can use `#5865F2`, `5865F2`, `0x5865F2` or the short form `#58F`. A container can have one color.
 - **Spoiler:** Add `{spoiler}` to hide the whole box until someone clicks it.
@@ -64,7 +64,7 @@ Text supports Discord markdown:
 - `[link text](https://example.com)`
 - Timestamps such as `<t:1700000000:R>`
 
-## Images and separators
+## Images and Separators
 
 Use `{separator}` for a thin line with a small gap. Add `.large` for a larger gap, `.empty` for a gap without a line, or both for a larger empty gap.
 
@@ -126,7 +126,7 @@ A button needs a label, an emoji, or both. Other accepted style names are `prima
 
 Link buttons open their URL. Colored buttons do not perform an action unless they have a reply; otherwise, they are decorative.
 
-### Button replies
+### Button Replies
 
 Add `reply:` as the last setting on a colored button. Its response is visible only to the person who clicked:
 
@@ -141,7 +141,7 @@ A reply can be plain text, embed scripting or a components script. Replies canno
 
 Member and server variables in a reply, such as `{user.name}` and `{guild.name}`, are filled in when someone clicks. Feature variables, such as a track name, are filled in when the message is posted. Replies containing feature variables expire after 90 days; replies using only member and server variables do not expire.
 
-### Button placement
+### Button Placement
 
 Buttons normally appear at the end of their container. Add a placeholder where you want a row to appear:
 
@@ -154,7 +154,7 @@ Buttons normally appear at the end of their container. Add a placeholder where y
 
 `{button1}`, `{button2}` and so on place matching button rows. A placeholder can be part of text or its own part. Each placeholder can be used once and must have a matching row.
 
-## Select menus
+## Select Menus
 
 A select menu is a dropdown list. Add a menu with `{select: ...}` and add its choices with `{option: ...}`. The number connects each option to its menu.
 
@@ -177,7 +177,7 @@ Replies on options follow the same rules as button replies. Put `reply:` last, a
 
 Use `{select1}`, `{select2}` and so on to place matching menus in the message. A select placeholder must be used once and must have a matching menu. `{dropdown}` places a dropdown-role menu, while `{buttonrole1}` and higher place button-role buttons; these placeholders are only for those role messages.
 
-## Files, variables and JSON
+## Files, Variables, and JSON
 
 Use `{file: name}` to show an uploaded file in a command that supports file uploads. Use the file's exact name; elsewhere, a file part is an error.
 
@@ -209,7 +209,7 @@ The bot checks Discord's limits before sending and reports which limit was excee
 
 Some features have additional limits. For example, a Last.fm now playing script must be under 600 characters.
 
-## Switching from embed scripting
+## Switching From Embed Scripting
 
 Existing embed scripts keep working; you do not have to convert them. If you choose to use components, these are the common equivalents:
 
@@ -247,37 +247,138 @@ Hi {user.mention}}{thumbnail: {user.avatar}}{content: -# Enjoy your stay}{/conta
 
 If you use an embed-only part in a components script, the error message explains what to use instead.
 
-## Frequently asked questions
+## Frequently Asked Questions
 
 <AccordionGroup>
-  <Accordion title="Why is the container still open or empty?">
+  <Accordion title="Why Is the Container Still Open or Empty?">
     Close a container with `{/container}` before adding a part outside it. You can leave it open only when it is the final part of the message. Every container also needs at least one `content:` text block.
   </Accordion>
-  <Accordion title="Why does `content:` fail outside a container?">
+  <Accordion title="Why Does `content:` Fail Outside a Container?">
     Use `text:` for text outside a container. `content:` belongs inside one.
   </Accordion>
-  <Accordion title="Why is my button or thumbnail in the wrong place?">
+  <Accordion title="Why Is My Button or Thumbnail in the Wrong Place?">
     Check its row or text-block number. The selected row or block must exist, and a text block can have only one thumbnail or side button. A row can hold up to 5 buttons.
   </Accordion>
-  <Accordion title="Why does the button parser report two labels or require a label or emoji?">
+  <Accordion title="Why Does the Button Parser Report Two Labels or Require a Label or Emoji?">
     Check for a misspelled setting, such as `rwo` instead of `row`, or a server emoji written as `:name:` instead of its full `<:name:id>` code. Buttons need a label, an emoji, or both.
   </Accordion>
-  <Accordion title="Why isn't my button clickable?">
+  <Accordion title="Why Isn't My Button Clickable?">
     Colored buttons need a `reply:` to do something. Without one, they are decorative. Link buttons open their URL.
   </Accordion>
-  <Accordion title="Why can a menu with replies only have one choice?">
+  <Accordion title="Why Can a Menu With Replies Only Have One Choice?">
     Select menus with replies allow one choice at a time, so their maximum must be 1.
   </Accordion>
-  <Accordion title="Why is my color or emoji rejected?">
+  <Accordion title="Why Is My Color or Emoji Rejected?">
     Write colors as hexadecimal values, such as `#5865F2`. Server emojis need their full code, such as `<:name:id>`.
   </Accordion>
-  <Accordion title="Why does it say a part is outside any block or missing a closing brace?">
+  <Accordion title="Why Does It Say a Part Is Outside Any Block or Missing a Closing Brace?">
     Put text inside a part, such as `{content: Hello}` or `{text: Hello}`, and make sure each part has a closing `}`.
   </Accordion>
-  <Accordion title="Why can't I use `pingable:` in this message?">
+  <Accordion title="Why Can't I Use `pingable:` in This Message?">
     Some message types do not support pings. Remove the `pingable:` part if the bot reports that the message cannot use it.
   </Accordion>
-  <Accordion title="Why can't I use embed scripting and components together?">
+  <Accordion title="Why Can't I Use Embed Scripting and Components Together?">
     A message must use one format. Remove `{embed}` from a components script, or use embed scripting throughout.
+  </Accordion>
+</AccordionGroup>
+
+## Cheat Sheet
+
+Quick reference for the parts you can use in a components script:
+
+<CardGroup cols={2}>
+  <Card title="Boxes" icon="square">
+    - `{container}` ... `{/container}` — open and close a box
+    - `{color: #5865F2}` — set the box color
+    - `{spoiler}` — hide the box until clicked
+  </Card>
+  <Card title="Text" icon="font">
+    - `{content: Hello}` — add text inside a box
+    - `{text: Hello}` — add text anywhere, including outside a box
+  </Card>
+  <Card title="Layout" icon="table-columns">
+    - `{separator}` — add a line; use `.large`, `.empty` or `.large.empty` to change it
+    - `{image: https://...}` — add one image
+    - `{gallery: https://..., https://...}` — add up to 10 images
+    - `{thumbnail: https://... && 2}` — place an image beside text block 2
+  </Card>
+  <Card title="Buttons" icon="arrow-pointer">
+    - `{button: https://... && row && 1 && Open}` — link button
+    - `{button: green && row && 1 && Hi && reply: Hello!}` — button that replies
+    - `{button: gray && side && 1 && More}` — button beside text block 1
+    - `{button1}` — place row 1 here
+  </Card>
+  <Card title="Menus" icon="list">
+    - `{select: 1 && Pick one}` — create a select menu
+    - `{option: 1 && Red && red}` — add an option to menu 1
+    - `{option: 1 && Rules && reply: Read #rules}` — add an option that replies
+    - `{select1}` — place menu 1 here
+  </Card>
+  <Card title="Other" icon="ellipsis">
+    - `{pingable: {user.mention}}` — allow this mention to ping
+    - `{file: notes.txt}` — show an uploaded file
+  </Card>
+</CardGroup>
+
+## Full Examples
+
+Copy an example and customize the text, colors, and links for your server.
+
+<AccordionGroup>
+  <Accordion title="Welcome Message">
+    Greet new members with their name, member count, avatar, and a link.
+
+    ```text
+    {container}
+    {color: #5865F2}
+    {content: # Welcome to {guild.name}!
+    Hey {user.mention}, you're member **#{guild.count}**.}
+    {thumbnail: {user.avatar}}
+    {separator}
+    {content: -# Read the rules and grab your roles}
+    {button: https://discord.com/channels/{guild.id} && row && 1 && Open server}
+    {/container}
+    {pingable: {user.mention}}
+    ```
+  </Accordion>
+  <Accordion title="Rules With Reply Buttons">
+    Let members choose a button to see a short rule or reminder.
+
+    ```text
+    {container}
+    {content: ## Server rules
+    Click a button to learn more.}
+    {button: blurple && row && 1 && Chat rules && reply: Be kind, and keep it on topic.}
+    {button: blurple && row && 1 && Voice rules && reply: No loud noises or music bots.}
+    {button: red && row && 1 && Punishments && reply: Breaking the rules gets you a warning, then a mute.}
+    {/container}
+    ```
+  </Accordion>
+  <Accordion title="Two Boxes With Buttons">
+    Separate an announcement heading from its message, then add buttons below.
+
+    ```text
+    {container}
+    {color: #57F287}
+    {content: ## Announcements}
+    {/container}
+    {container}
+    {content: Our event starts soon! {separator.large} Bring your friends.}
+    {/container}
+    {button: https://example.com/event && row && 1 && Event page}
+    {button: green && row && 1 && Remind me && reply: Event starts <t:1900000000:R>!}
+    ```
+  </Accordion>
+  <Accordion title="Last.fm Now Playing">
+    Set this message with `/lastfm mode set` to show the current track and a Like button.
+
+    ```text
+    {container}
+    {content: ### {track.name}
+    by **{artist.name}** on *{album.name}*}
+    {thumbnail: {album.cover}}
+    {/container}
+    {button: blurple && row && 1 && Like && reply: you like {track.name}}
+    ```
   </Accordion>
 </AccordionGroup>

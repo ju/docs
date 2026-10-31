@@ -161,6 +161,22 @@ points build up. Points can expire after `1h` to `365d`, or never.
   <img src="/images/security/filters/points-setup.png" alt="Filter points setup form" />
 </Frame>
 
+  For a server that hasn't set anything up, `/filter points setup` opens with these defaults:
+
+  | Field | Default |
+  | --- | --- |
+  | Escalation | Empty, so no punishments happen until steps are added |
+  | Points | Empty, so every filter is worth 1 and every punishment 0 |
+  | Points come from | Filter points only |
+  | Points expire after | `never` |
+  | Deleted messages add points | Off |
+  | Tell members their next punishment | On |
+
+  <Info>
+    The sample text in the empty boxes is only a placeholder and isn't saved.
+    Escalation example: `5 timeout 15m`, `10 jail 1d`, `15 kick`, `25 ban`.
+    Points example: `caps 1`, `massmention 3`, `warn 1`, `mute 2`, `jail 4`.
+  </Info>
 | Command | Description | Permission |
 | --- | --- | --- |
 | `/filter points limit` | Set the maximum points a member can build up (5–100; 25 by default). | Manage Server |
@@ -191,5 +207,5 @@ points build up. Points can expire after `1h` to `365d`, or never.
 </CodeGroup>
 
 <Frame>
-  <img src="/images/security/filters/points-view.png" alt="Point values and escalation punishments" />
+  <img src="/images/security/filters/points-view.png" />
 </Frame>

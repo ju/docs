@@ -1,0 +1,45 @@
+---
+title: Changelog
+description: "Updates and improvements to bleed."
+icon: bullhorn
+---
+
+This page lists updates and improvements to bleed, with the newest changes first.
+
+## October 31, 2026 -- Halloween Update
+
+### New Features
+
+- Custom messages got a big upgrade. You can now use Components V2 scripting anywhere you set a custom message, including buttons with replies, welcome messages, tags, tickets and `/fm`.
+- Build, save, preview and edit components messages with `/config component`.
+- `/ce` creates embeds or components messages, takes file uploads, and can convert your old embed code.
+- Broken script? The bot now lists every error, suggests a fix, and can apply it for you with the Implement fix button.
+- Dropdown roles are finally here, with up to 25 roles per menu, exclusive mode and pick limits.
+- Required roles let you lock reaction roles, button roles and dropdown menus behind other roles.
+- Button roles now work on components messages, and you can choose where each button goes.
+- New `voice_members` counter that shows how many people are in voice across your server.
+- Counting is here! Use `,counting` or `/game counting` and try to beat your server's high score.
+- Play Connect 4 with `/game connect4`, with stats and a leaderboard.
+- `/utility todo` gives you a private to-do list with priorities, notes and an undo button.
+- `/automation leaderboard` posts message and voice leaderboards for the specified timeframe.
+- Two new right-click apps: Quote and Purge Up to Message.
+- Filters now run on points. Set up your punishment ladder with `/filter points`.
+- `/lookup scores` covers NBA, NFL, MLB, NHL, soccer, college sports, tennis, golf, UFC, Formula 1 and NASCAR.
+- `/search` now has 19 engines, and `/search chatgpt` can read images.
+- Manage your server's soundboard with `/config soundboard add` and `/config soundboard remove`.
+- `/mute image` and `/mute reaction` are now in slash, and `/case` keeps your case notes and proof in one place.
+- Your `/fm` can now be a components script with buttons.
+- Antinuke and antiraid actions now show up in your mod log.
+- Give `/emotes` two emoji and Emoji Kitchen will combine them.
+- Giveaways can now hide their winners when the draw ends with `/giveaway edit hidewinners`.
+- `run` now figures out your language for you, and it supports 19 of them.
+
+### Changed Behavior
+
+- bleed has a fresh new look. Status replies, lists, the music queue, `/userinfo`, and avatar, banner and icon replies now use Components V2 instead of traditional embeds.
+- Filters are slash-only now, so every `,filter` command points you to `/filter`.
+- Some slash commands have new homes: playback is under `/queue`, tickets are under `/tickets`, crypto is under `/crypto`, and lookups like `/xbox` and `/steam` are under `/lookup profile`.
+- `/nowplaying` is now `/fm` and `/lastfm now`.
+- Prefix and slash commands now share cooldowns.
+- Last.fm library updates are much faster.
+- The VoiceMaster activity button now toggles music mode.
