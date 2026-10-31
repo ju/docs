@@ -24,8 +24,8 @@
         "pages": [
           "security/antinuke",
           "security/antiraid",
-          "security/moderation",
           "security/filters",
+          "security/moderation",
           "security/fake-permissions"
         ]
       },

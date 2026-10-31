@@ -6,12 +6,12 @@ icon: reply
 
 ## Creating an auto responder
 
-You can create an auto responder with the `autoresponder add` command.
+You can create an auto responder with the `/autoresponder add` command.
 
 <Tip>
 The `message` parameter can be raw text, [components](/resources/scripting/components), or [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
 
-This command will open a discord modal where you can specify the content of the message.
+This command will open a Discord modal where you can specify the content of the message.
 </Tip>
 <CodeGroup>
 
@@ -59,7 +59,7 @@ The following parameters can be used to customize the response
 
 ## Removing an auto responder
 
-You can remove an auto responder with the `autoresponder remove` command.
+You can remove an auto responder with the `/autoresponder remove` command.
 
 <Info>If you're struggling to remove an auto responder, refer to the [selection removal](/resources/syntax#removing-entries-via-id).</Info>
 <CodeGroup>
@@ -81,7 +81,7 @@ You can remove an auto responder with the `autoresponder remove` command.
 
 ### Restricting to a channel or role
 
-Toggle exclusive access for an autoresponder to a role or channel with the `autoresponder exclusive` command
+Toggle exclusive access for an autoresponder to a role or channel with the `/autoresponder exclusive add` command.
 
 <CodeGroup>
 ```javascript Syntax
@@ -99,7 +99,7 @@ Toggle exclusive access for an autoresponder to a role or channel with the `auto
 </Frame>
 
 ## Auto Responder Roles
-Autoresponder roles are roles that are assigned or removed to members when they say a specific message.
+Autoresponder roles are roles that are assigned to or removed from members when they say a specific message.
 
 <Warning>It's easy to confuse these commands! Running the `/autoresponder exclusive add` command again would undo the functionality of giving members roles.</Warning>
 
@@ -118,7 +118,7 @@ Autoresponder roles are roles that are assigned or removed to members when they 
 
 ### Removing an autoresponder role
 
-You can remove an autoresponder role by running the same command again. This action will reverse the previous configuration and remove the assignment or removals of the role
+You can remove an autoresponder role by running the same command again. This action will reverse the previous configuration and remove the assignment or removal of the role.
 
 ## Related commands
 
@@ -134,7 +134,7 @@ You can remove an autoresponder role by running the same command again. This act
         You can use the `/autoresponder list all` command to view all auto responders.
     </Accordion>
     <Accordion title="Viewing all ticket auto responders">
-        You can use the `/autoresponder list tickets` command to view all auto responders.
+        You can use the `/autoresponder list tickets` command to view all ticket auto responders.
     </Accordion>
 
 </AccordionGroup>

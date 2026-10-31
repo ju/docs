@@ -250,34 +250,28 @@ If you use an embed-only part in a components script, the error message explains
 ## Frequently Asked Questions
 
 <AccordionGroup>
-  <Accordion title="Why Is the Container Still Open or Empty?">
-    Close a container with `{/container}` before adding a part outside it. You can leave it open only when it is the final part of the message. Every container also needs at least one `content:` text block.
-  </Accordion>
-  <Accordion title="Why Does `content:` Fail Outside a Container?">
-    Use `text:` for text outside a container. `content:` belongs inside one.
-  </Accordion>
-  <Accordion title="Why Is My Button or Thumbnail in the Wrong Place?">
-    Check its row or text-block number. The selected row or block must exist, and a text block can have only one thumbnail or side button. A row can hold up to 5 buttons.
-  </Accordion>
-  <Accordion title="Why Does the Button Parser Report Two Labels or Require a Label or Emoji?">
-    Check for a misspelled setting, such as `rwo` instead of `row`, or a server emoji written as `:name:` instead of its full `<:name:id>` code. Buttons need a label, an emoji, or both.
-  </Accordion>
-  <Accordion title="Why Isn't My Button Clickable?">
-    Colored buttons need a `reply:` to do something. Without one, they are decorative. Link buttons open their URL.
-  </Accordion>
-  <Accordion title="Why Can a Menu With Replies Only Have One Choice?">
-    Select menus with replies allow one choice at a time, so their maximum must be 1.
-  </Accordion>
-  <Accordion title="Why Is My Color or Emoji Rejected?">
-    Write colors as hexadecimal values, such as `#5865F2`. Server emojis need their full code, such as `<:name:id>`.
-  </Accordion>
-  <Accordion title="Why Does It Say a Part Is Outside Any Block or Missing a Closing Brace?">
+  <Accordion title="Why does it say a part is outside any block or missing a closing brace?">
     Put text inside a part, such as `{content: Hello}` or `{text: Hello}`, and make sure each part has a closing `}`.
   </Accordion>
-  <Accordion title="Why Can't I Use `pingable:` in This Message?">
+  <Accordion title="Why is the container still open or empty?">
+    Close a container with `{/container}` before adding a part outside it. You can leave it open only when it is the final part of the message. Every container also needs at least one `content:` text block.
+  </Accordion>
+  <Accordion title="Why does `content:` fail outside a container?">
+    Use `text:` for text outside a container. `content:` belongs inside one.
+  </Accordion>
+  <Accordion title="Why is my button or thumbnail in the wrong place?">
+    Check its row or text-block number. The selected row or block must exist, and a text block can have only one thumbnail or side button. A row can hold up to 5 buttons.
+  </Accordion>
+  <Accordion title="Why isn't my button clickable?">
+    Colored buttons need a `reply:` to do something. Without one, they are decorative. Link buttons open their URL.
+  </Accordion>
+  <Accordion title="Why is my color or emoji rejected?">
+    Write colors as hexadecimal values, such as `#5865F2`. Server emojis need their full code, such as `<:name:id>`.
+  </Accordion>
+  <Accordion title="Why can't I use `pingable:` in this message?">
     Some message types do not support pings. Remove the `pingable:` part if the bot reports that the message cannot use it.
   </Accordion>
-  <Accordion title="Why Can't I Use Embed Scripting and Components Together?">
+  <Accordion title="Why can't I use embeds and components together?">
     A message must use one format. Remove `{embed}` from a components script, or use embed scripting throughout.
   </Accordion>
 </AccordionGroup>
