@@ -8,20 +8,20 @@ icon: puzzle-piece
 
 Components messages are made from text, containers, images, separators, buttons and select menus. You can use them anywhere the bot lets you set a custom message, including welcome, goodbye and boost messages, tags, sticky messages, timers, bump reminders, punishment messages, Last.fm now playing and `/config component create`.
 
-Each part of a script is written in braces. Join parts with `$v`:
+Each part of a script is written in braces. Write parts next to each other:
 
 ```
-{container}$v{content: Hello!}$v{/container}
+{container}{content: Hello!}{/container}
 ```
 
 - `{container}` opens a box.
-- `$v{content: Hello!}` adds text inside it.
-- `$v{/container}` closes it.
+- `{content: Hello!}` adds text inside it.
+- `{/container}` closes it.
 
 You can put each part on its own line to make a script easier to read. Spaces and new lines between parts do not change how the script works.
 
 <Info>
-Every part after the first must start with `$v`. A script can use embed scripting or components, but not both.
+A script can use embed scripting or components, but not both.
 </Info>
 
 ## Containers
@@ -30,15 +30,15 @@ A container is a rounded box that groups text and other components. It must cont
 
 ```text
 {container}
-$v{color: #5865F2}
-$v{content: Welcome to the server!}
-$v{/container}
+{color: #5865F2}
+{content: Welcome to the server!}
+{/container}
 ```
 
 ### Container settings
 
-- **Color:** Add `$v{color: #5865F2}` to give the box a colored stripe. Hex colors can use `#5865F2`, `5865F2`, `0x5865F2` or the short form `#58F`. A container can have one color.
-- **Spoiler:** Add `$v{spoiler}` to hide the whole box until someone clicks it.
+- **Color:** Add `{color: #5865F2}` to give the box a colored stripe. Hex colors can use `#5865F2`, `5865F2`, `0x5865F2` or the short form `#58F`. A container can have one color.
+- **Spoiler:** Add `{spoiler}` to hide the whole box until someone clicks it.
 
 Both settings must be inside the container. You can place multiple containers in one message, but close each one before opening the next.
 
@@ -47,8 +47,8 @@ Both settings must be inside the container. You can place multiple containers in
 Use `content:` for text inside a container and `text:` for text outside one. Inside a container, `content:` and `text:` work the same way.
 
 ```text
-{container}$v{content: Welcome to the server!}$v{/container}
-$v{text: This text is outside the box.}
+{container}{content: Welcome to the server!}{/container}
+{text: This text is outside the box.}
 ```
 
 Each `content:` or `text:` part creates a text block. Numbering starts at 1 within each container. Thumbnails and side buttons use these numbers to choose which block they sit beside. Separators, images and button placeholders placed inside text can split it into more blocks.
@@ -69,13 +69,13 @@ Text supports Discord markdown:
 Use `{separator}` for a thin line with a small gap. Add `.large` for a larger gap, `.empty` for a gap without a line, or both for a larger empty gap.
 
 ```text
-{container}$v{content: Before}$v{separator}$v{content: After}$v{/container}
+{container}{content: Before}{separator}{content: After}{/container}
 ```
 
 You can also put a separator or image inside a text part:
 
 ```text
-{container}$v{content: Before {separator} After}$v{/container}
+{container}{content: Before {separator} After}{/container}
 ```
 
 Use `{image: URL}` to show one image, or `{gallery: URL, URL}` to show several images together. A gallery supports up to 10 images. Images and galleries work inside or outside containers. Variables can be used in image links, for example `{image: {user.avatar}}`.
@@ -86,19 +86,19 @@ A thumbnail is a small image displayed to the right of a text block. Thumbnails 
 
 ```text
 {container}
-$v{content: ## Welcome {user.name}!}
-$v{thumbnail: {user.avatar}}
-$v{/container}
+{content: ## Welcome {user.name}!}
+{thumbnail: {user.avatar}}
+{/container}
 ```
 
 To attach a thumbnail to another block, add `&&` and the block number:
 
 ```text
 {container}
-$v{content: First block}
-$v{content: Second block}
-$v{thumbnail: https://example.com/icon.png && 2}
-$v{/container}
+{content: First block}
+{content: Second block}
+{thumbnail: https://example.com/icon.png && 2}
+{/container}
 ```
 
 Each text block can have one item on its right: a thumbnail or a side button. The block number must match an existing text block.
@@ -108,9 +108,9 @@ Each text block can have one item on its right: a thumbnail or a side button. Th
 A button starts with its style. Separate settings with `&&`; you can leave out settings you do not need.
 
 ```text
-$v{button: green && Accept}
-$v{button: https://example.com && Visit website}
-$v{button: blurple && 2 && Next && ➡️}
+{button: green && Accept}
+{button: https://example.com && Visit website}
+{button: blurple && 2 && Next && ➡️}
 ```
 
 The first setting is required:
@@ -132,9 +132,9 @@ Add `reply:` as the last setting on a colored button. Its response is visible on
 
 ```text
 {container}
-$v{content: Need help?}
-$v{button: blurple && Help && reply: Ask in #support and staff will help!}
-$v{/container}
+{content: Need help?}
+{button: blurple && Help && reply: Ask in #support and staff will help!}
+{/container}
 ```
 
 A reply can be plain text, embed scripting or a components script. Replies cannot be empty, and link buttons cannot have replies. Buttons inside a reply must be link buttons, and replies cannot contain other replies. Some message types do not support replies; the bot reports this when you save.
@@ -147,9 +147,9 @@ Buttons normally appear at the end of their container. Add a placeholder where y
 
 ```text
 {container}
-$v{content: ## Links {button1} -# Thanks for visiting}
-$v{button: https://example.com && Website}
-$v{/container}
+{content: ## Links {button1} -# Thanks for visiting}
+{button: https://example.com && Website}
+{/container}
 ```
 
 `{button1}`, `{button2}` and so on place matching button rows. A placeholder can be part of text or its own part. Each placeholder can be used once and must have a matching row.
@@ -160,11 +160,11 @@ A select menu is a dropdown list. Add a menu with `{select: ...}` and add its ch
 
 ```text
 {container}
-$v{content: Choose a color}
-$v{select: 1 && Pick a color && enabled}
-$v{option: 1 && Red && red && The color of fire}
-$v{option: 1 && Blue && blue && The color of the sea}
-$v{/container}
+{content: Choose a color}
+{select: 1 && Pick a color && enabled}
+{option: 1 && Red && red && The color of fire}
+{option: 1 && Blue && blue && The color of the sea}
+{/container}
 ```
 
 Menu settings are the menu number, placeholder, minimum choices, maximum choices and `enabled`, in that order. The number defaults to 1, the minimum defaults to 1, and the maximum defaults to the minimum (at least 1). Menus are disabled by default; put `enabled` at the end to let people use one.
@@ -191,10 +191,10 @@ You can also paste Discord components JSON instead of a script:
 
 The same checks apply to JSON. It cannot be combined with `content`, `embeds` or a poll. Variables work in JSON too.
 
-Use `$v{pingable: ...}` to allow specific user or role mentions to ping, if the message type supports pings. For example:
+Use `{pingable: ...}` to allow specific user or role mentions to ping, if the message type supports pings. For example:
 
 ```text
-$v{pingable: {user.mention}}
+{pingable: {user.mention}}
 ```
 
 ## Limits
@@ -216,33 +216,33 @@ Existing embed scripts keep working; you do not have to convert them. If you cho
 | Embed scripting | Components |
 | --- | --- |
 | `{embed}`                                                | `{container}` |
-| `$v{title: Hi}`                                          | `$v{content: ## Hi}` |
-| `$v{description: Text}`                                  | `$v{content: Text}` |
-| `$v{author: Name}`                                       | `$v{content: -# Name}` |
-| `$v{footer: Footer}`                                     | `$v{content: -# Footer}` |
-| `$v{color: ...}`, `$v{thumbnail: ...}`, `$v{image: ...}` | Same parts |
-| `$v{url: link}`                                          | A markdown link, such as `[text](link)` |
-| `$v{timestamp}`                                          | A timestamp in text, such as `<t:{date.timestamp}:f>` |
-| `$v{message: Text}`                                      | Not supported; use `content:` or `text:` |
+| `{title: Hi}`                                            | `{content: ## Hi}` |
+| `{description: Text}`                                    | `{content: Text}` |
+| `{author: Name}`                                         | `{content: -# Name}` |
+| `{footer: Footer}`                                       | `{content: -# Footer}` |
+| `{color: ...}`, `{thumbnail: ...}`, `{image: ...}`       | Same parts |
+| `{url: link}`                                            | A markdown link, such as `[text](link)` |
+| `{timestamp}`                                            | A timestamp in text, such as `<t:{date.timestamp}:f>` |
+| `{message: Text}`                                        | Not supported; use `content:` or `text:` |
 
 For fields, format the name in bold and put the value on the next line:
 
 ```text
-$v{content: **Name**
+{content: **Name**
 Value}
 ```
 
 For example, this embed:
 
 ```text
-{embed}$v{title: Welcome}$v{description: Hi {user.mention}}$v{color: #5865F2}$v{thumbnail: {user.avatar}}$v{footer: Enjoy your stay}
+{embed}{title: Welcome}{description: Hi {user.mention}}{color: #5865F2}{thumbnail: {user.avatar}}{footer: Enjoy your stay}
 ```
 
 can be written as:
 
 ```text
-{container}$v{color: #5865F2}$v{content: ## Welcome
-Hi {user.mention}}$v{thumbnail: {user.avatar}}$v{content: -# Enjoy your stay}$v{/container}
+{container}{color: #5865F2}{content: ## Welcome
+Hi {user.mention}}{thumbnail: {user.avatar}}{content: -# Enjoy your stay}{/container}
 ```
 
 If you use an embed-only part in a components script, the error message explains what to use instead.
@@ -250,9 +250,6 @@ If you use an embed-only part in a components script, the error message explains
 ## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="Why does the script say a part is missing `$v`?">
-    Add `$v` before every part after the first. For example, write `$v{content: Hello}` instead of `{content: Hello}`.
-  </Accordion>
   <Accordion title="Why is the container still open or empty?">
     Close a container with `{/container}` before adding a part outside it. You can leave it open only when it is the final part of the message. Every container also needs at least one `content:` text block.
   </Accordion>
@@ -275,7 +272,7 @@ If you use an embed-only part in a components script, the error message explains
     Write colors as hexadecimal values, such as `#5865F2`. Server emojis need their full code, such as `<:name:id>`.
   </Accordion>
   <Accordion title="Why does it say a part is outside any block or missing a closing brace?">
-    Put text inside a part, such as `$v{content: Hello}` or `$v{text: Hello}`, and make sure each part has a closing `}`.
+    Put text inside a part, such as `{content: Hello}` or `{text: Hello}`, and make sure each part has a closing `}`.
   </Accordion>
   <Accordion title="Why can't I use `pingable:` in this message?">
     Some message types do not support pings. Remove the `pingable:` part if the bot reports that the message cannot use it.

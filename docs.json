@@ -24,6 +24,7 @@
           "security/antinuke",
           "security/antiraid",
           "security/moderation",
+          "security/filters",
           "security/fake-permissions"
         ]
       },
