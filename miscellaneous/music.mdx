@@ -121,7 +121,7 @@ You must provide the [current position](#viewing-the-tracks-in-the-queue) and th
 
 ## Controlling Playback
 
-You can control playback with the following commands
+You can control playback with the following commands:
 
 <AccordionGroup>
     <Accordion title="Skipping to the next track">
@@ -133,7 +133,7 @@ You can control playback with the following commands
     <Accordion title="Seeking to a specific position">
         Use the `/queue fastforward` command to seek to a specific position in the track.
         <Tip>
-            The position must use the format `mm:ss` (e.g. `1:20`).
+            The position can be a timestamp to jump to (e.g. `1:20` or `1:02:30`), or an amount to skip forward (e.g. `15`, `30s` or `1m30s`).
         </Tip>
         <CodeGroup>
         ```javascript Syntax
@@ -147,7 +147,7 @@ You can control playback with the following commands
     <Accordion title="Changing the track volume">
         Use the `/volume` command to change the volume.
         <Tip>
-            The percentage must be between `0` and `100`.
+            The percentage must be between `1` and `100`.
         </Tip>
         <CodeGroup>
         ```javascript Syntax
@@ -163,10 +163,10 @@ You can control playback with the following commands
         Use the `/queue repeat` command to set the repeat mode.
         <CodeGroup>
         ```javascript Syntax
-        /queue repeat <off|queue|current>
+        /queue repeat option:<off|queue|current>
         ```
         ```javascript Example
-        /queue repeat current
+        /queue repeat option:current
         ```
         </CodeGroup>
 

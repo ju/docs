@@ -9,28 +9,52 @@ icon: arrows-turn-to-dots
 <Warning>Only [components](/resources/scripting/components) and [embeds](/resources/scripting/embeds) created by bleed can be paginated.</Warning>
 <Steps>
   <Step title="Set the embed">
-    Firstly you must set the embed to work with pagination. ``` /automation pagination set message_link:<message_link>``` 
-    ![pn set](/images/resources/scripting/pagination/set.png)
+    First, you must set the embed to work with pagination.
+    <CodeGroup>
+    ```javascript Syntax
+    /automation pagination set message_link:<message_link>
+    ```
+    </CodeGroup>
+    <Frame>
+      <img src="/images/resources/scripting/pagination/set.png" />
+    </Frame>
   </Step>
   <Step title="Add the next page">
     You can now add further pages to your embed. This command works with adding
-    any number of pages required. ``` /automation pagination add message_link:<message_link> ``` 
-    
-    This will open a modal where you can add the code for your next page. 
-    ![pn add](/images/resources/scripting/pagination/add.png)
+    any number of pages required.
+    <CodeGroup>
+    ```javascript Syntax
+    /automation pagination add message_link:<message_link>
+    ```
+    </CodeGroup>
+    This will open a modal where you can add the code for your next page.
+    <Frame>
+      <img src="/images/resources/scripting/pagination/add.png" />
+    </Frame>
   </Step>
   <Step title="Updating a paginated embed">
     If you need to edit a page you've made during setup, you can use the command
     below.
-     ``` /automation pagination update message_link:<message_link> page:<page number> ```
-
-     This will open a modal where you can edit the code for your page. 
-    ![pn update](/images/resources/scripting/pagination/update.png)
+    <CodeGroup>
+    ```javascript Syntax
+    /automation pagination update message_link:<message_link> page:<page number>
+    ```
+    </CodeGroup>
+    This will open a modal where you can edit the code for your page.
+    <Frame>
+      <img src="/images/resources/scripting/pagination/update.png" />
+    </Frame>
   </Step>
   <Step title="Removing a page">
-    If you want to remove a page you have setup, you can use the below command
-    ``` /automation pagination remove message_link:<message_link> page:<page number> ``` 
-    ![pn remove](/images/resources/scripting/pagination/remove.png)
+    If you want to remove a page you have set up, you can use the command below.
+    <CodeGroup>
+    ```javascript Syntax
+    /automation pagination remove message_link:<message_link> page:<page number>
+    ```
+    </CodeGroup>
+    <Frame>
+      <img src="/images/resources/scripting/pagination/remove.png" />
+    </Frame>
   </Step>
 </Steps>
 
@@ -44,31 +68,26 @@ icon: arrows-turn-to-dots
     ```
     </CodeGroup>
   </Accordion>
-
-{" "}
-
-<Accordion title="Reset all paginated embeds in a guild">
-  <CodeGroup>
+  <Accordion title="Reset all paginated embeds in a guild">
+    <CodeGroup>
     ```javascript Syntax
     /automation pagination reset
     ```
-  </CodeGroup>
-</Accordion>
-
-  <Accordion title="List all active paginations">
-    <CodeGroup>
-      ```javascript Syntax
-      /automation pagination list
-      ```
     </CodeGroup>
   </Accordion>
-  
+  <Accordion title="List all active paginations">
+    <CodeGroup>
+    ```javascript Syntax
+    /automation pagination list
+    ```
+    </CodeGroup>
+  </Accordion>
   <Accordion title="Re-add the navigation reactions">
     Use this command in case the arrow reactions allowing navigation between pages were deleted.
     <CodeGroup>
-      ```javascript Syntax
-      /automation pagination restorereactions message_link:<message_link>
-      ```
+    ```javascript Syntax
+    /automation pagination restorereactions message_link:<message_link>
+    ```
     </CodeGroup>
   </Accordion>
 </AccordionGroup>

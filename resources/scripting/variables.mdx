@@ -5,7 +5,12 @@ icon: "signature"
 ---
 
 These variables are accessible throughout bleed and can be used
-in any command context which contains a `message` or `embed code` parameter (e.g. `welcome`, `leave` & `goodbye`)
+in any command context which contains a `message` or `embed code` parameter (e.g. `welcome`, `goodbye` & `boost`)
+
+<Warning>
+  Variables must be written exactly as shown, without any spaces inside the brackets. Keep in mind that
+  misspelled variables will not cause an error. They will appear as raw text instead.
+</Warning>
 
 <AccordionGroup>
   <Accordion title="Guild">
@@ -14,7 +19,6 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{guild.name}`                    | The guild's name                                                     |
     | `{guild.id}`                      | The guild's ID                                                       |
     | `{guild.count}`                   | The guild's member count                                             |
-    | `{guild.region}`                  | The guild's voice region                                             |
     | `{guild.shard}`                   | The guild's shard ID on bot                                          |
     | `{guild.owner_id}`                | The guild's owner ID                                                 |
     | `{guild.created_at}`              | The guild's creation date in UTC                                     |
@@ -22,7 +26,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{guild.emoji_count}`             | The guild's emoji count                                              |
     | `{guild.role_count}`              | The guild's role count                                               |
     | `{guild.boost_count}`             | The guild's boost count                                              |
-    | `{guild.boost_tier}`              | The guild's boost tier, defaults to No Level if none                 |
+    | `{guild.boost_tier}`              | The guild's boost tier, like `Level 2`, or `No Level` if none        |
     | `{guild.preferred_locale}`        | The guild's preferred locale                                         |
     | `{guild.key_features}`            | The guild's list of features (possibly `N/A`)                        |
     | `{guild.icon}`                    | The guild's icon URL as a PNG (possibly `N/A`)                       |
@@ -47,7 +51,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   <Accordion title="User">
     | Variable                       | Output                                                 |
     | ------------------------------ | ------------------------------------------------------ |
-    | `{user}`                       | The user's name and discriminator                      |
+    | `{user}`                       | The user's username                                    |
     | `{user.id}`                    | The user's ID                                          |
     | `{user.mention}`               | The user's mention                                     |
     | `{user.name}`                  | The user's name                                        |
@@ -67,29 +71,36 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{user.top_role}`              | The user's top role name, defaults to N/A              |
     | `{user.role_list}`             | The user's role list (possibly `N/A`)                  |
     | `{user.role_text_list}`        | The user's role list in text (possibly `N/A`)          |
+    | `{user.role_count}`            | The user's role count (including `@everyone`)          |
     | `{user.bot}`                   | `Yes`/`No` if the user is a bot                        |
     | `{user.badges_icons}`          | The user's profile badges with emotes (possibly `N/A`) |
     | `{user.badges}`                | The user's profile badges in text (possibly `N/A`)     |
     | `{user.join_position}`         | The user's join position                               |
     | `{user.join_position_suffix}`  | The user's join position with suffix                   |
+
+    <Tip>
+      Variables in UNIX can be used with Discord timestamps, such as `<t:{user.created_at_timestamp}:R>`, which will display as **3 years ago**.
+    </Tip>
   </Accordion>
   <Accordion title="Channel">
-    | Variable                   | Output                                                    |
-    | -------------------------- | --------------------------------------------------------- |
-    | `{channel.name}`           | The channel's name                                        |
-    | `{channel.id}`             | The channel's ID                                          |
-    | `{channel.mention}`        | The channel's mention                                     |
-    | `{channel.topic}`          | The channel's topic                                       |
-    | `{channel.type}`           | The channel's type (`text`/`news`/`..`)                   |
-    | `{channel.category_id}`    | The channel's category ID (possibly `N/A`)                |
-    | `{channel.category_name}`  | The channel's category name (possibly `N/A`)              |
-    | `{channel.position}`       | The channel's position in the guild channel list          |
-    | `{channel.slowmode_delay}` | The channel's slowmode delay in seconds (defaults to `0`) |
+    | Variable                    | Output                                                    |
+    | --------------------------- | --------------------------------------------------------- |
+    | `{channel.name}`            | The channel's name                                        |
+    | `{channel.id}`              | The channel's ID                                          |
+    | `{channel.mention}`         | The channel's mention                                     |
+    | `{channel.topic}`           | The channel's topic                                       |
+    | `{channel.type}`            | The channel's type (`text`/`news`/`..`)                   |
+    | `{channel.category_id}`     | The channel's category ID (possibly `N/A`)                |
+    | `{channel.category_name}`   | The channel's category name (possibly `N/A`)              |
+    | `{channel.position}`        | The channel's position in the guild channel list          |
+    | `{channel.slowmode_delay}`  | The channel's slowmode delay in seconds (defaults to `0`) |
+    | `{channel.last_message_id}` | The channel's last message ID                             |
   </Accordion>
   <Accordion title="Date & Time">
     | Variable                  | Output                        |
     | ------------------------- | ----------------------------- |
     | `{date.now}`              | Current date in PST           |
+    | `{date.timestamp}`        | Current date as UNIX          |
     | `{date.utc_timestamp}`    | Current date as UNIX          |
     | `{date.now_proper}`       | Better formatted date in PST  |
     | `{date.now_short}`        | Short formatted date in PST   |
@@ -103,11 +114,51 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{time.utc_now}`          | 12 hour timestamp in UTC      |
     | `{time.utc_now_military}` | 24 hour timestamp in UTC      |
   </Accordion>
+  <Accordion title="Boost">
+    <Info>
+      This section is only available for the `boost` command.
+    </Info>
+    | Variable              | Output                                     |
+    | --------------------- | ------------------------------------------ |
+    | `{boost.count}`       | Amount of times user has boosted           |
+    | `{boost.time_word}`   | `time` or `times` based on the boost count |
+    | `{guild.boost_count}` | Overall guild boost count                  |
+  </Accordion>
+  <Accordion title="Bump Reminder">
+    <Info>
+      This section is only available for the `bumpreminder` command.
+    </Info>
+    | Variable                         | Output                                 |
+    | -------------------------------- | -------------------------------------- |
+    | `{bumpreminder.last_user_bump}`  | The last user to bump the server       |
+    | `{bumpreminder.next_bump}`       | A relative timestamp for the next bump |
+    | `{unix(bumpreminder.next_bump)}` | The next bump in UNIX                  |
+
+    <Tip>
+      `<t:{unix(bumpreminder.next_bump)}:t>` will display the time of the next bump, such as **4:30 PM**.
+      In the reminder message, this is the time the reminder was sent.
+    </Tip>
+  </Accordion>
+  <Accordion title="Confessions">
+    <Info>
+      This section is only available for the **Message** setting on the `/confessions config` command.
+    </Info>
+    The confession variables can be found on the [confessions](/configuration/confessions#customizing-the-message-displayed) page.
+  </Accordion>
+  <Accordion title="Counters">
+    <Info>
+      This section is only available for the `/automation counter` commands.
+    </Info>
+    The counter variables can be found on the [counters](/miscellaneous/counters#naming-a-counter) page.
+  </Accordion>
   <Accordion title="Last.fm">
     <Warning>
       This section is only available for the `lastfm mode` command which requires a
       [subscription](/overview/donator-perks).
     </Warning>
+    <Info>
+      `{proper(...)}` displays a number with commas, such as `1,234`. It can only be used with the variables below, such as `{proper(track.plays)}`.
+    </Info>
     | Variable                 | Output                                                 |
     | ------------------------ | ------------------------------------------------------ |
     | `{user.name}`            | Last.fm username                                       |
@@ -116,16 +167,19 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{proper(user.plays)}`   | Total scrobbles for Last.fm account (formatted number) |
     | `{user.artist_crown}`    | Displays crown emoji if user has crown for artist      |
     | `{user.url}`             | Profile URL for Last.fm account                        |
-    | `{author}`               | Author name and discriminator                          |
+    | `{author}`               | Author username                                        |
     | `{author.name}`          | Author username                                        |
     | `{author.nickname}`      | Author nickname                                        |
-    | `{author.discriminator}` | Author discriminator                                   |
+    | `{author.avatar}`        | Author avatar                                          |
+    | `{author.emoji}`         | Author Last.fm emoji                                   |
     | `{album.name}`           | Current playing album title                            |
     | `{lower(album.name)}`    | Current playing album title in all lowercase           |
+    | `{upper(album.name)}`    | Current playing album title in all uppercase           |
     | `{album.url}`            | Current playing album URL                              |
     | `{album.cover}`          | Current playing album cover                            |
     | `{track.name}`           | Current playing track title                            |
     | `{lower(track.name)}`    | Current playing track title in all lowercase           |
+    | `{upper(track.name)}`    | Current playing track title in all uppercase           |
     | `{track.url}`            | Current playing track URL (from Last.fm)               |
     | `{track.spotify_url}`    | Current playing track URL (from Spotify)               |
     | `{track.release_date}`   | Current playing track release date (from Spotify)      |
@@ -134,37 +188,47 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{proper(track.plays)}`  | Current playing track playcount (formatted with commas)|
     | `{artist.name}`          | Current playing artist name (from Last.fm)             |
     | `{lower(artist.name)}`   | Current playing artist name in all lowercase           |
+    | `{upper(artist.name)}`   | Current playing artist name in all uppercase           |
     | `{artist.plays}`         | Current playing artist plays (from local database)     |
     | `{proper(artist.plays)}` | Current playing artist plays (formatted with commas)   |
     | `{artist.url}`           | Current playing artist URL (from Last.fm)              |
     | `{artist.image}`         | Current playing artist image (from Spotify)            |
   </Accordion>
+  <Accordion title="Leaderboards">
+    <Info>
+      This section is only available for the `/automation leaderboard message` command.
+    </Info>
+    The leaderboard variables can be found on the [leaderboards](/miscellaneous/leaderboards#variables) page.
+  </Accordion>
   <Accordion title="Leveling">
     <Info>
-      This section is only available for the `level message` command.
+      This section is only available for the `/levels message set` command.
     </Info>
     | Variable           | Output                                 |
     | ------------------ | -------------------------------------- |
     | `{level.new_rank}` | Member's new level at time of level up |
     | `{level.user_xp}`  | Member's current XP                    |
   </Accordion>
-  <Accordion title="Boost">
+  <Accordion title="Punishments">
     <Info>
-      This section is only available for the `boost` command.
+      Only available for messages set with the [`/invoke set`](/security/moderation#invoke-messages) command.
     </Info>
-    | Variable              | Output                           |
-    | --------------------- | -------------------------------- |
-    | `{boost.count}`       | Amount of times user has boosted |
-    | `{guild.boost_count}` | Overall guild boost count        |
-  </Accordion>
-  <Accordion title="Bump Reminder">
-    <Info>
-      This section is only available for the `bumpreminder` command.
-    </Info>
-    | Variable                        | Output                                 |
-    | ------------------------------- | -------------------------------------- |
-    | `{bumpreminder.last_user_bump}` | The last user to bump the server       |
-    | `{bumpreminder.next_bump}`      | A relative timestamp for the next bump |
+    | Punishment Variables               | Output                                                                          |
+    | ---------------------------------- | ------------------------------------------------------------------------------- |
+    | `{moderator}`                      | Moderator name who performed action                                             |
+    | `{moderator.name}`                 | Moderator username                                                              |
+    | `{moderator.tag}`                  | Moderator discriminator (will always return 0 due to removal of discriminators) |
+    | `{moderator.avatar}`               | Moderator avatar                                                                |
+    | `{moderator.bot}`                  | Return True or False if mod is a bot                                            |
+    | `{moderator.color}`                | Moderator’s highest role color                                                  |
+    | `{moderator.mention}`              | Mention moderator                                                               |
+    | `{moderator.created_at}`           | Moderator Discord creation date                                                 |
+    | `{moderator.created_at_timestamp}` | Moderator Discord creation date in UNIX                                         |
+    | `{moderator.display_name}`         | Moderator display name                                                          |
+    | `{reason}`                         | Reason for punishment                                                           |
+    | `{duration}`                       | Duration for punishments that use it                                            |
+    | `{invite_url}`                     | Invite URL generated for punishment (softban)                                   |
+    | `{moderator.id}`                   | The ID of the moderator that enacted the punishment                             |
   </Accordion>
   <Accordion title="Roblox">
     | Variable                       | Output                                                     |
@@ -191,9 +255,30 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{roblox.previous_names}`      | A list of the user's past usernames                        |
     | `{roblox.url}`                 | Profile URL for the Roblox account                         |
   </Accordion>
+  <Accordion title="SoundCloud">
+    <Info>
+      This section is only available for the `/social soundcloud message` command. The message must use at least **one** of these variables.
+    </Info>
+    | Variable                | Output                                          |
+    | ----------------------- | ----------------------------------------------- |
+    | `{sc.title}`            | The track's title                               |
+    | `{sc.url}`              | The track's URL                                 |
+    | `{sc.id}`               | The track's ID                                  |
+    | `{sc.artwork.url}`      | The track's artwork URL                         |
+    | `{sc.author.name}`      | The artist's name                               |
+    | `{sc.author.username}`  | The artist's username (from their profile link) |
+    | `{sc.author.full_name}` | The artist's full name                          |
+    | `{sc.author.icon_url}`  | The artist's avatar URL                         |
+  </Accordion>
+  <Accordion title="Tickets">
+    <Info>
+      This section is only available for ticket messages.
+    </Info>
+    The ticket variables can be found on the [ticket variables](/configuration/tickets/variables) page.
+  </Accordion>
   <Accordion title="YouTube">
     <Info>
-      This section is only available for the `youtube message` command.
+      This section is only available for the `/social youtube message` command.
     </Info>
     | Variable                        | Output                        |
     | ------------------------------- | ----------------------------- |
@@ -203,24 +288,5 @@ in any command context which contains a `message` or `embed code` parameter (e.g
     | `{youtube.video.url}`           | The YouTube video's URL       |
     | `{youtube.video.title}`         | The YouTube video's title     |
     | `{youtube.video.thumbnail_url}` | The YouTube video's thumbnail |
-  </Accordion>
-  <Accordion title="Punishments">
-    <Info>
-      Only available for `bandm`, `softbandm`, `kickdm`, `warndm`, `jaildm`, `unjaildm`, `timeoutdm`, `ban message`, `kick message`, etc.
-    </Info>
-    | Punishment Variables     | Output                                                                          |
-    | ------------------------ | ------------------------------------------------------------------------------- |
-    | `{moderator}`            | Moderator name who performed action                                             |
-    | `{moderator.name}`       | Moderator username                                                              |
-    | `{moderator.tag}`        | Moderator discriminator (will always return 0 due to removal of discriminators) |
-    | `{moderator.avatar}`     | Moderator avatar                                                                |
-    | `{moderator.bot}`        | Return True or False if mod is a bot                                            |
-    | `{moderator.color}`      | Moderator’s highest role color                                                  |
-    | `{moderator.mention}`    | Mention moderator                                                               |
-    | `{moderator.created_at}` | Moderator Discord creation date                                                 |
-    | `{reason}`               | Reason for punishment                                                           |
-    | `{duration}`             | Duration for punishments that use it                                            |
-    | `{invite_url}`           | Invite URL generated for punishment (softban)                                   |
-    | `{moderator.id}`         | The ID of the moderator that enacted the punishment                             |
   </Accordion>
 </AccordionGroup>

@@ -34,13 +34,21 @@ For example, `1d` represents one day, and `1w` represents one week. You can also
 When a command has a `punishment:` parameter, you can use it to specify the action to take. The available actions are:
 
 - `warn` to warn the user.
+- `timeout` to timeout the member.
+  - This is only available for **filter** commands.
 - `jail` to jail the user.
 - `kick` to kick the member from the server.
+- `softban` to ban and unban the member, deleting their messages from the last 7 days.
+  - This is only available for the **antiraid** honeypot.
 - `ban` to ban the member from the server.
 - `delete` to delete the message if applicable.
-- `stripstaff` to remove the staff role from the member.
+- `remove` to remove the reaction.
+  - This is only available for **reaction trigger** commands.
+- `stripstaff` to remove the staff roles from the member.
   - This is only available for **antinuke** commands.
-  - This will only work for roles set via the `/settings staff set` command.
-  - You can find more information about setting staff roles in the [moderation](/security/moderation#setting-staff-roles) section.
+  - This will remove every role with a dangerous permission, such as **Administrator**, **Ban Members** or **Manage Roles**.
+  - This will also remove any roles set via [fake permissions](/security/fake-permissions).
+
+Not every command supports every action. The actions available for a command are shown when you fill in the `punishment:` parameter.
 
 For example, to warn a user, you would use `punishment:warn`.

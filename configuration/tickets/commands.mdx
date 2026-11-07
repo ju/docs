@@ -17,11 +17,11 @@ That means:
 - Generic <Badge stroke color="yellow">Staff</Badge> roles **do not** override option-specific trainee behavior.
 
 ---
-# Commands
+## Commands
 
 <Callout icon="command" color="#658A95" iconType="regular">The primary command for the system is `tickets`. It also supports aliases `ticket` and `tix`.</Callout>
 
-<Info>Most commands can be run directly using Discord slash commands - look for the <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> badge next to commands below. You don't need to use the `tickets` prefix (e.g., use `/claim` instead of `tickets claim`).</Info>
+<Info>Most commands can be run directly using Discord slash commands - look for the <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> badge next to commands below. Slash commands can be found under `/tickets` (e.g., `/tickets claim`).</Info>
 
 <Danger>Some commands require the `administrator` permission. If you don't want users to have access to server settings, you can use [Fake Permissions](/security/fake-permissions) to let specific roles use ticket management commands only.</Danger>
 
@@ -37,8 +37,8 @@ These commands let you configure the structure of the tickets system, as well as
     | Command | Description | Example |
     | --------| ----------- | ------- |
     | `tickets resend [channel]` | Resend/recreate a live ticket panel message. | `tickets resend #support` |
-    | `tickets panel [name]` | Manage ticket panels, or open a specific panel by name. | `tickets panel Contact ` |
-    | `tickets form [name]` | Manage reusable ticket forms, or open a specific form by name. | `tickets form ContactForm` |
+    | `tickets panels [name]` | Manage ticket panels, or open a specific panel by name. | `tickets panels Contact` |
+    | `tickets forms [name]` | Manage reusable ticket forms, or open a specific form by name. | `tickets forms ContactForm` |
     | `tickets options` | Manage ticket panel options. | `tickets options` |
     | `tickets blacklist [member OR role]` | View, add, or remove blacklist entries. | `tickets blacklist @bryce` |
     | `tickets profiles` | Manage and disable server-wide ticket profiles. | `tickets profiles` |
@@ -122,15 +122,13 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
     | --------| ----------- | ------- | ---- |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets delete [channel] [reason]`| Delete a ticket and its channel. | `tickets delete #case-1 Spam` | |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets reopen [channel] [reason]`| Reopen a ticket. | `tickets reopen #case-1 Actually needs help` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a ticket to another option. | `tickets move #case-1 Tickets2` | |
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a ticket to another option, or move a regular text channel to a category picked from a dropdown. | `tickets move #case-1 escalated to billing` | For non-ticket channels: The user must have `Manage Channels`. |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets transcript [channel OR case_id]` | Generate or refresh a ticket transcript, or fetch an existing one by case ID. | `tickets transcript #case-1` | |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow [user OR role]` | Allow a user or role to view and send in the current ticket. | `tickets allow @bryce` | |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow list` | List users and roles explicitly allowed in the current ticket. | `tickets allow list` | |
     | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets deny [user OR role]` | Remove a user or role from the current ticket. | `tickets deny @bryce` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow [user OR role]` | Allow a user or role to view and send in the current ticket. | `tickets allow @bryce` |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow list` | List users and roles explicitly allowed in the current ticket. | `tickets allow list` |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets rename [channel] (new name)` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `tickets rename #case-1 closed-case-1` | For non-ticket channels: The user must have `Manage Channels`.
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a regular text channel to a category if you have Manage Channels. | `tickets move #case-1 Tickets2` | For non-ticket channels: The user must have `Manage Channels`.
+    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets rename [channel] (new name)` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `tickets rename #case-1 closed-case-1` | For non-ticket channels: The user must have `Manage Channels`. |
+
     <Info>
       **Extra notes:**
       - `tickets allow` and `tickets deny` require the bot to have `Manage Channels`.
@@ -148,7 +146,7 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | `tickets reason [action] [target] [reason]` | Update a stored ticket action reason. | `tickets reason close #case-1 user was spamming` |
+    | `tickets reason [claim\|close\|reopen\|delete] [channel OR case_id] [reason]` | Update a stored ticket action reason. | `tickets reason close #case-1 user was spamming` |
   </Accordion>
 
   <Accordion title="Trainee Options" icon="graduation-cap">
@@ -156,9 +154,9 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | `tickets trainee` | Manage trainee permissions for the current ticket. | `tickets trainee` |
-    | `tickets trainee grant [member OR role]` | Grant trainee speak/claim/close permissions for the current ticket. | `tickets trainee grant @bryce` |
-    | `tickets trainee revoke [member OR role]` | Revoke trainee speak/claim/close permissions for the current ticket. | `tickets trainee revoke @bryce` |
+    | `tickets trainee` | Show help for the trainee subcommands. | `tickets trainee` |
+    | `tickets trainee grant [member OR role] [speak\|claim\|close\|all]` | Grant trainee speak/claim/close permissions for the current ticket. | `tickets trainee grant @bryce claim` |
+    | `tickets trainee revoke [member OR role] [speak\|claim\|close\|all]` | Revoke trainee speak/claim/close permissions for the current ticket. | `tickets trainee revoke @bryce claim` |
     | `tickets trainee list` | List trainee permission overrides for the current ticket. | `tickets trainee list` |
   </Accordion>
 </AccordionGroup>

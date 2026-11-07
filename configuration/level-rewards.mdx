@@ -82,10 +82,10 @@ You can customize the level-up message that will be sent when a user achieves a 
   Level-up messages start sending at level four. This is intended behavior.
 </Danger>
 <Info>
-  The `message` parameter can be raw text or an [embed](/resources/scripting)
+  The `message` parameter can be raw text or an [embed](/resources/scripting/embeds)
   with dynamic [variables](/resources/scripting/variables).
 </Info>
-<Warning>You must include the `{guild.name}` variable in your message if `messagemode` is set to `pm`.</Warning>
+<Warning>You must include the `{guild.name}` variable in your message if `messagemode` is set to `dm`.</Warning>
 <CodeGroup>
 
 ```javascript Syntax
@@ -93,8 +93,8 @@ You can customize the level-up message that will be sent when a user achieves a 
 ```
 
 ```javascript Example
-/levels message Congrats {user} on reaching level {level.new_rank} in {guild.name}!
-/levels message {embed}$v{message: {user.mention}}$v{description: you have reached level {level.new_rank} in {guild.name}}
+/levels message set text:Congrats {user} on reaching level {level.new_rank} in {guild.name}!
+/levels message set text:{embed}$v{message: {user.mention}}$v{description: you have reached level {level.new_rank} in {guild.name}}
 ```
 
 </CodeGroup>
@@ -111,7 +111,8 @@ There are four options for where the message can be sent:
 
 <CodeGroup>
 ```javascript Syntax
-/levels messagemode channel|dm|here|off channel:<channel> 
+/levels messagemode channel channel:<channel>
+/levels messagemode <dm|here|off>
 ```
 
 ```javascript Example

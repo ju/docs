@@ -43,11 +43,11 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
         /lastfm mode set
 
         {container}
-        $v{content: ### {track.name}
+        {content: ### {track.name}
         by **{artist.name}** on *{album.name}*}
-        $v{thumbnail: {album.cover}}
-        $v{/container}
-        $v{button: blurple && row && 1 && Like && reply: you like {track.name}}
+        {thumbnail: {album.cover}}
+        {/container}
+        {button: blurple && row && 1 && Like && reply: you like {track.name}}
         ```
       </CodeGroup>
     </Accordion>
@@ -106,10 +106,10 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       <Tip>More information on this command can be found in the [Social Notifications](/integrations/social-notifications) section.</Tip>
       <CodeGroup>
         ```javascript Syntax
-        /social instagram add username:<username> channel:
+        /social instagram add username:<username> channel:<channel>
         ```
         ```javascript Example
-        /social instagram add username: jonathan channel: #notifs
+        /social instagram add username:jonathan channel:#notifs
         ```
       </CodeGroup>
     </Accordion>
@@ -138,11 +138,11 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
         /lastfm mode set
 
         {container}
-        $v{content: ### {track.name}
+        {content: ### {track.name}
         by **{artist.name}** on *{album.name}*}
-        $v{thumbnail: {album.cover}}
-        $v{/container}
-        $v{button: blurple && row && 1 && Like && reply: you like {track.name}}
+        {thumbnail: {album.cover}}
+        {/container}
+        {button: blurple && row && 1 && Like && reply: you like {track.name}}
         ```
       </CodeGroup>
     </Accordion>
@@ -221,11 +221,11 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
         /lastfm mode set
 
         {container}
-        $v{content: ### {track.name}
+        {content: ### {track.name}
         by **{artist.name}** on *{album.name}*}
-        $v{thumbnail: {album.cover}}
-        $v{/container}
-        $v{button: blurple && row && 1 && Like && reply: you like {track.name}}
+        {thumbnail: {album.cover}}
+        {/container}
+        {button: blurple && row && 1 && Like && reply: you like {track.name}}
         ```
       </CodeGroup>
     </Accordion>

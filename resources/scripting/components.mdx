@@ -18,7 +18,7 @@ Each part of a script is written in braces. Write parts next to each other:
 - `{content: Hello!}` adds text inside it.
 - `{/container}` closes it.
 
-You can put each part on its own line to make a script easier to read. Spaces and new lines between parts do not change how the script works.
+You can put each part on its own line to make a script easier to read. Spaces and new lines between parts do not change how the script works. Older scripts that join parts with `$v`, such as `{container}$v{content: Hello!}$v{/container}`, still work the same.
 
 <Info>
 A script can use embed scripting or components, but not both.

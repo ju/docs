@@ -167,7 +167,7 @@ flowchart TD
     * The move message can be sent.
     * Timers are recalculated against the new option.
 
-    This applies to command-based moves and drag-based moves. If a ticket is moved with `tickets move`, `/move`, or a supported category drag, it keeps its current claim status.
+    This applies to command-based moves and drag-based moves. If a ticket is moved with `tickets move`, `/tickets move`, or a supported category drag, it keeps its current claim status.
 
     <Tip>
       **Drag-and-Drop Moves:**
@@ -176,7 +176,7 @@ flowchart TD
       If a claimed ticket is dragged somewhere that does not resolve to a unique move target, no automatic move is performed and the existing claim is kept. If a ticket is dragged into *Uncategorized*, no automatic move is performed. The channel stays uncategorized, and if the ticket was claimed, it stays claimed.
     </Tip>
 
-    When using `tickets move` or `/move` on a non-ticket channel, you must have `Manage Channels`. For `/move`, provide the category parameter to pick the destination from Discord's category selector.
+    When using `tickets move` or `/tickets move` on a non-ticket channel, you must have `Manage Channels`. The bot then shows a category dropdown to pick the destination.
   </Accordion>
 
   <Accordion title="5. Close" icon="lock">
@@ -268,5 +268,5 @@ Transcripts allow archival of ticket data in a log channel to be viewed later.
 **Available access paths via commands:**
 * `tickets transcript`
 * `tickets transcript <case_id>`
-* `/transcript`
-* `/transcript case_id:<case_id>`
+* `/tickets transcript`
+* `/tickets transcript case_id:<case_id>`

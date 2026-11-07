@@ -9,7 +9,7 @@ icon: reply
 You can create an auto responder with the `/autoresponder add` command.
 
 <Tip>
-The `message` parameter can be raw text, [components](/resources/scripting/components), or [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
+The `message` parameter can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 
 This command will open a Discord modal where you can specify the content of the message.
 </Tip>
@@ -61,7 +61,7 @@ The following parameters can be used to customize the response
 
 You can remove an auto responder with the `/autoresponder remove` command.
 
-<Info>If you're struggling to remove an auto responder, refer to the [selection removal](/resources/syntax#removing-entries-via-id).</Info>
+<Info>The `trigger` parameter will suggest your existing auto responders as you type.</Info>
 <CodeGroup>
 ```javascript Syntax
 /autoresponder remove trigger:<trigger>

@@ -14,7 +14,7 @@ Moderation commands require some basic setup before they can be used. This inclu
             Jail is a feature similar to mute, but it restricts users from all channels except `#jail`.
         </Info>
 
-        Use the `/config setup` command to create the case logs channel and jail role.
+        Use the `/config setup` command to create the `#jail-log` channel, the `#jail` channel and the jailed role.
     </Step>
     <Step title="Creating the necessary mute roles">
         <Info>
@@ -42,7 +42,7 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
 
 ## Setting Staff Roles
 
-It's important to set the staff roles in your server to ensure that bleed can identify who has dangerous permissions. This is necessary for the `/role stripstaff` punishment to work.
+It's important to set the staff roles in your server so bleed knows which roles to remove with the `/role stripstaff` command.
 
 Use the `/settings staff set` command to set a role as a staff role.
 <Tip>
@@ -62,10 +62,10 @@ The `/invoke set` command opens a Discord modal where you can customize either t
 
 The following moderation commands can be customized:
 
-- `jail`, `kick`, `ban`, `tempban`, `softban`, `hardban`, `timeout` & `warn`.
+- `ban`, `tempban`, `softban`, `hardban`, `unban`, `kick`, `warn`, `jail`, `unjail`, `timeout`, `untimeout`, `mute`, `unmute`, `imute`, `iunmute`, `rmute` & `runmute`.
 
 <Tip>
-The `message` parameter can be raw text, [components](/resources/scripting/components), or [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
+The `message` parameter can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <CodeGroup>
 ```javascript Syntax

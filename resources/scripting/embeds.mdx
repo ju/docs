@@ -6,7 +6,7 @@ icon: brackets-curly
 
 ## Structure
 
-Each parameter in the embed is represented by a key-value pair which is separated by a colon. For example, the `title` parameter will look like `{title: hello {user}}`. The `{user}` is a [variable](/resources/scripting/variables) which will be filled in with the user's display name.
+Each parameter in the embed is represented by a key-value pair which is separated by a colon. For example, the `title` parameter will look like `{title: hello {user}}`. The `{user}` is a [variable](/resources/scripting/variables) which will be filled in with the user's username.
 
 - `{` begins a parameter.
 - `:` separates parameter from content.
@@ -70,12 +70,14 @@ The following parameters require additional arguments which are separated by `&&
         </CodeGroup>
     </Accordion>
     <Accordion title="Button">
-        - `type` - `Link`, `Blurple`, `Green`, `Grey` or `Red`.
+        - `style` - `blurple`, `gray`, `green` or `red`, or a link starting with `https://` for a link button. Styles must be lowercase.
         - `label` - The button label.
-        - `url` - The button URL or emoji.
+        - `emoji` - The button emoji (optional).
+        - `enabled|disabled` - Whether the button can be clicked (optional, defaults to `enabled`).
+        <Info>This is the embed button syntax. [Components](/resources/scripting/components) buttons use a different order.</Info>
         <CodeGroup>
             ```javascript Syntax
-            {button: type && label && url && enabled|disabled}
+            {button: style && label && emoji && enabled|disabled}
             ```
             ```javascript Example
             {button: blurple && heyy && disabled}
@@ -88,10 +90,11 @@ The following parameters require additional arguments which are separated by `&&
 
 ### Variables
 
-You can use dynamic variables in your embeds to display user-specific information. For example, `{user}` will be replaced with the user's display name.
+You can use dynamic variables in your embeds to display user-specific information. For example, `{user}` will be replaced with the user's username.
 
 <Info>You can view the available variables by clicking [here](/resources/scripting/variables).</Info>
- ``` 
+
+```javascript
 {description: {guild.name}}$v{message: Hello! {user.mention}}
 ```
 <Frame>
@@ -108,6 +111,7 @@ If you want to add a new line to your description parameter, you can press `SHIF
 
 Some commands allow both raw text and embed code. Because of this, you'll need to specify if you're entering an embed. To do this, you'll need to begin your embed code with `{embed}$v` then proceed to write your embed code after as normal.
 
-```
- welcome add #channel {embed}$v{message: Welcome to /{guild.name} {user.mention}}$v{description: Welcome}
+```javascript
+/config welcome add channel:#welcome
+{embed}$v{message: Welcome to {guild.name} {user.mention}}$v{description: Welcome}
 ```

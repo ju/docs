@@ -29,10 +29,10 @@ There are three system message commands, each with the same subcommands.
 You can create a system message with the `/config welcome add` command.
 
 <Tip>
-The `message` parameter can be raw text or an [embed](/resources/scripting) with dynamic [variables](/resources/scripting/variables).
+The `message` parameter can be raw text or an [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <Info>
-The `--self_destruct` flag in system messages schedules the message for
+The `self_destruct` parameter in system messages schedules the message for
 deletion after a specified time, which must be between `6` and `60` seconds.
 </Info>
 
@@ -45,7 +45,7 @@ This command will open a Discord modal where you can specify the content of the 
 
 ```javascript Example
 /config welcome add channel:#general self_destruct:30 pingable:True
-welcome to {guild} {user.mention}
+welcome to {guild.name} {user.mention}
 
 /config welcome add channel:#general pingable:True
 {embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
@@ -59,7 +59,7 @@ welcome to {guild} {user.mention}
   <img src="/images/configuration/messages/system/modal.png" />
 </Frame>
 
-# Removing a system message
+## Removing a system message
 
 You can remove a system message with the `/config welcome remove` command.
 
@@ -70,7 +70,7 @@ You can remove a system message with the `/config welcome remove` command.
 ```
 
 ```javascript Example
-/config welcome remove channel:#joneral
+/config welcome remove channel:#general
 ```
 
 </CodeGroup>
@@ -86,7 +86,6 @@ You can remove a system message with the `/config welcome remove` command.
     <CodeGroup>
     ```javascript Syntax
     /config welcome view channel:<channel>
-    ```
     ```
 
     ```javascript Example
