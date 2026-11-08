@@ -6,6 +6,54 @@ icon: bullhorn
 
 This page lists updates and improvements to bleed, with the newest changes first.
 
+## November 7, 2026 -- Saturday Night Update
+
+### New Features
+
+- You can now customize bleed's namestyle with `/config customize namestyle`!
+- Crypto got a big upgrade:
+  - `/crypto alert` DMs you when a coin goes above or below a price.
+  - `/crypto convert` converts between coins and currencies.
+  - `/crypto chart` draws a candlestick chart with period buttons.
+  - `/crypto fees` shows Bitcoin network fees.
+  - `/crypto address` looks up a wallet's balance and latest transactions.
+  - `/crypto top` shows the biggest coins and today's movers.
+- `/crypto subscribe` now works for Litecoin and Ethereum, can wait for up to 50 confirmations, and can tell you by DM.
+- Confessions are here! Members post with `/confess`, from their DMs with the bot or in server. Use `/confessions config` to get started.
+- `/filter names` cleans fancy text like `𝓭𝓮𝓻𝓻𝓲𝓬𝓴` and hoisting symbols out of member names, automatically or all at once with `/filter names cleanup`.
+- Counters got a big upgrade:
+  - Name counters with variables like `{guild.count}`.
+  - Show a crypto price in 15 currencies.
+  - Set goals and post milestones to a channel.
+  - See one counter's settings with `/automation counter config`.
+- Counting now has a don't-reset option, pinned numbers and role rewards.
+- `/logs forum` make a forum post for each kind of log event, all on one webhook.
+- `/logs message` change a log post's opening message to any message, embed or components script.
+- `/channel copyperms` copies one channel's permissions onto another, replacing them or merging with `merge:`.
+- `/music config` puts the DJ role, volume, autoplay and a new Max Bitrate switch on one card.
+- Claimed tickets can keep trainees visible with the new Keep Trainees Visible On Claim toggle.
+- Ticket support roles can now manage the ticket blacklist.
+- Ticket logs can now go to a thread post.
+
+### Changed Behavior
+
+- `/queue view` got a whole new look.
+- Names cleaned by the name filter show up in your Member Updated log with the reason "Name Filter".
+- Timed tempbans, mutes and jails are limited to a year.
+- Reposts and feeds show up to ten images.
+
+### Bug Fixes
+
+- Fixed ten ticket bugs, including:
+  - Support roles losing a ticket after an unclaim.
+  - A full Closed or Claimed category stopping a close or claim.
+  - Double presses of the ticket buttons.
+- A components ticket panel no longer loses everything but its dropdown when a ticket form is sent.
+- A button role removed by editing its message can be added back now.
+- `/queue rewind` and `/queue fastforward` now properly move from the current position.
+- `{user.display_name}` and `{moderator.display_name}` give the display name in punishment messages.
+- Bump reminders are working again after DISBOARD changed its bump reply.
+
 ## October 31, 2026 -- Halloween Update
 
 ### New Features
@@ -18,7 +66,7 @@ This page lists updates and improvements to bleed, with the newest changes first
 - Required roles let you lock reaction roles, button roles and dropdown menus behind other roles.
 - Button roles now work on components messages, and you can choose where each button goes.
 - New `voice_members` counter that shows how many people are in voice across your server.
-- Counting is here! Use `,counting` or `/game counting` and try to beat your server's high score.
+- Counting is here! Use `/game counting` and try to beat your server's high score.
 - Play Connect 4 with `/game connect4`, with stats and a leaderboard.
 - `/utility todo` gives you a private to-do list with priorities, notes and an undo button.
 - `/automation leaderboard` posts message and voice leaderboards for the specified timeframe.
@@ -39,10 +87,10 @@ This page lists updates and improvements to bleed, with the newest changes first
 - bleed has a fresh new look. Status replies, lists, the music queue, `/userinfo`, and avatar, banner and icon replies now use Components V2 instead of traditional embeds.
 - Filters are slash-only now, so every `,filter` command points you to `/filter`.
 - Some slash commands have new homes: playback controls like pause, resume, shuffle and repeat are under `/queue`, tickets are under `/tickets`, crypto is under `/crypto`, and lookups like `/xbox` and `/steam` are under `/lookup profile`.
+- The VoiceMaster activity button was replaced with a music mode toggle.
 - `/nowplaying` is now `/fm` and `/lastfm now`.
 - Prefix and slash commands now share cooldowns.
 - Last.fm library updates are much faster.
-- The VoiceMaster activity button now toggles music mode.
 
 ### Bug Fixes
 
