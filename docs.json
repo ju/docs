@@ -77,7 +77,6 @@
           "configuration/bump-reminder",
           "configuration/reaction-triggers",
           "configuration/command-aliases",
-          "configuration/confessions",
           "configuration/suggestions",
           "configuration/channels",
           "configuration/command-access",
@@ -91,8 +90,9 @@
           "miscellaneous/webhook",
           "miscellaneous/giveaway",
           "miscellaneous/counters",
-          "miscellaneous/counting",
-          "miscellaneous/leaderboards"
+          "miscellaneous/games",
+          "miscellaneous/leaderboards",
+          "miscellaneous/confessions"
         ]
       },
       {

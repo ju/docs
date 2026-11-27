@@ -6,11 +6,24 @@ icon: "user-plus"
 
 ## Overview
 
-You can add **bleed** directly to your Discord account as a user-installed app. Once installed, you can run bleed's slash commands in direct messages, group DMs, and any server—even servers that do not have bleed installed.
+You can add **bleed** directly to your Discord account as a user-installed app. Once installed, you can run bleed's slash commands and context menu apps in direct messages, group DMs, and any server—even servers that do not have bleed installed.
+
+<Warning>
+  Using bleed through a user install requires an active [donator tier](/overview/donator-perks) or an active paid server subscription for bleed.
+</Warning>
 
 <Info>
-  User-installed apps only work with **slash commands** (`/`). Adding bleed to your account does not let it read your messages or send messages as you; it only responds when you invoke a command.
+  User-installed apps only work with **slash commands** (`/`) and **Apps** context menu actions. Adding bleed to your account does not let it read your messages or send messages as you; it only responds when you invoke a command.
 </Info>
+
+## Access levels
+
+Members without an active donator tier or an active paid server subscription cannot use bleed's commands through a user install.
+
+| Tier | Who has it | What it unlocks |
+| --- | --- | --- |
+| **Tier 1** | Tier 1 members | Every standard command below |
+| **Tier 2** | Tier 2, Tier 3 members, and anyone with an active paid server subscription for bleed | Every standard command, plus the advanced commands |
 
 ## Adding bleed to your account
 
@@ -29,34 +42,75 @@ You can add **bleed** directly to your Discord account as a user-installed app. 
   </Step>
 </Steps>
 
-## Available commands
+## Standard commands (Tier 1)
 
-Most personal, lookup, media, utility, and fun commands are available with a user install:
+Every subcommand in the groups below is available with **Tier 1**, except for the [advanced commands](#advanced-commands-tier-2) and [server-only commands](#not-available-through-a-user-install).
 
-- **Integrations:** `/lastfm`, `/spotify`, `/fortnite`, and `/roblox`
-- **Search & lookups:** `/lookup`, `/search`, `/google`, `/image`, `/define`, `/lyrics`, `/shazam`, `/weather`, and `/inviteinfo`
-- **Media & editing:** `/media` (filters, animations, captions, scenes, TTS, transcription) and `/ocr`
-- **Personal & utilities:** `/avatar`, `/banner`, `/userinfo`, `/translate`, `/timezone`, `/remind`, `/birthday`, `/afk`, `/crypto`, `/utility`, `/help`, and `/ping`
-- **Games & roleplay:** `/game` and `/roleplay`
+### Groups
+
+| Command | Description |
+| --- | --- |
+| `/utility` | Utility tools |
+| `/lookup` | Look up profiles and media |
+| `/search` | Search the web |
+| `/fortnite` | Fortnite stats and shop |
+| `/roblox` | Roblox profiles, inventory, and outfits |
+| `/crypto` | Cryptocurrency prices |
+| `/game` | Tic-tac-toe, Connect 4, and more |
+| `/roleplay` | Roleplay actions |
+| `/media` | Edit and convert media |
+| `/remind` | Reminders |
+| `/timezone` | Your timezone |
+| `/afk` | Set yourself as away |
+| `/spotify` | Spotify playback and search |
+| `/fm` | Your current Last.fm track |
+| `/lastfm` | Last.fm stats, charts, and collages |
+| `/birthday` | Set and view birthdays |
+
+### Single commands
+
+`/avatar`, `/banner`, `/userinfo`, `/inviteinfo`, `/define`, `/weather`, `/translate`, `/image`, `/lyrics`, `/ping`, and `/help`
+
+### Apps
+
+**Translate**
+
+## Advanced commands (Tier 2)
+
+These commands are more resource-intensive to run, so they require **Tier 2** (Tier 2 or Tier 3 donator, legacy donator, or an active paid server subscription for bleed).
+
+| Group | Commands |
+| --- | --- |
+| `/utility` | `dl`, `makemp3`, `run` |
+| `/search` | `chatgpt`, `reverseimage` |
+| `/media` | `transcribe`, `tts`, `gif`, `animate`, `filter`, `scene`, `text`, `screenshot` |
+| `/lookup` | `instagram`, `fyp`, `image` |
+| Single commands | `/ocr`, `/google`, `/shazam` |
+
+**Apps:** **OCR**, **Transcribe**, **Identify a song**, **Convert MP4 into MP3**, **Convert MP4 to GIF**, and **Quote**
+
+<Info>
+  `/utility dl` requires **Tier 2** everywhere, including in servers with bleed.
+</Info>
+
+## Not available through a user install
+
+The subcommands below require bleed to be in the server, so they only work in servers that have bleed installed. They may still appear when you type `/` with a user install, but bleed will reply that they are server-only.
+
+| Group | Subcommands |
+| --- | --- |
+| `/lastfm` | `whoknows`, `board server`, `board crowns`, `board mostcrowns`, `playing`, `vote`, `hide`, `custom`, `config react`, `config customreactions`, `config url` |
+| `/spotify` | `vc` |
+| `/game` | `blacktea`, `juul`, `counting`, `wyr` |
+| `/afk` | `mentions` |
+| `/birthday` | Everything except `set` and `view` |
+| `/roblox` | `fromdiscord`, `todiscord` |
 
 ## Differences from a server install
 
-Because a user install runs through your account rather than as a member of a server, some features behave differently or remain server-only:
+Because a user install runs through your account rather than as a member of a server, a few rules and limitations still apply:
 
-- **Slash commands only:** Prefix commands (such as `,av`) and message triggers require bleed to be in the server.
+- **Server rules still apply:** In a server where bleed is installed, your user install follows that server's configuration. Any command the server has disabled or restricted, or any channel it ignores, stays blocked for you too. Servers blacklisted from bleed also refuse user-installed commands.
+- **Slash commands and Apps only:** Prefix commands and message triggers require bleed to be in the server.
 - **No server configuration or moderation:** Security systems (antinuke, antiraid, filters, moderation), tickets, logging, starboard, VoiceMaster, self-roles, and other server automation are only available when bleed is added to a server.
-- **No server-scoped or voice features:** Commands that depend on a server or voice channel—such as music playback, `/spotify vc`, or server-wide leaderboards and configurations—cannot run in DMs or servers without bleed.
 - **Managing or removing:** You can remove bleed from your account at any time in Discord under **User Settings** → **Authorized Apps**.
-
-### Server-only commands
-
-The commands below still appear when you type `/` with a user install, but bleed will reply that they only work in servers.
-
-<AccordionGroup>
-  <Accordion title="Server-only commands" icon="server">
-    - **Birthdays:** `/birthday config` and `/birthday list`
-    - **Games:** `/game blacktea start`, `/game blacktea end`, `/game counting config` and every `/game juul` command
-    - **Last.fm:** `/lastfm board server`, `/lastfm board crowns`, `/lastfm board mostcrowns`, `/lastfm whoknows` (artist, album and track), `/lastfm playing`, `/lastfm hide`, `/lastfm custom` and `/lastfm config react`
-    - **Spotify:** `/spotify vc`
-  </Accordion>
-</AccordionGroup>
