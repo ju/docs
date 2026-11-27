@@ -155,6 +155,16 @@ Thresholds define how many actions trigger the module, and punishment defines
 what happens when it is triggered. For modules that support command detection,
 enable it to include actions performed with bleed commands.
 
+<Warning>
+  bleed cannot revert a vanity URL change due to Discord limitations. It can
+  only punish the member who made it.
+</Warning>
+
+<Info>
+  To let a bot join while **Deny Bot Joins** is on, whitelist it first with
+  `/antinuke whitelist add user:<bot>`.
+</Info>
+
 <Info>
   Thresholds count actions made within **9 seconds** and can be from `1` to
   `100`. It's recommended to keep thresholds between `1` and `6`. Available
@@ -188,13 +198,3 @@ enable it to include actions performed with bleed commands.
     Kicks bots that were added without being whitelisted first.
   </Card>
 </CardGroup>
-
-<Warning>
-  bleed cannot revert a vanity URL change due to Discord limitations. It can
-  only punish the member who made it.
-</Warning>
-
-<Info>
-  To let a bot join while **Deny Bot Joins** is on, whitelist it first with
-  `/antinuke whitelist add user:<bot>`.
-</Info>
