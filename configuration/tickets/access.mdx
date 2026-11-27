@@ -52,20 +52,20 @@ Support visibility is controlled per option. If an option does not define suppor
 ---
 
 ## Manual Ticket Access
-<Callout icon="ticket" color="#658A95" iconType="regular">These commands only apply to the ticket they are used in.</Callout>
+<Callout icon="ticket" color="#658A95" iconType="regular">These commands apply to the current ticket channel by default, or to the specific ticket passed in `channel:`.</Callout>
 
 <AccordionGroup>
   <Accordion title="Allow Member or Role" icon="user-plus">
-    Explicitly lets a user or a role view and send messages in the current ticket while it is open.
+    Explicitly lets a user or a role view and send messages in the current ticket or the ticket specified while it is open.
     <CodeGroup>
 
 ```javascript Syntax
-/tickets allow add target:<member|role>
+/tickets allow add target:<member|role> channel:<channel>
 ```
 
 ```javascript Example
 /tickets allow add target:@bryce
-/tickets allow add target:@Helper
+/tickets allow add target:@Helper channel:#ticket-123
 ```
 
 </CodeGroup>

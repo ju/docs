@@ -98,7 +98,7 @@ current track.
 ### Changing the playback device
 
 You can use the `/spotify device transfer` command to change the device that **Spotify** is
-playing on.
+playing on. Use `/spotify device list` to see your available devices.
 
 <Frame>
   <img src="/images/integrations/spotify/device.png" />
@@ -114,8 +114,8 @@ The following commands can be used to interact with the queue
 | `/spotify previous` | Play the previous track             |
 | `/spotify pause`    | Pause the current track             |
 | `/spotify resume`   | Resume the current track            |
-| `/spotify shuffle`  | Toggle queue shuffling              |
-| `/spotify repeat`   | Toggle repeating the track or queue |
+| `/spotify shuffle`                                     | Set queue shuffling (`On` or `Off`; defaults to `On` if `state` is empty) |
+| `/spotify repeat mode:<Playlist or Album\|Track\|Off>` | Repeat the playlist/album, current track, or turn repeat off              |
 
 ## Non-Premium Commands
 
@@ -133,7 +133,7 @@ The following commands can be used without a **Spotify Premium** subscription
         You can use the `/spotify topartists` and `/spotify toptracks` commands to
         view your top artists and tracks for a specified time frame.
         <Info>
-        The timeframe must be `1m`, `6m`, or `1y`.
+        The optional `duration` timeframe accepts `Overall (1 Year)`, `Semi-Annually (6 Months)`, or `Monthly (1 Month)` (defaults to overall if left empty).
         </Info>
         <CodeGroup>
             ```javascript Syntax
@@ -142,8 +142,20 @@ The following commands can be used without a **Spotify Premium** subscription
             ```
 
             ```javascript Example
-            /spotify topartists duration:1m
-            /spotify toptracks duration:6m
+            /spotify topartists duration:Monthly (1 Month)
+            /spotify toptracks duration:Semi-Annually (6 Months)
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Searching for a track">
+        You can use the `/spotify search` command to find a track on Spotify (no Spotify login or Premium required).
+        <CodeGroup>
+            ```javascript Syntax
+            /spotify search track:<track>
+            ```
+
+            ```javascript Example
+            /spotify search track:Blinding Lights
             ```
         </CodeGroup>
     </Accordion>

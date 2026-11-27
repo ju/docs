@@ -6,7 +6,7 @@ icon: face-smile
 
 ## Manually reacting to a message
 
-You can use the `reaction` command to react to a message with bleed.
+You can use the `/reaction apply` command to react to a message with bleed.
 
 <CodeGroup>
 
@@ -49,38 +49,19 @@ You can create a reaction trigger with the `/reaction add` command.
     <img src="/images/configuration/reaction-triggers/add.png" />
 </Frame>
 
-### Viewing who added a reaction trigger
-
-You can use the `/reaction owner` command to view who added a reaction trigger.
-
-<CodeGroup>
-```javascript Syntax
-/reaction owner trigger:<trigger>
-```
-
-```javascript Example
-/reaction owner trigger:jon
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/reaction-triggers/owner.png" />
-</Frame>
-
 ## Removing a reaction trigger
 
 You can remove a reaction trigger with the `/reaction remove` command.
 
-<Info>The `trigger` parameter will suggest your existing reaction triggers as you type.</Info>
+<Info>The `trigger` parameter will suggest your existing reaction triggers as you type. You can leave `emoji` empty if the trigger only has one emoji.</Info>
 <CodeGroup>
 
 ```javascript Syntax
-/reaction remove emoji:<emoji> trigger:<trigger>
+/reaction remove trigger:<trigger> emoji:<emoji>
 ```
 
 ```javascript Example
-/reaction remove emoji:😍 trigger:jon
+/reaction remove trigger:jon emoji:😍
 ```
 
 </CodeGroup>
@@ -89,34 +70,14 @@ You can remove a reaction trigger with the `/reaction remove` command.
     <img src="/images/configuration/reaction-triggers/remove.png" />
 </Frame>
 
-### Removing all reactions for a trigger
-
-You can remove all reactions for a trigger with the `/reaction removeall` command.
-
-<CodeGroup>
-
-```javascript Syntax
-/reaction removeall trigger:<trigger>
-```
-
-```javascript Example
-/reaction removeall trigger:jon
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/reaction-triggers/removeall.png" />
-</Frame>
-
 ## Reacting to every message
 
 If you're interested in having reactions on every message, you can use the `/reaction messages set` command.
 This is useful for channels like `#selfies` where messages can be voted on.
 
 <Warning>
-  The channel must either be set as `imgonly` or have a slowmode of at least
-  **one minute**.
+  The channel must have a slowmode of at least **one minute**. This works well alongside an
+  [image-only](/configuration/channels#image-only-channels) channel.
 </Warning>
 <CodeGroup>
 
@@ -157,14 +118,49 @@ You can use the `/reaction messages remove` command to remove all auto reactions
 ## Related commands
 
 <AccordionGroup>
-    <Accordion title="Removing all reaction triggers">
-        You can use the `/reaction clear` command to remove all reaction triggers.
+    <Accordion title="Managing reaction triggers">
+        You can use `/reaction menu` to view, add, or remove up to **250** reaction triggers, see who added each trigger, or switch to **Auto-React Channels** and **Previous Message Triggers** with the bottom selector.
+        <CodeGroup>
+        ```javascript Syntax
+        /reaction menu
+        ```
+        </CodeGroup>
+        <Frame>
+            <img src="/images/configuration/reaction-triggers/menu.png" />
+        </Frame>
     </Accordion>
-    <Accordion title="Viewing all reaction triggers">
-        You can use the `/reaction list` command to view all reaction triggers.
+    <Accordion title="Managing auto-react channels">
+        You can use `/reaction messages menu` (or the shared selector in `/reaction menu`) to view and manage up to **3** channels receiving automatic reactions.
+        <CodeGroup>
+        ```javascript Syntax
+        /reaction messages menu
+        ```
+        </CodeGroup>
     </Accordion>
-    <Accordion title="Viewing all channels that are receiving reactions">
-        You can use the `/reaction messages list` command to view all channels receiving reactions.
+    <Accordion title="Previous-message triggers">
+        You can react to the previous message when a trigger matches using `/reaction previousreact add` and `/reaction previousreact remove`, or manage up to **100** triggers with `/reaction previousreact menu` (or the shared selector in `/reaction menu`).
+        <CodeGroup>
+        ```javascript Syntax
+        /reaction previousreact add emoji:<emoji> trigger:<trigger>
+        /reaction previousreact remove trigger:<trigger> emoji:<emoji>
+        /reaction previousreact menu
+        ```
+
+        ```javascript Example
+        /reaction previousreact add emoji:💀 trigger:what
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Preventing self-reactions">
+        You can use `/reaction noselfreact` to open the **No Self React** configuration menu, where you can toggle **No Self React** and **Staff Bypass**, set a **Punishment**, and view configured **Emojis** and **Exemptions**.
+        <CodeGroup>
+        ```javascript Syntax
+        /reaction noselfreact
+        ```
+        </CodeGroup>
+        <Frame>
+            <img src="/images/configuration/reaction-triggers/noselfreact.png" />
+        </Frame>
     </Accordion>
 
 </AccordionGroup>

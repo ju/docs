@@ -23,10 +23,11 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
     </Info>
 <AccordionGroup>
     <Accordion title="ChatGPT">
-      Ask ChatGPT a question.
+      Ask ChatGPT a question (optionally with an image attachment).
+      <Info>This command requires boosting the [bleed Discord server](https://discord.gg/bleed).</Info>
       <CodeGroup>
       ```javascript Syntax
-      /search chatgpt question:<question>
+      /search chatgpt question:<question> attachment:<file>
       ```
       ```javascript Example
       /search chatgpt question:am i cute?
@@ -34,14 +35,16 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Mode">
-      Customize the embed layout of the `/fm` command.
+      Customize the embed or components layout of the `/fm` command. Running this command opens a Discord modal for your layout; set `reply:True` to send your track as a reply to your message.
       <CodeGroup>
         ```javascript Syntax
-        /lastfm mode set
+        /lastfm mode set reply:<True|False>
+        /lastfm mode view
+        /lastfm mode clear
         ```
         ```javascript Example
         /lastfm mode set
-
+        // Entered in the modal:
         {container}
         {content: ### {track.name}
         by **{artist.name}** on *{album.name}*}
@@ -58,7 +61,7 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
         /lastfm config customreactions upvote:<emote> downvote:<emote>
         ```
         ```javascript Example
-        /lastfm config customreactions upvote: 👍 downvote: 👎
+        /lastfm config customreactions upvote:👍 downvote:👎
         ```
       </CodeGroup>
     </Accordion>
@@ -66,10 +69,10 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Easily convert a video to a GIF.
       <CodeGroup>
         ```javascript Syntax
-        /media gif url:<url> quality: fps: fast_forward:
+        /media gif url:<url> attachment:<file> quality:<quality> fps:<fps> fast_forward:<speed>
         ```
         ```javascript Example
-        /media gif url: https://bleed.bot/backflip.mp4 quality: 100 fps: 30 fast_forward: 2
+        /media gif url:https://bleed.bot/backflip.mp4 quality:100 fps:30 fast_forward:2
         ```
       </CodeGroup>
     </Accordion>
@@ -77,27 +80,40 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Remove the background from an image.
       <CodeGroup>
         ```javascript Syntax
-        /media filter transparent url:<url>
+        /media filter transparent url:<url> attachment:<file> member:<member>
         ```
         ```javascript Example
-        /media filter transparent url: https://bleed.bot/epic_face.png
+        /media filter transparent url:https://bleed.bot/epic_face.png
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Media Downloader">
+      Download media from a link.
+      <CodeGroup>
+        ```javascript Syntax
+        /utility dl url:<url>
+        ```
+        ```javascript Example
+        /utility dl url:https://example.com/video.mp4
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="VoiceMaster Ghost">
-      Hide your temporary VoiceMaster channel.
+      Hide or reveal your temporary VoiceMaster channel.
       ```javascript Syntax
-      /voicemaster ghost 
+      /voicemaster ghost
+      /voicemaster unghost
       ```
     </Accordion>
     <Accordion title="Custom Prefix">
-      Set your own custom command prefix across all servers that utilize bleed.
+      Set or remove your own custom command prefix across all servers that utilize bleed.
       <CodeGroup>
         ```javascript Syntax
-        /config prefix self prefix:<prefix>
+        /prefix self prefix:<prefix>
+        /prefix selfremove
         ```
         ```javascript Example
-        /config prefix self prefix:j
+        /prefix self prefix:j
         ```
       </CodeGroup>
     </Accordion>
@@ -118,10 +134,11 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
   <Tab title="Tier 2">
     <AccordionGroup>
     <Accordion title="ChatGPT">
-      Ask ChatGPT a question.
+      Ask ChatGPT a question (optionally with an image attachment).
+      <Info>This command requires boosting the [bleed Discord server](https://discord.gg/bleed).</Info>
       <CodeGroup>
       ```javascript Syntax
-      /search chatgpt question:<question>
+      /search chatgpt question:<question> attachment:<file>
       ```
       ```javascript Example
       /search chatgpt question:am i cute?
@@ -129,14 +146,16 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Mode">
-      Customize the embed layout of the `/fm` command.
+      Customize the embed or components layout of the `/fm` command. Running this command opens a Discord modal for your layout; set `reply:True` to send your track as a reply to your message.
       <CodeGroup>
         ```javascript Syntax
-        /lastfm mode set
+        /lastfm mode set reply:<True|False>
+        /lastfm mode view
+        /lastfm mode clear
         ```
         ```javascript Example
         /lastfm mode set
-
+        // Entered in the modal:
         {container}
         {content: ### {track.name}
         by **{artist.name}** on *{album.name}*}
@@ -153,7 +172,7 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
         /lastfm config customreactions upvote:<emote> downvote:<emote>
         ```
         ```javascript Example
-        /lastfm config customreactions upvote: 👍 downvote: 👎
+        /lastfm config customreactions upvote:👍 downvote:👎
         ```
       </CodeGroup>
     </Accordion>
@@ -161,10 +180,10 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Easily convert a video to a GIF.
       <CodeGroup>
         ```javascript Syntax
-        /media gif url:<url> quality: fps: fast_forward:
+        /media gif url:<url> attachment:<file> quality:<quality> fps:<fps> fast_forward:<speed>
         ```
         ```javascript Example
-        /media gif url: https://bleed.bot/backflip.mp4 quality: 100 fps: 30 fast_forward: 2
+        /media gif url:https://bleed.bot/backflip.mp4 quality:100 fps:30 fast_forward:2
         ```
       </CodeGroup>
     </Accordion>
@@ -172,27 +191,40 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       Remove the background from an image.
       <CodeGroup>
         ```javascript Syntax
-        /media filter transparent url:<url>
+        /media filter transparent url:<url> attachment:<file> member:<member>
         ```
         ```javascript Example
-        /media filter transparent url: https://bleed.bot/epic_face.png
+        /media filter transparent url:https://bleed.bot/epic_face.png
+        ```
+      </CodeGroup>
+    </Accordion>
+    <Accordion title="Media Downloader">
+      Download media from a link.
+      <CodeGroup>
+        ```javascript Syntax
+        /utility dl url:<url>
+        ```
+        ```javascript Example
+        /utility dl url:https://example.com/video.mp4
         ```
       </CodeGroup>
     </Accordion>
     <Accordion title="VoiceMaster Ghost">
-      Hide your temporary VoiceMaster channel.
+      Hide or reveal your temporary VoiceMaster channel.
       ```javascript Syntax
       /voicemaster ghost
+      /voicemaster unghost
       ```
     </Accordion>
     <Accordion title="Custom Prefix">
-      Set your own custom command prefix across all servers that utilize bleed.
+      Set or remove your own custom command prefix across all servers that utilize bleed.
       <CodeGroup>
         ```javascript Syntax
-        /config prefix self prefix:<prefix>
+        /prefix self prefix:<prefix>
+        /prefix selfremove
         ```
         ```javascript Example
-        /config prefix self prefix:j
+        /prefix self prefix:j
         ```
       </CodeGroup>
     </Accordion>
@@ -201,10 +233,11 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
   <Tab title="Tier 1">
     <AccordionGroup>
     <Accordion title="ChatGPT">
-      Ask ChatGPT a question.
+      Ask ChatGPT a question (optionally with an image attachment).
+      <Info>This command requires boosting the [bleed Discord server](https://discord.gg/bleed).</Info>
       <CodeGroup>
       ```javascript Syntax
-      /search chatgpt question:<question>
+      /search chatgpt question:<question> attachment:<file>
       ```
       ```javascript Example
       /search chatgpt question:am i cute?
@@ -212,14 +245,16 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
       </CodeGroup>
     </Accordion>
     <Accordion title="Last.fm Mode">
-      Customize the embed layout of the `/fm` command.
+      Customize the embed or components layout of the `/fm` command. Running this command opens a Discord modal for your layout; set `reply:True` to send your track as a reply to your message.
       <CodeGroup>
         ```javascript Syntax
-        /lastfm mode set
+        /lastfm mode set reply:<True|False>
+        /lastfm mode view
+        /lastfm mode clear
         ```
         ```javascript Example
         /lastfm mode set
-
+        // Entered in the modal:
         {container}
         {content: ### {track.name}
         by **{artist.name}** on *{album.name}*}
@@ -236,7 +271,7 @@ Donator perks can be purchased via **server subscriptions** in our [Support Serv
         /lastfm config customreactions upvote:<emote> downvote:<emote>
         ```
         ```javascript Example
-        /lastfm config customreactions upvote: 👍 downvote: 👎
+        /lastfm config customreactions upvote:👍 downvote:👎
         ```
       </CodeGroup>
     </Accordion>

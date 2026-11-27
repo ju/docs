@@ -6,7 +6,7 @@ icon: puzzle-piece
 
 ## Structure
 
-Components messages are made from text, containers, images, separators, buttons and select menus. You can use them anywhere the bot lets you set a custom message, including welcome, goodbye and boost messages, tags, sticky messages, timers, bump reminders, punishment messages, Last.fm now playing and `/config component create`.
+Components messages are made from text, containers, images, separators, buttons and select menus. You can use them anywhere the bot lets you set a custom message, including welcome, goodbye and boost messages, tags, [sticky messages](/configuration/messages/sticky), timers, bump reminders, punishment messages, Last.fm now playing and `/config component menu`.
 
 Each part of a script is written in braces. Write parts next to each other:
 
@@ -208,6 +208,39 @@ The bot checks Discord's limits before sending and reports which limit was excee
 - **Pings:** Up to 100 members and 100 roles in `pingable:`.
 
 Some features have additional limits. For example, a Last.fm now playing script must be under 600 characters.
+
+## Saving Components Messages
+
+Use `/config component menu` (up to **500** saved components) and the commands below to build, save, post, and edit components messages. Requires **Manage Messages**.
+
+| Command | Description |
+| --- | --- |
+| `/config component menu` | Open the components manager to create, list, preview, or remove saved components. |
+| `/config component preview` | Post a saved component in the current channel. Add `file` to upload a file for a `{file: name}` part. |
+| `/config component edit` | Edit a components message you posted with bleed. |
+| `/config component code` | Copy a components message's code. Use `json` to get the Discord components JSON instead. |
+
+<CodeGroup>
+```javascript Syntax
+/config component menu
+/config component preview name:<name> file:<file>
+/config component edit message_link:<message_link>
+/config component code message_link:<message_link> json:<True|False>
+```
+
+```javascript Examples
+/config component preview name:welcome
+/config component code message_link:.../channels/... json:True
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/resources/scripting/components/menu.png" />
+</Frame>
+
+<Tip>
+  `/config component code` is an easy way to copy a message you like, change it, and post it again.
+</Tip>
 
 ## Switching From Embed Scripting
 

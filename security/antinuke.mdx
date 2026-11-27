@@ -25,15 +25,22 @@ Antinuke sets a limit on the number of actions a moderator can perform in a cert
   feature.
 </Tip>
 
-### Configuring modules with the modal
+### Configuring modules
 
-Run `/antinuke config` to open the antinuke configuration modal. The modal shows
-which modules are enabled and lets you select a module to configure its
-settings. Use the matching commands in [configuring with commands](#configuring-with-commands)
-if you prefer to configure the antinuke with commands instead of the modal.
+Run `/antinuke config` to open the antinuke configuration panel. The panel shows
+which modules are enabled and lets you select a module from the dropdown to
+configure it, toggle **Deny Bot Joins**, edit **Watched Permissions**, or view
+your **Whitelist** and **Admins**.
 
-<Frame caption="The antinuke configuration modal shows enabled modules and lets you select a module to configure.">
-  <img src="/images/security/antinuke/config-modal.png" alt="Antinuke configuration modal with the module selector open" />
+<Frame caption="The antinuke configuration panel shows enabled modules and lets you select a module to configure.">
+  <img src="/images/security/antinuke/config-modal.png" alt="Antinuke configuration panel" />
+</Frame>
+
+Selecting a module from **Change antinuke module...** opens its form, where you
+can set its status, punishment, threshold and command detection.
+
+<Frame caption="The Mass Kicks module form.">
+  <img src="/images/security/antinuke/mass-kicks.png" alt="Mass Kicks module form" />
 </Frame>
 
 
@@ -78,9 +85,17 @@ To remove an antinuke admin, use `/antinuke admin remove`.
 ```
 </CodeGroup>
 
+Use the **View** button beside **Admins** in `/antinuke config` to see every
+antinuke admin.
+
+<Frame>
+  <img src="/images/security/antinuke/admins-view.png" alt="Antinuke configuration with the admins list open" />
+</Frame>
+
 #### Exempting users from the antinuke
 
-You can exempt users from the antinuke with the `/antinuke whitelist` command.
+You can exempt users from the antinuke with `/antinuke whitelist add` and
+`/antinuke whitelist remove`.
 
 <Warning>
   This is a dangerous command and will allow the user to bypass the antinuke
@@ -104,35 +119,19 @@ You can exempt users from the antinuke with the `/antinuke whitelist` command.
 <br />
 
 <Frame>
-  ![](/images/security/antinuke/whitelist.png)
+  <img src="/images/security/antinuke/whitelist.png" />
 </Frame>
 
-### Configuring with commands
+### Available protections
 
 #### Watching permission changes
 
-Use these commands to watch permission grants or removals, remove a permission
-from the watch list, or view the permissions currently watched. When a watched
-permission changes on a role, bleed reverts the change and reports who made it.
+Select the pencil button beside **Watched Permissions** in `/antinuke config` to
+watch permission grants or removals. When a watched permission changes on a
+role, bleed reverts the change, reports who made it, and can optionally punish
+the member who made the change.
 
-<CodeGroup>
-
-```javascript Syntax
-/antinuke permissions watch direction:<direction> permission:<permission>
-/antinuke permissions unwatch direction:<direction> permission:<permission>
-/antinuke permissions list
-```
-
-```javascript Example
-/antinuke permissions watch direction:granted permission:manage_roles
-/antinuke permissions unwatch direction:removed permission:manage_roles
-/antinuke permissions list
-```
-
-</CodeGroup>
-
-Use `list` to see which permissions are currently watched. Available permission
-values are:
+Available permission values are:
 
 | Permissions          |
 | -----------          |
@@ -149,212 +148,53 @@ values are:
 | `manage_expressions` |
 | `manage_nicknames`   |
 
-#### Configuring modules
+#### Protection modules
 
-Set `setting` to `On` or `Off`. Thresholds define how many actions trigger the
-module, and punishment defines what happens when it is triggered. For modules
-that support `command_detection`, set it to `True` to include actions performed
-with bleed commands.
+Each module can be toggled on or off and configured in `/antinuke config`.
+Thresholds define how many actions trigger the module, and punishment defines
+what happens when it is triggered. For modules that support command detection,
+enable it to include actions performed with bleed commands.
 
 <Info>
-  It's recommended to keep thresholds between `1` and `6`. Available
+  Thresholds count actions made within **9 seconds** and can be from `1` to
+  `100`. It's recommended to keep thresholds between `1` and `6`. Available
   punishments are listed in the [punishments](/resources/syntax#punishments)
   section.
 </Info>
 
-<AccordionGroup>
-  <Accordion title="Punishing members for changing the vanity URL">
-    You can prevent members from changing the vanity URL with the following command:
+<CardGroup cols={2}>
+  <Card title="Mass Bans" icon="gavel">
+    Stops members from being banned in bulk. Supports command detection.
+  </Card>
+  <Card title="Mass Kicks" icon="user-minus">
+    Stops members from being kicked in bulk. Supports command detection.
+  </Card>
+  <Card title="Role Deletes" icon="id-badge">
+    Stops roles from being deleted in bulk. Supports command detection.
+  </Card>
+  <Card title="Channels" icon="hashtag">
+    Stops channels from being created or deleted in bulk.
+  </Card>
+  <Card title="Emoji Deletes" icon="face-smile">
+    Stops emojis from being deleted in bulk.
+  </Card>
+  <Card title="Webhooks" icon="plug">
+    Stops webhooks from being created in bulk.
+  </Card>
+  <Card title="Vanity" icon="link">
+    Punishes members who change the server's vanity URL.
+  </Card>
+  <Card title="Deny Bot Joins" icon="robot">
+    Kicks bots that were added without being whitelisted first.
+  </Card>
+</CardGroup>
 
-    <Warning>
-      bleed cannot revert the vanity URL due to Discord limitations.
-    </Warning>
-    <CodeGroup>
+<Warning>
+  bleed cannot revert a vanity URL change due to Discord limitations. It can
+  only punish the member who made it.
+</Warning>
 
-    ```javascript Syntax
-    /antinuke vanity setting:<On or Off> punishment:<punishment>
-    ```
-
-    
-    ```javascript Example
-    /antinuke vanity setting:On punishment:ban
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/vanity.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing bots from being added">
-    You can prevent bots from being mass added with the following command:
-
-    <Info>
-      Add a bot to the whitelist with `/antinuke whitelist add user:<bot>`.
-    </Info>
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke botadd setting:<On or Off>
-    ```
-
-    
-    ```javascript Example
-    /antinuke botadd setting:On
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/botadd.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing members from being banned">
-    You can prevent members from being mass banned with the following command:
-
-    <Info>
-      Set `command_detection` to `True` to include bans performed with bleed
-      commands.
-    </Info>
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke ban setting:<On or Off> punishment:<punishment> threshold:<number> command_detection:<True or False>
-    ```
-
-    
-    ```javascript Example
-    /antinuke ban setting:On punishment:ban threshold:3 command_detection:True
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/ban.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing members from being kicked">
-    You can prevent members from being mass kicked with the following command:
-
-    <Info>
-      Set `command_detection` to `True` to include kicks performed with bleed
-      commands.
-    </Info>
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke kick setting:<On or Off> punishment:<punishment> threshold:<number> command_detection:<True or False>
-    ```
-
-    
-    ```javascript Example
-    /antinuke kick setting:On punishment:ban threshold:3 command_detection:True
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/kick.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing roles from being deleted">
-    You can prevent roles from being mass deleted with the following command:
-
-    <Info>
-      Set `command_detection` to `True` to include role changes performed with
-      bleed commands.
-    </Info>
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke role setting:<On or Off> punishment:<punishment> threshold:<number> command_detection:<True or False>
-    ```
-
-    
-    ```javascript Example
-    /antinuke role setting:On punishment:kick threshold:3 command_detection:True
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/role.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing channels from being created or deleted">
-    You can prevent channels from being mass created or deleted with the following command:
-
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke channel setting:<On or Off> punishment:<punishment> threshold:<number>
-    ```
-
-    
-    ```javascript Example
-    /antinuke channel setting:On punishment:ban threshold:3
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/channel.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing emojis from being deleted">
-    You can prevent emojis from being mass deleted with the following command:
-
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke emoji setting:<On or Off> punishment:<punishment> threshold:<number>
-    ```
-
-    
-    ```javascript Example
-    /antinuke emoji setting:On punishment:ban threshold:3
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/emoji.png)
-    </Frame>
-  </Accordion>
-  <Accordion title="Preventing webhooks from being created">
-    You can prevent webhooks from being mass created with the following command:
-
-    <CodeGroup>
-
-    ```javascript Syntax
-    /antinuke webhook setting:<On or Off> punishment:<punishment> threshold:<number>
-    ```
-
-    
-    ```javascript Example
-    /antinuke webhook setting:On punishment:ban threshold:3
-    ```
-
-    </CodeGroup>
-
-    <br />
-
-    <Frame>
-      ![](/images/security/antinuke/webhook.png)
-    </Frame>
-  </Accordion>
-</AccordionGroup>
+<Info>
+  To let a bot join while **Deny Bot Joins** is on, whitelist it first with
+  `/antinuke whitelist add user:<bot>`.
+</Info>

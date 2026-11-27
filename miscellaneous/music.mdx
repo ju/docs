@@ -6,42 +6,21 @@ icon: music
 
 ## Configuration
 
-### Setting the DJ role
+You can view and change **DJ Role**, **Volume** (defaults to `20%`), **Autoplay**, and **Max Bitrate** on one card with `/music config` (requires `Manage Server`):
 
-You can set a DJ role which restricts who can control the music player.
-
-<CodeGroup>
-```javascript Syntax
-/settings dj role:<role>
-```
-
-```javascript Example
-/settings dj role:@DJ
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/miscellaneous/music/bind-dj.png" />
-</Frame>
-
-### Auto play similar tracks
-
-You can toggle auto play which will automatically play similar tracks when the queue is empty.
+- **DJ Role** — Restricts who can control the music player.
+- **Volume** — Sets the default player volume.
+- **Autoplay** — Automatically plays similar tracks when the queue is empty.
+- **Max Bitrate** — Sets the voice channel to the max bitrate.
 
 <CodeGroup>
 ```javascript Syntax
-/settings autoplay setting:<On|Off>
+/music config
 ```
-
-```javascript Example
-/settings autoplay setting:On
-```
-
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/miscellaneous/music/bind-autoplay.png" />
+  <img src="/images/miscellaneous/music/config.png" />
 </Frame>
 
 ## Queueing Music
@@ -58,7 +37,7 @@ You can queue music with the `/play` command.
 
 <CodeGroup>
 ```javascript Syntax
-/play query:<query> next:<True|False>
+/play query:<query> next:<True|False> attachment:<file>
 ```
 
 ```javascript Example
@@ -131,21 +110,23 @@ You can control playback with the following commands:
         Use the `/queue pause` & `/queue resume` commands to pause and resume playback.
     </Accordion>
     <Accordion title="Seeking to a specific position">
-        Use the `/queue fastforward` command to seek to a specific position in the track.
+        Use the `/queue fastforward` command to seek to a specific position in the track, or `/queue rewind` to go back.
         <Tip>
             The position can be a timestamp to jump to (e.g. `1:20` or `1:02:30`), or an amount to skip forward (e.g. `15`, `30s` or `1m30s`).
         </Tip>
         <CodeGroup>
         ```javascript Syntax
         /queue fastforward position:<position>
+        /queue rewind position:<position>
         ```
         ```javascript Example
         /queue fastforward position:2:30
+        /queue rewind position:30s
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Changing the track volume">
-        Use the `/volume` command to change the volume.
+        Use the `/volume` command to view or change the volume. Leave `volume` empty to view the current volume.
         <Tip>
             The percentage must be between `1` and `100`.
         </Tip>
@@ -163,10 +144,10 @@ You can control playback with the following commands:
         Use the `/queue repeat` command to set the repeat mode.
         <CodeGroup>
         ```javascript Syntax
-        /queue repeat option:<off|queue|current>
+        /queue repeat option:<Off|Queue|Current Track>
         ```
         ```javascript Example
-        /queue repeat option:current
+        /queue repeat option:Current Track
         ```
         </CodeGroup>
 
@@ -176,7 +157,7 @@ You can control playback with the following commands:
 
 ## Music Filters
 
-You can use an equalizer preset to adjust how the audio sounds.
+You can use an equalizer preset to adjust how the audio sounds. Each preset takes a `setting` to turn it on or off, such as `/preset nightcore setting:On`.
 
 <Info>
   You can view which presets are applied with the `/preset active` command.

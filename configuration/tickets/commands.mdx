@@ -19,9 +19,7 @@ That means:
 ---
 ## Commands
 
-<Callout icon="command" color="#658A95" iconType="regular">The primary command for the system is `tickets`. It also supports aliases `ticket` and `tix`.</Callout>
-
-<Info>Most commands can be run directly using Discord slash commands - look for the <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> badge next to commands below. Slash commands can be found under `/tickets` (e.g., `/tickets claim`).</Info>
+<Info>All ticket commands are available as Discord slash commands under `/tickets` (e.g., `/tickets claim`). Parameters in `(parentheses)` are required, and parameters in `[brackets]` are optional.</Info>
 
 <Danger>Some commands require the `administrator` permission. If you don't want users to have access to server settings, you can use [Fake Permissions](/security/fake-permissions) to let specific roles use ticket management commands only.</Danger>
 
@@ -36,12 +34,12 @@ These commands let you configure the structure of the tickets system, as well as
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | `tickets resend [channel]` | Resend/recreate a live ticket panel message. | `tickets resend #support` |
-    | `tickets panels [name]` | Manage ticket panels, or open a specific panel by name. | `tickets panels Contact` |
-    | `tickets forms [name]` | Manage reusable ticket forms, or open a specific form by name. | `tickets forms ContactForm` |
-    | `tickets options` | Manage ticket panel options. | `tickets options` |
-    | `tickets blacklist [member OR role]` | View, add, or remove blacklist entries. | `tickets blacklist @bryce` |
-    | `tickets profiles` | Manage and disable server-wide ticket profiles. | `tickets profiles` |
+    | `/tickets resend (channel)` | Resend/recreate a live ticket panel message. | `/tickets resend channel:#support` |
+    | `/tickets panels [name]` | Manage ticket panels, or open a specific panel by name. | `/tickets panels name:Contact` |
+    | `/tickets forms [name]` | Manage reusable ticket forms, or open a specific form by name. | `/tickets forms name:ContactForm` |
+    | `/tickets options` | Manage ticket panel options. | `/tickets options` |
+    | `/tickets blacklist [target]` | View, add, or remove blacklist entries (member or role). Ticket support roles can also use this command. | `/tickets blacklist target:@bryce` |
+    | `/tickets profiles` | Manage and disable server-wide ticket profiles. | `/tickets profiles` |
   </Accordion>
 
   <Accordion title="Stats & Listings" icon="chart-bar">
@@ -52,8 +50,8 @@ These commands let you configure the structure of the tickets system, as well as
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets stats [30m\|2h\|4h20m\|3d\|2w\|today\|all] [member]` | Show ticket stats for the server, or workload stats for a staff member. | `tickets stats 2w @bryce` |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets list` | List all open tickets in the server. | `tickets list` |
+    | `/tickets stats [window] [member]` | Show ticket stats for the server, or workload stats for a staff member (e.g. `30m`, `2h`, `4h20m`, `3d`, `2w`, `today`, `all`). | `/tickets stats window:2w member:@bryce` |
+    | `/tickets list` | List all open tickets in the server. | `/tickets list` |
   </Accordion>
 
   <Accordion title="Server Profiles" icon="id-card">
@@ -65,8 +63,8 @@ These commands let you configure the structure of the tickets system, as well as
 
     | Command | Description | Example | Note |
     | --------| ----------- | ------- | ----------- |
-    | `tickets profile` | Manage your personal ticket claim profile. | `tickets profile` | |
-    | `tickets profiles` (see note to the right) | Manage and disable server-wide ticket profiles. | `tickets profiles` | **This command requires the `administrator` permission.** |
+    | `/tickets profile` | Manage your personal ticket claim profile. | `/tickets profile` | |
+    | `/tickets profiles` (see note to the right) | Manage and disable server-wide ticket profiles. | `/tickets profiles` | **This command requires the `administrator` permission.** |
   </Accordion>
 </AccordionGroup>
 
@@ -91,8 +89,8 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets claim [channel] [reason]`| Claim a ticket. | `tickets claim #case-1 bryce is now handling this ticket` |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets unclaim [channel]` | Remove the current claimer from a ticket. | `tickets unclaim #case-1` |
+    | `/tickets claim [channel] [reason]` | Claim a ticket. | `/tickets claim channel:#case-1 reason:bryce is now handling this ticket` |
+    | `/tickets unclaim [channel]` | Remove the current claimer from a ticket. | `/tickets unclaim channel:#case-1` |
   </Accordion>
 
   <Accordion title="Closing" icon="door-closed">
@@ -106,11 +104,11 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets close [channel] [reason]`| Close a ticket. | `tickets close Resolved!` |
+    | `/tickets close [channel] [reason]` | Close a ticket. | `/tickets close reason:Resolved!` |
   </Accordion>
 
   <Accordion title="Ticket Modifications" icon="bolt">
-    For modifying ticket channels, these all share the same main access rule (**Delete, Reopen, Move, Transcript, Allow, Deny, Allow List, Unclaim**).
+    For modifying ticket channels, these all share the same main access rule (**Delete, Reopen, Move, Transcript, Allow, Allow List, Deny, Rename**).
 
     **These require one of the following:**
     - The current claimer
@@ -120,20 +118,20 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example | Notes |
     | --------| ----------- | ------- | ---- |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets delete [channel] [reason]`| Delete a ticket and its channel. | `tickets delete #case-1 Spam` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets reopen [channel] [reason]`| Reopen a ticket. | `tickets reopen #case-1 Actually needs help` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets move [channel] [reason]`| Move a ticket to another option, or move a regular text channel to a category picked from a dropdown. | `tickets move #case-1 escalated to billing` | For non-ticket channels: The user must have `Manage Channels`. |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets transcript [channel OR case_id]` | Generate or refresh a ticket transcript, or fetch an existing one by case ID. | `tickets transcript #case-1` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow [user OR role]` | Allow a user or role to view and send in the current ticket. | `tickets allow @bryce` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets allow list` | List users and roles explicitly allowed in the current ticket. | `tickets allow list` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets deny [user OR role]` | Remove a user or role from the current ticket. | `tickets deny @bryce` | |
-    | <Badge icon="slash-forward" color="green" size="sm" shape="pill"></Badge> `tickets rename [channel] (new name)` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `tickets rename #case-1 closed-case-1` | For non-ticket channels: The user must have `Manage Channels`. |
+    | `/tickets delete [channel] [reason]` | Delete a ticket and its channel. | `/tickets delete channel:#case-1 reason:Spam` | |
+    | `/tickets reopen [channel] [reason]` | Reopen a ticket. | `/tickets reopen channel:#case-1 reason:Actually needs help` | |
+    | `/tickets move [channel] [reason]` | Move a ticket to another option, or move a regular text channel to a category picked from a dropdown. | `/tickets move channel:#case-1 reason:escalated to billing` | For non-ticket channels: The user must have `Manage Channels`. |
+    | `/tickets transcript [channel] [case_id]` | Generate or refresh a ticket transcript, or fetch an existing one by case ID. | `/tickets transcript channel:#case-1` | |
+    | `/tickets allow add (target) [channel]` | Allow a user or role to view and send in a ticket. | `/tickets allow add target:@bryce` | |
+    | `/tickets allow list [channel]` | List users and roles explicitly allowed in a ticket. | `/tickets allow list` | |
+    | `/tickets deny (target) [channel]` | Remove a user or role from a ticket. | `/tickets deny target:@bryce` | |
+    | `/tickets rename (name) [channel]` | Rename a ticket channel, or rename any text channel if you have Manage Channels. | `/tickets rename name:closed-case-1 channel:#case-1` | For non-ticket channels: The user must have `Manage Channels`. |
 
     <Info>
       **Extra notes:**
-      - `tickets allow` and `tickets deny` require the bot to have `Manage Channels`.
-      - `tickets delete` is strict for trainees. A trainee cannot delete a ticket.
-      - `tickets transcript` by case ID falls back to archived transcript access. If there is no matching live ticket record, only the server owner or an administrator can access it.
+      - `/tickets allow add` and `/tickets deny` require the bot to have `Manage Channels`.
+      - `/tickets delete` is strict for trainees. A trainee cannot delete a ticket.
+      - `/tickets transcript` by case ID falls back to archived transcript access. If there is no matching live ticket record, only the server owner or an administrator can access it.
     </Info>
   </Accordion>
 
@@ -146,7 +144,7 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | `tickets reason [claim\|close\|reopen\|delete] [channel OR case_id] [reason]` | Update a stored ticket action reason. | `tickets reason close #case-1 user was spamming` |
+    | `/tickets reason (action) (reason) [channel] [case_id]` | Update a stored ticket action reason (`claim`, `close`, `reopen`, or `delete`). | `/tickets reason action:close reason:user was spamming channel:#case-1` |
   </Accordion>
 
   <Accordion title="Trainee Options" icon="graduation-cap">
@@ -154,10 +152,9 @@ Because ticket ecosystems have so many users and actions, **permissions are stri
 
     | Command | Description | Example |
     | --------| ----------- | ------- |
-    | `tickets trainee` | Show help for the trainee subcommands. | `tickets trainee` |
-    | `tickets trainee grant [member OR role] [speak\|claim\|close\|all]` | Grant trainee speak/claim/close permissions for the current ticket. | `tickets trainee grant @bryce claim` |
-    | `tickets trainee revoke [member OR role] [speak\|claim\|close\|all]` | Revoke trainee speak/claim/close permissions for the current ticket. | `tickets trainee revoke @bryce claim` |
-    | `tickets trainee list` | List trainee permission overrides for the current ticket. | `tickets trainee list` |
+    | `/tickets trainee grant (target) [permissions] [channel]` | Grant trainee `speak`, `claim`, `close`, or `all` permissions for a ticket (grants all three if `permissions` is left empty). | `/tickets trainee grant target:@bryce permissions:claim` |
+    | `/tickets trainee revoke (target) [permissions] [channel]` | Revoke trainee `speak`, `claim`, `close`, or `all` permissions for a ticket. | `/tickets trainee revoke target:@bryce permissions:claim` |
+    | `/tickets trainee list [channel]` | List trainee permission overrides for a ticket. | `/tickets trainee list` |
   </Accordion>
 </AccordionGroup>
 

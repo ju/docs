@@ -14,11 +14,11 @@ icon: clock
 You can create an auto message with the `/automation timer add` command.
 
 <Info>
-  The `interval` parameter must use the proper format, you can learn more
+  The `interval` parameter is optional (defaults to `10 minutes` if left empty) and must use the proper format—you can learn more
   [here](/resources/syntax#formatting-a-duration).
 </Info>
 <Tip>
-This command will open a Discord modal where you can enter your message. The `message` can be raw text, [components](/resources/scripting/components) or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
+This command will open a Discord modal where you can enter your message. The message can be raw text, [components](/resources/scripting/components) or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <CodeGroup>
 
@@ -27,7 +27,7 @@ This command will open a Discord modal where you can enter your message. The `me
 ```
 
 ```javascript Example
-/automation timer add channel:#general interval:2h 
+/automation timer add channel:#general interval:2h
 Hello people! This is an auto message that will be sent every 2 hours.
 ```
 
@@ -59,21 +59,15 @@ You can remove an auto message with the `/automation timer remove` command.
 ## Related commands
 
 <AccordionGroup>
-  <Accordion title="Viewing an auto message">
-    You can use the `/automation timer view` command to view an auto message.
+  <Accordion title="Managing auto messages">
+    You can use `/automation timer menu` to view, add, or remove up to **15** auto messages. Select **Options** to edit messages or toggle **Activity** so auto messages only post after new messages in the channel.
     <CodeGroup>
     ```javascript Syntax
-    /automation timer view channel:<channel>
+    /automation timer menu
     ```
-
-    ```javascript Example
-    /automation timer view channel:#general
-    ```
-
     </CodeGroup>
-
-  </Accordion>
-  <Accordion title="Viewing all auto messages">
-    You can use the `/automation timer list` command to view all auto messages.
+    <Frame>
+      <img src="/images/configuration/messages/timer/menu.png" />
+    </Frame>
   </Accordion>
 </AccordionGroup>

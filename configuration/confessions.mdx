@@ -6,7 +6,7 @@ icon: user-secret
 
 ## What are confessions?
 
-Confessions are anonymous messages that members can post to a confessions channel using the `/confess` command. Each confession is posted by bleed with a number, such as **Confession #12**, and staff are never able to see who wrote it.
+Confessions are anonymous messages that members can post to a confessions channel using the `/confess` command. Each confession is posted by bleed with a number, such as **Confession #12**, and regular staff cannot see who wrote it. Only the **server owner** can view who sent a confession using `/confessions author`.
 
 <Frame>
   <img src="/images/configuration/confessions/confession.png" />
@@ -18,8 +18,7 @@ Confessions are anonymous messages that members can post to a confessions channe
 
 ## Getting started
 
-Use `/confessions config` to view the current configuration of confessions. The buttons on this message
-allow you to change the configuration of confessions, as these settings cannot be changed with commands.
+Use `/confessions config` to view and change your server's confessions settings, including toggling **Anonymous** mode, **Threads**, limits, allowed content, and previewing your confession message. These settings are managed directly from the panel.
 
 <Frame>
   <img src="/images/configuration/confessions/config.png" />
@@ -61,15 +60,16 @@ Members can post a confession using the `/confess` command. This command will op
 
 ## Blocking members
 
-You can block a member from posting confessions using the `/confessions block` command. You can also block the author of a confession by using its number, without revealing who they are.
+You can block a member from posting confessions using the `/confessions block` command (leaving `length` empty blocks them forever). You can also block the author of a confession by using its number, without revealing who they are.
 
 <Info>
-  If you no longer want to block the member, you can use the `/confessions unblock` command. Alternatively, you can use the **Blocked** button on the `/confessions config` message to view and unblock members.
+  If you no longer want to block a member (or confession author), you can use the `/confessions unblock` command with `confession:` or `member:`. Alternatively, you can use the **Blocked** button on the `/confessions config` message to view and unblock members.
 </Info>
 
 <CodeGroup>
 ```javascript Syntax
 /confessions block confession:<number>|member:<member> length:<Forever|1 day|7 days|30 days>
+/confessions unblock confession:<number>|member:<member>
 ```
 
 ```javascript Examples
@@ -116,6 +116,7 @@ You can use the **Who Can Post** button to require a role, a minimum account age
 ### Allowing attachments, links and mentions
 
 You can use the **Allowed** button to toggle if attachments, links and mentions are allowed in confessions. All three are disabled by default.
+
 ### Blocking words
 
 You can use the **Blocked Words** button to block words and phrases from confessions. Enter one word or phrase on each line.
@@ -175,6 +176,25 @@ You can use the `/confessions delete` command to delete a confession by its numb
 
 ```javascript Example
 /confessions delete confession:12
+```
+
+</CodeGroup>
+
+## Viewing a confession's author
+
+The server owner can use the `/confessions author` command to view who sent a confession by its number.
+
+<Warning>
+  This command can only be used by the **server owner**.
+</Warning>
+
+<CodeGroup>
+```javascript Syntax
+/confessions author confession:<number>
+```
+
+```javascript Example
+/confessions author confession:12
 ```
 
 </CodeGroup>

@@ -6,9 +6,7 @@ icon: person-to-door
 
 ## Configuring antiraid
 
-Use `/antiraid config` to view the server's antiraid settings. The panel summarizes which protections are enabled and their current settings. Select the pencil button beside a protection to edit it in a modal. 
-
-You can also use the standalone slash commands below without opening the configuration panel.
+Use `/antiraid config` to view and configure your server's antiraid settings. Select the pencil button beside a module to edit it, or **View** to manage your honeypot channels and whitelist.
 
 <CodeGroup>
 ```javascript Syntax
@@ -28,19 +26,9 @@ You can also use the standalone slash commands below without opening the configu
 
 ### Mass joins
 
-This module will trigger when the number of accounts joining the server exceeds the threshold within a short time frame. Configure how many joins trigger the protection, what punishment to use, and whether to lock channels.
+This module triggers when the number of accounts joining the server exceeds the threshold within a short time frame. Select the pencil button beside **Mass Joins** in `/antiraid config` to set the punishment, threshold, and whether to lock channels and punish joins during the raid.
 
-The threshold is the number of accounts that can join the server within the time frame.
-        <Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
-<CodeGroup>
-```javascript Syntax
-/antiraid massjoin setting:<On|Off> threshold:<number> punishment:<ban|kick> lock_channels:<True|False> punish_new_members:<True|False>
-```
-
-```javascript Example
-/antiraid massjoin setting:On threshold:5 punishment:ban lock_channels:True punish_new_members:True
-```
-</CodeGroup>
+<Info>It's recommended to keep the threshold between `5` and `10` to stay safe.</Info>
 
 <Warning>
   Whenever the threshold is reached, the server will be placed in a raid state.
@@ -54,17 +42,7 @@ The threshold is the number of accounts that can join the server within the time
 
 ### New accounts
 
-This module will trigger when an account joins the server that is younger than the specified threshold age.
-
-<CodeGroup>
-```javascript Syntax
-/antiraid newaccounts setting:<On|Off> days:<age> punishment:<ban|kick>
-```
-
-```javascript Example
-/antiraid newaccounts setting:On days:7 punishment:ban
-```
-</CodeGroup>
+This module triggers when an account joins the server that is younger than the specified age in days. Select the pencil button beside **New Accounts** in `/antiraid config` to configure it.
 
 <Frame>
   <img src="/images/security/antiraid/age.png" />
@@ -72,17 +50,7 @@ This module will trigger when an account joins the server that is younger than t
 
 ### Default avatars
 
-This module will trigger when an account joins the server without an avatar. Use the pencil button or run `/antiraid avatar` directly to configure this protection.
-
-<CodeGroup>
-```javascript Syntax
-/antiraid avatar setting:<On|Off> punishment:<ban|kick>
-```
-
-```javascript Example
-/antiraid avatar setting:On punishment:kick
-```
-</CodeGroup>
+This module triggers when an account joins the server without an avatar. Select the pencil button beside **Default Avatars** in `/antiraid config` to configure it.
 
 <Frame>
   <img src="/images/security/antiraid/avatar.png" />
@@ -90,33 +58,19 @@ This module will trigger when an account joins the server without an avatar. Use
 
 ## Honeypot
 
-A honeypot is a bait channel. Anyone who posts in one of your honeypot channels will be punished, making the feature useful for catching compromised accounts or automated spammers. 
-
-Use **View** beside Honeypot in `/antiraid config` to see the configured channels.
+A honeypot is a bait channel. Anyone who posts in one of your honeypot channels will be punished (`Ban`, `Softban`, or `Jail`), making the feature useful for catching compromised accounts or automated spammers. Select **View** beside **Honeypot** in `/antiraid config` to add or remove up to **5** honeypot channels.
 
 <Warning>
   Anyone who posts in a honeypot channel may be punished.
 </Warning>
 
 <Callout icon="shield" color="#658A95" iconType="regular">
-  All honeypot commands require the **Administrator** permission.
+  Managing honeypot channels requires the **Administrator** permission.
 </Callout>
 
 <Info>
-  All honeypot punishments are recorded in your server's designated moderation log channel. You can configure where these logs are sent using the `/settings modlog` command.
+  All honeypot punishments are recorded in your server's designated moderation log channel. You can view and configure your moderation log channel using `/settings config`.
 </Info>
-
-<CodeGroup>
-```javascript Syntax
-/antiraid honeypot add channel:<channel> punishment:ban|softban|jail
-/antiraid honeypot remove channel:<channel>
-```
-
-```javascript Example
-/antiraid honeypot add channel:#dont-type-here punishment:ban
-/antiraid honeypot remove channel:#dont-type-here
-```
-</CodeGroup>
 
 <Frame>
   <img src="/images/security/antiraid/honeypot.png" />
@@ -161,15 +115,15 @@ You can manage the whitelist from the panel or directly.
     ```
     </CodeGroup>
 
-    To ban a set number of recent joiners, use `/ban` with `type:recent`.
+    To ban a set number of recent joiners, use `/ban` with `type:Recent Joins`.
 
     <CodeGroup>
     ```javascript Syntax
-    /ban type:<type> count:<number> reason:<reason> duration:<duration> silent:<True|False> delete_messages:<option>
+    /ban type:<Ban|Tempban|Hardban|Softban|Recent Joins> count:<number> reason:<reason> duration:<duration> silent:<True|False> delete_messages:<option>
     ```
 
     ```javascript Example
-    /ban type:recent count:10 reason:test duration:1d silent:True delete_messages:Previous 6 hours
+    /ban type:Recent Joins count:10 reason:Raid cleanup duration:1d silent:True delete_messages:Previous 6 hours
     ```
     </CodeGroup>
 
@@ -179,18 +133,13 @@ You can manage the whitelist from the panel or directly.
 
   </Step>
   <Step title="End the raid state">
-    After the threat has passed, use `/antiraid state` to take the server out
-    of its raid state. This re-enables intensive events, unlocks channels
-    locked by the raid response, and allows accounts to join again.
+    After the threat has passed, run `/antiraid config` and select **End Raid
+    Mode** to take the server out of its raid state. This re-enables intensive
+    events, unlocks channels locked by the raid response, and allows accounts
+    to join again.
 
-    <CodeGroup>
-    ```javascript Syntax
-    /antiraid state
-    ```
-
-    ```javascript Example
-    /antiraid state
-    ```
-    </CodeGroup>
+    <Frame caption="While a raid is active, /antiraid config shows when it started and an End Raid Mode button.">
+      <img src="/images/security/antiraid/raid-mode.png" alt="Antiraid configuration panel in raid mode with an End Raid Mode button" />
+    </Frame>
   </Step>
 </Steps>

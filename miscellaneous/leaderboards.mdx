@@ -19,45 +19,38 @@ Leaderboards show the **top 10** most active members in your server, either by m
 
 ## Setting up a leaderboard
 
-You can set up a leaderboard using the `/automation leaderboard channel` command.
+You can set up, view, preview, resend, or remove daily, weekly, and monthly message and voice leaderboards using the `/automation leaderboard config` command.
 
 <Info>
   You must have the `Manage Server` permission to use this command. bleed needs the **View Channel**,
   **Send Messages** and **Embed Links** permissions in the channel.
 </Info>
 
+<Warning>Removing a leaderboard will also remove its custom message.</Warning>
+
 <CodeGroup>
 
 ```javascript Syntax
-/automation leaderboard channel type:<message|voice> timeframe:<daily|weekly|monthly> channel:<channel>
-```
-
-```javascript Example
-/automation leaderboard channel type:message timeframe:weekly channel:#leaderboard
+/automation leaderboard config
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-  <img src="/images/miscellaneous/leaderboards/channel.png" />
+  <img src="/images/miscellaneous/leaderboards/config.png" />
 </Frame>
 
 ## Customizing the message
 
-You can customize the leaderboard message using the `/automation leaderboard message` command.
+You can customize a leaderboard's message from `/automation leaderboard config`.
 
 <Tip>
-This command will open a Discord modal where you can enter your message. The `message` can be raw text, [components](/resources/scripting/components) or [embeds](/resources/scripting/embeds) with dynamic [variables](#variables). If you no longer want a custom message, you can re-run the command and leave the modal empty.
+You can enter raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) with dynamic [variables](#variables). Leave it empty to reset to the default message.
 </Tip>
 
 <CodeGroup>
 
-```javascript Syntax
-/automation leaderboard message type:<message|voice> timeframe:<daily|weekly|monthly>
-```
-
-```javascript Example
-/automation leaderboard message type:message timeframe:weekly
+```text Example
 ## {leaderboard.timeframe} {leaderboard.type} Leaderboard
 {user.first.emote} {user.first.mention} - **{proper(user.first.message_count)}** messages
 {user.second.emote} {user.second.mention} - **{proper(user.second.message_count)}** messages
@@ -121,89 +114,8 @@ Every `{guild.*}` [variable](/resources/scripting/variables) can be used as well
 
 ## Changing the rank emotes
 
-You can change the emote displayed next to a rank using the `/automation leaderboard emote` command.
+You can customize individual rank emotes or set all **10** emotes at once from `/automation leaderboard config`.
 
 <Info>
-  Emotes are shared between the daily, weekly and monthly leaderboards of the same type. If you no longer want a custom emote, you can re-run the command without an emote.
+  Emotes are shared between the daily, weekly and monthly leaderboards of the same type.
 </Info>
-
-<CodeGroup>
-
-```javascript Syntax
-/automation leaderboard emote type:<message|voice> rank:<1-10> emote:<emote>
-```
-
-```javascript Example
-/automation leaderboard emote type:message rank:1 emote:🥇
-```
-
-</CodeGroup>
-<br />
-<Frame>
-  <img src="/images/miscellaneous/leaderboards/emote.png" />
-</Frame>
-
-## Viewing the configuration
-
-You can use the `/automation leaderboard config` command to view all of your server's leaderboards. The buttons on this message allow you to change the channel, message and emotes of each leaderboard.
-
-<Frame>
-  <img src="/images/miscellaneous/leaderboards/config.png" />
-</Frame>
-
-## Related commands
-
-<AccordionGroup>
-  <Accordion title="Changing every rank emote">
-    You can use the `/automation leaderboard emotes` command to change all **10** emotes at once. This command will open a Discord modal where you can enter one emote per line.
-    <CodeGroup>
-    ```javascript Syntax
-    /automation leaderboard emotes type:<message|voice>
-    ```
-
-    ```javascript Example
-    /automation leaderboard emotes type:voice
-    ```
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Previewing a leaderboard">
-    You can use the `/automation leaderboard view` command to privately preview a leaderboard.
-    <CodeGroup>
-    ```javascript Syntax
-    /automation leaderboard view type:<message|voice> timeframe:<daily|weekly|monthly>
-    ```
-
-    ```javascript Example
-    /automation leaderboard view type:voice timeframe:daily
-    ```
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Resending a leaderboard">
-    If the leaderboard message was deleted, you can use the `/automation leaderboard resend` command to post it again.
-    <CodeGroup>
-    ```javascript Syntax
-    /automation leaderboard resend type:<message|voice> timeframe:<daily|weekly|monthly>
-    ```
-
-    ```javascript Example
-    /automation leaderboard resend type:message timeframe:weekly
-    ```
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Removing a leaderboard">
-    You can use the `/automation leaderboard remove` command to remove a leaderboard.
-    <Warning>This will also remove the leaderboard's custom message.</Warning>
-    <CodeGroup>
-    ```javascript Syntax
-    /automation leaderboard remove type:<message|voice> timeframe:<daily|weekly|monthly> delete_message:<True|False>
-    ```
-
-    ```javascript Example
-    /automation leaderboard remove type:message timeframe:weekly delete_message:True
-    ```
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Viewing the variables">
-    You can use the `/automation leaderboard variables` command to view every [variable](#variables) inside of Discord.
-  </Accordion>
-</AccordionGroup>

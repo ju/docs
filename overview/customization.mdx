@@ -1,6 +1,6 @@
 ---
 title: "Customization"
-description: "Customize bleed's avatar, banner, and bio."
+description: "Customize bleed's avatar, banner, bio, and name style."
 icon: paintbrush
 ---
 
@@ -17,12 +17,12 @@ Personalize bleed's appearance in your server by setting a custom avatar, banner
 
 ## Customizing bleed's avatar
 
-You can change bleed's avatar using the `/config customize avatar` command.
+You can change bleed's avatar using the `/config customize avatar` command. Use `url` for an image link, `attachment` to upload an image, or leave both empty to remove the custom avatar.
 
 <CodeGroup>
 
 ```javascript Syntax
-/config customize avatar url:<url>
+/config customize avatar url:<url> attachment:<file>
 ```
 
 ```javascript Example
@@ -38,12 +38,12 @@ You can change bleed's avatar using the `/config customize avatar` command.
 
 ## Customizing bleed's banner
 
-You can change bleed's banner using the `/config customize banner` command.
+You can change bleed's banner using the `/config customize banner` command. Use `url` for an image link, `attachment` to upload an image, or leave both empty to remove the custom banner.
 
 <CodeGroup>
 
 ```javascript Syntax
-/config customize banner url:<url>
+/config customize banner url:<url> attachment:<file>
 ```
 
 ```javascript Example
@@ -59,7 +59,7 @@ You can change bleed's banner using the `/config customize banner` command.
 
 ## Customizing bleed's bio
 
-You can set bleed's bio using the `/config customize bio` command.
+You can set bleed's bio using the `/config customize bio` command (up to `350` characters). Leave `text` empty to remove the custom bio.
 
 <Info>
     If you do not manually include **https://bleed.bot/** or **discord.gg/bleed** in the bio, it will be automatically added at the bottom.

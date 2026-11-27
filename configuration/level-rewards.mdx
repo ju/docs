@@ -6,134 +6,75 @@ icon: ranking-star
 
 ## Getting started
 
-Before you run any commands, it's important to use the `/levels unlock` command. Otherwise,
-XP will not be tracked for users. You can also use the `/levels lock` command to temporarily stop tracking XP.
+Use `/levels config` to enable leveling and configure level-up messages, XP rate, ignored roles and channels (**No XP**), level roles (**View**, up to **100**), role stacking, and the leaderboard name. Make sure **Levels** is enabled before expecting XP to be tracked for members.
+
+<CodeGroup>
+```javascript Syntax
+/levels config
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/configuration/level-rewards/config.png" />
+</Frame>
 
 ## Ignoring channels and roles
 
-You should immediately ignore channels and roles that you don't want gaining XP. You can do this by using the `/levels ignore` command.
-
-<Info>
-  If you no longer want to ignore a channel or role, you can re-run the command.
-  You can also use `/levels list` to view all ignored channels and roles.
-</Info>
-
-<CodeGroup>
-```javascript Syntax
-/levels ignore role:<role>|channel:<channel>
-```
-
-```javascript Example
-/levels ignore channel:#spam
-/levels ignore role:@jailed
-```
-
-</CodeGroup>
-<br />
-<Frame>
-  <img src="/images/configuration/level-rewards/ignore-channel.png" />
-</Frame>
+You can ignore channels and roles (such as `#spam` or `@jailed`) that you don't want gaining XP from `/levels config`.
 
 ## Setting up roles to reward
 
-You can reward your members with roles when they reach a certain level. You can use the `/levels add` command to add a level reward.
+You can add, update, or remove roles awarded when members reach a certain level inside `/levels config`.
 
-<Info>
-  If you no longer want to reward a role for a level, you can use the `/levels remove` command.
-</Info>
 <Tip>If your server already has XP, you can use the `/levels sync` command to ensure that all users have the correct roles based on their XP.</Tip>
-<CodeGroup>
-```javascript Syntax
-/levels add role:<role> rank:<level>
-/levels remove rank:<level>
-```
-
-```javascript Example
-/levels add role:@Lvl 5 rank:5
-/levels remove rank:5
-```
-
-</CodeGroup>
-<br />
-<Frame>
-  <img src="/images/configuration/level-rewards/setting-roles.png" />
-</Frame>
 
 ### Stacking reward roles
 
-Stacking roles means that users will keep all the roles they've earned when they reach a new level, instead of only having the role for their current level. By default, this feature is enabled.
-
-<CodeGroup>
-```javascript Syntax
-/levels stackroles setting:<On|Off>
-```
-
-```javascript Example
-/levels stackroles setting:On
-```
-
-</CodeGroup>
+Stacking roles means that users will keep all the roles they've earned when they reach a new level, instead of only having the role for their current level. By default, this feature is enabled, and you can toggle it in `/levels config`.
 
 ## Customizing level-up messages
 
-You can customize the level-up message that will be sent when a user achieves a new level.
+You can set and preview the level-up message sent when a user achieves a new level inside `/levels config`.
 
 <Danger>
   Level-up messages start sending at level four. This is intended behavior.
 </Danger>
 <Info>
-  The `message` parameter can be raw text or an [embed](/resources/scripting/embeds)
+  The level-up message can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds)
   with dynamic [variables](/resources/scripting/variables).
 </Info>
-<Warning>You must include the `{guild.name}` variable in your message if `messagemode` is set to `dm`.</Warning>
+<Warning>You must include the `{guild.name}` variable in your message if the message destination is set to **DM**.</Warning>
 <CodeGroup>
 
-```javascript Syntax
-/levels message set text:<text|embed code>
+```text Text Example
+Congrats {user} on reaching level {level.new_rank} in {guild.name}!
 ```
 
-```javascript Example
-/levels message set text:Congrats {user} on reaching level {level.new_rank} in {guild.name}!
-/levels message set text:{embed}$v{message: {user.mention}}$v{description: you have reached level {level.new_rank} in {guild.name}}
+```text Embed Example
+{embed}$v{message: {user.mention}}$v{description: you have reached level {level.new_rank} in {guild.name}}
 ```
 
 </CodeGroup>
 
 ### Setting where the message is sent
 
-You can set the channel where the level-up message will be sent. By default, the message is sent in the same channel where the user achieved the level.
+Select the pencil button beside **Level Up Messages** in `/levels config` to choose where messages are sent (**By DM** by default), pick a channel when using **In a Channel**, and customize the message (leave blank to return to the default).
 
-There are four options for where the message can be sent:
-- `/levels messagemode dm` - Sends the message in the user's direct messages.
-- `/levels messagemode here` - Sends the message in the same channel where the user gained XP.
-- `/levels messagemode channel` - Sends the message in the specified channel.
-- `/levels messagemode off` - Entirely disables the level-up message.
-
-<CodeGroup>
-```javascript Syntax
-/levels messagemode channel channel:<channel>
-/levels messagemode <dm|here|off>
-```
-
-```javascript Example
-/levels messagemode channel channel:#level-up
-/levels messagemode dm
-```
-
-</CodeGroup>
-<br />
-<Frame>
-  <img src="/images/configuration/level-rewards/message-mode.png" />
-</Frame>
+Supported destination options:
+- **By DM** - Sends the message in the user's direct messages.
+- **Here** - Sends the message in the same channel where the user gained XP.
+- **In a Channel** - Sends the message in a specified channel.
+- **Off** - Entirely disables level-up messages.
 
 ## Changing a member's level
 
-You can change a member's level to a specific level or set their XP to a specific amount.
+You can change a member's level to a specific level, set their XP to a specific amount, or remove some of their XP.
 
 <CodeGroup>
 ```javascript Syntax
 /levels setlevel member:<member> level:<level>
 /levels setxp member:<member> amount:<amount>
+/levels removexp member:<member> amount:<amount>
 ```
 
 ```javascript Example
@@ -145,30 +86,37 @@ You can change a member's level to a specific level or set their XP to a specifi
 
 ## Changing the XP multiplier
 
-You can change the XP multiplier to increase or decrease the amount of XP members receive.
-
-<CodeGroup>
-```javascript Syntax
-/levels setrate multiplier:<multiplier>
-```
-
-```javascript Example
-/levels setrate multiplier:2.4
-```
-
-</CodeGroup>
+You can change the XP multiplier (for example, `2.4`) inside `/levels config` to increase or decrease the amount of XP members receive.
 
 ## Related commands
 
 <AccordionGroup>
   <Accordion title="Viewing a user's level and XP">
-    Use the `/levels rank` command to view a user's level and XP.
+    Use the `/levels rank` command to view your own or another member's level and XP.
+    <CodeGroup>
+    ```javascript Syntax
+    /levels rank member:<member>
+    ```
+    </CodeGroup>
   </Accordion>
   <Accordion title="Viewing the XP leaderboard">
-    Use the `/levels leaderboard view` subcommand to view the highest XP earners in the server.
+    Use the `/levels leaderboard view` subcommand to view the highest XP earners in the server. You can rename the leaderboard title in `/levels config`.
   </Accordion>
   <Accordion title="Viewing the level rewards">
     Use the `/levels roles` subcommand to view all level rewards and the
     remaining XP needed to receive them.
+  </Accordion>
+  <Accordion title="Turning off your own level-up messages">
+    Any member can use the `/levels messages` command to turn their own level-up messages on or off.
+    <CodeGroup>
+    ```javascript Syntax
+    /levels messages setting:<On|Off>
+    ```
+    </CodeGroup>
+  </Accordion>
+  <Accordion title="Resetting XP">
+    <Warning>These commands can only be used by the **server owner** and **cannot** be undone.</Warning>
+    - `/levels cleanup` resets the level and XP of members who have left the server.
+    - `/levels reset` resets the level and XP of every member.
   </Accordion>
 </AccordionGroup>

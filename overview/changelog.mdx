@@ -6,6 +6,76 @@ icon: bullhorn
 
 This page lists updates and improvements to bleed, with the newest changes first.
 
+## November 26, 2026 -- Thanksgiving Update
+
+### New Features
+
+- A whole new refresh of the [Commands](https://bleed.dev/commands) and [Status](https://bleed.bot/status) pages.
+- Unnecessary bloated subcommands have been folded into menus to make bleed easier to use and manage.
+- Stats are here! `/stats` shows activity cards for your server, a member or a channel, with message and voice charts and leaderboards. Days follow your server's timezone.
+- Back up your server with `/backup`. Save your channels, roles, settings, bans and bleed features, and load them back later. Backups can be made automatically, and a server can load one every 24 hours. Only the server owner can use it.
+- Jail cells give each jailed member a private thread in the jail channel that only they and staff can see. Set them up on `/settings jail config`, where Delete Cells removes a cell after the unjail.
+- The new Scam Images Filter on `/filter config` catches the scam pictures hacked accounts post, such as fake giveaways. 
+- Logs got a big upgrade with log groups on `/logs menu`:
+  - Pick single events for each log channel.
+  - Give any event its own message.
+  - Log mod cases, case changes, Discord's AutoMod, threads, webhooks, server settings, bleed's own features and bleed settings changes.
+  - New events start off.
+- Write your own Mod Log message, embed or components script for case posts, for all cases or per case type, from the Mod Log Message row on `/settings config`.
+- Giveaways got a big upgrade:
+  - Enter with a button that shows the live entry count, with a Participants list.
+  - Custom start, end and win messages.
+  - Up to 10 presets on `/giveaways menu`.
+- Random Room on `/voicemaster menu` moves members to a random public voice channel.
+- Play blackjack with `/game blackjack`, and see every game's leaderboard and stats on one card with `/game stats`. 
+- Reminders can now repeat daily, weekly, monthly or yearly, and there's a new `/remind menu`.
+- Set your own birthday message with the new Message row on `/birthday config`.
+- `/confessions config` has a new Threads switch.
+- `/bumpreminder config` has a new Interval row. Set it to 30 Minutes if your server has DISBOARD Pro.
+- User installs are here! Add bleed to your account to use many of its commands in DMs, group chats and servers bleed isn't in. User installs are for subscribers.
+- Improved control of your data: `/privacy` lets you turn off stats or nickname tracking for yourself in every server, or clear what's saved. It works in DMs too.
+- Image and reaction mutes can now be timed. `,imute`, `,rmute` and their slash versions take a duration.
+- Filter escalation steps can now have reasons, like `5 timeout 1d | Spamming`, and can mute, imute, rmute, softban or tempban.
+- Social feed messages on all nine platforms now support variables, embed scripts and components scripts.
+- `/play` now picks a song that's already in the queue when your search names it.
+- Counter names can now show stats, like `{guild.messages_today_count}` and `{guild.messages_today_change}`.
+- Every slash script form now lists the most used variables above it.
+
+### Changed Behavior
+
+- `{date.*}` and `{time.*}` now use your server's timezone instead of UTC. Leaderboards follow this rule too.
+- Confessions now require a Reports channel, and every confession keeps its Report button.
+- `,chatgpt` and `/search chatgpt` now ask once before your first question is sent to OpenAI.
+- Config cards are shorter, with the on/off switch beside the title and labels in Title Case.
+- Private Last.fm profiles' requests will not work when requeted by it's authorized user.
+- Lists now have size limits, like 1,500 autoresponders, 1,000 filtered words and 50 reminders.
+- The slash list, toggle and setter subcommands that the new cards replace were removed. Their prefix commands still work.
+- Using a slash command while bleed restarts now tells you to try again in a couple of minutes instead of sending an error.
+
+### Bug Fixes
+
+- Bump reminders no longer stop at random.
+- `tvshow` and `giphy` are working again.
+- `lastfm playing` is fixed, and Last.fm commands tell you when Last.fm is down.
+- Hard bans are saved as cases now.
+- Birthdays are announced even when there's no birthday role.
+- Auto-mod's ban and kick DMs arrive reliably now.
+- An escalation kick no longer moves on to the next step.
+- A nuked channel keeps its bleed settings, like log channels, ticket panels and counters.
+- The No XP picker keeps roles and channels past the first 25, and XP rates under 1 now slow leveling down.
+- Words like "1st" are no longer read as a duration, so `,mute @member 1st warning` doesn't mute for 1 second.
+- Many components scripts that stopped a message from sending now get a script error with a suggested fix.
+- The Channel Permissions Updated log no longer shows a denied permission as allowed.
+- `,restrictcommand reset` no longer leaves members restricted for a while.
+- `,schedule` and `,timers` are no longer unknown commands.
+- Color names that match no color, like "asdf", no longer set some other color.
+- Autoresponders no longer go silent after their exclusive roles or channels are deleted.
+- Bump reminders no longer mention the server owner when the last bumper can't be found.
+
+### Infrastructure Changes
+
+- Hardened security and better performance.
+
 ## November 7, 2026 -- Saturday Night Update
 
 ### New Features

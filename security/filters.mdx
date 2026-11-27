@@ -10,167 +10,189 @@ Filters punish messages that break your rules. Triggering a filter can also add
 points to the member, and enough points trigger the punishments in your
 escalation ladder.
 
-Filter types: `caps`, `links`, `emoji`, `spoilers`, `musicfiles`, `massmention`,
-`invites`, and `spam`. Words are handled separately with `/filter word`.
+Filter types configured via `/filter config` cover `caps`, `musicfiles`, `emoji`, `links`, `spoilers`, `invites`, `massmention`, `spam`, and **Scam Images**. Words are handled separately with `/filter word menu`, and member names with `/filter names config`.
 
-## Setting up a filter
+## Configuring filters
 
-Use `/filter setup` to configure a filter with a form.
+Use `/filter config` to open the **Auto-mod** panel, which has three views in the bottom selector:
+- **Filters** — Turn filters on or off and edit each filter's action, threshold, exempt roles, and skipped channels.
+- **Points & Escalation** — Set how many points triggers add and configure your punishment escalation ladder.
+- **Snipe** — Choose which filtered content types are hidden from snipe.
+
+Leave `type` empty to open the full panel, or pass a filter type to jump straight to it. Select the pencil button beside a filter to edit its action, timeout or jail length, threshold, exempt roles, and skipped channels.
 
 <Info>
-  Caps is used here as an example, other filters will also open a form. Other filters use the same form, except:
+  Filter-specific options:
 
-  - `invites` and `musicfiles` have no threshold.
-  - `spam` adds a **Window (seconds)** field and only allows `delete` and `warn`.
-  - `links` adds an **Allowed sites** field.
+  - `invites`, `musicfiles`, and **Scam Images** have no threshold.
+  - `spam` includes a **Window** setting (default `5` seconds) and only allows `delete` and `warn`.
+  - `links` includes an **Allowed Sites** field (up to `100` domains, one per line) instead of **Skipped Channels**.
 </Info>
-
-<Frame>
-  <img src="/images/security/filters/setup-caps.png" alt="Caps filter setup form" />
-</Frame>
 
 <CodeGroup>
 ```javascript Syntax
-/filter setup type:<filter>
+/filter config type:<filter>
 ```
 
-```javascript Example
-/filter setup type:caps
+```javascript Examples
+/filter config
+/filter config type:caps
 ```
 </CodeGroup>
 
-Use `/filter set` to turn a filter on or off. Leave `channel` empty to apply it
-everywhere.
+<Frame>
+  <img src="/images/security/filters/config.png" />
+</Frame>
+
+## Turning a filter on or off
+
+Use `/filter set` to turn a filter on or off without the form. Leave `channel`
+empty to apply it everywhere. Leave `threshold` or `punishment` empty to use the
+[defaults](#filter-defaults).
 
 <CodeGroup>
 ```javascript Syntax
-/filter set type:<filter> setting:<On|Off> channel:<channel> threshold:<number> punishment:<delete|warn|timeout|jail|kick|ban> duration:<duration>
+/filter set type:<filter> setting:<On|Off> channel:<channel> threshold:<number> punishment:<Delete|Warn|Timeout|Jail|Kick|Ban|Softban> duration:<duration>
 ```
 
-```javascript Example
-/filter set type:caps setting:On threshold:30 punishment:delete
+```javascript Examples
+/filter set type:Invites Filter setting:On
+/filter set type:Caps Filter setting:On channel:#general threshold:20 punishment:Warn
 ```
 </CodeGroup>
 
 <Info>
   `duration` accepts values like `15m`, `1h`, or `7d`; see the
-  [duration format](/resources/syntax#formatting-a-duration). A jail with no
-  duration lasts until the member is unjailed.
+  [duration format](/resources/syntax#formatting-a-duration). A timeout needs a
+  duration (up to `28d`). A jail with no duration lasts until the member is
+  unjailed.
 </Info>
 
-Use `/filter clear` to remove a filter's channel settings and `/filter config`
-to view them. Leave `type` or `channel` empty to include everything.
+## Clearing per-channel settings
+
+Use `/filter clear` to remove a filter's per-channel settings. Leave `channel`
+empty to clear every channel for that filter.
 
 <CodeGroup>
 ```javascript Syntax
 /filter clear type:<filter> channel:<channel>
-/filter config type:<filter>
 ```
 
-```javascript Example
+```javascript Examples
 /filter clear type:caps channel:#general
-/filter config type:caps
+/filter clear type:links
 ```
 </CodeGroup>
 
 ## Filter defaults
 
-| Filter | Default threshold | Default punishment |
-| --- | --- | --- |
-| `caps` | 30 uppercase letters | Delete |
-| `emoji` | 8 emojis | Delete |
-| `links` | 1 link to a site that is not allowed | Delete |
-| `spoilers` | 1 `\|\|` spoiler mark | Delete |
-| `massmention` | 9 mentions | Ban |
-| `spam` | 5 messages in the spam window | Delete |
-| `invites` | None | Delete |
-| `musicfiles` | None | Delete |
+| Filter | Default threshold | Default punishment | Default points |
+| --- | --- | --- | --- |
+| `caps` | 30 uppercase letters | Delete | None |
+| `musicfiles` | None | Delete | None |
+| `emoji` | 8 emojis | Delete | None |
+| `links` | 1 link to a site that is not allowed | Delete | None |
+| `spoilers` | 1 `\|\|` spoiler mark | Delete | None |
+| `invites` | None | Delete | None |
+| `massmention` | 9 mentions | Ban | 1 a hit |
+| `spam` | 5 messages in the spam window (5s window) | Delete | None |
+| Scam Images (`Scam Filter` in `/filter set`) | None | Softban | 1 a hit |
 
 ## Exempt roles
 
-Members with an exempt role are ignored by that filter. Requires **Manage
-Channels**. `type` also accepts `word`.
-
-<CodeGroup>
-```javascript Syntax
-/filter exempt add type:<filter|word> role:<role>
-/filter exempt remove type:<filter|word> role:<role>
-/filter exempt list type:<filter|word>
-```
-
-```javascript Example
-/filter exempt add type:caps role:@Trusted
-/filter exempt list type:caps
-```
-</CodeGroup>
+Members with an exempt role are ignored by that filter, including the word
+filter. Configure exempt roles inside `/filter config`. Requires **Manage
+Channels**.
 
 ## Word filter
 
-<Frame>
-  <img src="/images/security/filters/word-list.png" alt="Filtered and allowed words list" />
-</Frame>
+Block words and regex patterns, or allow words that would otherwise be caught.
+
+<Note>
+  `/filter word add` and `/filter word menu` require **Community** enabled on the server and an existing Discord AutoMod **Custom Keyword Rule**.
+</Note>
 
 | Command | Description | Permission |
 | --- | --- | --- |
-| `/filter word add` | Add a word to filter (up to 60 characters). | Manage Server and Manage Channels |
-| `/filter word remove` | Remove a word from the filter. | Manage Server and Manage Channels |
-| `/filter word list` | View filtered and allowed words. | Manage Channels |
-| `/filter word allow` | Allow a word through the filter (up to 60 characters). | Manage Server and Manage Channels |
-| `/filter word unallow` | Remove an allowed word. | Manage Server and Manage Channels |
-| `/filter word regex` | Add or remove a regex pattern (up to 260 characters). | Manage Server and Manage Channels |
-| `/filter word reset` | Clear the legacy word list. | Manage Server and Manage Channels |
-| `/filter word migrate` | Copy the legacy word list into Discord AutoMod. | Manage Server and Manage Channels |
-
-## Links whitelist
-
-Allow specific sites through the links filter. Requires **Manage Channels**.
+| `/filter word add` | Add a word to filter (up to 60 characters). | Manage Channels |
+| `/filter word remove` | Remove a word from the filter. | Manage Channels |
+| `/filter word menu` | View and manage filtered words, allowed words, and regex patterns. | Manage Channels |
+| `/filter word reset` | Clear the legacy word list. | Manage Channels |
+| `/filter word migrate` | Copy the legacy word list into Discord AutoMod. | Manage Channels |
 
 <CodeGroup>
 ```javascript Syntax
-/filter url allow url:<link or site>
-/filter url disallow url:<link or site>
-/filter url list
+/filter word add word:<word>
+/filter word remove word:<word>
+/filter word menu
+/filter word reset
+/filter word migrate
 ```
 
-```javascript Example
-/filter url allow url:example.com
-/filter url list
+```javascript Examples
+/filter word add word:scam
+/filter word remove word:scam
 ```
 </CodeGroup>
 
-## Snipe
+## Links whitelist
 
-Hide filtered content from snipe. Requires **Manage Channels**.
+Allow specific sites through the links filter inside `/filter config` (for
+example, `/filter config type:links`). Requires **Manage Channels**.
+
+## Name filter
+
+The name filter cleans fancy text, such as `𝓭𝓮𝓻𝓻𝓲𝓬𝓴`, and hoisting symbols out
+of member names. It can clean names automatically, or every member's name at
+once with `/filter names cleanup`. Requires **Manage Nicknames**.
 
 <CodeGroup>
 ```javascript Syntax
-/filter snipe type:<invites|links|images|word|files|music> setting:<On|Off>
+/filter names config
+/filter names cleanup
+```
+</CodeGroup>
+
+<Info>
+  Names cleaned by the name filter show up in your member update
+  [log](/configuration/logging) with the reason **Name Filter**.
+</Info>
+
+## Snipe
+
+Hide filtered content (`invites`, `links`, `images`, `word`, `files`, or
+`music`) from snipe inside `/filter config`. Requires **Manage Channels**.
+
+Server administrators can also turn snipe on or off for the server with
+`/settings snipe`. Requires **Administrator**.
+
+<CodeGroup>
+```javascript Syntax
+/settings snipe setting:<On|Off>
 ```
 
-```javascript Example
-/filter snipe type:links setting:On
+```javascript Examples
+/settings snipe setting:Off
 ```
 </CodeGroup>
 
 ## Filter points
 
-Set how many points each trigger adds and which punishments members receive as
-points build up. Points can expire after `1h` to `365d`, or never.
+Switch to **Points & Escalation** in `/filter config` to set how many points each trigger adds and which punishments members receive as points build up.
 
-<Frame>
-  <img src="/images/security/filters/points-setup.png" alt="Filter points setup form" />
-</Frame>
+- **Escalation** — Select the pencil button to add escalation steps (`points action [duration] [| reason]`) and set the maximum **Points Limit** (`5`–`100`; starts at `0` until configured, so points are only counted).
+- **Points** — Select the pencil button to choose whether points come from filters only or also mod actions, and set point values per trigger.
+- **Expire, Deleted Messages & Next Punishment** — Choose when points expire (`1h` to `365d`, or never), whether deleted messages add points, and whether members are told their next punishment.
 
-For a server that hasn't set anything up, `/filter points setup` opens with these defaults:
+For a server that hasn't set anything up, **Points & Escalation** starts with these defaults:
 
-| Field | Default |
+| Setting | Default |
 | --- | --- |
-| Escalation | Empty, so no punishments happen until steps are added |
-| Points | Empty, so every filter is worth 1 and every punishment 0 |
-| Points come from | Filter points only |
-| Points expire after | `never` |
-| Deleted messages add points | Off |
-| Tell members their next punishment | On |
+| Escalation | No steps configured (`0` points limit until set) |
+| Points Source / Filter Hits | Filters only (`massmention` and `Scam Images` default to `1` a hit, others `None`) |
+| Expire | Never |
+| Deleted Messages | Add nothing |
+| Next Punishment | Members are told |
 
 <Info>
   The sample text in the empty boxes is only a placeholder and isn't saved.
@@ -178,13 +200,14 @@ For a server that hasn't set anything up, `/filter points setup` opens with thes
   Points example: `caps 1`, `massmention 3`, `warn 1`, `mute 2`, `jail 4`.
 </Info>
 
+<Frame caption="An example escalation setup. Members are timed out at 5 points, jailed at 15 and banned at 25.">
+  <img src="/images/security/filters/points-setup.png" alt="Filter points setup form" />
+</Frame>
+
 | Command | Description | Permission |
 | --- | --- | --- |
-| `/filter points limit` | Set the maximum points a member can build up (5–100; 25 by default). | Manage Server |
-| `/filter points setup` | Open the points and escalation setup form. | Manage Server |
-| `/filter points view` | View point values and their punishments. | Manage Channels |
-| `/filter points member` | View a member's points. | Manage Messages |
-| `/filter points clear` | Remove all or a specified number of a member's newest points. | Manage Messages |
+| `/filter points member` | View a member's points. | Manage Channels |
+| `/filter points clear` | Remove all or a specified number of a member's newest points. | Manage Channels |
 
 <Info>
   Leave `amount` empty in `/filter points clear` to remove all of a member's
@@ -193,15 +216,11 @@ For a server that hasn't set anything up, `/filter points setup` opens with thes
 
 <CodeGroup>
 ```javascript Syntax
-/filter points limit points:<5–100>
-/filter points setup
-/filter points view
 /filter points member member:<user>
 /filter points clear member:<user> amount:<1–100>
 ```
 
-```javascript Example
-/filter points limit points:25
+```javascript Examples
 /filter points member member:@jonathan
 /filter points clear member:@jonathan amount:2
 ```

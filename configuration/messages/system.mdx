@@ -10,7 +10,7 @@ There are three system message commands, each with the same subcommands.
 
 - `welcome` - Dispatched whenever a user joins the server.
 - `goodbye` - Dispatched whenever a user leaves the server.
-- `boost` - Dispatched whenever a user boosts the server.
+- `boosts` - Dispatched whenever a user boosts the server.
 
 <Tip>
   The `boost` event is only dispatched if the server has the **Discord System
@@ -21,7 +21,9 @@ There are three system message commands, each with the same subcommands.
 
 <Info>
   The following examples use the `welcome` command, but the same syntax is
-  applied for the other system message commands.
+  applied for the other system message commands, such as `/config goodbye add`
+  and `/config boosts add`. The `boosts` command does not have a `pingable`
+  parameter.
 </Info>
 
 ## Creating a system message
@@ -29,25 +31,26 @@ There are three system message commands, each with the same subcommands.
 You can create a system message with the `/config welcome add` command.
 
 <Tip>
-The `message` parameter can be raw text or an [embed](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
+The message can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <Info>
-The `self_destruct` parameter in system messages schedules the message for
-deletion after a specified time, which must be between `6` and `60` seconds.
+  - `channel` can be a text channel or thread.
+  - `self_destruct` schedules the message for deletion after a specified time (up to `60` seconds, or `0` for never).
+  - `pingable` allows the message to ping roles (available on `welcome` and `goodbye`).
 </Info>
 
 This command will open a Discord modal where you can specify the content of the message.
 <CodeGroup>
 
 ```javascript Syntax
-/config welcome add channel:<channel> self_destruct:<seconds> pingable:<True|False> 
+/config welcome add channel:<channel> self_destruct:<seconds> pingable:<True|False>
 ```
 
 ```javascript Example
-/config welcome add channel:#general self_destruct:30 pingable:True
+/config welcome add channel:#welcome self_destruct:30 pingable:True
 welcome to {guild.name} {user.mention}
 
-/config welcome add channel:#general pingable:True
+/config welcome add channel:#welcome pingable:True
 {embed}$v{message: {user.mention}}$v{description: welcome to {guild.name}}
 ```
 
@@ -70,7 +73,7 @@ You can remove a system message with the `/config welcome remove` command.
 ```
 
 ```javascript Example
-/config welcome remove channel:#general
+/config welcome remove channel:#welcome
 ```
 
 </CodeGroup>
@@ -81,21 +84,17 @@ You can remove a system message with the `/config welcome remove` command.
 ## Related commands
 
 <AccordionGroup>
-  <Accordion title="Viewing a system message">
-    You can use the `/config welcome view` command to view a system message.
+  <Accordion title="Managing system messages">
+    You can use `/config welcome menu`, `/config goodbye menu`, or `/config boosts menu` to view, add, preview, or remove system messages.
     <CodeGroup>
     ```javascript Syntax
-    /config welcome view channel:<channel>
+    /config welcome menu
+    /config goodbye menu
+    /config boosts menu
     ```
-
-    ```javascript Example
-    /config welcome view channel:#general
-    ```
-
     </CodeGroup>
-
-  </Accordion>
-  <Accordion title="Viewing all system messages">
-    You can use the `/config welcome list` command to view all system messages.
+    <Frame>
+      <img src="/images/configuration/messages/system/menu.png" />
+    </Frame>
   </Accordion>
 </AccordionGroup>

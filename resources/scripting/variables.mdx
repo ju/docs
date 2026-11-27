@@ -5,7 +5,7 @@ icon: "signature"
 ---
 
 These variables are accessible throughout bleed and can be used
-in any command context which contains a `message` or `embed code` parameter (e.g. `welcome`, `goodbye` & `boost`)
+in any command or menu that supports custom messages, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) (e.g. `welcome`, `goodbye`, and `boosts`).
 
 <Warning>
   Variables must be written exactly as shown, without any spaces inside the brackets. Keep in mind that
@@ -116,7 +116,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   </Accordion>
   <Accordion title="Boost">
     <Info>
-      This section is only available for the `boost` command.
+      This section is only available for the `/config boosts add` command.
     </Info>
     | Variable              | Output                                     |
     | --------------------- | ------------------------------------------ |
@@ -126,7 +126,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   </Accordion>
   <Accordion title="Bump Reminder">
     <Info>
-      This section is only available for the `bumpreminder` command.
+      This section is only available for the `/bumpreminder config` command.
     </Info>
     | Variable                         | Output                                 |
     | -------------------------------- | -------------------------------------- |
@@ -147,13 +147,13 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   </Accordion>
   <Accordion title="Counters">
     <Info>
-      This section is only available for the `/automation counter` commands.
+      This section is only available for the `/automation counter add` and `/automation counter menu` commands.
     </Info>
     The counter variables can be found on the [counters](/miscellaneous/counters#naming-a-counter) page.
   </Accordion>
   <Accordion title="Last.fm">
     <Warning>
-      This section is only available for the `lastfm mode` command which requires a
+      This section is only available for the `/lastfm mode set` command which requires a
       [subscription](/overview/donator-perks).
     </Warning>
     <Info>
@@ -196,13 +196,13 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   </Accordion>
   <Accordion title="Leaderboards">
     <Info>
-      This section is only available for the `/automation leaderboard message` command.
+      This section is only available for custom leaderboard messages in `/automation leaderboard config`.
     </Info>
     The leaderboard variables can be found on the [leaderboards](/miscellaneous/leaderboards#variables) page.
   </Accordion>
   <Accordion title="Leveling">
     <Info>
-      This section is only available for the `/levels message set` command.
+      This section is only available for the level-up message in `/levels config`.
     </Info>
     | Variable           | Output                                 |
     | ------------------ | -------------------------------------- |
@@ -257,7 +257,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   </Accordion>
   <Accordion title="SoundCloud">
     <Info>
-      This section is only available for the `/social soundcloud message` command. The message must use at least **one** of these variables.
+      This section is only available for SoundCloud notification messages in `/social soundcloud menu`. The message must use at least **one** of these variables.
     </Info>
     | Variable                | Output                                          |
     | ----------------------- | ----------------------------------------------- |
@@ -278,7 +278,7 @@ in any command context which contains a `message` or `embed code` parameter (e.g
   </Accordion>
   <Accordion title="YouTube">
     <Info>
-      This section is only available for the `/social youtube message` command.
+      This section is only available for YouTube notification messages in `/social youtube menu`.
     </Info>
     | Variable                        | Output                        |
     | ------------------------------- | ----------------------------- |

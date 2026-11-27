@@ -11,137 +11,72 @@ You can set up the **DISBOARD** bot by clicking [here](https://discord.com/oauth
 
 ## Setting up bump reminders
 
-Once you've invited the **DISBOARD** bot, you can set up bump reminders by setting the channel where you want to receive reminders to run `/bump` every **two hours**.
+Once you've invited the **DISBOARD** bot, use `/bumpreminder config` to turn bump reminders on, pick the channel, set the reminder interval (defaults to **2 Hours**), customize or preview your reminder and thank-you messages, and toggle auto-clean or auto-lock.
 
 <CodeGroup>
 
 ```javascript Syntax
-/bumpreminder channel channel:<channel>
-```
-
-```javascript Example
-/bumpreminder channel channel:#commands
+/bumpreminder config
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/configuration/bump-reminder/channel.png" />
+  <img src="/images/configuration/bump-reminder/config.png" />
 </Frame>
 
 ## Customizing bump reminders
 
 ### Changing the reminder message
 
-You can change the reminder message with the `/bumpreminder message` command.
-This is the message that will be sent every **two hours** when it's time to `/bump` the server.
+You can set, preview, or clear the reminder message from `/bumpreminder config`.
+This is the message that will be sent at your configured interval (every **two hours** by default) when it's time to `/bump` the server.
 
-This command will open a Discord modal where you can enter the message you want to send. 
 <Info>
-  The `message` parameter can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds)
+  The reminder message can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds)
   with dynamic [variables](/resources/scripting/variables).
 </Info>
 <Tip>
-  This command is usually used to ping a role or user. In order for the message
-  to actually notify the role or user, you must set the `pingable` flag to true
-  in the command.
+  This message is usually used to ping a role or user. Enable the **pingable** option when setting it so the role or user is notified.
 </Tip>
 
 <CodeGroup>
 
-```javascript Syntax
-/bumpreminder message pingable:<True|False>
+```text Text Example
+@bump please bump the server
 ```
 
-```javascript Example
-/bumpreminder message pingable:True
-@bump please bump the server
-
-/bumpreminder message pingable:True
+```text Embed Example
 {embed}$v{message: @bump}$v{title: bump}$v{description: please bump the server}
 ```
 
 </CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/bump-reminder/message.png" />
-</Frame>
 
 ### Changing the thank you message
 
-You can change the message which will be sent after bumping the server with the `/bumpreminder thankyou` command.
-
-This will open a Discord modal where you can enter the message you want to send after bumping the server.
+You can set, preview, or clear the message sent after someone bumps the server from `/bumpreminder config`.
 
 <Info>
-  The `message` parameter can be raw text or an [embed](/resources/scripting/embeds)
+  The thank-you message can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds)
   with dynamic [variables](/resources/scripting/variables).
 </Info>
 
 <CodeGroup>
 
-```javascript Syntax
-/bumpreminder thankyou
+```text Text Example
+thank you for bumping the server {user.mention}!
 ```
 
-```javascript Example
-/bumpreminder thankyou 
-thank you for bumping the server {user.mention}!
-
-/bumpreminder thankyou 
+```text Embed Example
 {embed}$v{message: thank you for bumping the server {user.mention}}$v{description: you have helped the server grow!}
 ```
 
 </CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/bump-reminder/thankyou.png" />
-</Frame>
 
 ### Locking the channel
 
-If you don't want members to send messages until it's time to bump the server, you can use the `/bumpreminder autolock` command.
-
-<CodeGroup>
-
-```javascript Syntax
-/bumpreminder autolock setting:<On|Off>
-```
-
-```javascript Example
-/bumpreminder autolock setting:On
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/bump-reminder/autolock.png" />
-</Frame>
+If you don't want members to send messages until it's time to bump the server, toggle auto-lock on in `/bumpreminder config`.
 
 ### Cleaning up the channel
 
-If you don't want messages which aren't `/bump` to be sent in the channel, you can use the `/bumpreminder autoclean` command.
-
-<CodeGroup>
-
-```javascript Syntax
-/bumpreminder autoclean setting:<On|Off>
-```
-
-```javascript Example
-/bumpreminder autoclean setting:On
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/bump-reminder/autoclean.png" />
-</Frame>
-
-## Viewing the configuration
-
-You can use the `/bumpreminder config` command to view the current configuration.
-
-<Frame>
-  <img src="/images/configuration/bump-reminder/config.png" />
-</Frame>
+If you don't want messages which aren't `/bump` to stay in the channel, toggle auto-clean on in `/bumpreminder config`.

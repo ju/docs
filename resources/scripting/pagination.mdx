@@ -33,16 +33,14 @@ icon: arrows-turn-to-dots
     </Frame>
   </Step>
   <Step title="Updating a paginated embed">
-    If you need to edit a page you've made during setup, you can use the command
-    below.
+    Use `/automation pagination menu` (**Pagination Embeds**, up to **50** embeds with `<`, **Add**, **Remove**, `>`) to view, add, update, or remove paginated embeds.
     <CodeGroup>
     ```javascript Syntax
-    /automation pagination update message_link:<message_link> page:<page number>
+    /automation pagination menu
     ```
     </CodeGroup>
-    This will open a modal where you can edit the code for your page.
     <Frame>
-      <img src="/images/resources/scripting/pagination/update.png" />
+      <img src="/images/resources/scripting/pagination/menu.png" />
     </Frame>
   </Step>
   <Step title="Removing a page">
@@ -68,25 +66,11 @@ icon: arrows-turn-to-dots
     ```
     </CodeGroup>
   </Accordion>
-  <Accordion title="Reset all paginated embeds in a guild">
+  <Accordion title="Managing paginated embeds">
+    Use `/automation pagination menu` to list all active paginations, edit pages, restore page buttons if they were removed, or reset all paginated embeds in your server.
     <CodeGroup>
     ```javascript Syntax
-    /automation pagination reset
-    ```
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="List all active paginations">
-    <CodeGroup>
-    ```javascript Syntax
-    /automation pagination list
-    ```
-    </CodeGroup>
-  </Accordion>
-  <Accordion title="Re-add the navigation reactions">
-    Use this command in case the arrow reactions allowing navigation between pages were deleted.
-    <CodeGroup>
-    ```javascript Syntax
-    /automation pagination restorereactions message_link:<message_link>
+    /automation pagination menu
     ```
     </CodeGroup>
   </Accordion>

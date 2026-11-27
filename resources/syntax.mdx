@@ -31,7 +31,7 @@ For example, `1d` represents one day, and `1w` represents one week. You can also
 
 ## Punishments
 
-When a command has a `punishment:` parameter, you can use it to specify the action to take. The available actions are:
+When a command or configuration panel lets you choose a punishment (such as the `punishment:` parameter on `/filter set`, or inside `/antinuke config`, `/antiraid config`, and `/reaction noselfreact`), the available actions include:
 
 - `warn` to warn the user.
 - `timeout` to timeout the member.
@@ -39,16 +39,14 @@ When a command has a `punishment:` parameter, you can use it to specify the acti
 - `jail` to jail the user.
 - `kick` to kick the member from the server.
 - `softban` to ban and unban the member, deleting their messages from the last 7 days.
-  - This is only available for the **antiraid** honeypot.
+  - Available for **filters** (`/filter set` and **Scam Images** in `/filter config`) and the **antiraid** honeypot (`/antiraid config`).
 - `ban` to ban the member from the server.
 - `delete` to delete the message if applicable.
 - `remove` to remove the reaction.
-  - This is only available for **reaction trigger** commands.
+  - This is only available for **no self-react** (`/reaction noselfreact`).
 - `stripstaff` to remove the staff roles from the member.
-  - This is only available for **antinuke** commands.
+  - This is only available for **antinuke** (`/antinuke config`).
   - This will remove every role with a dangerous permission, such as **Administrator**, **Ban Members** or **Manage Roles**.
   - This will also remove any roles set via [fake permissions](/security/fake-permissions).
 
-Not every command supports every action. The actions available for a command are shown when you fill in the `punishment:` parameter.
-
-For example, to warn a user, you would use `punishment:warn`.
+Not every command or panel supports every action. When using a command with a `punishment:` parameter (such as `/filter set`), Discord shows the supported choices as you fill it in (for example, `punishment:warn`).

@@ -14,6 +14,7 @@
         "group": "Overview",
         "pages": [
           "overview/introduction",
+          "overview/user-installs",
           "overview/donator-perks",
           "overview/customization",
           "overview/changelog"
@@ -51,8 +52,10 @@
             "group": "Roles",
             "icon": "users-gear",
             "pages": [
+              "configuration/roles/autorole",
               "configuration/roles/vanity",
               "configuration/roles/booster",
+              "configuration/roles/guild-tag",
               "configuration/roles/reaction",
               "configuration/roles/button",
               "configuration/roles/dropdown"
@@ -64,7 +67,8 @@
             "pages": [
               "configuration/messages/system",
               "configuration/messages/responder",
-              "configuration/messages/timer"
+              "configuration/messages/timer",
+              "configuration/messages/sticky"
             ]
           },
           "configuration/starboard",
@@ -74,6 +78,9 @@
           "configuration/reaction-triggers",
           "configuration/command-aliases",
           "configuration/confessions",
+          "configuration/suggestions",
+          "configuration/channels",
+          "configuration/command-access",
           "configuration/logging"
         ]
       },
@@ -84,6 +91,7 @@
           "miscellaneous/webhook",
           "miscellaneous/giveaway",
           "miscellaneous/counters",
+          "miscellaneous/counting",
           "miscellaneous/leaderboards"
         ]
       },

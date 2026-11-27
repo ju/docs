@@ -38,19 +38,51 @@ Upon completion of the setup, you'll notice a few new roles and channels in your
   command are restricted to.
 </Info>
 
+### Customizing moderation and jail settings
+
+Use `/settings config` to open the **Server Settings** panel and switch to **Moderation** to configure your **Mod Log**, **Join Log**, **Mute Roles**, **Ban Purge** (`6 Hours`, `12 Hours`, `24 Hours`, `3 Days`, `7 Days`, or `Off`), and **Snipe**.
+
+Use `/settings jail config` to customize your jail **Channel** and **Role**, toggle **Remove Roles** (strips removable roles when a member is jailed and restores them on unjail), edit the **Jail Message** and **Invoke Messages**, preview messages, view currently jailed members, and configure **Jail Cells**. Both commands require **Manage Server**.
+
+<CodeGroup>
+```javascript Syntax
+/settings config
+/settings jail config
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/security/moderation/settings-config.png" />
+</Frame>
+
+<Frame>
+  <img src="/images/security/moderation/jail-config.png" />
+</Frame>
+
+### Jail cells
+
+By default, every jailed member shares the `#jail` channel. Turning on **Cells** in `/settings jail config` isolates each jailed member into their own private thread inside `#jail`.
+
+- Jailed members can no longer send messages in `#jail` itself—only inside their cell thread with staff.
+- **Cell Name** sets the thread name using variables such as `{cell.number}` and `{user.name}` (defaults to `Cell {cell.number}`, e.g. `Cell 001`).
+- **Delete Cells** controls when a cell thread is deleted after the member is unjailed: `Off`, `Right away`, `After 1 hour`, `After 24 hours`, or `After 7 days`.
+
 ---
 
 ## Setting Staff Roles
 
 It's important to set the staff roles in your server so bleed knows which roles to remove with the `/role stripstaff` command.
 
-Use the `/settings staff set` command to set a role as a staff role.
-<Tip>
-  You can view set staff roles with the `/settings staff list` command.
-</Tip>
+Use the `/settings staff menu` command to view, add, or remove up to **35** staff roles.
+
+<CodeGroup>
+```javascript Syntax
+/settings staff menu
+```
+</CodeGroup>
 
 <Frame>
-  <img src="/images/security/moderation/staff-role.png" />
+  <img src="/images/security/moderation/staff-menu.png" />
 </Frame>
 
 
@@ -58,22 +90,25 @@ Use the `/settings staff set` command to set a role as a staff role.
 
 You can customize both the command response (which defaults to `👍`) and the direct message sent to the user upon punishment.
 
-The `/invoke set` command opens a Discord modal where you can customize either the message or the DM sent to the user.
+The `/invoke set` command opens a Discord modal where you can customize either the message or the DM sent to the user. You can preview a custom message with `/invoke view` or remove it with `/invoke clear`.
 
-The following moderation commands can be customized:
+The following punishment types can be customized:
 
-- `ban`, `tempban`, `softban`, `hardban`, `unban`, `kick`, `warn`, `jail`, `unjail`, `timeout`, `untimeout`, `mute`, `unmute`, `imute`, `iunmute`, `rmute` & `runmute`.
+- `Ban`, `Tempban`, `Softban`, `Hardban`, `Unban`, `Kick`, `Warn`, `Jail`, `Unjail`, `Timeout`, `Untimeout`, `Mute`, `Unmute`, `Image Mute`, `Image Unmute`, `Reaction Mute`, and `Reaction Unmute`.
 
 <Tip>
-The `message` parameter can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
+The invoke message can be raw text, [components](/resources/scripting/components), or [embeds](/resources/scripting/embeds) with dynamic [variables](/resources/scripting/variables).
 </Tip>
 <CodeGroup>
 ```javascript Syntax
-/invoke set punishment:<punishment> target:<dm|message>
+/invoke set punishment:<punishment> target:<DM|Channel Message>
+/invoke view punishment:<punishment> target:<DM|Channel Message>
+/invoke clear punishment:<punishment> target:<DM|Channel Message>
 ```
 
 ```javascript Example
-/invoke set punishment:jail target:message
+/invoke set punishment:Jail target:Channel Message
+// Entered in the modal:
 {user.mention} has been jailed for {reason}
 ```
 

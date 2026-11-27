@@ -37,10 +37,7 @@ You can create multiple reaction roles for a single message with a different emo
 You can remove a reaction role by using the `/autorole reactionrole remove` command.
 
 <Tip>
-You can use the `/autorole reactionrole list` command to see all reaction roles and their emojis.
-<Frame>
-    <img src="/images/configuration/roles/reaction/list.png" />
-</Frame>
+You can use the `/autorole reactionrole menu` command to view and manage all reaction roles in your server.
 </Tip>
 <CodeGroup>
 ```javascript Syntax
@@ -55,38 +52,6 @@ You can use the `/autorole reactionrole list` command to see all reaction roles 
 <br />
 <Frame>
     <img src="/images/configuration/roles/reaction/remove.png" />
-</Frame>
-
-### Removing all reaction roles for a message
-
-You can remove all reaction roles for a message with the `/autorole reactionrole removeall` command.
-
-<Info>This is different from `/autorole reactionrole reset` which removes all reaction roles from the server.</Info>
-<CodeGroup>
-```javascript Syntax
-/autorole reactionrole removeall message_link:<message_link>
-```
-
-```javascript Example
-/autorole reactionrole removeall message_link:.../channels/...
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/roles/reaction/removeall.png" />
-</Frame>
-
-### Removing all reaction roles from the server
-
-You can remove all reaction roles from the server by using the `/autorole reactionrole reset` command.
-
-<Warning>
-  This **CAN NOT** be undone and will remove **ALL** reaction roles from the
-  server.
-</Warning>
-<Frame>
-  <img src="/images/configuration/roles/reaction/reset.png" />
 </Frame>
 
 ## Setting up a verification system
@@ -118,3 +83,21 @@ Reaction roles can be used to create a verification system where members must re
        1.
     </Step>
 </Steps>
+
+## Managing reaction roles
+
+You can use `/autorole reactionrole menu` to view, add, or remove up to **100** reaction role messages, configure required roles or rejoin restoration in **Options**, or switch between self-role menus using the bottom selector.
+
+<Warning>
+  Resetting all reaction roles **cannot** be undone and will remove **ALL** reaction roles from the server.
+</Warning>
+
+<CodeGroup>
+```javascript Syntax
+/autorole reactionrole menu
+```
+</CodeGroup>
+<br />
+<Frame>
+  <img src="/images/configuration/roles/reaction/menu.png" />
+</Frame>
