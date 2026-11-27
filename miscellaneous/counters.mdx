@@ -29,7 +29,7 @@ You can add a counter using the `/automation counter add` command.
 </Info>
 
 <Tip>
-  You can create a fun and visible countdown using a UNIX timestamp.
+  Set `prettify:True` to format the count with commas (like `1,234`). You can also create a fun and visible countdown using a UNIX timestamp.
 </Tip>
 
 <CodeGroup>
@@ -39,7 +39,6 @@ You can add a counter using the `/automation counter add` command.
 ```
 
 ```javascript Examples
-/automation counter add option:members channel_type:voice prettify:True
 /automation counter add option:members channel_type:voice name:{proper(guild.count)} members
 /automation counter add option:btc channel_type:voice currency:eur
 ```
@@ -53,7 +52,7 @@ You can add a counter using the `/automation counter add` command.
 
 ## Naming a counter
 
-You can choose what a counter's channel is called with the `name` parameter of the `/automation counter add` command. The name must contain at least one of the variables below, such as `{proper(guild.count)} members`. You can also change the name later from the `/automation counter config` command.
+You can choose what a counter's channel is called with the `name` parameter of the `/automation counter add` command. The name must contain at least one of the variables below, such as `{proper(guild.count)} members`. You can also change the name later from `/automation counter menu`.
 
 <Frame>
     <img src="/images/miscellaneous/counters/name.png" />
@@ -126,27 +125,23 @@ You can choose what a counter's channel is called with the `name` parameter of t
 
 ## Setting a goal
 
-You can set a goal for a counter, such as `5000` or `1.5k`, from the `/automation counter config` command.
+You can view, add, or remove up to **30** server counters in `/automation counter menu`, and select the pencil button beside any counter to configure its **Name**, **Goal** (such as `5000` or `1.5k`), and **Milestones**.
 
 <CodeGroup>
 
 ```javascript Syntax
-/automation counter config channel:<channel>
-```
-
-```javascript Example
-/automation counter config channel:#members
+/automation counter menu
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/miscellaneous/counters/config.png" />
+    <img src="/images/miscellaneous/counters/menu.png" />
 </Frame>
 
 ## Setting up milestones
 
-You can have bleed send a message when a counter reaches its goal, or every time it passes a certain amount, such as every `100` members. Milestones can be set up from the `/automation counter config` command.
+You can have bleed send a message when a counter reaches its goal, or every time it passes a certain amount, such as every `100` members. Milestones can be set up from the `/automation counter menu` command.
 
 <Info>
   Milestones are only sent for new highs, so a count that drops and comes back will not be announced twice.
@@ -159,10 +154,10 @@ You can have bleed send a message when a counter reaches its goal, or every time
 
 ### Customizing the milestone message
 
-You can customize the milestone message from the `/automation counter config` command.
+You can customize the milestone message from the `/automation counter menu` command.
 
 <Tip>
-The `message` can be raw text, [components](/resources/scripting/components) or [embeds](/resources/scripting/embeds) with the variables below. Leave it empty to use the default message, such as **Members** reached **1,000**.
+The milestone message can be raw text, [components](/resources/scripting/components) or [embeds](/resources/scripting/embeds) with the variables below. Leave it empty to use the default message, such as **Members** reached **1,000**.
 </Tip>
 
 | Variable              | Output                            |

@@ -11,7 +11,7 @@ There are nine social notification commands, each with the same subcommands.
 - **TikTok** - Dispatched whenever a new video is uploaded.
 - **Instagram** <Badge stroke color="yellow" icon="medal">Tier 3</Badge> - Dispatched whenever a new post or story is uploaded.
 - **YouTube** - Dispatched whenever a new video or short is uploaded.
-- **Twitter** - Dispatched whenever a new tweet is posted by a user.
+- **Twitter / X** (`/social x`) - Dispatched whenever a new tweet is posted by a user.
 - **Subreddit** - Dispatched whenever a new post is made in a subreddit.
 - **SoundCloud** - Dispatched whenever an artist releases a song or album.
 - **Pinterest** - Dispatched whenever a new pin is saved to a board.
@@ -19,7 +19,7 @@ There are nine social notification commands, each with the same subcommands.
 
 ## Commands
 
-The following examples use the `/social youtube` command, but the same syntax applies to the other social notification commands.
+The following examples use YouTube, but the same `add`, `remove`, and `menu` subcommands apply to the other social notification platforms (with platform-specific option names such as `handle` for X, `streamer` for Twitch/Kick, `username` for Instagram/TikTok/SoundCloud, `name` for Subreddit, and `user` plus an optional `board` for Pinterest—leave `board` empty to follow all pins).
 
 <AccordionGroup>
     <Accordion title="Creating a new feed">
@@ -51,60 +51,72 @@ The following examples use the `/social youtube` command, but the same syntax ap
         ```
         </CodeGroup>
     </Accordion>
-    <Accordion title="Customizing the message">
-        Use the `/social youtube message` subcommand to customize the message content that is displayed when a social notification is dispatched.
-
-        This command opens a modal where you can customize the message content.
+    <Accordion title="Managing feeds">
+        Use `/social youtube menu` (or the matching `menu` command for another platform, such as `/social tiktok menu` or `/social instagram menu`) to view, add, or remove monitored feeds, customize notification messages and pingable mentions via **Messages** (or **Options** on Pinterest and Subreddit), change platform options, and clear feed settings.
+        <Info>
+          Feed limits per server vary by platform: **YouTube**, **Twitch**, **Kick**, and **Pinterest** support up to **45** feeds; **SoundCloud** up to **35**; **X** up to **8**; **Instagram** and **Subreddit** up to **5**; and **TikTok** up to **2**. Adding an Instagram feed (including via `/social instagram menu`) requires a [Tier 3 subscription](/overview/donator-perks), and customizing or clearing **TikTok** notification messages requires a [Tier 2 subscription](/overview/donator-perks).
+        </Info>
         <Tip>
-        This command is usually used to ping a role or user. In order for the message to actually notify the role or user, you must set the `pingable` parameter to `True`.
+        When customizing notification messages, enable the **pingable** option if you want a role or user mention in the message to notify them.
         </Tip>
         <CodeGroup>
-
         ```javascript Syntax
-        /social youtube message creator:<creator> pingable:<True|False>
-        ```
-
-        ```javascript Example
-        /social youtube message creator:NileRed pingable:True
+        /social youtube menu
         ```
         </CodeGroup>
-    </Accordion>
-    <Accordion title="Viewing all users being monitored">
-        Use the `/social youtube list` subcommand to view all users being monitored.
+        <Frame>
+            <img src="/images/integrations/social-notifications/menu.png" />
+        </Frame>
     </Accordion>
 
 </AccordionGroup>
 
 ## Message Variables
 
-The **SoundCloud** and **YouTube** variables that can be used in the `message` subcommand can be found on the [variables](/resources/scripting/variables) page.
+The **SoundCloud** and **YouTube** variables that can be used in custom notification messages can be found on the [variables](/resources/scripting/variables) page.
 
-## Specific Commands
+## Platform Options
+
+Platform-specific feed options are managed inside each platform's `menu` command:
 
 <AccordionGroup>
     <Accordion title="Twitter/X Retweets">
-        The `/social x retweets` subcommand allows you to toggle notifications for retweets.
+        Toggle notifications for retweets in `/social x menu`.
         <CodeGroup>
-
         ```javascript Syntax
-        /social x retweets handle:<handle> setting:<on|off> channel:<channel>
-        ```
-
-        ```javascript Example
-        /social x retweets handle:playboicarti setting:on channel:#notifs
+        /social x menu
         ```
         </CodeGroup>
     </Accordion>
     <Accordion title="Pinterest Embeds">
-        The `/social pinterest embeds` subcommand allows you to toggle the embed for the notification.
+        Toggle embeds for Pinterest notifications in `/social pinterest menu`.
         <CodeGroup>
-
         ```javascript Syntax
-        /social pinterest embeds setting:<on|off> channel:<channel>
+        /social pinterest menu
         ```
-
-        ```javascript Example
-        /social pinterest embeds setting:off channel:#pfps
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="TikTok Live">
+        Toggle notifications for when a TikTok user goes live in `/social tiktok menu`.
+        <CodeGroup>
+        ```javascript Syntax
+        /social tiktok menu
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Instagram Stories">
+        Toggle notifications for a user's Instagram stories in `/social instagram menu`.
+        <CodeGroup>
+        ```javascript Syntax
+        /social instagram menu
+        ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Subreddit Embed Color">
+        Set or clear the embed color for subreddit posts in `/social subreddit menu`.
+        <CodeGroup>
+        ```javascript Syntax
+        /social subreddit menu
         ```
         </CodeGroup>
     </Accordion>
@@ -127,9 +139,7 @@ notifications should be dispatched instantly whenever a new video or stream goes
 </Card>
 
 <Card title="Customizing the Message" icon="message">
-You can't customize the embed for social notifications.
-However you can customize the **message content** that is dispatched with the `message`
-subcommand. The `pinterest` command is the only exception, as it has an
-`embeds` subcommand which can be used to toggle the embed for the notification.
+You can't customize the full embed layout for social notifications.
+However, you can customize the **message content** that is dispatched from each platform's `menu` command (such as `/social youtube menu`), toggle embeds for Pinterest in `/social pinterest menu`, and set or clear the embed color for subreddits in `/social subreddit menu`.
 
 </Card>

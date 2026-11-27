@@ -8,13 +8,17 @@ icon: party-horn
 
 You can start a giveaway with the `/giveaways start` command.
 
+<Info>
+  All parameters are optional—defaults use `1` winner, the current channel, `🎉`, and the server's entry mode (`reaction` or `button`, defaulting to `reaction`). You can also pass a `preset` (other options override it) or custom embed/components scripts for `message`, `end_message`, and `win_message`, or customize giveaways afterward in `/giveaways menu`.
+</Info>
+
 <CodeGroup>
 ```javascript Syntax
-/giveaways start duration:<duration> prize:<prize> channel:<channel> winners:<winners>
+/giveaways start duration:<duration> prize:<prize> winners:<winners> channel:<channel> preset:<preset> message:<message> end_message:<end_message> emoji:<emoji> entry:<reaction|button> win_message:<win_message>
 ```
 
 ```javascript Example
-/giveaways start duration:24h prize:"Concert Tickets" channel:#giveaways winners:2
+/giveaways start duration:24h prize:Concert Tickets channel:#giveaways winners:2
 ```
 
 </CodeGroup>
@@ -23,175 +27,30 @@ You can start a giveaway with the `/giveaways start` command.
     <img src="/images/miscellaneous/giveaway/start.png" />
 </Frame>
 
-### Changing the details
+## Managing and editing giveaways
 
-You can customize the giveaway with the following commands:
+You can manage up to **50** running giveaways from `/giveaways menu`—switch the **Entry** mode (defaults to **Reaction**), start a new giveaway (minimum **15 seconds** duration), manage **Presets**, end a giveaway early, or edit active giveaways.
 
-<AccordionGroup>
-    <Accordion title="Changing the host">
-        Use the `/giveaways edit host` command to change the giveaway host.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit host giveaway:<name> user1:<user1> user2:<user2> user3:<user3>
-        ```
-
-        ```javascript Example
-        /giveaways edit host giveaway:Concert-Tickets user1:@jonathan user2:@j21234 user3:@shaymin.net
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Changing the prize">
-        Use the `/giveaways edit prize` command to change the giveaway prize.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit prize giveaway:<name> prize:<prize>
-        ```
-
-        ```javascript Example
-        /giveaways edit prize giveaway:Concert-Tickets prize:"Concert Tickets"
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Changing the duration">
-        Use the `/giveaways edit duration` command to change the duration of the giveaway.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit duration giveaway:<name> duration:<duration>
-        ```
-
-        ```javascript Example
-        /giveaways edit duration giveaway:Concert-Tickets duration:24h
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Changing the number of winners">
-        Use the `/giveaways edit winners` command to change the number of people that can win the giveaway.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit winners giveaway:<name> count:<winners>
-        ```
-
-        ```javascript Example
-        /giveaways edit winners giveaway:Concert-Tickets count:3
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Hiding the winners">
-        Use the `/giveaways edit hidewinners` command to hide the winners when the giveaway ends.
-        <Info>If you no longer want to hide the winners, you can re-run the command with `False`.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit hidewinners giveaway:<name> hide:<True|False>
-        ```
-
-        ```javascript Example
-        /giveaways edit hidewinners giveaway:Concert-Tickets hide:True
-        ```
-        </CodeGroup>
-    </Accordion>
-
-</AccordionGroup>
-
-### Customizing the embed
-
-You can customize the giveaway embed with the following commands:
+<CodeGroup>
+```javascript Syntax
+/giveaways menu
+```
+</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/miscellaneous/giveaway/menu.png" />
+</Frame>
 
 <AccordionGroup>
-    <Accordion title="Changing the description">
-        Use the `/giveaways edit description` command to change the giveaway description.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit description giveaway:<name> text:<description>
-        ```
-
-        ```javascript Example
-        /giveaways edit description giveaway:Concert-Tickets text:"Tickets to Lollapalooza!"
-        ```
-
-        </CodeGroup>
-        <br />
-        <Frame>
-            <img src="/images/miscellaneous/giveaway/edit/embed/description.png" />
-        </Frame>
+    <Accordion title="Changing the details">
+        Edit the giveaway host, prize, duration, number of winners, whether winners are hidden when the giveaway ends, or roles awarded to the winners.
     </Accordion>
-    <Accordion title="Changing the thumbnail">
-        Use the `/giveaways edit thumbnail` command to change the giveaway thumbnail.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit thumbnail giveaway:<name> url:<url>|attachment:<attachment>
-        ```
-
-        ```javascript Example
-        /giveaways edit thumbnail giveaway:Concert-Tickets url:https://bleed.bot/bleed.png
-        ```
-
-        </CodeGroup>
-        <br />
-        <Frame>
-            <img src="/images/miscellaneous/giveaway/edit/embed/thumbnail.png" />
-        </Frame>
+    <Accordion title="Customizing the embed">
+        Customize the giveaway embed description, thumbnail, image, or color.
     </Accordion>
-    <Accordion title="Changing the image">
-        Use the `/giveaways edit image` command to change the giveaway image.
-
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit image giveaway:<name> url:<image>|attachment:<attachment>
-        ```
-
-        ```javascript Example
-        /giveaways edit image giveaway:Concert-Tickets url:https://bleed.bot/bleed.png
-        ```
-
-        </CodeGroup>
-        <br />
-        <Frame>
-            <img src="/images/miscellaneous/giveaway/edit/embed/image.png" />
-        </Frame>
+    <Accordion title="Setting requirements">
+        Set required roles, minimum or maximum level requirements (using bleed's [leveling system](/configuration/level-rewards)), or a minimum account age and server stay in days.
     </Accordion>
-
-</AccordionGroup>
-
-### Setting requirements
-
-You can set requirements for the giveaway with the following commands:
-
-<AccordionGroup>
-    <Accordion title="Setting a required role">
-        You can set a required role to enter the giveaway with the following command.
-        <Info>If you no longer want to require roles, you can re-run the command without a role.</Info>
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit requiredroles giveaway:<name> role1: @Role1, role2: @Role2, role3: @Role3, role4: @Role4, role5: @Role5
-        ```
-
-        ```javascript Example
-        /giveaways edit requiredroles giveaway:Concert-Tickets role1: @Regular, role2: @Booster
-        ```
-        </CodeGroup>
-    </Accordion>
-    <Accordion title="Setting a required level">
-        You can set a required level for the giveaway with the following commands.
-        <Warning>This relies on bleed's [leveling system](/configuration/level-rewards), not other bots.</Warning>
-        <CodeGroup>
-        ```javascript Syntax
-        /giveaways edit minlevel giveaway:<name> level:<level>
-        /giveaways edit maxlevel giveaway:<name> level:<level>
-        ```
-
-        ```javascript Example
-        /giveaways edit minlevel giveaway:Concert-Tickets level:1
-        /giveaways edit maxlevel giveaway:Concert-Tickets level:50
-        ```
-        </CodeGroup>
-    </Accordion>
-
 </AccordionGroup>
 
 ## Ending a Giveaway
@@ -215,11 +74,11 @@ You can end a giveaway early with the `/giveaways end` command.
 
 ## Rerolling a Giveaway
 
-You can reroll the winners of a giveaway with the `/giveaways reroll` command.
+You can reroll the winners of a giveaway with the `/giveaways reroll` command. Leave `giveaway` empty to reroll the last ended giveaway in this channel, and leave `winners` empty to draw the giveaway's original winner count.
 
 <CodeGroup>
 ```javascript Syntax
-/giveaways reroll giveaway:Concert-Tickets winners:<number_of_winners>
+/giveaways reroll giveaway:<name> winners:<number_of_winners>
 ```
 
 ```javascript Example
@@ -253,13 +112,4 @@ You can cancel a giveaway with the `/giveaways cancel` command.
 <br />
 <Frame>
     <img src="/images/miscellaneous/giveaway/cancel.png" />
-</Frame>
-
-## Viewing all Giveaways
-
-You can view all giveaways with the `/giveaways list` command.
-
-<Info>This will display past and active giveaways.</Info>
-<Frame>
-  <img src="/images/miscellaneous/giveaway/list.png" />
 </Frame>

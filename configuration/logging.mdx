@@ -8,13 +8,12 @@ icon: gear
 
 Logging allows you to log events in your server. This can be useful for keeping track of what's happening in your server.
 
-## Adding a logging event
+## Managing logging events
 
-You can add a logging event using the `/logs add` command.
+Use `/logs menu` to open **Server Logs**, where you can add or remove log groups, edit which events each channel receives, or open **Settings** to ignore bots, roles, members, and channels.
 
 <Info>
-  Available logging events are `messages`, `members`, `roles`, `channels`,
-  `invites`, `emojis` and `voice`.
+  Select **Add** to create a log group for a channel, then use the pencil button beside a group to choose which events it logs (including messages, members, roles, channels, threads, invites, emojis, voice, AutoMod, moderation actions, and security modules).
 </Info>
 
 <Warning>
@@ -24,61 +23,37 @@ You can add a logging event using the `/logs add` command.
 <CodeGroup>
 
 ```javascript Syntax
-/logs add channel:<channel> event:<event>
-```
-
-```javascript Example
-/logs add channel:#logs event:messages
+/logs menu
 ```
 
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/configuration/logging/add.png" />
+  <img src="/images/configuration/logging/menu.png" />
 </Frame>
 <br />
 <Frame>
   <img src="/images/configuration/logging/example.png" />
 </Frame>
 
-## Removing a logging event
-
-You can remove a logging event using the `/logs remove` command.
-
-<CodeGroup>
-
-```javascript Syntax
-/logs remove channel:<channel> event:<event>
-```
-
-```javascript Example
-/logs remove channel:#logs event:voice
-```
-
-</CodeGroup>
-<br />
-<Frame>
-    <img src="/images/configuration/logging/remove.png" />
-</Frame>
-
 <Tip>
-  You can leave the event parameter empty to add or remove all logging events
-  from a channel.
+  To log every event in its own post, use a forum channel with
+  [`/logs forum`](#logging-to-a-forum).
 </Tip>
 
 ## Ignoring a member or channel
 
-You can ignore and unignore a member or channel from being logged using the `/logs ignore add` command.
+You can ignore a member or channel from being logged using the `/logs ignore add` command.
 
 <Info>
-  You can use the `/logs ignore list` command to view all ignored members and
-  channels.
+  Use `/logs ignore remove` to start logging a member or channel again, and
+  `/logs ignore list` to view all ignored members and channels.
 </Info>
 
 <CodeGroup>
 
 ```javascript Syntax
-/logs ignore add member:<member> | channel:<channel>
+/logs ignore add channel:<channel> | member:<member>
 ```
 
 ```javascript Example
@@ -91,4 +66,36 @@ You can ignore and unignore a member or channel from being logged using the `/lo
 <Frame>
     <img src="/images/configuration/logging/ignore.png" />
 </Frame>
+
+## Logging to a forum
+
+You can use the `/logs forum` command to log to a forum channel. bleed makes a forum post for each kind of log event, all on one webhook. Provide comma-separated event names in `events`, or leave `events` empty to log all of them.
+
+<CodeGroup>
+
+```javascript Syntax
+/logs forum channel:<forum channel> events:<events>
+```
+
+```javascript Example
+/logs forum channel:#logs
+```
+
+</CodeGroup>
+
+### Changing a log post's message
+
+You can use the `/logs message` command to change the opening message of a log post. The message can be raw text, [components](/resources/scripting/components) or [embeds](/resources/scripting/embeds).
+
+<CodeGroup>
+
+```javascript Syntax
+/logs message post:<post>
+```
+
+</CodeGroup>
+
+## Changing the log colors
+
+You can set, view, or reset the embed color for each kind of event in a logging channel from `/logs menu`.
 

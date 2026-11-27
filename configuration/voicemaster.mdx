@@ -10,6 +10,11 @@ The first step to using **VoiceMaster** is to use the `/voicemaster setup` comma
 
 <Tip>The created channels can be moved and renamed to your liking.</Tip>
 
+<Info>
+  Use `/voicemaster menu` to view and edit your server's VoiceMaster settings,
+  including resending the interface panel if it is deleted.
+</Info>
+
 <Frame>
   <img src="/images/configuration/voicemaster/setup.png" />
 </Frame>
@@ -32,81 +37,52 @@ The **Join to Create** channel is where members will join to create their tempor
 
 ## Customizing new voice channels
 
-You can customize what the temporary voice channels look like when they're created.
+Use `/voicemaster menu` to customize how temporary voice channels are created—including the **Join to Create** and **Interface** channels, public and private categories, join and lock roles, default name, voice region, bitrate, **Random Room**, and whether an interface panel is posted in new channels. You can also use **Resend Interface** if the panel is deleted.
 
-The following commands are subcommands of the `/voicemaster category` and `/voicemaster default` commands.
+<CodeGroup>
+```javascript Syntax
+/voicemaster menu
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/configuration/voicemaster/menu.png" />
+</Frame>
 
 <AccordionGroup>
     <Accordion title="Redirecting voice channels">
-        Redirect voice channels to a specific category.
-        <CodeGroup>
-            ```javascript Syntax
-            /voicemaster category public category:<category>
-            /voicemaster category private category:<category>
-            ```
-
-            ```javascript Example
-            /voicemaster category public category:Voice Channels
-            /voicemaster category private category:Private Voice Channels
-            ```
-        </CodeGroup>
+        Redirect public or private voice channels to a specific category.
+    </Accordion>
+    <Accordion title="Setting a Random Room">
+        Choose a voice channel as the **Random Room**. Members who join it are automatically moved to a random public voice channel.
     </Accordion>
     <Accordion title="Setting the default channel name">
+        Set the default name for newly created voice channels.
         <Info>The name can use the `{user}`, `{user.name}` and `{user.display_name}` variables.</Info>
-        <CodeGroup>
-            ```javascript Syntax
-            /voicemaster default name name:<name>
-            ```
-
-            ```javascript Example
-            /voicemaster default name name:{user.display_name}'s vc
-            ```
-        </CodeGroup>
     </Accordion>
     <Accordion title="Setting the default channel bitrate">
+        Set the default bitrate for new voice channels.
         <Info>The bitrate must be between `8` and `384`.</Info>
-        <CodeGroup>
-            ```javascript Syntax
-            /voicemaster default bitrate kbps:<bitrate>
-            ```
-
-            ```javascript Example
-            /voicemaster default bitrate kbps:384
-            ```
-        </CodeGroup>
     </Accordion>
     <Accordion title="Setting the default channel region">
+        Set the default voice region for new voice channels.
         <Info>
         The region must be one of the following
         <br />`brazil`, `hongkong`, `india`, `japan`, `rotterdam`, `russia`, `singapore`, `south-korea`, `southafrica`, `sydney`, `us-central`, `us-east`, `us-south`, `us-west`
         </Info>
-        <CodeGroup>
-            ```javascript Syntax
-            /voicemaster default region region:<region>
-            ```
-
-            ```javascript Example
-            /voicemaster default region region:russia
-            ```
-        </CodeGroup>
+    </Accordion>
+    <Accordion title="Setting the default role">
+        Locking and ghosting a voice channel changes this role's permissions. Set it if your server uses a member role instead of `@everyone`.
+    </Accordion>
+    <Accordion title="Posting an interface in new channels">
+        Choose whether to post an interface panel inside every new voice channel.
     </Accordion>
 
 </AccordionGroup>
 
 ## Granting a role to members
 
-You can assign a role that members receive when they join a temporary voice channel, which is automatically removed when they leave. This is helpful if you want your `#interface` channel to be visible only to members currently in a temporary voice channel.
-
-<CodeGroup>
-    ```javascript Syntax
-    /voicemaster join role role:<role>
-    ```
-
-    ```javascript Example
-    /voicemaster join role role:@in bird vc
-    ```
-
-</CodeGroup>
+You can assign a role in `/voicemaster menu` that members receive when they join a temporary voice channel, which is automatically removed when they leave. This is helpful if you want your `#interface` channel to be visible only to members currently in a temporary voice channel.
 
 ### Setting up the permissions
 
@@ -120,7 +96,7 @@ You would need to deny the **View Channel** permission for the `@everyone` role 
 
 ## Customizing your voice channel
 
-The following commands can be done via the `#interface` channel.
+The following commands can be run directly, via `/voicemaster config` (while you own an active VoiceMaster voice channel), or from the `#interface` channel.
 
 ### Renaming your voice channel
 
@@ -165,12 +141,12 @@ You can lock & hide your voice channel with the following commands.
 
 <Card title="Subscription Required" icon="medal" iconType="duotone" horizontal>
   You must have a [Tier 2 Subscription](/overview/donator-perks) to use the
-  `/voicemaster ghost` command.
+  `/voicemaster ghost` and `/voicemaster unghost` commands.
 </Card>
 
 #### Permitting members to join
 
-You can use the `/voicemaster permit` command to allow specific members to join your voice channel.
+You can use the `/voicemaster permit` command to allow specific members or roles to join your voice channel.
 
 <CodeGroup>
     ```javascript Syntax
@@ -179,6 +155,19 @@ You can use the `/voicemaster permit` command to allow specific members to join 
 
     ```javascript Example
     /voicemaster permit target:@jonathan
+    ```
+
+</CodeGroup>
+
+Use the `/voicemaster reject` command to stop a member or role from joining your voice channel.
+
+<CodeGroup>
+    ```javascript Syntax
+    /voicemaster reject target:<member|role>
+    ```
+
+    ```javascript Example
+    /voicemaster reject target:@jonathan
     ```
 
 </CodeGroup>
@@ -219,7 +208,47 @@ You can use the `/voicemaster role` command to set a role that members will rece
         </CodeGroup>
     </Accordion>
     <Accordion title="Setting the channel as a music channel">
-        You can use the `/voicemaster music` command which will prevent members from speaking in the voice channel.
+        You can use the `/voicemaster music` command to mute everyone but yourself in your voice channel.
+        <CodeGroup>
+            ```javascript Syntax
+            /voicemaster music setting:<On|Off>
+            ```
+
+            ```javascript Example
+            /voicemaster music setting:On
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Setting a channel status">
+        You can use the `/voicemaster status` command to set the status shown on your voice channel.
+        <CodeGroup>
+            ```javascript Syntax
+            /voicemaster status status:<status>
+            ```
+
+            ```javascript Example
+            /voicemaster status status:playing valorant
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Changing your channel's bitrate">
+        You can use the `/voicemaster bitrate` command to change your voice channel's bitrate.
+        <CodeGroup>
+            ```javascript Syntax
+            /voicemaster bitrate kbps:<bitrate>
+            ```
+
+            ```javascript Example
+            /voicemaster bitrate kbps:96
+            ```
+        </CodeGroup>
+    </Accordion>
+    <Accordion title="Viewing your channel's settings">
+        You can use the `/voicemaster info` command to view your voice channel's settings.
+    </Accordion>
+    <Accordion title="Resetting VoiceMaster">
+        <Warning>This will delete the VoiceMaster channels and configuration.</Warning>
+        You can use the `/voicemaster reset` command to remove VoiceMaster from your server.
     </Accordion>
 
 </AccordionGroup>

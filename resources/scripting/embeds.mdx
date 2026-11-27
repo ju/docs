@@ -101,6 +101,37 @@ You can use dynamic variables in your embeds to display user-specific informatio
 <img src="/images/resources/scripting/embeds/ce.png" />
 </Frame>
 
+## Saving and Managing Embeds
+
+Use `/config embed menu` (up to **15,000** saved embeds) and the commands below to create, save, post, and edit embeds. Requires **Manage Messages**.
+
+| Command | Description |
+| --- | --- |
+| `/ce` | Create and post an embed or components message via modal. Set `json:True` to provide Discord embed JSON, or `convert:True` to show embed code written as a components script. |
+| `/config embed menu` | Open the embeds manager to create, list, preview, or remove saved embeds. |
+| `/config embed preview` | Post a saved embed in the current channel. |
+| `/config embed edit` | Edit an embed message you created with bleed. Set `json:True` to provide Discord embed JSON instead of a script. |
+| `/config embed code` | Copy an existing embed's code. Set `json:True` to get the Discord embed JSON instead. |
+
+<CodeGroup>
+```javascript Syntax
+/ce json:<True|False> convert:<True|False>
+/config embed menu
+/config embed preview name:<name>
+/config embed edit message_link:<message_link> json:<True|False>
+/config embed code message_link:<message_link> json:<True|False>
+```
+
+```javascript Examples
+/config embed preview name:welcome
+/config embed code message_link:.../channels/... json:True
+```
+</CodeGroup>
+
+<Frame>
+  <img src="/images/resources/scripting/embeds/menu.png" />
+</Frame>
+
 ## Frequently Asked Questions
 
 ### How can I add a new line to my description parameter?
@@ -113,5 +144,6 @@ Some commands allow both raw text and embed code. Because of this, you'll need t
 
 ```javascript
 /config welcome add channel:#welcome
+// Entered in the modal:
 {embed}$v{message: Welcome to {guild.name} {user.mention}}$v{description: Welcome}
 ```

@@ -28,15 +28,17 @@ You can use the `/fortnite item` command to view information about a cosmetic in
 
 You can use the `/fortnite watch add` command to be notified when a cosmetic is in the shop.
 
-<Info>If you no longer want to receive reminders for a cosmetic, you can re-run the command.</Info>
+<Info>If you no longer want to receive reminders for a cosmetic, you can use the `/fortnite watch remove` command.</Info>
 <CodeGroup>
     
     ```javascript Syntax
     /fortnite watch add item:<cosmetic>
+    /fortnite watch remove item:<cosmetic>
     ```
     
     ```javascript Example
     /fortnite watch add item:The Final Countdown
+    /fortnite watch remove item:The Final Countdown
     ```
 
 </CodeGroup>
@@ -49,68 +51,34 @@ When the cosmetic is available in the shop, you will receive a message in your D
     <img src="/images/integrations/fortnite/watch/notification.png" />
 </Frame>
 
-### Viewing what cosmetics you are watching
+### Managing watched cosmetics
 
-You can use the `/fortnite watch list` command to view what cosmetics you are watching.
-
-<Frame>
-  <img src="/images/integrations/fortnite/watch/list.png" />
-</Frame>
-
-## Receiving shop rotation updates
-
-You can use the `/fortnite config channel` command to receive daily shop rotation updates.
-
-<Info>
-  If you no longer want to receive shop rotation updates, you can re-run the
-  command without a channel.
-</Info>
+You can use `/fortnite watch menu` to view, add, or remove up to **25** watched cosmetics.
 
 <CodeGroup>
-    
-    ```javascript Syntax
-    /fortnite config channel channel:<channel>
-    ```
-    
-    ```javascript Example
-    /fortnite config channel channel:#fortnite-shop
-    ```
+
+```javascript Syntax
+/fortnite watch menu
+```
 
 </CodeGroup>
 <br />
 <Frame>
-    <img src="/images/integrations/fortnite/shop.png" />
+    <img src="/images/integrations/fortnite/watch/menu.png" />
 </Frame>
 
-### Notifying a role when the shop updates
+## Receiving shop rotation updates
 
-You can use the `/fortnite config ping` command to notify a role when the shop updates.
+You can view the daily shop rotation anytime with `/fortnite shop`, or use `/social fortnite config` (requires `Manage Server`) to configure daily Fortnite Item Shop updates for your server. From **Fortnite Item Shop**, you can edit **Channel**, edit **Ping** (the role pinged when the shop updates), and toggle **Voting** reactions on the shop message.
 
 <CodeGroup>
-    
-    ```javascript Syntax
-    /fortnite config ping role:<role>
-    ```
-    
-    ```javascript Example
-    /fortnite config ping role:@Fortnite
-    ```
+
+```javascript Syntax
+/social fortnite config
+```
 
 </CodeGroup>
-
-### Letting people vote on the shop
-
-You can use the `/fortnite config voting` command to let people vote on the shop.
-
-<Info>This will add an upvote & downvote reaction to the shop message.</Info>
-<CodeGroup>
-    
-    ```javascript Syntax
-    /fortnite config voting setting:<on|off>
-    ```
-    
-    ```javascript Example
-    /fortnite config voting setting:on
-    ```
-
-</CodeGroup>
+<br />
+<Frame>
+    <img src="/images/integrations/fortnite/config.png" />
+</Frame>

@@ -41,51 +41,18 @@ If you want to change the webhook's username or avatar, you can open the **Webho
   <img src="/images/miscellaneous/webhook/customize.gif" />
 </Frame>
 
-## Sending a message
+## Managing webhooks and messages
 
-After creating a webhook, you can use the `/config webhook send` command to send a message.
-
-This will open a Discord modal where you can enter your desired message. Embeds and components are supported.
-
-<Info>
-  If you've forgotten the identifier, you can use the `/config webhook list` command to
-  view all webhooks.
-</Info>
+Use `/config webhook menu` to view, add, or remove up to **75** webhooks, see each webhook's identifier, channel, and owner, toggle webhook locks, and send or edit webhook messages. Webhooks support embeds and components.
 
 <CodeGroup>
 ```javascript Syntax
-/config webhook send identifier:<identifier>
+/config webhook menu
 ```
-
-```javascript Example
-/config webhook send identifier:0kuu3zp
-```
-
 </CodeGroup>
 <br />
 <Frame>
-  <img src="/images/miscellaneous/webhook/send.png" />
-</Frame>
-
-### Editing the message
-
-You can use the `/config webhook edit` command to edit a message sent by a webhook.
-
-This will open a Discord modal where you can enter your desired message. Embeds and components are supported.
-
-<CodeGroup>
-```javascript Syntax
-/config webhook edit message_link:<message_link>
-```
-
-```javascript Example
-/config webhook edit message_link:discord.com...
-```
-
-</CodeGroup>
-<br />
-<Frame>
-  <img src="/images/miscellaneous/webhook/edit.png" />
+  <img src="/images/miscellaneous/webhook/menu.png" />
 </Frame>
 
 ## Related commands
@@ -103,9 +70,6 @@ This will open a Discord modal where you can enter your desired message. Embeds 
         /config webhook delete identifier:0kuu3zp
         ```
         </CodeGroup>
-    </Accordion>
-    <Accordion title="Viewing all webhooks">
-        You can use the `/config webhook list` command to view all webhooks.
     </Accordion>
 
 </AccordionGroup>

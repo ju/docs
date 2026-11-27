@@ -10,7 +10,11 @@ Command aliases allow you to create custom commands that run other commands. Thi
 
 ## Creating an alias
 
-You can create an alias using the `/config alias add` command.
+You can create an alias using the `/config alias add` command. The `command` option accepts a prefix or slash command to run, with `{0}`, `{1}`, etc. for arguments passed after the shortcut.
+
+<Info>
+  Run an alias by mentioning bleed before the shortcut, such as `@bleed bye @jonathan`.
+</Info>
 
 <CodeGroup>
 
@@ -34,16 +38,16 @@ You're able to use predefined arguments in your aliases, however, if you want to
 Keep in mind that the first argument is `{0}`, the second argument is `{1}`, and so on, it doesn't start at `{1}`.
 
 ```javascript
-/ban @jonathan Harassing Members
+/ban user:@jonathan reason:harassing members
 // {0} would be @jonathan
-// {1} would be Harassing Members
+// {1} would be harassing members
 ```
 
 Below is an example of an alias that uses predefined arguments:
 
 ```javascript
 /config alias add shortcut:shh command:timeout {0} 10m
-,shh @jonathan
+@bleed shh @jonathan
 ```
 
 This alias would run the `/timeout add` command with the first argument being `@jonathan` from the user's input and the second argument being `10m` as predefined.
@@ -54,7 +58,7 @@ If you're interested in creating a command that grants image permissions to a us
 
 ```javascript
 /config alias add shortcut:pic command:role {0} @image-role
-,pic @jonathan
+@bleed pic @jonathan
 ```
 
 <Frame>
@@ -84,21 +88,15 @@ You can remove an alias using the `/config alias remove` command.
 ## Related commands
 
 <AccordionGroup>
-  <Accordion title="Viewing an alias">
-    You can use the `/config alias view` command to view what an alias invokes.
+  <Accordion title="Managing aliases">
+    You can use the `/config alias menu` command to view, add, or remove up to **200** aliases in your server.
     <CodeGroup>
     ```javascript Syntax
-    /config alias view shortcut:<shortcut>
+    /config alias menu
     ```
-
-    ```javascript Example
-    /config alias view shortcut:bye
-    ```
-
     </CodeGroup>
-
-  </Accordion>
-  <Accordion title="Viewing all aliases">
-    You can use the `/config alias list` command to view all aliases.
+    <Frame>
+      <img src="/images/configuration/aliases/menu.png" />
+    </Frame>
   </Accordion>
 </AccordionGroup>
